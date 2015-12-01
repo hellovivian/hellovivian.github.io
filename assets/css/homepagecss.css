@@ -3,6 +3,7 @@ body {
    font-family: 'Montserrat', sans-serif;
 }
 
+
 #welcome {
    background-color: #f13b44;
    height: 100%;
@@ -111,29 +112,43 @@ body {
    float: right;
 }
 
+.animate {
+   animation: pulse3 3s infinite;
+}
+
+@keyframes pulse3 {
+   0% {
+      background-color: #30ebb6;
+      background-color: #30ebb6;
+   }
+   100% {
+      background-color:#1cd29e;
+   }
+}
+
 .animate3 {
    animation: pulse1 2s infinite;
 }
 
 @keyframes pulse1 {
    0% {
-      background-color: red;
+      background-color: #68f4bb;
    }
    100% {
-      background-color:#f13b44;
+      background-color:#2edcaa;
    }
 }
 
 .animate2 {
-   animation: pulse 6s infinite;
+   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
    0% {
-      background-color: #f13b44;
+      background-color: #1cd29e;
    }
    100% {
-      background-color: red;
+      background-color: #30ebb6;
    }
 }
 #aboutmesec {
@@ -147,7 +162,7 @@ body {
    background-color: #ffe88c;
    border-top-left-radius: 20px;
    border-top-right-radius: 20px;
-   padding: 150 100px;
+   padding: 175 100px;
    float: left;
    position: absolute;
    top: 60%;
