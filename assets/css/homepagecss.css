@@ -117,7 +117,7 @@ body {
 
 @keyframes pulse1 {
    0% {
-      background-color: mediumvioletred;
+      background-color: red;
    }
    100% {
       background-color:#f13b44;
@@ -125,7 +125,7 @@ body {
 }
 
 .animate2 {
-   animation: pulse 3s infinite;
+   animation: pulse 6s infinite;
 }
 
 @keyframes pulse {
@@ -133,7 +133,7 @@ body {
       background-color: #f13b44;
    }
    100% {
-      background-color: mediumvioletred;
+      background-color: red;
    }
 }
 #aboutmesec {
