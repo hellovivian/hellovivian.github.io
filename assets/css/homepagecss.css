@@ -113,7 +113,7 @@ body {
 }
 
 .animate {
-   animation: pulse3 3s infinite;
+   animation: pulse3 2.4s infinite;
 }
 
 @keyframes pulse3 {
@@ -127,7 +127,7 @@ body {
 }
 
 .animate3 {
-   animation: pulse1 2s infinite;
+   animation: pulse1 2.3s infinite;
 }
 
 @keyframes pulse1 {
@@ -140,7 +140,7 @@ body {
 }
 
 .animate2 {
-   animation: pulse 2s infinite;
+   animation: pulse 2.8s infinite;
 }
 
 @keyframes pulse {
