@@ -231,7 +231,7 @@ body {
    background-color: #ffe88c;
    border-top-left-radius: 20px;
    border-top-right-radius: 20px;
-   padding: 175 100px;
+   padding: 100px;
    float: left;
    position: absolute;
    top: 60%;
@@ -271,6 +271,7 @@ body {
 #me {
    left: 50%;
    top: 15%;
+   width: 15%;
    transform: translateX(-50%);
    -moz-transform: translateX(-50%);
    -webkit-transform: translateX(-50%);
