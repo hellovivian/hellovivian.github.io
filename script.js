@@ -69,7 +69,6 @@ $(document).ready(function() {
    });
    
    $("#abouttext").click(function() {
-      $("#abouttext").fadeOut(300);
       $("#goodbyetext").fadeIn(300);
    });
 });
