@@ -293,6 +293,17 @@ body {
    text-align: center;
 }
 
+form {
+   font-family: 'Montserrat','sans-serif';
+}
+
+input, textarea {
+   padding: 10px;
+   border: 1px solid #E5E5E5;
+   color: #999999;
+   width: 200px;
+}
+
 /* jquery manipulation */
 
 .catmove {
