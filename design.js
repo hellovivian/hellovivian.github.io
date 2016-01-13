@@ -5,4 +5,15 @@ $(document).ready(function(){
 			$(this).css({marginLeft:0});
 		})
 	},2000);
+   $("#character").hover(function() {
+      if ($("#character").hasClass("characteractive")) {
+         $("#title").fadeOut();
+         $("#character").removeClass("characteractive");
+      } else {
+      setTimeout(function() {
+         $("#title").fadeIn();
+         }, 200);
+      $("#character").addClass("characteractive");
+      }
+   });
 });
