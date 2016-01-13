@@ -1,13 +1,13 @@
 $(document).ready(function() {
-   $("#cat").hover(function() {
-      if ($("#cat").hasClass("catmove")) {
+   $("#cat2").hover(function() {
+      if ($("#cat2").hasClass("catmove")) {
          $("#welcometext").fadeOut();
-         $("#cat").removeClass("catmove");
+         $("#cat2").removeClass("catmove");
       } else {
       setTimeout(function() {
          $("#welcometext").fadeIn();
          }, 200);
-      $("#cat").addClass("catmove");
+      $("#cat2").addClass("catmove");
       }
    });
  

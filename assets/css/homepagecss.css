@@ -3,6 +3,11 @@ body {
    font-family: 'Montserrat', sans-serif;
 }
 
+#cat2 {
+   height: 100%;
+   position: absolute;
+   left: 5%;
+}
 
 #welcome {
    background-color: #f13b44;
@@ -16,7 +21,7 @@ body {
 #welcometext {
    display: none;
    top: 50%;
-   left: 50%;
+   left: 45%;
    margin-top: 0;
    margin-bottom: 0;
    transform: translateY(-50%);
