@@ -15,15 +15,15 @@ $(document).ready(function() {
       }
    });
    
-   $("#cat2").hover(function() {
-      if ($("#cat2").hasClass("catmove")) {
+   $("#catcat").hover(function() {
+      if ($("#catcat").hasClass("catmove")) {
          $("#welcometext").fadeOut();
-         $("#cat2").removeClass("catmove");
+         $("#catcat").removeClass("catmove");
       } else {
       setTimeout(function() {
          $("#welcometext").fadeIn();
          }, 200);
-      $("#cat2").addClass("catmove");
+      $("#catcat").addClass("catmove");
       }
    });
  
