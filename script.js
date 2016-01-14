@@ -1,4 +1,20 @@
 $(document).ready(function() {
+   
+   $("#nav").click(function() {
+      if ($("#nav").hasClass("navactive")) {
+         $("#navtxt1").fadeOut();
+         $("#navtxt2").fadeOut();
+         $("#navtxt3").fadeOut();
+         $("#nav").removeClass("navactive");
+      } else {
+      $("#navtxt1").fadeIn();
+      $("#navtxt2").fadeIn();
+      $("#navtxt3").fadeIn();
+      $("#nav").addClass("navactive");
+         
+      }
+   });
+   
    $("#cat2").hover(function() {
       if ($("#cat2").hasClass("catmove")) {
          $("#welcometext").fadeOut();

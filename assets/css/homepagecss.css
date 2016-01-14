@@ -3,10 +3,99 @@ body {
    font-family: 'Montserrat', sans-serif;
 }
 
+#nav {
+   position: fixed;
+}
+
+#circle1 {
+   position: absolute;
+   top: 4%;
+   left: 5%;
+   transform: translateX(-40%);
+}
+
+#circle2 {
+   position: absolute;
+   top: 37%;
+   left: 5%;
+   transform: translateX(-40%);
+}
+
+#circle3 {
+   position: absolute;
+   top: 71%;
+   left: 5%;
+   transform: translateX(-40%);
+}
+
+#innercircle1 {
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+   position: absolute;
+   top: 5%;
+   left: 5%;
+   transform: translateX(-35%);
+   background-color: #f13b44;
+}
+
+#innercircle2 {
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+   position: absolute;
+   top: 38%;
+   left: 5%;
+   transform: translateX(-35%);
+   background-color: #1cd29e;
+}
+
+#innercircle3 {
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+   position: absolute;
+   top: 72%;
+   left: 5%;
+   transform: translateX(-35%);
+   background-color: #ffc505;
+}
+
+#navline {
+   position: fixed;
+   z-index: 100;
+   height: 100%;
+   background-color: white;
+   left: 5%;
+   width: 10px;
+}
+
+.navtxt {
+   position: fixed;
+   display: none;
+   color: white;
+   text-transform: lowercase;
+   left: 5%;
+   transform: rotate(270deg);
+}
+
+#navtxt1 {
+   top: 15%;
+}
+
+#navtxt2 {
+   top: 48%;
+}
+
+#navtxt3 {
+   top: 82%;
+}
+
 #cat2 {
    height: 100%;
-   position: absolute;
-   left: 5%;
+   z-index: 10;
+   position: relative;
+   left: 10%;
 }
 
 #welcome {
@@ -22,6 +111,7 @@ body {
    display: none;
    top: 50%;
    left: 45%;
+   z-index: 20;
    margin-top: 0;
    margin-bottom: 0;
    transform: translateY(-50%);
@@ -310,6 +400,9 @@ input, textarea {
 }
 
 /* jquery manipulation */
+
+.navactive {
+}
 
 .catmove {
 }
