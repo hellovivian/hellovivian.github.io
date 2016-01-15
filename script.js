@@ -1,6 +1,6 @@
 $(document).ready(function() {
    
-   $("#nav").click(function() {
+   $("#nav").hover(function() {
       if ($("#nav").hasClass("navactive")) {
          $("#navtxt1").fadeOut();
          $("#navtxt2").fadeOut();
