@@ -119,9 +119,6 @@ body {
    position: absolute;
 }
 
-
-/*hobbies*/
-
 #hobbies {
    background-color: #1cd29e;
    height: 150%;
@@ -131,10 +128,8 @@ body {
    margin: 0;
 }
 
-/* design */
 #webdesignicon {
    width: 15%;
-   z-index: 20;
 }
 
 #design {
@@ -144,38 +139,8 @@ body {
    text-align: center;
 }
 
-.behindcircles {
-   display:none;
-}
-#behindcircle1 {
-   border-radius: 50%;
-   border-style:double;
-   opacity:50%;
-   background-color: none;
-   border-width: 5px;
-   border-color: white;
-   width: 100px;
-   height: 100px;
-   position: absolute;
-   left: 20%;
-   transform: translate(-50%, -50%);
-}
-
-#behindcircle2 {
-   border-radius: 50%;
-   border-style: dotted;
-   background-color: none;
-   border-width: 5px;
-   border-color: white;
-   width: 200px;
-   height: 200px;
-   position: absolute;
-   left: 20%;
-   transform: translate(-50%, -50%);
-}
-
 #designtextbox {
-   width: 60%;
+   width: 50%;
    background-color: #68f4bb;
    height: 100%;
    float:right;
@@ -211,8 +176,6 @@ body {
    margin-bottom: 0;
 }
 
-
-/*dance*/
 #dance {
    width: 100%;
    background-color:#1cd29e;
@@ -226,13 +189,11 @@ body {
 }
 
 #dancetextbox {
-   width: 60%;
+   width: 50%;
    float: left;
    height: 100%;
    background-color: #1cd29e;
 }
-
-/*write*/
 
 #write {
    background-color:#1cd29e;
@@ -247,13 +208,12 @@ body {
 }
 
 #writetextbox {
-   width: 60%;
+   width: 50%;
    height: 100%;
    background-color: #68f4bb;
    float: right;
 }
 
-/*animation*/
 .animate {
    animation: pulse3 2.4s infinite;
    -webkit-animation: pulse3 2.4s infinite;
@@ -354,8 +314,6 @@ body {
       background-color: #30ebb6;
    }
 }
-
-/*about me*/
 #aboutmesec {
    background-color:#ffc505;
    height: 100%;

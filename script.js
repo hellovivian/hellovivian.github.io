@@ -46,14 +46,10 @@ $(document).ready(function() {
       if ($("#webdesignicon").hasClass("iconactive")) {
       $("#designtext2").hide();
       $("#designtext1").show();
-      $("#behindcircle1").fadeIn(200);
-      $("#behindcircle2").fadeIn(500);
       $("#webdesignicon").removeClass("iconactive");
       $("#webdesignicon").removeClass("move2");
       } else {
       $("#webdesignicon").addClass("move2");
-      $("#behindcircle1").fadeOut(200);
-      $("#behindcircle2").fadeOut(500);
       $("#webdesignicon").addClass("iconactive");
       $("#designtext1").hide();
       $("#designtext2").show();
