@@ -121,12 +121,24 @@ transform: translateY(-50%);
    float: left;
 }
 
+
 #carouselsec {
    background-color: #ffff66;
+   position: absolute;
+   left: 40%;
+   width: 60%;
+   
+}
+
+#carouseltext {
+   color:white;
+   position: absolute;
+   left: 25%;
+   transform: translateX(-50%);
+   font-size: 2em;
 }
 
 #carousel {
-   margin: 0 auto;
    width: 600px;
    overflow: hidden;
 }
