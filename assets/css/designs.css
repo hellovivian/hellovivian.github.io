@@ -105,6 +105,10 @@ body {
    width: 100%;
 }
 
+#rescomp {
+   float: right;
+}
+
 #title {
 text-align: center;
 position: absolute;
@@ -121,10 +125,14 @@ transform: translateY(-50%);
    float: left;
 }
 
+#heart {
+   float: right;
+   position: relative;
+   margin: 0;
+}
 
 #carouselsec {
-   background-color: #ffff66;
-   position: absolute;
+   background-color: white;
    left: 40%;
    width: 60%;
    
@@ -132,7 +140,6 @@ transform: translateY(-50%);
 
 #carouseltext {
    color:white;
-   position: absolute;
    left: 25%;
    transform: translateX(-50%);
    font-size: 2em;
