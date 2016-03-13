@@ -77,9 +77,23 @@ $(document).ready(function() {
    $("#resumeicon").hover(function() {
       if ($("#resumetext").hasClass("resumeactive")) {
          $("#resumetext").removeClass("resumeactive");
+
       } else {
          $("#resumetext").fadeIn(900);
          $("#resumetext").addClass("resumeactive");
+
+      }
+   });
+   
+   $("#me").hover(function() {
+      if ($("#me").hasClass("resumeactive")) {
+         $("#me").removeClass("resumeactive");
+         $("#behindcircle3").fadeIn(200);
+         $("#behindcircle4").fadeIn(500);
+      } else {
+         $("#me").addClass("resumeactive");
+         $("#behindcircle3").fadeOut(200);
+         $("#behindcircle4").fadeOut(500);
       }
    });
    
@@ -88,8 +102,5 @@ $(document).ready(function() {
       $("#abouttext").fadeIn(300);
    });
    
-   $("#abouttext").click(function() {
-      $("#goodbyetext").fadeIn(300);
-   });
 });
 

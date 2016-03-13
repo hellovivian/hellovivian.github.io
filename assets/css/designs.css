@@ -125,7 +125,6 @@ transform: translateY(-50%);
    float: left;
 }
 
-
 #heart {
    float: right;
    position: relative;
@@ -144,14 +143,9 @@ transform: translateY(-50%);
    left: 25%;
    transform: translateX(-50%);
    font-size: 2em;
-=======
-#carouselsec {
-   background-color: #ffff66;
->>>>>>> parent of d02dbd3... test
 }
 
 #carousel {
-   margin: 0 auto;
    width: 600px;
    overflow: hidden;
 }

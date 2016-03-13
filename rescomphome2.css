@@ -1,0 +1,17 @@
+body {
+   margin: 0;
+   background-color: white;
+}
+#banner {
+   height: 100%;
+   margin: 0;
+}
+
+#bannerimg {
+   height:100%;
+}
+
+
+#icongroup {
+   float:right;
+}
