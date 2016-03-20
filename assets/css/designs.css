@@ -95,10 +95,9 @@ body {
 }
 
 #character {
-   height: 102%;
+   width: 50%;
    position: relative;
    background-color: #ccffff;
-   padding: 0 0 0 10%;
    z-index: 0;
 }
 #designbg {
@@ -125,28 +124,38 @@ transform: translateY(-50%);
    float: left;
 }
 
-#heart {
-   float: right;
+#sailaway {
+   float: left;
+   width: 50%;
    position: relative;
    margin: 0;
 }
 
+#carouselhorizontal {
+   width: 100%;
+   height: 256px;
+}
+
 #carouselsec {
-   background-color: white;
-   left: 40%;
-   width: 60%;
+   background-color: blanchedalmond;
+   float: right;
+   width:50%;
    
 }
 
-#carouseltext {
-   color:white;
-   left: 25%;
-   transform: translateX(-50%);
-   font-size: 2em;
+#carouselhorizontal:hover {
+   background-color: rgba(0,0,0,0.2);
 }
 
+#carouseltext {
+   font-size: 2em;
+   position: absolute;
+   margin-top: 8%;
+   margin-left: 7.5%;
+}
 #carousel {
    width: 600px;
+   margin-left: 10%;
    overflow: hidden;
 }
 
@@ -157,6 +166,38 @@ transform: translateY(-50%);
 #carousel ul li {
    list-style: none;
 }
+
+#sailawayhorizontal {
+   width: 100%;
+   height: 280px;
+}
+
+#sailawayhorizontal:hover {
+   background-color: rgba(0,0,0,0.2);
+}
+
+#rescomphorizontal {
+   width: 100%;
+   height: 380px;
+}
+
+#rescomphorizontal:hover {
+   background-color: rgba(0,0,0,0.2);
+}
+
+#totoro3d {
+   width: 100%;
+   height:200px;
+   
+}
+
+#totoro {
+   width: 50%;
+}
+
+#totoro3d:hover {
+   background-color: rgba(0,0,0,0.2);
+} 
 
 #webdes {
    background-color: #f13b44;
