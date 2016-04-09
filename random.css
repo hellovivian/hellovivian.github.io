@@ -1,13 +1,17 @@
 body {
    font-family: Montserrat;
+<<<<<<< HEAD
    margin: 0 auto;
 }
 
 }
+=======
+}
+
+>>>>>>> parent of f30167e... See if bg colors work
 #container {
-   margin: 0 auto;
-   width: 960px;
-   text-align: center;
+   width: 100%;
+   overlay: rgba(0,0,0,0.2);
 }
 
 #title {
@@ -17,12 +21,14 @@ body {
    font-color: white;
 }
 
+/*
 #imgcontain {
    width: 400px;
    height: 300px;
    overflow: hidden;
    float: left;
 }
+*/
 
 #myImage {
    width: 400px;
