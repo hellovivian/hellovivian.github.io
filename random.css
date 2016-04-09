@@ -2,6 +2,7 @@ body {
    font-family: Montserrat;
 }
 #div1 {
+   position: relative;
    height: 33%;
    width: 100%;
    background-color: crimson;
@@ -9,6 +10,7 @@ body {
 
 #div2 {
    height: 33%;
+   positive: relative;
    width: 100%;
    background-color: lightcyan;
 }
@@ -16,6 +18,7 @@ body {
 #div3 {
    height: 33%;
    width: 100%;
+   position: relative;
    background-color: crimson;
 }
 #container {
