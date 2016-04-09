@@ -3,9 +3,8 @@ body {
 }
 
 #container {
-   margin: 0 auto;
-   width: 960px;
-   text-align: center;
+   width: 100%;
+   overlay: rgba(0,0,0,0.2);
 }
 
 #title {
@@ -13,12 +12,14 @@ body {
    font-size: 4em;
 }
 
+/*
 #imgcontain {
    width: 400px;
    height: 300px;
    overflow: hidden;
    float: left;
 }
+*/
 
 #myImage {
    width: 400px;
