@@ -1,6 +1,6 @@
 body {
    font-family: Montserrat;
-<<<<<<< HEAD
+
    margin: 0 auto;
 }
 
@@ -8,7 +8,7 @@ body {
 =======
 }
 
->>>>>>> parent of f30167e... See if bg colors work
+
 #container {
    width: 100%;
    overlay: rgba(0,0,0,0.2);
@@ -16,9 +16,7 @@ body {
 
 #title {
    margin: 0 auto;
-   font-size: 4em;
-   background-color:crimson;
-   font-color: white;
+   font-size: 4em;   
 }
 
 /*
