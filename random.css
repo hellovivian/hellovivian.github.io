@@ -1,10 +1,27 @@
 body {
    font-family: Montserrat;
 }
-
-#container {
+#div1 {
+   height: 33%;
    width: 100%;
-   overlay: rgba(0,0,0,0.2);
+   background-color: crimson;
+}
+
+#div2 {
+   height: 33%;
+   width: 100%;
+   background-color: lightcyan;
+}
+
+#div3 {
+   height: 33%;
+   width: 100%;
+   background-color: crimson;
+}
+#container {
+   margin: 0 auto;
+   width: 960px;
+   text-align: center;
 }
 
 #title {
@@ -12,14 +29,12 @@ body {
    font-size: 4em;
 }
 
-/*
 #imgcontain {
    width: 400px;
    height: 300px;
    overflow: hidden;
    float: left;
 }
-*/
 
 #myImage {
    width: 400px;
