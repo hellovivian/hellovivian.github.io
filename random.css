@@ -1,21 +1,25 @@
 body {
    font-family: Montserrat;
    margin: 0 auto;
+   background-color: lightseagreen;
+   text-align: center;
 }
-
-}
-=======
-}
-
 
 #container {
    width: 650px;
+   position: relative;
    margin: 0 auto;
+   top: 25%;
+   transform: translateY(-50%);
 }
 
 #title {
    margin: 0 auto;
-   font-size: 4em;   
+   font-size: 4em; 
+   transform: translateY(-50%);
+   top:20%;
+   position: relative;
+   font-color: white;
 }
 
 
@@ -24,7 +28,16 @@ body {
    height: 250px;
    overflow: hidden;
    border-radius: 50%;
-   border: 20px red;
+   margin: 0 auto;
+   z-index: 50;
+}
+
+#imgcontain {
+   width: 260px;
+   height: 260px;
+   overflow: hidden:
+   border-radius: 50%;
+   background-color: white;
 }
 
 
