@@ -1,0 +1,223 @@
+html {
+   background: url("../../bg.png");
+   background-position: right;
+   background-size: cover;
+}
+
+body {
+   margin: 0;
+   font-family: monospace;
+   height: 100%;
+   overflow: hidden;
+}
+
+#fibonacci {
+   height: 100%;
+   z-index: 200;
+   position: absolute;
+   width: 100%;
+}
+
+#twentyone {
+   width: 66%;
+   height: 100%;
+   float:right;
+   background-color: rgba(0,0,0,0.15);
+   background-size: cover;
+}
+
+
+#nottwentyone {
+   width: 34%;
+   height: 100%;
+   float: left;
+}
+
+#thirteen {
+   width: 100%;
+   height: 62%;
+   background-color: rgba(0,0,0,0.22);
+
+}
+
+#thirteen:hover {
+
+}
+
+#not13 {
+   height:38%;
+   width: 100%;
+}
+
+#eight {
+   width: 62%;
+   float:left;
+   height: 100%;
+   background-color: rgba(0,0,0,0.1);
+}
+
+#not8 {
+   width: 38%;
+   float: right;
+   height: 100%;
+}
+#not5 {
+   height: 37%;
+   width: 100%;
+}
+
+#five {
+   height: 63%;
+   width: 100%;
+   background-color: rgba(255,255,255,0.2);
+}
+
+#three {
+   float: right;
+   background-color: rgba(0,0,0,0.1);
+   height: 100%;
+   width: 60%;
+}
+
+#not3 {
+   float: left;
+   height: 100%;
+   width: 40%;
+}
+
+#two {
+   height: 66%;
+   width: 100%;
+   background-color: rgba(0,0,0,0.15);
+}
+
+#not2 {
+   height: 34%;
+   width: 100%;
+}
+
+#one {
+   height: 100%;
+   width: 50%;
+   float: left;
+   background-color: rgba(0,0,0,0.20);
+}
+
+#not1 {
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0,0,0,0.12);
+}
+/*
+#checkerboard {
+   height: 100%;
+}
+
+#row1 {
+   position: absolute;
+   width: 100%;
+   height: 33%;
+   z-index: 100;
+}
+
+#row2 {
+   position: absolute;
+   top: 33%;
+   width: 100%;
+   height: 67%;
+   z-index: 100;
+}
+
+#row3 {
+   position: absolute;
+   top: 67%;
+   width: 100%;
+   height: 100%;
+}
+
+.tab3 {
+   width: 25%;
+   height: 100%;
+   float:left;
+   background-color: rgba(0,0,0,0.15);
+}
+
+.tab1 {
+   width: 25%;
+   height: 100%;
+   float:left;
+   background-color: rgba(0,0,0,0.15);
+}
+
+.tab2 {
+   width: 33.33%;
+   float:left;
+   height: inherit;
+   background-color: rgba(0,0,0,0.1);
+}
+
+.tab2:hover{
+   background-color: rgba(0,0,0,0.15);
+}
+
+.tab1:hover {
+   background-color: rgba(0,0,0,0.1);
+}
+*/
+
+
+
+#bg {
+   width: 100%;
+   overflow: hidden;
+   z-index: 0;
+   position: absolute;
+
+}
+
+#hbd {
+   position:absolute;
+   font-size: 3em;
+   font-color: rgba(0,0,0,0.5);
+}
+
+
+.text {
+   position: absolute;
+   z-index: 300;
+   font-size: 3.5em;
+   display:none;
+   color:rgba(0,0,0,0.8);
+}
+
+#text1 {
+   top: 30%;
+   transform: translateY(-100%);
+   left:11%;
+   display:inherit;
+/*   color: white;*/
+}
+
+#textbounding {
+   left:11%;
+   width:60%;
+   height: 45%;
+   position:relative;
+   font-size:0.5em;
+   top:36%;
+}
+
+.textactive {
+}
+
+#nav {
+   position: absolute;
+   height: 40px;
+   top: 5%;
+   left:95%;
+   z-index: 400;
+}
+
+
+
+
