@@ -95,7 +95,8 @@ body {
 }
 
 #catcat {
-   height: 40%;
+   height: 60%;
+   top: 40%;
    z-index: 10;
    position: relative;
    left: 10%;
