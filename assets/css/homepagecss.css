@@ -151,6 +151,7 @@ body {
 .behindcircles {
    display:none;
 }
+/*
 #behindcircle1 {
    border-radius: 50%;
    border-style:double;
@@ -205,6 +206,7 @@ body {
    left: 50%;
    transform: translateX(-50%);
 }
+*/
 
 #designtextbox {
    width: 60%;
