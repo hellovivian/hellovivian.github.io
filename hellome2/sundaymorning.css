@@ -1,26 +1,53 @@
 body {
-   font-family: "Montserrat","handwriting";
-   font-weight:200;
-
+   font-family: "Arapey","sans-serif";
+   font-size: 16px;
    letter-spacing: 1px;
    position: absolute;
    margin: 0 auto;
    width: 100%;
    height: 100%;
    overflow: hidden;
+   color: #434763;
    background-color: #eff1f0;
 
 }
 
 
-#bike {
+#name {
+   font-family: "Arapey","sans-serif";
+   position: absolute;
+   left: 50%;
+   top: 5%;
+   margin: 0 auto;
+   z-index: 3;
+   font-size: 36px;
+   transform: translateX(-50%);
+ 
+}
+
+#navline {
+   width: 80%;
+   top: 12.5%;
+   left: 10%;
+   height: 3px;
+   z-index: 2;
+   margin: 0 auto;
+   position: absolute;
+   background-color: #cccccc;
+
+}
+
+
+#sky {
    width: 100%;
+   top: 20%;
    position: absolute;
    z-index: 1;
 }
 
 #bike2 {
    z-index: 30;
+   width: 25%;
    position: absolute;
    left: 50%;
    transform: translate(-50%, -50%);
@@ -29,17 +56,45 @@ body {
 }
 
 
-#aboutbutton {
-   display:none;
+#musicbox {
    position: absolute;
-   list-style: none;
-   top: 3%;
-   z-index:2;
-   left:42.5%;
-   transform: translateX(-50%);
+   z-index: 4;
 }
 
-#hobbiesbutton {
+#crane {
+   position: absolute;
+
+}
+
+#aboutbutton {
+  position: absolute;
+   list-style: none;
+   top: 10%;
+   padding: 10px;
+   z-index:2;
+   left: 50%;
+   transform: translateX(-175px);
+}
+
+
+
+#tui1 {
+   width:100%;
+}
+
+#hobbies {
+   position: absolute;
+   list-style: none;
+   top: 10%;
+   padding: 10px;
+   z-index:2;
+   left:50%;
+   transform: translateX(100px);
+   
+}
+
+
+#hobbiesactive {
    display:none;
    position: absolute;
    list-style: none;
@@ -59,44 +114,6 @@ body {
    width: 30px;
 }
 
-#balloon {
-   position: absolute;
-   z-index: 35;
-   left:450px;
-   top:155px;
-   
-}
-
-
-#balloon2 {
-   position: absolute;
-   z-index: 35;
-   left:900px;
-   top:500px;
-   display:none;
-
-}
-
-#desc {
-   position:absolute;
-   top:15%;
-
-   
-   left:50%;
-   transform:translateX(-50%);
-   z-index:60;
-   display:none;
-}
-
-
-#design {
-   overflow: hidden;
-   width:100%;
-   background-image: url("catcat.png");
-   opacity: 20%;
-}
-
-
 
 /*Animation*/
 .move {
@@ -107,144 +124,14 @@ body {
 
 
 @keyframes move1 {
-  from { top: 40%; left: 50%; }
-  to   { top: 60%; left: 50%; }
+  from { top: 45%; left: 50%; }
+  to   { top: 55%; left: 50%; }
   
 }
 
-/*Fibonacci Projects Area*/
-
-#fibcontainer {
-   height: 55%;
-   width: 55%;
-   z-index: 200;
-   position: absolute;
-   top: 15%;
-   left: 50%;
-   transform: translateX(-50%);
-   display:none;
-}
-
-#fibtext {
-   display:none;
-   left: 50%;
-   top:10%;
-   transform: translateX(-50%);
-}
-
-
-#twentyone {
-   width: 66%;
-   height: 100%;
-   float:right;
-   background-color: rgba(0,0,0,0.15);
-   background-size: cover;
-}
-
-#twentyone:hover {
-   background-image: url("splits.png");
-   background-position: center;
-}
-
-
-#nottwentyone {
-   width: 34%;
-   height: 100%;
-   float: left;
-}
-
-#thirteen {
-   width: 100%;
-   height: 62%;
-   background-color: rgba(0,0,0,0.22);
-
-}
-
-#thirteen:hover {
-   background-image:url("DSC_0911.png");
-}
-
-#not13 {
-   height:38%;
-   width: 100%;
-}
-
-#eight {
-   width: 62%;
-   float:left;
-   height: 100%;
-   background-color: rgba(0,0,24,0.32);
-}
-
-#eight:hover {
-   background-image:url("catcat.png");
-   
-}
-
-#not8 {
-   width: 38%;
-   float: right;
-   height: 100%;
-}
-#not5 {
-   height: 37%;
-   width: 100%;
-}
-
-#five {
-   height: 63%;
-   width: 100%;
-   background-color: rgba(255,255,255,0.2);
-}
-
-#five:hover {
-   background-image: url("gerasheart.png");
-   width: 100%;
-   overflow: hidden;
-
-}
-#three {
-   float: right;
-   background-color: rgba(0,0,0,0.0.01);
-   height: 100%;
-   width: 60%;
-}
-
-#not3 {
-   float: left;
-   height: 100%;
-   width: 40%;
-}
-
-#two {
-   height: 66%;
-   width: 100%;
-   background-color: rgba(0,0,0,0.15);
-}
-
-#not2 {
-   height: 34%;
-   width: 100%;
-}
-
-#one {
-   height: 100%;
-   width: 50%;
-   float: left;
-   background-color: rgba(0,0,0,0.20);
-}
-
-#not1 {
-   width: 100%;
-   height: 100%;
-   background-color: rgba(0,0,0,0.12);
-}
-
-
-
-
-
-
 
 .hobbiesactive {
+}
+
+.wingsactive {
 }
