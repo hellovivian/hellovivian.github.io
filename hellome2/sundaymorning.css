@@ -87,6 +87,15 @@ a {
    transform: translateX(-175px);
 }
 
+#resumebutton {
+   position: absolute;
+   list-style: none;
+   top: 12.5%;
+   padding: 10px;
+   z-index: 2;
+   left: 50%;
+   transform: translateX(-50%);
+}
 
 
 #hobbies {

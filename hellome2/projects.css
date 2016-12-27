@@ -135,6 +135,17 @@ a {
    
 }
 
+
+#resumebutton {
+   position: absolute;
+   list-style: none;
+   top: 12.5%;
+   padding: 10px;
+   z-index: 2;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
 #socialmediabar {
    position: absolute;
    top: 7.5%;
