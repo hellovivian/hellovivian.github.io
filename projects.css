@@ -233,32 +233,32 @@ a {
 }
 
 #neg15 {
-   background-image: url("imgs/led.gif");
+   background-image: url("img/led.gif");
    background-size: cover;
    opacity: 0.5;
 }
 
 #neg11 {
-   background-image: url("imgs/neopixel2.gif");
+   background-image: url("img/neopixel2.gif");
    background-size: cover;
    opacity: 0.6;
 }
 
 #neg13 {
-   background-image: url("imgs/musicbox.gif");
+   background-image: url("img/musicbox.gif");
    background-size: cover;
    opacity: 0.65;
 }
 
 #neg12 {
-   background-image: url("imgs/3dprint.gif");
+   background-image: url("img/3dprint.gif");
    background-size: cover;
    opacity:0.8;
 }
 
 #neg14 {
    background-size: cover;
-   background-image: url("imgs/3dprint2.png");
+   background-image: url("img/3dprint2.png");
    opacity: 0.5;
 }
 
@@ -268,59 +268,59 @@ a {
 }
 
 #neg5 {
-   background-image: url("imgs/cat.png");
+   background-image: url("img/cat.png");
    background-size: cover;
    opacity: 0.6;
 }
 
 #neg4 {
-   background-image: url("imgs/yingyang.png");
+   background-image: url("img/yingyang.png");
    background-size: cover;
    opacity: 0.6;
 }
 
 #neg2 {
-   background-image:url("imgs/sing.png");
+   background-image:url("img/sing.png");
    background-size: cover;
    opacity: 0.6;
 }
 
 #neg3 {
-   background-image: url("imgs/reddit.png");
+   background-image: url("img/reddit.png");
    opacity: 0.6;
    background-size: cover;
 }
 
 #neg1 {
-   background-image: url("imgs/rescomp.png");
+   background-image: url("img/rescomp.png");
    opacity: 0.6;
    background-size: cover;
 }
 
 #neg10 {
-   background-image: url("imgs/cytoscape.png");
+   background-image: url("img/cytoscape.png");
    opacity: 0.8;
    background-size: cover;
 }
 
 #neg8 {
-   background-image: url("imgs/firstdata.png");
+   background-image: url("img/firstdata.png");
    opacity: 0.8;
    background-size: cover;
 }
 
 #neg6 {
-   background-image: url("imgs/mario.png");
+   background-image: url("img/mario.png");
    opacity: 0.7;
    background-size: cover;
 }
 
 #neg7 {
-   background-image: url("imgs/nw190.png");
+   background-image: url("img/nw190.png");
    background-size: cover;
 }
 
 #neg9 {
-   background-image: url("imgs/ib32.png");
+   background-image: url("img/ib32.png");
    background-size: cover;
 }
