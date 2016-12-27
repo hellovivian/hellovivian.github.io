@@ -12,6 +12,12 @@ body {
   
 
 }
+#socialmediabar {
+   position: absolute;
+   top: 7.5%;
+   left: 85%;
+   opacity: 0.3;
+}
 
 a {
     text-decoration: none;

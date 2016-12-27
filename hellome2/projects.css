@@ -123,15 +123,24 @@ a {
 
 
 #msg {
-   left: 50%;
-   position: fixed;
+   left: 77%;
+   font-size: 10px;
+   top: 20%;
+   height: 41px;
+   position: absolute;
    transform:translateX(-50%);
-   bottom: 10%;
-   z-index: 250;
+   width: 23%;
+   z-index: 220;
    text-align: center;
    
 }
 
+#socialmediabar {
+   position: absolute;
+   top: 7.5%;
+   left: 85%;
+   opacity: 0.3;
+}
 
 .hobbiesactive {
 }
@@ -150,14 +159,15 @@ a {
 }
 
 #sidecontainer {
-   height: 331px;
-   width: 20%;
+   height: 285px;
+   width: 23%;
    position: absolute;
    z-index: 210;
-   top: 22.5%;
+   top: 28%;
    background-color: #dddddd;
- 
-   left: 70%;
+   overflow-y: scroll;
+   font-size: 11px;
+   left: 67%;
 }
 #projectscontainer {
    font-family: 'Arapey', 'sans-serif';
@@ -170,11 +180,15 @@ a {
    transform: translateX(-50%);
 
 
-   overflow: hidden;
+   overflow: scroll;
 }
 
 
-
+.outgoinglink {
+   position: absolute;
+   z-index: 180;
+   
+}
 .row {
    width:100%;
    height: 100px;
