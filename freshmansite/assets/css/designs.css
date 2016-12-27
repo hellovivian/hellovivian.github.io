@@ -1,0 +1,211 @@
+body {
+   margin: 0 auto;
+   background-color: #db465c;
+   font-family: 'Montserrat','sans-serif';
+}
+
+
+#nav {
+   position: fixed;
+   z-index: 100;
+}
+
+#circle1 {
+   position: absolute;
+   top: 4%;
+   left: 5%;
+   transform: translateX(-40%);
+}
+
+#circle2 {
+   position: absolute;
+   top: 37%;
+   left: 5%;
+   transform: translateX(-40%);
+}
+
+#circle3 {
+   position: absolute;
+   top: 71%;
+   left: 5%;
+   transform: translateX(-40%);
+}
+
+#innercircle1 {
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+   position: absolute;
+   top: 5%;
+   left: 5%;
+   transform: translateX(-35%);
+   background-color: #db465c;
+}
+
+#innercircle2 {
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+   position: absolute;
+   top: 38%;
+   left: 5%;
+   transform: translateX(-35%);
+   background-color: #ccffff;
+}
+
+#innercircle3 {
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+   position: absolute;
+   top: 72%;
+   left: 5%;
+   transform: translateX(-35%);
+   background-color: #ffc505;
+}
+
+
+#navline {
+   position: fixed;
+   z-index: 100;
+   height: 100%;
+   background-color: white;
+   left: 5%;
+   width: 10px;
+}
+
+.navtxt {
+   position: fixed;
+   display: none;
+   color: black;
+   left: 5%;
+   transform: rotate(270deg);
+}
+
+#navtxt1 {
+   top: 15%;
+}
+
+#navtxt2 {
+   top: 48%;
+}
+
+#navtxt3 {
+   top: 82%;
+}
+
+#character {
+   width: 50%;
+   position: relative;
+   background-color: #ccffff;
+   z-index: 0;
+}
+#designbg {
+   width: 100%;
+}
+
+#rescomp {
+   float: right;
+}
+
+#title {
+text-align: center;
+position: absolute;
+top: 50%;
+left: 55%;
+color: white;
+transform: translateX(-50%);
+transform: translateY(-50%);
+}
+
+.icon {
+   height:200px;
+   padding: 20px;
+   float: left;
+}
+
+#sailaway {
+   float: left;
+   width: 50%;
+   position: relative;
+   margin: 0;
+}
+
+#carouselhorizontal {
+   width: 100%;
+   height: 256px;
+}
+
+#carouselsec {
+   background-color: blanchedalmond;
+   float: right;
+   width:50%;
+   
+}
+
+#carouselhorizontal:hover {
+   background-color: rgba(0,0,0,0.2);
+}
+
+#carouseltext {
+   font-size: 2em;
+   position: absolute;
+   margin-top: 8%;
+   margin-left: 7.5%;
+}
+#carousel {
+   width: 600px;
+   margin-left: 10%;
+   overflow: hidden;
+}
+
+#carousel ul {
+   width: 1920px;
+}
+
+#carousel ul li {
+   list-style: none;
+}
+
+#sailawayhorizontal {
+   width: 100%;
+   height: 280px;
+}
+
+#sailawayhorizontal:hover {
+   background-color: rgba(0,0,0,0.2);
+}
+
+#rescomphorizontal {
+   width: 100%;
+   height: 380px;
+}
+
+#rescomphorizontal:hover {
+   background-color: rgba(0,0,0,0.2);
+}
+
+#totoro3d {
+   width: 100%;
+   height:200px;
+   
+}
+
+#totoro {
+   width: 50%;
+}
+
+#totoro3d:hover {
+   background-color: rgba(0,0,0,0.2);
+} 
+
+#webdes {
+   background-color: #f13b44;
+}
+
+/* jquery */
+.characteractive {
+}
+
+.navactive {
+}

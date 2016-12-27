@@ -1,0 +1,326 @@
+body {
+   font-family: "Muli","sans-serif";
+   font-size: 12px;
+   letter-spacing: 1px;
+   position: absolute;
+   margin: 0 auto;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   color: #434763;
+   background-color: #eff1f0;
+  
+
+}
+
+#about {
+   overflow-y: scroll;
+   height: 101%;
+}
+
+a {
+    text-decoration: none;
+   color: black;
+}
+
+#name {
+   font-family: "Arapey","sans-serif";
+   position: absolute;
+   left: 50%;
+   top: 5%;
+   margin: 0 auto;
+   z-index: 3;
+   font-size: 36px;
+   transform: translateX(-50%);
+ 
+}
+
+#navline {
+   width: 80%;
+   top: 12.5%;
+   left: 10%;
+   height: 3px;
+   z-index: 2;
+   margin: 0 auto;
+   position: absolute;
+   background-color: #cccccc;
+
+}
+
+
+#sky {
+   width: 100%;
+   top: 20%;
+   position: absolute;
+   z-index: 1;
+}
+
+#bike2 {
+   z-index: 30;
+   width: 25%;
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   top: 50%;
+
+}
+
+
+#musicbox {
+   position: absolute;
+   z-index: 4;
+}
+
+#crane {
+   position: absolute;
+
+}
+
+#aboutbutton {
+  position: absolute;
+   list-style: none;
+   top: 12.5%;
+   padding: 10px;
+   z-index:2;
+   left: 50%;
+   transform: translateX(-175px);
+}
+
+
+
+#hobbies {
+   position: absolute;
+   list-style: none;
+   top: 12.5%;
+   padding: 10px;
+   z-index:2;
+   left:50%;
+   transform: translateX(100px);
+   
+}
+
+
+#hobbiesactive {
+   display:none;
+   position: absolute;
+   list-style: none;
+   top: 3%;
+   z-index:2;
+   left:57.5%;
+   transform: translateX(-50%);
+}
+
+#menu {
+   position: absolute;
+   font-size: 1.5em;
+   left: 50%;
+   top:2.5%;
+   transform: translateX(-50%);
+   z-index: 15;
+   width: 30px;
+}
+
+
+
+#msg {
+   left: 77%;
+   font-size: 10px;
+   top: 20%;
+   height: 41px;
+   position: absolute;
+   transform:translateX(-50%);
+   width: 23%;
+   z-index: 220;
+   text-align: center;
+   
+}
+
+
+#resumebutton {
+   position: absolute;
+   list-style: none;
+   top: 12.5%;
+   padding: 10px;
+   z-index: 2;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+#socialmediabar {
+   position: absolute;
+   top: 7.5%;
+   left: 85%;
+   opacity: 0.3;
+}
+
+.hobbiesactive {
+}
+
+.wingsactive {
+}
+
+.textactive {
+}
+
+.rowactive {
+}
+
+#downbutton {
+   opacity: 0.6;
+}
+
+#sidecontainer {
+   height: 285px;
+   width: 23%;
+   position: absolute;
+   z-index: 210;
+   top: 28%;
+   background-color: #dddddd;
+   overflow-y: scroll;
+   font-size: 11px;
+   left: 67%;
+}
+#projectscontainer {
+   font-family: 'Arapey', 'sans-serif';
+   height: 331px;
+   width: 50%;
+   z-index: 200;
+   position: absolute;
+   top: 22.5%;
+   left: 42.5%;
+   transform: translateX(-50%);
+
+
+   overflow: scroll;
+}
+
+
+.outgoinglink {
+   position: absolute;
+   z-index: 180;
+   
+}
+.row {
+   width:100%;
+   height: 100px;
+   background-color: transparent;
+   padding: 5px 0px;
+   z-index: 210;
+ 
+}
+
+.describerow {
+   display:none;
+   width: 85%;
+   left: 3%;
+   z-index: 250;
+   position: absolute;
+   padding: 5px 10px;
+   overflow-y: scroll;
+   text-align: justify;
+   font-size: 12px;
+}
+
+
+
+.square {
+   height: 100px;
+   width: 100px;
+   margin: 2px;
+   background-color: transparent;
+   display: inline-block;
+   z-index: 10;
+}
+
+#neg15 {
+   background-image: url("imgs/led.gif");
+   background-size: cover;
+   opacity: 0.5;
+}
+
+#neg11 {
+   background-image: url("imgs/neopixel2.gif");
+   background-size: cover;
+   opacity: 0.6;
+}
+
+#neg13 {
+   background-image: url("imgs/musicbox.gif");
+   background-size: cover;
+   opacity: 0.65;
+}
+
+#neg12 {
+   background-image: url("imgs/3dprint.gif");
+   background-size: cover;
+   opacity:0.8;
+}
+
+#neg14 {
+   background-size: cover;
+   background-image: url("imgs/3dprint2.png");
+   opacity: 0.5;
+}
+
+#sq10 {
+   background-size: cover;
+   opacity: 0.7;
+}
+
+#neg5 {
+   background-image: url("imgs/cat.png");
+   background-size: cover;
+   opacity: 0.6;
+}
+
+#neg4 {
+   background-image: url("imgs/yingyang.png");
+   background-size: cover;
+   opacity: 0.6;
+}
+
+#neg2 {
+   background-image:url("imgs/sing.png");
+   background-size: cover;
+   opacity: 0.6;
+}
+
+#neg3 {
+   background-image: url("imgs/reddit.png");
+   opacity: 0.6;
+   background-size: cover;
+}
+
+#neg1 {
+   background-image: url("imgs/rescomp.png");
+   opacity: 0.6;
+   background-size: cover;
+}
+
+#neg10 {
+   background-image: url("imgs/cytoscape.png");
+   opacity: 0.8;
+   background-size: cover;
+}
+
+#neg8 {
+   background-image: url("imgs/firstdata.png");
+   opacity: 0.8;
+   background-size: cover;
+}
+
+#neg6 {
+   background-image: url("imgs/mario.png");
+   opacity: 0.7;
+   background-size: cover;
+}
+
+#neg7 {
+   background-image: url("imgs/nw190.png");
+   background-size: cover;
+}
+
+#neg9 {
+   background-image: url("imgs/ib32.png");
+   background-size: cover;
+}

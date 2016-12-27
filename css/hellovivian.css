@@ -1,0 +1,26 @@
+body {
+   background-color: white;
+   margin: 0;
+}
+
+#navbar {
+   font-family: 'Lato', 'sans-serif';
+   position: absolute;
+   display: inline-block;
+}
+
+#skybackground {
+   position: absolute;
+   width: 100%;
+   top: 12.5%;
+   
+   
+}
+
+#bike {
+   position: absolute;
+   top: 20%;
+   left: 50%;
+   
+   transform: translateX(-50%);
+}

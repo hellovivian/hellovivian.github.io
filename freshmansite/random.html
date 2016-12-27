@@ -1,0 +1,41 @@
+<html>
+   <head>
+      <title>Random Bio Facts</title>
+      <link rel="stylesheet" href="random.css">
+      <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+   </head>
+   <body>
+      <p id="title">Bio-Inspired Generator</p>
+      <div id="container">
+  
+      <input type="button" onclick="gen_num()" value="Click me!">
+      <p id="random">Click the button for a random bio-inspired fact! I learned all of these from Bio-Inspired Design and Brain, Mind, and Behavior.</p>
+      <div id="imgcontain">
+      <div id="imgcontainborder">
+      <img id="myImage" class="img" src="" />
+      </div>
+       <p>Created with HTML, CSS, Javascript.</p>
+      </div>
+      </div>
+   <script>
+      dict = {
+         "1": ["Butterfly iridescence inspired engineering. Butterflies, along with many other organisms, actually do not possess blue pigment in their wings. Instead, their wing patterns are the production of constructive interference. Qualcomm mimicked the properties of butterfly wings to create a low-energy mirasol display.", "butterfly.jpg"],
+         "2":["Spider silk is about as strong in steel. It is as elastic yet tough. The silk also comes in a variety: spiders produce multiple different types from different glands depending on whether they want to catch prey, move around their web, or build it. This picture was the least scary one for me.", "okspiderimg.jpg"],
+         "3":["The common pigeon can detect magnetic fields in the sky, so they can always find their way back home. As such, people used to use them to carry messages home. Nature's GPS?","pigeon.jpg"],
+         "4":["Geckos can attach to surfaces using intermolecular, Van der Waals forces. The potential of their fibrillar adhesion is huge, because it paves the way for complaint, strong, dry adhesion.", "gecko.jpg"],
+         "5":["Kingfishers dive into water essentially perpendicularly. While you would think that that should make for a big, flashy splash, but kingfishers make minimal sound and splash. This is due to the streamlining geometry of their beak. Japanese engineers looked to kingfishers to solve noise pollution complaints.", "kingfisher.jpg"],
+         "6":["Lotus flowers are incredible at self cleaning and being water repellant. This is because they have a nanohair-studded, hydrophobic waxy surface.", "lotus.jpg"],
+         "7":["Giraffes have vestigial nerves that loop the entire length of their neck when they only need to travel two centimeters. Thanks evolution. (We have an analogous nerve.)", "giraffe.jpg"],
+         "8":["Pit vipers can sense in the infrared range. In essence, at night, they can sense prey based on the heat emanating off of their body.", "pitviper.jpg"],
+         "9":["Honeybees can see in the UV range, and flowers have adapted alongside them. Flowers actually have UV light patterns overlaid on top of them, so they can attract honeybees to pollinate.","honeybee.jpg"],
+      };
+      function gen_num() {
+      var num = (Math.floor((Math.random() * 10) + 1)).toString();
+      var value = document.getElementById("random")
+      value.innerHTML = dict[num][0]
+      document.getElementById('myImage').src = dict[num][1];
+      }
+      
+   </script>
+   </body>
+</html>
