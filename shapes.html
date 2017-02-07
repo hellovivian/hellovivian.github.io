@@ -1,0 +1,31 @@
+<html>
+   <head>
+      <title>hi clover</title>
+      <link rel="stylesheet" type="text/css" href="shapes.css">
+   </head>
+   <body>
+      <button onclick="myFunction()" class="clearable" id="demo"><p> Click me</p></button>
+      <button onclick="myFunction()" id="clear"><p> clear me</p></button>
+      
+      <script>
+document.getElementById("demo").onclick = function() {randomize()};
+
+function randomize() {
+    document.getElementById("demo").style.backgroundColor = "red";
+   document.getElementById("demo").style.width = Math.random() * 1400;
+}
+       
+document.getElementById("clear").onclick = function() {clearAll()};
+
+         
+//function clearAll() {
+//   toClear=  document.getElementsByClassName('clearable');
+//   for (index = 0; index < toClear.length; index++) { 
+//    document.toClear[index].style.display = "none;
+//   }
+//}
+   
+</script>
+      
+   </body>
+</html>
