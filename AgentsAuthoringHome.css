@@ -1,0 +1,30 @@
+body {
+   background-color: #fbf5f5;
+   position: relative;
+   font-family: 'PT Sans', sans-serif;
+}
+
+
+p {
+   margin: 0 auto;
+   color: #004c8e;
+   
+}
+
+h1 {
+   margin: 0 auto;
+}
+
+input {
+   border-radius: 5px;
+}
+
+   #container {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      left: 25%;
+      top: 25%;
+/*      background-color: #dddddd;*/
+      border-radius: 20px;
+    }
