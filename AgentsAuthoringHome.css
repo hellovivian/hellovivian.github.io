@@ -1,9 +1,15 @@
 body {
-   background-color: #fbf5f5;
+   background-color:#9ff0f2;
    position: relative;
    font-family: 'PT Sans', sans-serif;
 }
 
+h1 {
+   font-family: 'Zilla Slab', sans-serif;
+   color: black;
+/*  background-color: black;*/
+   font-weight: 200;
+}
 
 p {
    margin: 0 auto;
@@ -11,20 +17,122 @@ p {
    
 }
 
-h1 {
+#desc {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   top: 80px;
+}
+
+#menuIcon {
+   position: absolute;
+   right: 10%;
+   top: 5%;
+   width: 75px;
+   opacity: 50%;
+}
+
+.nodeInput {
+   position: absolute;
+   width: 150px;
+   left: 50%;
+}
+.buttons {
+   position:absolute;
+   left: 250px;
+}
+
+#bodycontainer {
+   position: absolute;
+   width: 120%;
+   height: 70%;
+   margin: -20px;
+   top: 20%;
+   background-color: mintcream;
+}
+
+#agentstab {
+   background-color: #62dbe6;
+}
+
+#nav {
+   position: absolute;
+   top: 187px;
+   left: 50%;
+   z-index:2;
+   
+}
+
+.navitem {
    margin: 0 auto;
+
+   position: relative;
+   
+   background-color: #ffe87e;
+   padding: 10px;
+   border-top-right-radius: 10px;
+}
+
+li {
+   list-style: none;
+   display:inline-block;
+}
+
+
+
+#pgtitle {
+   margin: 0 auto;
+   left: 50%;
+   transform: translateX(-50%);
+   top: 5%;
+   position: absolute;
+   display: block;
+}
+
+#addAndRemove {
+   position: absolute;
+   display: block;
+   top: 150px;
+   left: 5%;
+   background-color: mintcream;
 }
 
 input {
    border-radius: 5px;
 }
 
-   #container {
+#container {
       position: absolute;
-      width: 50%;
-      height: 50%;
+      width: 640px;
+      height: 40%;
       left: 25%;
       top: 25%;
-/*      background-color: #dddddd;*/
+      background-color: #ffe25a;
       border-radius: 20px;
-    }
+      padding: 50px;
+    } 
+
+#blueDefault {
+   background-color:#004c8e;
+   width:25px;
+   height:25px;
+   z-index:2;
+}
+
+#redCustom {
+   background-color:#CD4A42;
+   width:25px;
+   height:25px;
+ 
+}
+
+.legendItem {
+   position: relative;
+   
+}
+
+#key {
+   position:absolute;
+   left: 75%;
+   top: 200px;
+}

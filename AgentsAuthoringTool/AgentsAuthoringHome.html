@@ -6,26 +6,42 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>  
      <script src="../build/sigma.min.js"></script>
    
-      <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=PT+Sans|Zilla+Slab+Highlight" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
 
    </head>
    
    <body>
+      <img id="menuIcon" src="MenuIcon.png">
 
-      <h1>Agents Config File Authoring Tool</h1>
-    
+      <div id="nav">
+         <ul>
+            <li id="agentstab" class="navitem">Agents</li>
+            <li class="navitem">Domain</li>
+            <li class="navitem">Pedagogy</li>
+            <li class="navitem">Student</li>
+            <li class="navitem">Gateway</li>
+         </ul>
+      </div>
+      <h1 id="pgtitle">Agents Config File Authoring Tool</h1>
+      <p id="desc">This allows you to author the configuration file for a custom agents service.</p>
+    <div id="bodycontainer">
         <div id="container" ></div>
-      
+      <div id="addAndRemove">
 
-      <input type="text" id="nodeName" value="Add node of name"><img id="addNode" onclick="addNodes()" src="PlusIcon.png" width="30px"><br>
+      Add node named <input type="text" class="nodeInput" id="nodeAddName" value=""/><img id="addNode" onclick="addNodes()" class="buttons" src="PlusIcon.png" width="25px"><br>
          
-
-      <img  src="XIcon.png" width="30px">
+      Remove node named <input type="text" class="nodeInput" id="nodeToRemove" value="">
+      <img onclick="removeNodes()" class="buttons" src="XIcon.png" width="25px">
   
-      
+      </div>
+       <div id="Key">
+          <div class="legendItem" id="blueDefault"></div><p>Blue Nodes: Default</p><br>
+          <div class="legendItem" id="redCustom"></div><p>Red Nodes: Custom</p>
+       </div>
+      </div>
 
    <script src="Example.js"></script>
-      
       
    </body>
 </html>
