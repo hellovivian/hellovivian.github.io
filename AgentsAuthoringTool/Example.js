@@ -32,7 +32,7 @@ s.graph.addNode({
 
 function addNodes() {
        var newNodeName = grabAddNodeVal();
-         s.graph.addNode({id: newNodeName, label:newNodeName,x: 2, y:2,size: 1, color:'#CD4A42'}).addEdge({id:'e1',source:'Default GIFT ActiveMQ Gateway', target:newNodeName, color:'#83C8C6'});
+         s.graph.addNode({id: newNodeName, label:newNodeName,x: 2, y:2,size: 1, color:'#CD4A42'}).addEdge({id:'e1',source:'Default GIFT ActiveMQ Gateway', target:newNodeName, size: '1', color:'#83C8C6'});
          s.refresh();
        
        //So we can add to the next node

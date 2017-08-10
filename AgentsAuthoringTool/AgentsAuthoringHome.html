@@ -12,7 +12,7 @@
    </head>
    
    <body>
-      <img id="menuIcon" src="MenuIcon.png">
+      <a href="../AgentsAuthoringGateway.html"><img id="menuIcon" src="MenuIcon.png"></a>
 
       <div id="nav">
          <ul>
@@ -29,15 +29,15 @@
         <div id="container" ></div>
       <div id="addAndRemove">
 
-      Add node named <input type="text" class="nodeInput" id="nodeAddName" value=""/><img id="addNode" onclick="addNodes()" class="buttons" src="PlusIcon.png" width="25px"><br>
+       <input type="text" class="nodeInput" id="nodeAddName" placeholder="Add node named"/><img id="addNode" onclick="addNodes()" class="buttons" src="PlusIcon.png" width="25px"><br>
          
-      Remove node named <input type="text" class="nodeInput" id="nodeToRemove" value="">
+       <input type="text" class="nodeInput" id="nodeToRemove" placeholder="Remove node named">
       <img onclick="removeNodes()" class="buttons" src="XIcon.png" width="25px">
   
       </div>
        <div id="Key">
-          <div class="legendItem" id="blueDefault"></div><p>Blue Nodes: Default</p><br>
-          <div class="legendItem" id="redCustom"></div><p>Red Nodes: Custom</p>
+          <div class="legendItem" id="blueDefault"></div><p>Blue: Default</p><br>
+          <div class="legendItem" id="redCustom"></div><p>Red: Custom</p>
        </div>
       </div>
 

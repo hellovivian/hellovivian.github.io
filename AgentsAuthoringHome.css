@@ -26,7 +26,7 @@ p {
 
 #menuIcon {
    position: absolute;
-   right: 10%;
+   right: 5%;
    top: 5%;
    width: 75px;
    opacity: 50%;
@@ -35,11 +35,17 @@ p {
 .nodeInput {
    position: absolute;
    width: 150px;
-   left: 50%;
+   left: 40%;
+  
 }
+
+#nodeToRemove {
+   margin-top: 3px;
+}
+
 .buttons {
    position:absolute;
-   left: 250px;
+   left: 175px;
 }
 
 #bodycontainer {
@@ -52,13 +58,18 @@ p {
 }
 
 #agentstab {
-   background-color: #62dbe6;
+   background-color: gold;
+   padding-bottom: 20px;
+   padding-left: 30px;
+   padding-right: 30px;
+   border-top-left-radius: 10px;
+   z-index: 0;
 }
 
 #nav {
    position: absolute;
    top: 187px;
-   left: 50%;
+   left: 44%;
    z-index:2;
    
 }
@@ -68,7 +79,7 @@ p {
 
    position: relative;
    
-   background-color: #ffe87e;
+   background-color: #ffe7ac;
    padding: 10px;
    border-top-right-radius: 10px;
 }
@@ -104,35 +115,40 @@ input {
 #container {
       position: absolute;
       width: 640px;
-      height: 40%;
-      left: 25%;
+      height: 300px;
+      left: 22.5%;
       top: 25%;
-      background-color: #ffe25a;
+      background-color: gold;
       border-radius: 20px;
-      padding: 50px;
+      padding: 0 50px;
+      z-index: 2;
+
+ 
     } 
 
 #blueDefault {
    background-color:#004c8e;
-   width:25px;
-   height:25px;
+   width:20px;
+   height:20px;
    z-index:2;
 }
 
 #redCustom {
    background-color:#CD4A42;
-   width:25px;
-   height:25px;
+   width:20px;
+   height:20px;
  
 }
 
+
+
 .legendItem {
    position: relative;
-   
+   border-radius: 3px;
 }
 
 #key {
    position:absolute;
-   left: 75%;
+   left: 72.5%;
    top: 200px;
 }
