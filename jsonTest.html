@@ -1,4 +1,4 @@
- <html>
+<html>
 <head>
 <style type="text/css">
   #container {
@@ -7,18 +7,61 @@
     margin: auto;
   }
 </style>
+   <script>
+     var yourJSONObject = {
+
+  
+
+} // will later be filled with the data
+var req = new XMLHttpRequest();
+req.open('GET', 'jsonTest.json', true); 
+req.onreadystatechange = function (aEvt) {
+  if (req.readyState == 4) {
+      yourJSONObject = JSON.parse(req.responseText);
+     
+  }
+};
+req.send(null); 
+      
+      
+      //for every gateway node
+      for (i = 0; i < yourJSONObject.nodes.length; i++) { 
+    alert(JSON.stringify(yourJSONObject.nodes[i]) + yourJSONObject.nodes[i]["child"] );
+         //and for every child
+         for ( i = 0; i < yourJSONObject.nodes[i].length) {
+         }
+         
+}
+   </script>
 </head>
 <body>
 <div id="container"></div>
 <script src="build/sigma.min.js"></script>
 <script src="build/plugins/sigma.parsers.json.min.js"></script>
 <script>
-  sigma.parsers.json('data.json', {
+   
+   s = new sigma({
+   graph: g,
+   container: 'graph-container',
+   renderer: {
+    container: document.getElementById('graph-container'),
+    type: 'canvas'
+   },
+   settings: {
+   }
+   });
+   
+  var yourJSONObject = sigma.parsers.json('jsonTest.json', {
     container: 'container',
     settings: {
       defaultNodeColor: '#ec5148'
     }
   });
+   
+   for (
+   
+   
 </script>
+   <p id="blah"> </p>
 </body>
 </html>
