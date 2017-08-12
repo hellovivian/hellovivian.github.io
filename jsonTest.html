@@ -2,52 +2,116 @@
 <head>
 <style type="text/css">
   #container {
-    max-width: 400px;
-    height: 400px;
+    max-width: 800px;
+    height: 800px;
     margin: auto;
   }
 </style>
+   <script src="build/sigma.min.js"></script>
+<script src="build/plugins/sigma.parsers.json.min.js"></script>
    <script>
+      
      var yourJSONObject = {
+  "gateways": [
+    {
+      id: "gateway",
+      label: "gateway",
+      type: "activemq",
+      size: 3,
+      nodes: ["child1"]
+    },
+    {
+      id: "child1",
+      label: "childservice1",
+      type: "main",
+      size: 3,
+      nodes: ["child2", "child3"]
+    },
+    {
+      id: "child2",
+      label: "childservice2",
+      type: "html",
+      x: 1,
+      y: 3,
+      size: 3,
+      nodes: ["C"]
+    }
+  ]
 
-  
+}     
+   
 
-} // will later be filled with the data
-var req = new XMLHttpRequest();
-req.open('GET', 'jsonTest.json', true); 
-req.onreadystatechange = function (aEvt) {
-  if (req.readyState == 4) {
-      yourJSONObject = JSON.parse(req.responseText);
-     
-  }
-};
-req.send(null); 
-      
-      
-      //for every gateway node
-      for (i = 0; i < yourJSONObject.nodes.length; i++) { 
-    alert(JSON.stringify(yourJSONObject.nodes[i]) + yourJSONObject.nodes[i]["child"] );
-         //and for every child
-         for ( i = 0; i < yourJSONObject.nodes[i].length) {
-         }
-         
-}
    </script>
 </head>
 <body>
 <div id="container"></div>
-<script src="build/sigma.min.js"></script>
-<script src="build/plugins/sigma.parsers.json.min.js"></script>
+
 <script>
-  var x = sigma.parsers.json('jsonTest.json', {
-    container: 'container',
-    settings: {
-      defaultNodeColor: '#ec5148'
-    }
-  });
+   var activemqNodes = {weight: 1};
+   var mainNodes = {weight: 2};
+   var html5Nodes = {weight: 3};
+   var postMessage = {weight: 4};
+   var services = {weight: 5};
+
+   var s = new sigma('container');
+
+   var main = new RegExp('/main+/');
    
+   function draw(s, nodeObj, x, y) {
+      s.graph.addNode(nodeObj);
+      if (nodeObj.nodes != {}) {
+         xShift = -2;
+         for (i = 0; i < nodeObj.nodes.length; i++ ) {
+            nodeObj.nodes[i].x = x+xShift;
+            nodeObj.nodes[i].y = y+1;
+            draw(s, nodeObj.nodes[i], x+xShift, y+1);
+            xShift++;
+         }
+      }
+   }
+
    
+    for (i = 0; i < yourJSONObject.gateways.length; i++) { 
+      
+         s.graph.addNode(yourJSONObject.gateways[i]);
+    
+       //if there are nodes
+       if (yourJSONObject.gateways[i]["nodes"] != undefined) {
+          //for every service that is a child to the gateway
+          childXDist = -2;
+          for (j = 0; j < yourJSONObject.gateways[i]["nodes"].length; j++) {
+             var temp = {};
+             parentNode = yourJSONObject.gateways[i];
+             temp.id = parentNode["nodes"][j];
+             temp.label = parentNode["nodes"][j]; 
+             temp.x = parentNode["x"] + childXDist;
+             temp.y = parentNode["y"] + 1.2;
+             temp.size = 1;
+             s.graph.addNode(temp);
+             console.log(temp);
+            tempEdge = {}
+          tempEdge.id = parentNode.id + "-" + parentNode.nodes[j];
+          tempEdge.source = parentNode.id;
+          tempEdge.target = parentNode.nodes[j];
+          s.graph.addEdge(tempEdge);
+             
+          childXDist++;
+          }
+          
+          //going by priority
+        if (activemqNodes != {}) {
+           
+       } else if (mainNodes != {}) {
+          
+       } else if (html5Nodes != {}) {
+       } else if (postMessage != {}) {
+       } else {
+          
+       }
+       
+}
+         
 </script>
-   <p id="blah"> </p>
+  
 </body>
 </html>
