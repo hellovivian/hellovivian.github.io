@@ -9,32 +9,27 @@
 </style>
    <script src="build/sigma.min.js"></script>
 <script src="build/plugins/sigma.parsers.json.min.js"></script>
+   <script src="build/plugins/sigma.renderers.parallelEdges.min.js"></script>
+   <script type="text/javascript" src="https://raw.githubusercontent.com/qiao/heap.js/master/lib/heap.js"></script>
    <script>
+      
       
      var yourJSONObject = {
   "gateways": [
     {
       id: "gateway",
-      label: "gateway",
-      type: "activemq",
-      size: 3,
-      nodes: ["child1"]
+      gateway: "activemq",
+      nodes: ["child1", "child2"]
     },
     {
       id: "child1",
-      label: "childservice1",
       type: "main",
-      size: 3,
-      nodes: ["child2", "child3"]
+      nodes: ["child2", "gateway"]
     },
     {
       id: "child2",
-      label: "childservice2",
       type: "html",
-      x: 1,
-      y: 3,
-      size: 3,
-      nodes: ["C"]
+      nodes: ["gateway"]
     }
   ]
 
@@ -54,49 +49,104 @@
    var services = {weight: 5};
 
    var s = new sigma('container');
-
+ 
    var main = new RegExp('/main+/');
    
-   function draw(s, nodeObj, x, y) {
-      s.graph.addNode(nodeObj);
-      if (nodeObj.nodes != {}) {
-         xShift = -2;
-         for (i = 0; i < nodeObj.nodes.length; i++ ) {
-            nodeObj.nodes[i].x = x+xShift;
-            nodeObj.nodes[i].y = y+1;
-            draw(s, nodeObj.nodes[i], x+xShift, y+1);
-            xShift++;
-         }
-      }
-   }
-
+//   function draw(s, nodeObj, x, y, parent, edge) {
+//      nodeObj.size = 3;
+//      if (edge == 0 && parent === "") {
+//      s.graph.addNode(nodeObj);
+//      } else {
+//         s.graph.addNode(nodeObj).addEdge({id: edge.toString(), source: parent, target: nodeObj.id, color: '#83C8C6' });
+//      }
+//       alert(JSON.stringify(nodeObj));
+//      if (nodeObj.nodes != {}) {
+//         
+//         for (i = 0; i < nodeObj.nodes.length; i++ ) {
+//            var nextNode = {id: nodeObj.nodes[i], label: nodeObj.nodes[i], size: 3};
+//            
+//            nextNode.x = nodeObj.x + 0.2;
+//            nextNode.y = nodeObj.y + 0.2;
+//          alert(nodeObj.id + nextNode.id);
+//           
+//            draw(s, nextNode, nextNode.X, nextNode.y, nodeObj.id, edge + 1);
+//           
+//            
+//            alert(edge.toString());
+//           // alert(JSON.stringify({id: edge.toString(), source: nodeObj.id, target: nextNode.id, color: '#83C8C6' });
+//          
+//        
+//         }
+//      }
+//   }
    
-    for (i = 0; i < yourJSONObject.gateways.length; i++) { 
+   //draw(s, yourJSONObject.gateways[0], 1, 1, "", 0);
+   
+   var x = 0;
+   var y = 0;
+   var edge = 0;
+   for (i = 0; i < yourJSONObject.gateways.length; i++) {
+      var tempNode = yourJSONObject.gateways[i];
+      tempNode.label = tempNode.id;
+      tempNode.x = Math.random(0, 0.5);
+      tempNode.y = y + 0.2;
+      tempNode.size = 3;
+      //tempNode.count = 0;
+//       alert(JSON.stringify(tempNode));
+      s.graph.addNode(tempNode);
+      x = x+0.2;
+      y = y+0.2;
       
-         s.graph.addNode(yourJSONObject.gateways[i]);
-    
-       //if there are nodes
-       if (yourJSONObject.gateways[i]["nodes"] != undefined) {
-          //for every service that is a child to the gateway
-          childXDist = -2;
-          for (j = 0; j < yourJSONObject.gateways[i]["nodes"].length; j++) {
-             var temp = {};
-             parentNode = yourJSONObject.gateways[i];
-             temp.id = parentNode["nodes"][j];
-             temp.label = parentNode["nodes"][j]; 
-             temp.x = parentNode["x"] + childXDist;
-             temp.y = parentNode["y"] + 1.2;
-             temp.size = 1;
-             s.graph.addNode(temp);
-             console.log(temp);
-            tempEdge = {}
-          tempEdge.id = parentNode.id + "-" + parentNode.nodes[j];
-          tempEdge.source = parentNode.id;
-          tempEdge.target = parentNode.nodes[j];
-          s.graph.addEdge(tempEdge);
-             
-          childXDist++;
+      
+   }
+   
+   //adding edges
+   for (i = 0; i < yourJSONObject.gateways.length; i++) {
+      var tempNode = yourJSONObject.gateways[i];
+      if (tempNode.nodes != {}) {
+         for (j = 0; j < tempNode.nodes.length; j++) {
+//          alert(tempNode.id+ tempNode.nodes[j]+ edge.toString());
+            //tempNode.count = tempNode.count + 1;
+         s.graph.addEdge({id:edge.toString(), target: tempNode.nodes[j], source: tempNode.id});
+         edge++;
           }
+      }
+      
+      
+   }
+   
+   var heap = new Heap();
+heap.push(3);
+heap.push(1);
+heap.push(2);
+alert(heap.pop()); // 1 
+   
+//    for (i = 0; i < yourJSONObject.gateways.length; i++) { 
+//      
+//         s.graph.addNode(yourJSONObject.gateways[i]);
+//    
+//       //if there are nodes
+//       if (yourJSONObject.gateways[i]["nodes"] != undefined) {
+//          //for every service that is a child to the gateway
+//          childXDist = -2;
+//          for (j = 0; j < yourJSONObject.gateways[i]["nodes"].length; j++) {
+//             var temp = {};
+//             parentNode = yourJSONObject.gateways[i];
+//             temp.id = parentNode["nodes"][j];
+//             temp.label = parentNode["nodes"][j]; 
+//             temp.x = parentNode["x"] + childXDist;
+//             temp.y = parentNode["y"] + 1.2;
+//             temp.size = 1;
+//             s.graph.addNode(temp);
+//             console.log(temp);
+//            tempEdge = {}
+//          tempEdge.id = parentNode.id + "-" + parentNode.nodes[j];
+//          tempEdge.source = parentNode.id;
+//          tempEdge.target = parentNode.nodes[j];
+//          s.graph.addEdge(tempEdge);
+//             
+//          childXDist++;
+//          }
           
           //going by priority
         if (activemqNodes != {}) {
@@ -109,7 +159,7 @@
           
        }
        
-}
+//}
          
 </script>
   
