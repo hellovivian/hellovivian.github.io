@@ -32,43 +32,48 @@
      var yourJSONObject = {
   "gateways": [
     {
-      id: "child1",
+      id: "main",
       type: "main",
-      nodes: ["child2", "gateway"]
+      nodes: ["html", "activemq"]
     },
-     {id: "gateway",
+     {id: "activemq",
       type: "activemq",
-      nodes: ["child1", "child2"]
+      nodes: ["main", "html"]
     },
      {
-        id: "child3",
+        id: "service",
         type:"service",
         nodes:[]
      },
     
     {
-      id: "child2",
+      id: "html",
       type: "html",
-      nodes: ["gateway"]
+      nodes: ["activemq"]
     }
      
      ]
 }     
    
-// var yourJSONObject = $('#jsontext').val();
-//  
+
    </script>
 </head>
 <body>
-    <input id="jsontext" type="text">
-    <div id="container"></div> 
-   
-<!--   <input type="button" onclick="do()">-->
+    <input type="text" id='jsonText'></input>
+   <input type="button" val="submit" id="submit" onclick="a()"></input>
+   <script>
+      function a() {
+      var yourJSONObject = document.getElementById("jsonText").value;
+      alert(yourJSONObject);
+      blahblah();
+      }
+  </script>
 
+    <div id="container"></div> 
 <script>
    
-//   function blahblah() {
-// 
+   function blahblah() {
+ 
    var weights = {activemq: 1, main:2, html:3, postmsg:4, service:5};
 
    
@@ -110,9 +115,6 @@
 
    }
    
-   
-   //alert(JSON.stringify(heap.pop(tempNode));
-   //adding edges
    for (i = 0; i < yourJSONObject.gateways.length; i++) {
       var tempNode = yourJSONObject.gateways[i];
       if (tempNode.nodes != {}) {
@@ -123,10 +125,11 @@
       }
          
    }
+      alert("done");
+   }
  
          
 </script>
-  <input type="button" value="hi" id='submit' onclick="s.graph.clear()">SubmitJSON</input>
-  
+ 
 </body>
 </html>
