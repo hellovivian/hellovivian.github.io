@@ -109,7 +109,10 @@ input {
     max-width: 800px;
     height: 800px;
     margin: auto;
-   
+     position: absolute;
+     left: 700px;
+     top: 300px;
+     background-color: black;
   }
    
 #jsontext {
