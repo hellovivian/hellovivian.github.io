@@ -48,14 +48,6 @@ p {
    left: 175px;
 }
 
-#bodycontainer {
-   position: absolute;
-   width: 120%;
-   height: 70%;
-   margin: -20px;
-   top: 20%;
-   background-color: mintcream;
-}
 
 #agentstab {
    background-color: gold;
@@ -113,13 +105,23 @@ input {
 }
 
 
-#container {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-     background-color: lightblue;
-
+  #container {
+    max-width: 800px;
+    height: 800px;
+    margin: auto;
+   
   }
-
+   
+#jsontext {
+   position: absolute;
+   left: 10%;
+   top: 10%;
+   width: 400px;
+   height: 150px;
+}
+   
+#submit {
+   position: absolute;
+   left: 11%;
+   top: 35%;
+}

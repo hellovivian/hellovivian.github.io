@@ -1,27 +1,6 @@
 <html>
 <head>
-<style type="text/css">
-  #container {
-    max-width: 800px;
-    height: 800px;
-    margin: auto;
-   
-  }
-   
-#jsontext {
-   position: absolute;
-   left: 10%;
-   top: 10%;
-   width: 400px;
-   height: 150px;
-}
-   
-#submit {
-   position: absolute;
-   left: 11%;
-   top: 35%;
-}
-</style>
+   <link type="text/css" rel="stylesheet" href="jsonTest.css">
    <script src="build/sigma.min.js"></script>
 <script src="build/plugins/sigma.parsers.json.min.js"></script>
    <script src="build/plugins/sigma.renderers.parallelEdges.min.js"></script>
@@ -45,7 +24,6 @@
         type:"service",
         nodes:[]
      },
-    
     {
       id: "html",
       type: "html",
@@ -54,11 +32,11 @@
      
      ]
 }     
-   
 
    </script>
 </head>
 <body>
+   <h1>JSON Graph </h1>
     <input type="text" id='jsonText'></input>
    <input type="button" val="submit" id="submit" onclick="a()"></input>
    <script>
