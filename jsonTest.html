@@ -14,17 +14,38 @@
    
 </head>
 <body>
-   <h1>Config File JSON to Graph</h1>
-    <textarea type="textbox" id='jsonText' >{"gateways": [{"id": "main","type": "main", "nodes": ["html"]}, {"id":"activemq", "type": "activemq", "nodes": ["main", "html"]}, {"id": "service", "type": "service", "nodes":[]}, {"id": "html", "type": "html", "nodes": ["activemq"]}]}</textarea>
+   <div id="tutorial">
+   <p id="instructText">Paste your JSON in the text area below and hit submit to see your gateways and services laid out automatically.</p>
+   
+   <p>Examples of JSON that works include:
+      {"gateways": [{"id": "main","type": "main", "nodes": []}]} <br>
+      
+      The structure of the JSON file begins like this. {"gateways": []} <br>
+      
+      To add a gateway or service, we add to the array a JSON object with the following structure. <br></p>
+      
+      <pre >
+      
+      {"id": "NAME", "type": "TYPEOFSERVICE", "nodes": []} <br>
+      </pre>
+   
+      <p>
+      An example of a well-formed JSON file would be the following. <br>
+      
+      
+   </p>
+   </div>
+  
+    <textarea type="textbox" id='jsonText' >{"gateways": [{"id": "main","type": "main", "nodes": ["html"]}, {"id":"activemq", "type": "activemq", "nodes": ["main", "html"]}, {"id": "service", "type": "service", "nodes":[]}, {"id": "html", "type": "html", "nodes": ["service"]}]}</textarea>
    <input type="button" value="submit" id="submit" onclick="uponClick()"></input>
    <script>
       function uponClick() {
-      var hi = JSON.parse(document.getElementById("jsonText").value);
-      drawgraph(s, hi);
+      var jsonValue = JSON.parse(document.getElementById("jsonText").value);
+      drawgraph(s, jsonValue);
       }
   </script>
 
-    <div id="container"></div> 
+    <div id="container"> <h1>Config File JSON to Graph</h1></div> 
 
    
 <script>
