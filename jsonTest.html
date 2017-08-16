@@ -1,78 +1,21 @@
 <html>
 <head>
    <link type="text/css" rel="stylesheet" href="jsonTest.css">
-<style type="text/css">
-   
-  #container {
-    max-width: 800px;
-    height: 800px;
-    margin: auto;
-  top: 200px;
 
-     background-color: white;
-   
-  }
-   
-#jsontext {
-   position: absolute;
-   left: 2%;
-   top: 10%;
-   width: 200px;
-   height: 300px;
-}
-   
-#submit {
-   position: absolute;
-   left: 11%;
-   top: 500px;
-   width: 150px;
-
-}
-</style>
    <script src="build/sigma.min.js"></script>
-<script src="build/plugins/sigma.parsers.json.min.js"></script>
-   <script src="build/plugins/sigma.renderers.parallelEdges.min.js"></script>
+<!--<script src="build/plugins/sigma.parsers.json.min.js"></script>-->
+  
    <script type="text/javascript" src="heap.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-   <script>
-      
-     var yourJSONObject = {
-  "gateways": [
-    {
-      id: "main",
-      type: "main",
-      nodes: ["activemq", "service"]
-    },
-     {id: "activemq",
-      type: "activemq",
-      nodes: ["main", "html"]
-    },
-     {
-        id: "service",
-        type:"service",
-        nodes:[]
-     },
-    
-    {
-      id: "html",
-      type: "html",
-      nodes: ["activemq"]
-    }
-     
-     ]
-}     
    
-
-   </script>
 </head>
 <body>
-    <input type="textbox" id='jsonText' value="place your unordered json here and web inspect to see the graph"></input>
-   <input type="button" value="submit" id="submit" onclick="a()"></input>
+    <input type="textbox" id='jsonText' value='{"gateways": [{"id": "main","type": "main", "nodes": ["html", "activemq"]}, {"id":"activemq", "type": "activemq", "nodes": ["main", "html"]}, {"id": "service", "type": "service", "nodes":[]}, {"id": "html", "type": "html", "nodes": ["activemq"]}]} '></input>
+   <input type="button" value="submit" id="submit" onclick="uponClick()"></input>
    <script>
-      function a() {
-      var yourJSONObject = document.getElementById("jsonText").value;
-      alert(yourJSONObject);
-      blahblah();
+      function uponClick() {
+      var hi = JSON.parse(document.getElementById("jsonText").value);
+      drawgraph(hi);
       }
   </script>
 
@@ -81,7 +24,7 @@
 
 <script>
    
-   function blahblah() {
+   function drawgraph(hi) {
  
    var weights = {activemq: 1, main:2, html:3, postmsg:4, service:5};
 
@@ -100,12 +43,12 @@
  
    var main = new RegExp('/main+/');
 
-   
+   alert(hi);
    var x = 0;
    var y = 0;
    var edge = 0;
-   for (i = 0; i < yourJSONObject.gateways.length; i++) {
-      var tempNode = yourJSONObject.gateways[i];
+   for (i = 0; i < hi.gateways.length; i++) {
+      var tempNode = hi.gateways[i];
       tempNode.label = tempNode.id;
       tempNode.size = 3;
       tempNode.weight = weights[String(tempNode.type)];
@@ -114,9 +57,9 @@
      
       }
    
-    for (i = 0; i < yourJSONObject.gateways.length; i++) {
+    for (i = 0; i < hi.gateways.length; i++) {
       var tempNode = heap.pop();
-      tempNode.x = Math.random(0, 0.5);
+      tempNode.x = x+0.2;
       tempNode.y = y + 0.2;
       x = x+0.2;
       y = y+0.2;
@@ -124,8 +67,8 @@
 
    }
    
-   for (i = 0; i < yourJSONObject.gateways.length; i++) {
-      var tempNode = yourJSONObject.gateways[i];
+   for (i = 0; i < hi.gateways.length; i++) {
+      var tempNode = hi.gateways[i];
       if (tempNode.nodes != {}) {
          for (j = 0; j < tempNode.nodes.length; j++) {
          s.graph.addEdge({id:edge.toString(), target: tempNode.nodes[j], source: tempNode.id});
