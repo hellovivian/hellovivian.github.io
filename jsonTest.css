@@ -9,16 +9,19 @@ h1 {
    color: black;
 /*  background-color: black;*/
    font-weight: 200;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   
 }
 
    
-  #container {
-    max-width: 800px;
-    height: 800px;
-    margin: auto;
-  top: 200px;
-
-     background-color: white;
+#container {
+ max-width: 800px;
+ height: 800px;
+ margin: auto;
+ top: 250px;
+ background-color: white;
    
   }
    
@@ -35,3 +38,4 @@ h1 {
    left: 11%;
    top: 500px;
    width: 150px;
+   height: 200px;
