@@ -59,21 +59,24 @@
    </script>
 </head>
 <body>
-    <input type="text" id='jsonText'></input>
-   <input type="button" val="submit" id="submit" onclick="a()"></input>
+    <input type="text" id='jsonText'>SubmitJSON</input>
+   <input type="button" val="submit" id="submit" onclick="a()">submit</input>
    <script>
       function a() {
       var yourJSONObject = document.getElementById("jsonText").value;
       alert(yourJSONObject);
-      blahblah();
+         blahblah();
       }
   </script>
 
     <div id="container"></div> 
+   
+<!--   <input type="button" onclick="do()">-->
+
 <script>
    
-//   function blahblah() {
-// 
+   function blahblah() {
+ 
    var weights = {activemq: 1, main:2, html:3, postmsg:4, service:5};
 
    
@@ -123,10 +126,11 @@
          edge++;
           }
       }
-         
+      
    }
+      alert("done graphing");
  
-         
+   }
 </script>
  
 </body>
