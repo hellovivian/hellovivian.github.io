@@ -14,17 +14,20 @@
    
 </head>
 <body>
+      <p id="instructText">Paste your JSON in the text area below and hit submit to see your gateways and services laid out automatically.</p>
    <div id="tutorial">
-   <p id="instructText">Paste your JSON in the text area below and hit submit to see your gateways and services laid out automatically.</p>
+
    
-   <p>Examples of JSON that works include:
+      <p>Examples of JSON that works include:</p>
+      <pre>
       {"gateways": [{"id": "main","type": "main", "nodes": []}]} <br>
+      </pre>
+      <p>
+         The structure of the JSON file begins like this. </p><pre>{"gateways": []} </pre><br>
       
-      The structure of the JSON file begins like this. {"gateways": []} <br>
+     <p> To add a gateway or service, we add to the array a JSON object with the following structure. <br></p>
       
-      To add a gateway or service, we add to the array a JSON object with the following structure. <br></p>
-      
-      <pre >
+      <pre>
       
       {"id": "NAME", "type": "TYPEOFSERVICE", "nodes": []} <br>
       </pre>

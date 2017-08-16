@@ -53,11 +53,12 @@ h1 {
 }
 
 #tutorial {
-   background-color: lightgrey;
+   background-color: #e1efee;
    border-radius: 2px;
    position: absolute;
-   right: 70px;
+   right: 30px;
    top: 150px;
    width: 200px;
    padding: 20px;
+   overflow: scroll;
 }
