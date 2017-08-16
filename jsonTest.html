@@ -1,25 +1,32 @@
 <html>
 <head>
+   <link type="text/css" rel="stylesheet" href="jsonTest.css">
 <style type="text/css">
+   
   #container {
     max-width: 800px;
     height: 800px;
     margin: auto;
+  top: 200px;
+
+     background-color: white;
    
   }
    
 #jsontext {
    position: absolute;
-   left: 10%;
+   left: 2%;
    top: 10%;
-   width: 400px;
-   height: 150px;
+   width: 200px;
+   height: 300px;
 }
    
 #submit {
    position: absolute;
    left: 11%;
-   top: 35%;
+   top: 500px;
+   width: 150px;
+
 }
 </style>
    <script src="build/sigma.min.js"></script>
@@ -34,7 +41,7 @@
     {
       id: "main",
       type: "main",
-      nodes: ["html", "activemq"]
+      nodes: ["activemq", "service"]
     },
      {id: "activemq",
       type: "activemq",
@@ -59,19 +66,18 @@
    </script>
 </head>
 <body>
-    <input type="text" id='jsonText'>SubmitJSON</input>
-   <input type="button" val="submit" id="submit" onclick="a()">submit</input>
+    <input type="textbox" id='jsonText' value="place your unordered json here and inspect to see the graph"></input>
+   <input type="button" value="submit" id="submit" onclick="a()"></input>
    <script>
       function a() {
       var yourJSONObject = document.getElementById("jsonText").value;
       alert(yourJSONObject);
-         blahblah();
+      blahblah();
       }
   </script>
 
     <div id="container"></div> 
-   
-<!--   <input type="button" onclick="do()">-->
+
 
 <script>
    
