@@ -16,6 +16,19 @@
 </head>
 <body>
       <p id="instructText">Paste your JSON in the text area below and hit submit to see your gateways and services laid out automatically.</p>
+   
+   <div>
+      
+<select id="dropdown">
+   <option value="blank"></option>
+  <option value="activemq">ActiveMQ</option>
+  <option value="Main">Main</option>
+  <option value="HTML">HTML</option>
+  <option value="Service">Service</option>
+</select>
+   </div>
+   
+   
    <div id="tutorial">
 
    
@@ -43,11 +56,48 @@
     <textarea type="textbox" id='jsonText' >{"gateways": [{"id": "main","type": "main", "nodes": ["html"]}, {"id":"activemq", "type": "activemq", "nodes": ["main", "html"]}, {"id": "service", "type": "service", "nodes":[]}, {"id": "html", "type": "html", "nodes": ["service"]}]}</textarea>
    
    <input type="button" value="submit" id="submit" onclick="uponClick()"></input>
+   <input type="button" value="dropdown sub" id="dropdownsub" onclick="getDropDownVal()"></input>
 
-    <div id="container"> <h1>Config File JSON to Graph</h1></div> 
+  <textarea type="textbox" id='nodeNames' placeholder="Node names here, separated by comma"></textarea>
+
+
+   <div id="container"> <h1>Config File JSON to Graph</h1></div> 
 
    
 <script type="text/javascript" src="layoutAgentsGraph.js"></script>
+  
+<script type="text/javascript">
+   var nodenum = 0;
+   
+   function getDropDownVal() {
+      var nodeString = '{"id": ';
+      
+      var dropDownVal = document.getElementById("dropdown");
+      if(dropDownVal.selectedIndex == 0) {
+      
+           alert('select one answer');
+      }
+      else {
+          var selectedText = dropDownVal.options[dropDownVal.selectedIndex].text;
+
+         nodeNames = document.getElementById("nodeNames").value
+         var splitNodeNames = nodeNames.split(",");
+         alert(splitNodeNames);
+         
+           
+         if(splitNodeNames.length > 0){ 
+            for (var node in splitNodeNames) {
+            splitNodeNames[node] = '"' + splitNodeNames[node] + '"';
+         }
+ alert( nodeString + ' "' + String(selectedText) + nodenum.toString() + '", "type" : "' + String(selectedText) + '", "nodes": ['  + splitNodeNames.toString() +  ']'  );
+         }else{
+alert( nodeString + ' "' + String(selectedText) + nodenum.toString() + '", "type" : "' + String(selectedText) + '", "nodes": [' +  ']'  );
+         }
+         
+      }
+      
+   }
+</script>
  
 </body>
 </html>
