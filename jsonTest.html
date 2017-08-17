@@ -121,12 +121,12 @@
       } 
    }
       
-   checkCycles(topNode, seenStrings);
+   checkCycles(topNode, seenArray, seenStrings);
    s.refresh();
    }
    
    
-   function checkCycles(node, seenStrings) {
+   function checkCycles(node, seenArray, seenStrings) {
      alert(seenStrings);
          for (var index in node.nodes) {
             var childNode = node.nodes[index];
@@ -136,7 +136,7 @@
                return true;
             } 
             seenStrings.add(childNode);
-            checkCycles(seenArray[childNode]);
+            checkCycles(seenArray[childNode], seenArray, seenStrings);
             
          }
          
