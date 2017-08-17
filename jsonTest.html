@@ -40,112 +40,14 @@
    </p>
    </div>
   
-    <textarea type="textbox" id='jsonText' >{"gateways": [{"id": "main","type": "main", "nodes": []}, {"id":"activemq", "type": "activemq", "nodes": ["main", "html"]}, {"id": "service", "type": "service", "nodes":[]}, {"id": "html", "type": "html", "nodes": ["service"]}]}</textarea>
+    <textarea type="textbox" id='jsonText' >{"gateways": [{"id": "main","type": "main", "nodes": ["html"]}, {"id":"activemq", "type": "activemq", "nodes": ["main", "html"]}, {"id": "service", "type": "service", "nodes":[]}, {"id": "html", "type": "html", "nodes": ["service"]}]}</textarea>
+   
    <input type="button" value="submit" id="submit" onclick="uponClick()"></input>
-   <script>
-      function uponClick() {
-      var jsonValue = JSON.parse(document.getElementById("jsonText").value);
-      drawgraph(s, jsonValue);
-      }
-  </script>
 
     <div id="container"> <h1>Config File JSON to Graph</h1></div> 
 
    
-<script>
-
-   var s = new sigma('container');
-   s.settings('zoomingRatio', 1);
-   
-
-
-   function drawgraph(s, jsonObj) {
-   
-      s.graph.clear();
-      var seenArray = {};
-      var seenStrings = new StringSet();
-  
-   var weights = {activemq: 1, main:2, html:3, postmsg:4, service:5};
-
-   
-   var heap = new Heap(function cmp(a, b) {
-     if (a.weight < b.weight) {
-       return -1;
-     } 
-     if (a.weight > b.weight) {
-       return 1;
-     }
-     return 0;
-   });
- 
-
-   var x = 0;
-   var y = 0;
- 
-   var topNodeFlag = true;
-   var topNode = "";
-   var edge = 0;
-      
-   for (i = 0; i < jsonObj.gateways.length; i++) {
-      var tempNode = jsonObj.gateways[i];
-      tempNode.label = tempNode.id;
-      tempNode.size = 3;
-      tempNode.weight = weights[String(tempNode.type)];
-      heap.push(tempNode);
-
-      }
-   
-   for (i = 0; i < jsonObj.gateways.length; i++) {
-      var tempNode = heap.pop();
-      if (topNodeFlag) {
-         topNode = tempNode;
-         topNodeFlag = false;
-         seenStrings.add(topNode.id);
-      }
-      tempNode.x = Math.random(0, 0.2);
-      tempNode.y = y + 0.2;
-      x = x + 0.2;
-      y = y + 0.2;
-      s.graph.addNode(tempNode);
-      seenArray[tempNode.id] = tempNode;
-      
-   }
-   
-   for (i = 0; i < jsonObj.gateways.length; i++) {
-      var tempNode = jsonObj.gateways[i];
-      if (tempNode.nodes != {}) {
-         for (j = 0; j < tempNode.nodes.length; j++) {
-         s.graph.addEdge({id:edge.toString(), target: tempNode.nodes[j], source: tempNode.id});
-         edge++;
-          }
-      } 
-   }
-      
-   alert(checkCycles(topNode, seenArray, seenStrings));
-   
-   s.refresh();
-   }
-   
-   
-   function checkCycles(node, seenArray, seenStrings) {
-  
-         for (var index in node.nodes) {
-            var childNode = node.nodes[index];
-            
-            if (seenStrings.contains(childNode)) {
-                
-               return "Looks like you have a cycle! It includes " + childNode + "." ;
-            } 
-            seenStrings.add(childNode);
-            checkCycles(seenArray[childNode], seenArray, seenStrings);
-            
-         }
-         
-      return "No cycles in your graph, and you're good to go.";
-      
-   }
-               
-</script>
+<script type="text/javascript" src="layoutAgentsGraph.js"></script>
  
 </body>
 </html>
