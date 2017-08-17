@@ -80,17 +80,17 @@
       else {
           var selectedText = dropDownVal.options[dropDownVal.selectedIndex].text;
 
-         nodeNames = document.getElementById("nodeNames").value
-         var splitNodeNames = nodeNames.split(",");
-         alert(splitNodeNames);
-         
-           
-         if(splitNodeNames.length > 0){ 
+         nodeNames = document.getElementById("nodeNames").value;
+       
+         if(nodeNames.length > 0 ){ 
+            var splitNodeNames = nodeNames.split(",");
+       
             for (var node in splitNodeNames) {
             splitNodeNames[node] = '"' + splitNodeNames[node] + '"';
          }
  alert( nodeString + ' "' + String(selectedText) + nodenum.toString() + '", "type" : "' + String(selectedText) + '", "nodes": ['  + splitNodeNames.toString() +  ']'  );
-         }else{
+         }
+         else{
 alert( nodeString + ' "' + String(selectedText) + nodenum.toString() + '", "type" : "' + String(selectedText) + '", "nodes": [' +  ']'  );
          }
          
