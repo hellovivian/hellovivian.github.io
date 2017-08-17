@@ -8,6 +8,7 @@
    <script type="text/javascript" src="heap.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
    <script type="text/javascript" src="build/plugins/sigma.parsers.gexf.min.js"></script>
+   <script type="text/javascript" src="stringSet.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans|Zilla+Slab+Highlight" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
@@ -73,27 +74,38 @@
      return 0;
    });
  
-   var main = new RegExp('/main+/');
 
    var x = 0;
    var y = 0;
+   var seenArray = {};
+   var seenStrings = new StringSet();
+   var topNodeFlag = true;
+   var topNode = "";
    var edge = 0;
+      
    for (i = 0; i < jsonObj.gateways.length; i++) {
       var tempNode = jsonObj.gateways[i];
       tempNode.label = tempNode.id;
       tempNode.size = 3;
       tempNode.weight = weights[String(tempNode.type)];
       heap.push(tempNode);
+
       }
    
    for (i = 0; i < jsonObj.gateways.length; i++) {
       var tempNode = heap.pop();
+      if (topNodeFlag) {
+         topNode = tempNode;
+         topNodeFlag = false;
+         seenStrings.add(topNode.id);
+      }
       tempNode.x = Math.random(0, 0.2);
       tempNode.y = y + 0.2;
-      x = x+0.2;
-      y = y+0.2;
+      x = x + 0.2;
+      y = y + 0.2;
       s.graph.addNode(tempNode);
-
+      seenArray[tempNode.id] = tempNode;
+      
    }
    
    for (i = 0; i < jsonObj.gateways.length; i++) {
@@ -105,10 +117,31 @@
           }
       } 
    }
-   alert("Done graphing.");
+      
+   checkCycles(topNode);
    s.refresh();
- 
    }
+   
+   
+   function checkCycles(node) {
+      if (node.nodes === []) {
+         for (i = 0; i < node.nodes.length; i++) {
+            childNode = node.nodes[i];
+            if (seenStrings.contains(childNode)) {
+               alert("false");
+               return false;
+            } 
+            seenStrings.add(childNode);
+            checkCycles(seenArray[childNode]);
+            
+         }
+         
+      }
+      alert("true");
+      return true;
+      
+   }
+               
 </script>
  
 </body>
