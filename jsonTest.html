@@ -40,7 +40,7 @@
    </p>
    </div>
   
-    <textarea type="textbox" id='jsonText' >{"gateways": [{"id": "main","type": "main", "nodes": ["html"]}, {"id":"activemq", "type": "activemq", "nodes": ["main", "html"]}, {"id": "service", "type": "service", "nodes":[]}, {"id": "html", "type": "html", "nodes": ["service"]}]}</textarea>
+    <textarea type="textbox" id='jsonText' >{"gateways": [{"id": "main","type": "main", "nodes": []}, {"id":"activemq", "type": "activemq", "nodes": ["main", "html"]}, {"id": "service", "type": "service", "nodes":[]}, {"id": "html", "type": "html", "nodes": ["service"]}]}</textarea>
    <input type="button" value="submit" id="submit" onclick="uponClick()"></input>
    <script>
       function uponClick() {
@@ -121,28 +121,27 @@
       } 
    }
       
-   checkCycles(topNode, seenArray, seenStrings);
+   alert(checkCycles(topNode, seenArray, seenStrings));
+   
    s.refresh();
    }
    
    
    function checkCycles(node, seenArray, seenStrings) {
-     alert(seenStrings);
+  
          for (var index in node.nodes) {
             var childNode = node.nodes[index];
-            alert(childNode);
+            
             if (seenStrings.contains(childNode)) {
-               alert("Looks like you have a cycle within your graph! It is " + childNode + ". Please fix the cycle and then graph again." );
-               return true;
+                
+               return "Looks like you have a cycle! It includes " + childNode + "." ;
             } 
             seenStrings.add(childNode);
             checkCycles(seenArray[childNode], seenArray, seenStrings);
             
          }
          
-      
-      alert("Looks like you have no cycles in your graph and you're good to go.");
-      return false;
+      return "No cycles in your graph, and you're good to go.";
       
    }
                
