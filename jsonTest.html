@@ -56,10 +56,14 @@
 
    var s = new sigma('container');
    s.settings('zoomingRatio', 1);
+   
+
 
    function drawgraph(s, jsonObj) {
    
       s.graph.clear();
+      var seenArray = {};
+      var seenStrings = new StringSet();
   
    var weights = {activemq: 1, main:2, html:3, postmsg:4, service:5};
 
@@ -77,8 +81,7 @@
 
    var x = 0;
    var y = 0;
-   var seenArray = {};
-   var seenStrings = new StringSet();
+ 
    var topNodeFlag = true;
    var topNode = "";
    var edge = 0;
@@ -118,27 +121,28 @@
       } 
    }
       
-   checkCycles(topNode);
+   checkCycles(topNode, seenStrings);
    s.refresh();
    }
    
    
-   function checkCycles(node) {
-      if (node.nodes === []) {
-         for (i = 0; i < node.nodes.length; i++) {
-            childNode = node.nodes[i];
+   function checkCycles(node, seenStrings) {
+     alert(seenStrings);
+         for (var index in node.nodes) {
+            var childNode = node.nodes[index];
+            alert(childNode);
             if (seenStrings.contains(childNode)) {
-               alert("false");
-               return false;
+               alert("Looks like you have a cycle within your graph! It is " + childNode + ". Please fix the cycle and then graph again." );
+               return true;
             } 
             seenStrings.add(childNode);
             checkCycles(seenArray[childNode]);
             
          }
          
-      }
-      alert("true");
-      return true;
+      
+      alert("Looks like you have no cycles in your graph and you're good to go.");
+      return false;
       
    }
                
