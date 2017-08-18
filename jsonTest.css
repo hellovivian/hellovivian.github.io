@@ -23,42 +23,37 @@ h1 {
  margin: auto;
  top: 250px;
  background-color: white;
-   
   }
    
 #jsontext {
-   position: absolute;
-   left: 2%;
-   top: 230px;
    width: 200px;
-    border-radius: 2px;
-   height: 300px;
-}
-   
-#submit {
-   position: absolute;
-   left: 120px;
-   top: 550px;
-   width: 110px;
-   height: 200px;
-     
+   border-radius: 2px;
+   height: 260px;
 }
 
-#instructText {
-   position: absolute;
-   top: 80px;
-   left: 20px;
-   width: 200px;
-
-}
-
+/*
 #tutorial {
    background-color: #e1efee;
    border-radius: 2px;
-   position: absolute;
-   right: 30px;
-   top: 150px;
+
    width: 200px;
    padding: 20px;
    overflow: scroll;
+}
+*/
+
+#addNodeMenu {
+
+   overflow: scroll;
+   padding: 20px;
+  
+}
+
+#rightContainer {
+   position: absolute;
+   top: 5px;
+   left: 15px;
+   width: 250px;
+   overflow: scroll;
+   background-color: whitesmoke;
 }
