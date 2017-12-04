@@ -1,0 +1,88 @@
+<html>
+   
+   <head>
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" type="text/css" href="PgTemplate.css">
+      <link href="https://fonts.googleapis.com/css?family=Arapey|Muli|Playfair+Display|"    rel="stylesheet">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+   <script>
+     function modalClick(id) {
+                
+        
+          var x = document.getElementById(id);
+        var strId ='#' + String(id);
+        
+         var modBox = document.getElementById('modal');
+        var notmodBox = document.getElementById('notModal');
+          if (modal.style.display === "none") {
+              
+            var xClone = $(strId).clone().appendTo(modBox);
+         
+             modBox.style.display = "block";
+             notmodBox.style.display="block";
+          } else {
+               modBox.innerHTML = "";
+              modBox.style.display = "none";
+             notmodBox.style.display="none";
+
+        }
+          }
+
+      
+      </script>
+   </head>
+<body>
+
+   <div id="about">
+       <a id="name" href="index.html">VIVIAN LIU</a>
+<div id="content">
+      <div id="nav">
+         
+      <div id="socialmediabar">
+          <a href = "https://www.linkedin.com/in/vivian-liu-1abaa7bb" ><img width="20px" class="socialmedia" src="img/linkedin.png"></a>
+         <a href="https://www.behance.net/vliud6ee"><img width="20px" class="socialmedia" src="img/behance.png"></a>
+      </div>
+         
+         
+      <div id="navline"> </div>
+      
+      
+         
+         <a class="navItems" id="aboutbutton" href="about.html" > About</a>
+          <a class="navItems" target="_blank" id="resumetext" href="Fall17Resume.pdf" >Resume</a>
+
+         <a class="navItems" id="lasercut_nav" href="LasercutProj.html"> Lasercut Art </a> 
+         <a class="navItems" id="cad_nav" href="CADProj.html"> Computer Aided Designs </a> 
+         <a class="navItems" id="arduino_nav" href="ArduinoProj.html">Interactive/Arduino</a>
+         <a class="navItems" id="writing_nav" href="WritingProj.html"> Writing </a> 
+         <a class="navItems" id="misc_nav" href="MiscProj.html"> Misc. Projects</a>
+         
+      </div>
+   <div id="mainContent"><div  onclick="modalClick('notModal')" id="notModal">    </div><div id="modal"></div>
+      <div id="sidebars">
+         <div class="sidebar" id="leftSidebar">
+            <img onclick="modalClick('leftSidebar')" class="projImg" id="tomandjerry" src="img/tomandjerry.png">
+         
+         </div>
+         <div class="sidebar" id="CenterSidebar">
+            <img onclick="modalClick('CenterSidebar')" id="jia"  class="projImg" src="img/jia.png">
+
+         </div>
+         <div class="sidebar" id="rightSidebar">
+            <img  onclick="modalClick('rightSidebar')"  class="projImg"  id="livinghingevase" src="img/livinghingevase.png">
+         
+         </div>
+  
+     
+   </div>
+   </div>
+      
+
+      
+      
+     
+       
+</body>
+</html>           
+      
+    
