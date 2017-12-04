@@ -1,0 +1,16 @@
+
+
+
+#aboutme {
+   line-height: 150%;
+   font-size: 12px;
+   font-family: 'Muli';
+}
+
+#profpic {
+   top: 30%;
+   position: absolute;
+   left: 75%;
+   transform: translateX(-50%);
+   z-index: 400;
+}

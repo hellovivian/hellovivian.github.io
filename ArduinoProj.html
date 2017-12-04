@@ -5,31 +5,7 @@
       <link rel="stylesheet" type="text/css" href="PgTemplate.css">
       <link href="https://fonts.googleapis.com/css?family=Arapey|Muli|Playfair+Display|"    rel="stylesheet">
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-   <script>
-     function modalClick(id) {
-                
-        
-          var x = document.getElementById(id);
-        var strId ='#' + String(id);
-        
-         var modBox = document.getElementById('modal');
-        var notmodBox = document.getElementById('notModal');
-          if (modal.style.display === "none") {
-              
-            var xClone = $(strId).clone().appendTo(modBox);
-         
-             modBox.style.display = "block";
-             notmodBox.style.display="block";
-          } else {
-               modBox.innerHTML = "";
-              modBox.style.display = "none";
-             notmodBox.style.display="none";
-
-        }
-          }
-
-      
-      </script>
+      <script src="PgTemplate.js"></script>
    </head>
 <body>
 
@@ -48,9 +24,9 @@
       
       
          
-         <a class="navItems" id="aboutbutton" href="about.html" > About</a>
-          <a class="navItems" target="_blank" id="resumetext" href="Fall17Resume.pdf" >Resume</a>
-
+         <a class="navItems" id="aboutbutton" href="AboutPg.html" > About</a>
+    <a class="navItems" id="work_nav" href="work.html" >Work/Research</a>
+<a class="navItems" id="graphicdesign_nav" href="GraphicDesignProj.html"> 2D Digital </a>
          <a class="navItems" id="lasercut_nav" href="LasercutProj.html"> Lasercut Art </a> 
          <a class="navItems" id="cad_nav" href="CADProj.html"> Computer Aided Designs </a> 
          <a class="navItems" id="arduino_nav" href="ArduinoProj.html">Interactive/Arduino</a>
@@ -61,15 +37,15 @@
    <div id="mainContent"><div  onclick="modalClick('notModal')" id="notModal">    </div><div id="modal"></div>
       <div id="sidebars">
          <div class="sidebar" id="leftSidebar">
-          
+            <img onclick="modalClick('infinitymirror')" id="infinitymirror"  class="projImg" src="img/infinitymirror.png">
          
          </div>
          <div class="sidebar" id="CenterSidebar">
-            <img onclick="modalClick('CenterSidebar')" id="infinitymirror"  class="projImg" src="img/infinitymirror.png">
+            <img onclick="modalClick('mouthmouse')" id="mouthmouse"  class="projImg" src="img/mouthmouse.png">
 
          </div>
          <div class="sidebar" id="rightSidebar">
-           
+           <img onclick="modalClick('musicbox')" id="musicbox"  class="projImg" src="img/musicbox.png">
          </div>
   
      

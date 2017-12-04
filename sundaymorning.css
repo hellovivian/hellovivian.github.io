@@ -49,12 +49,7 @@ a {
 }
 
 
-#sky {
-   width: 100%;
-   top: 20%;
-   position: absolute;
-   z-index: 1;
-}
+
 
 #bike2 {
    z-index: 30;
@@ -109,16 +104,6 @@ a {
    
 }
 
-
-#hobbiesactive {
-   display:none;
-   position: absolute;
-   list-style: none;
-   top: 3%;
-   z-index:2;
-   left:57.5%;
-   transform: translateX(-50%);
-}
 
 #menu {
    position: absolute;
