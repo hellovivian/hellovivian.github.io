@@ -1,0 +1,94 @@
+body {
+   font-family: "Muli","sans-serif";
+   font-size: 12px;
+   letter-spacing: 1px;
+   position: absolute;
+   margin: 0 auto;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   color: #434763;
+   background-color: #eff1f0;
+   background-image: url("img/skybackground.png");
+   background-repeat: no-repeat;
+   background-size: 100%;
+   background-position: top 150px right 0px;
+  
+}
+
+#sky {
+   width: 100%;
+   top: 20%;
+   position: absolute;
+   z-index: 0;
+}
+
+
+a {
+   text-decoration: none;
+   color: black;
+}
+
+a:hover {
+   color: grey;
+}
+
+#name {
+   font-family: "Arapey","sans-serif";
+   position: absolute;
+   top: 5%;
+   margin: 0 auto;
+   z-index: 3;
+   font-size: 36px;
+   transform: translateX(-50%);
+   left: 50%;
+ 
+}
+
+#content {
+   width: 80%;
+   position: relative;
+   height: 100%;
+   margin: 0 auto;
+   text-align: center;
+}
+
+#nav {
+   top: 10%;
+   width: 100%;
+   position: absolute;
+   
+}
+
+#socialmediabar {
+   position: absolute;
+   top: 7.5%;
+   right: 15%;
+   opacity: 0.3;
+}
+
+#navline {
+   width: 100%;
+   top: 10%;
+   height: 3px;
+   z-index: 2;
+   margin: 0 auto;
+   position: absolute;
+   background-color: #cccccc;
+}
+
+
+.navItems {
+   position: relative;
+   padding: 30px;
+
+   
+}
+
+#mainContent {
+   position: absolute;
+   top: 15%;
+   background-color:red;
+   height: 80%;
+   width: 100%;
+}
