@@ -1,6 +1,6 @@
 body {
    font-family: "Muli","sans-serif";
-   font-size: 1.25em;
+   font-size: 1em;
    position: absolute;
    margin: 0 auto;
    width: 100%;
@@ -59,7 +59,7 @@ a:hover {
    width: 100%;
    position: absolute;
    z-index:5;
-   font-size: 1.5em;
+   font-size: 1.25em;
 }
 
 #socialmediabar {
@@ -161,7 +161,7 @@ a:hover {
 .story {
    display: none;
    z-index: 10;
-   font-size: 1.5em;
+   font-size: 1em;
    left: 10%;
    top: 10%;
    width: 90%;
