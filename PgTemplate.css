@@ -97,7 +97,7 @@ a:hover {
 }
 
 #sidebars {
-    overflow: scroll;
+/*    overflow: scroll;*/
    position: relative;
    top: 15%;
    margin: 0 auto;
