@@ -9,9 +9,14 @@
                for  ( num = 0; num < modal.getElementsByTagName('img').length; num++) {
                   children[num].remove();
                }
-              
-    
-             $(strId+ "story").hide();
+            
+             var stories = modal.getElementsByClassName('story');
+               for  ( num2 = 0; num2 < modal.getElementsByClassName('story').length; num2++) {
+            if ($("#" + stories[num2].id).is(":visible")) {
+                 $("#" + stories[num2].id).hide();
+               }
+               }
+      
             $("#modal").hide();
              $("#notModal").hide();
           } else {
