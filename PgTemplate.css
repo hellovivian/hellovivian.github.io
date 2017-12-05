@@ -131,7 +131,7 @@ a:hover {
    border: 30px solid rgba(0, 0, 0, .1);
    margin: 15px;
    width: 80%;
-    max-width: 550px;
+   max-width: 550px;
 }
 
 #modal {
@@ -149,6 +149,8 @@ a:hover {
   
 
 }
+
+
 
 #notModal {
    background-color: black;
@@ -174,7 +176,8 @@ a:hover {
 }
 
 #modal img {
-   transform: translateY(40%);
+   transform: translateY(20%);
+   max-width: 550px;
 }
 
 
