@@ -25,6 +25,7 @@
              $("#notModal").show();
 
                var clone = $(strId).clone().appendTo(modal); 
+            
                $(strId+ "story").show();
 
     

@@ -1,7 +1,6 @@
 body {
    font-family: "Muli","sans-serif";
-   font-size: 12px;
-   letter-spacing: 1px;
+   font-size: 1.25em;
    position: absolute;
    margin: 0 auto;
    width: 100%;
@@ -39,7 +38,7 @@ a:hover {
    top: 5%;
    margin: 0 auto;
    z-index: 3;
-   font-size: 36px;
+   font-size: 3em;
    transform: translateX(-50%);
    left: 50%;
  
@@ -128,8 +127,7 @@ a:hover {
 }
 
 .projImg {
-   padding: 30px;
-   background-color: white;
+   border: 30px solid rgba(0, 0, 0, .1);
    margin: 15px;
 }
 
@@ -162,10 +160,16 @@ a:hover {
 .story {
    display: none;
    z-index: 10;
-   font-size: 2em;
+   font-size: 1.5em;
+   left: 10%;
+   top: 10%;
    width: 90%;
    text-align: left;
    position: relative;
+}
+
+#modal img {
+   transform: translateY(40%);
 }
 
 
