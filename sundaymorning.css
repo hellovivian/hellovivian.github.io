@@ -72,48 +72,9 @@ a {
 
 }
 
-#aboutbutton {
-  position: absolute;
-   list-style: none;
-   top: 12.5%;
-   padding: 10px;
-   z-index:2;
-   left: 50%;
-   transform: translateX(-175px);
-}
-
-#resumebutton {
-   position: absolute;
-   list-style: none;
-   top: 12.5%;
-   padding: 10px;
-   z-index: 2;
-   left: 50%;
-   transform: translateX(-50%);
-}
 
 
-#hobbies {
-   position: absolute;
-   list-style: none;
-   top: 12.5%;
-   padding: 10px;
-   z-index:2;
-   left:50%;
-   transform: translateX(100px);
-   
-}
 
-
-#menu {
-   position: absolute;
-   font-size: 1.5em;
-   left: 50%;
-   top:2.5%;
-   transform: translateX(-50%);
-   z-index: 15;
-   width: 30px;
-}
 
 
 /*Animation*/
