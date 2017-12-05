@@ -163,10 +163,11 @@ a:hover {
 .story {
    display: none;
    z-index: 10;
-   font-size: 1em;
-   left: 10%;
+   font-size: 1.25em;
+   line-height: 150%;
+   left: 12.5%;
    top: 10%;
-   width: 90%;
+   width: 75%;
    text-align: left;
    position: relative;
 }
