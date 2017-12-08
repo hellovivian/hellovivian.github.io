@@ -53,7 +53,7 @@ a:hover {
 
 #subtitle {
    position: absolute;
-   top: 18%;
+   top: 17%;
       margin: 0 auto;
    z-index: 3;
 
@@ -194,6 +194,21 @@ a:hover {
    transform: translateY(20%);
    max-width: 550px;
    max-height: 750px;
+}
+
+#socialmediabar {
+   position: absolute;
+   top: -50px;
+   right: 150px;
+   opacity: 0.3;
+}
+
+#holidays {
+   DISPLAY:none;
+   position: relative;
+   transform: translateX(-50%);
+   bottom: 30px;
+   left: 50%;
 }
 
 
