@@ -36,17 +36,6 @@ a {
  
 }
 
-#navline {
-   width: 80%;
-   top: 12.5%;
-   left: 10%;
-   height: 3px;
-   z-index: 2;
-   margin: 0 auto;
-   position: absolute;
-   background-color: #cccccc;
-
-}
 
 
 
@@ -62,15 +51,6 @@ a {
 }
 
 
-#musicbox {
-   position: absolute;
-   z-index: 4;
-}
-
-#crane {
-   position: absolute;
-
-}
 
 
 
@@ -104,19 +84,6 @@ a {
 .rowactive {
 }
 
-#projectscontainer {
-   font-family: 'Arapey', 'sans-serif';
-   height: 50%;
-   width: 60%;
-   z-index: 200;
-   position: absolute;
-   top: 22.5%;
-   left: 50%;
-   transform: translateX(-50%);
-
-   display:none;
-   overflow: scroll;
-}
 
 .row {
    width:100%;
@@ -147,63 +114,9 @@ a {
    z-index: 10;
 }
 
-#sq1 {
-   background-image: url("imgs/led.gif");
-   background-size: cover;
-   opacity: 0.5;
-}
 
-#sq6 {
-   background-image: url("imgs/neopixel2.gif");
-   background-size: cover;
-   opacity: 0.6;
-}
 
-#sq3 {
-   background-image: url("imgs/musicbox.gif");
-   background-size: cover;
-   opacity: 0.65;
-}
 
-#sq9 {
-   background-image: url("imgs/3dprint.gif");
-   background-size: cover;
-   opacity:0.8;
-}
-
-#sq7 {
-   background-size: cover;
-   background-image: url("imgs/3dprint2.png");
-   opacity: 0.5;
-}
-
-#sq10 {
-   background-size: cover;
-   opacity: 0.7;
-}
-
-#sq11 {
-   background-image: url("imgs/cat.png");
-   background-size: cover;
-   opacity: 0.6;
-}
-
-#sq13 {
-   background-image: url("imgs/yingyang.png");
-   background-size: cover;
-   opacity: 0.6;
-}
-
-#sq15 {
-   background-image:url("imgs/sing.png");
-   background-size: cover;
-   opacity: 0.6;
-}
-
-#sq17 {
-   background-image: url("imgs/reddit.png");
-   opacity: 0.6;
-   background-size: cover;
 }
 /*
 #fibcontainer {

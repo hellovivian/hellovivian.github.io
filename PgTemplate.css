@@ -57,7 +57,7 @@ a:hover {
 #nav {
    top: 10%;
    width: 100%;
-   position: absolute;
+   position: relative;
    z-index:5;
    font-size: 1.25em;
 }
@@ -75,7 +75,7 @@ a:hover {
    height: 3px;
    z-index: 2;
    margin: 0 auto;
-   position: absolute;
+   position: relative;
    background-color: #cccccc;
 }
 
