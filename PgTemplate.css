@@ -191,7 +191,7 @@ a:hover {
 }
 
 #modal img {
-   transform: translateY(20%);
+   transform: translateY(40%);
    max-width: 550px;
    max-height: 750px;
 }
