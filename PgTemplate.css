@@ -115,7 +115,7 @@ a:hover {
 #sidebars {
 /*    overflow: scroll;*/
    position: relative;
-   top: 20%;
+   top: 150px;
    margin: 0 auto;
 
 }

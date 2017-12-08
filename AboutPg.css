@@ -9,16 +9,16 @@
    box-shadow: 10px 10px 5px #BBBBBB;
    position: relative;
    border-radius: 20px;
-   top: 100px;
+   top: 50px;
    font-family: 'Muli';
    margin: 0 auto;
 }
 
 
 #profpic {
-   top: 50%;
+   top: 60%;
    position: absolute;
-   left: 75%;
+   left: 50%;
    transform: translateX(-50%);
    z-index: 400;
 }
