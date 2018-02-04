@@ -59,6 +59,7 @@ a:hover {
    font-size: 0.75em;
    transform: translateX(-50%);
    left: 50%;
+   display:none;
 }
 /*Bounding box that keeps us within 80% of the width*/
 #content {
