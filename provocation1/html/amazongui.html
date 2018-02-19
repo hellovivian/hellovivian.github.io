@@ -1,0 +1,76 @@
+<html> 
+   <head>
+  
+      <link rel="stylesheet" type="text/css" href="../css/amazonprotest.css">
+      
+   <script>
+ 
+      
+      var counter = 0;
+      
+
+      function display(ct) {
+              var amazondict = {
+         0: "askbegin",
+        1: "askname",
+        2: "asklikes",
+        3: "askq3",
+        4: "askq4",
+         5: "reboot"
+               
+      
+      };
+         
+          alert(amazondict[ct] + " entered display");
+        
+            document.getElementById(amazondict[ct]).style.display="block";
+         if (ct == 5) {
+            setTimeout(alert("Session is over " ), 5000);
+            document.getElementById(amazondict[ct]).style.display = "none";
+            document.getElementById(amazondict[0]).style.display = "block";
+         }
+      
+            document.getElementById(amazondict[ct-1]).style.display="none";
+         
+      }
+      
+
+  
+   </script>
+   </head>
+   
+<body>
+   
+
+   <img id="amazonmom" width="300px" src="../imgs/amazonbg.png">
+    <div id="askbegin">
+      <h1> Hello! I'm Alexa. Shall we begin?</h1>
+     <img width="75px" onclick=" counter++; alert(counter % 6); display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
+   </div>
+   <div id="askname">
+      <h1> Wonderful.</h1>
+      <p>What's your name?</p><textarea></textarea><br><img width="75px" onclick="counter++; alert(counter % 6); display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
+   </div>
+   <div id="asklikes">
+      <h1>Nice to meet you!</h1>
+      <p> What do you like?</p><textarea></textarea><img width="75px" onclick="counter++; alert(counter % 6); display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
+   </div>
+   <div id="askq3">
+      <h1>I see. Customers like you bought this:</h1>
+      <p></p><textarea></textarea><img width="75px" onclick="counter++; alert(counter % 6); display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
+   
+   </div>
+   <div id="askq4">
+      <h1>I see. Customers like you bought this:</h1>
+      <p></p><textarea></textarea><img width="75px" onclick="counter++; alert(counter % 6); display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
+   
+   </div>
+      <div id="reboot">
+      <h1>You're all set~</h1>
+      <p></p><textarea></textarea><img width="75px" onclick="counter++; alert(counter % 6); display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
+   
+   </div>
+</body>
+</html>           
+      
+    
