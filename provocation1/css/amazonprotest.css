@@ -6,23 +6,22 @@ body {
    margin: 0 auto;
   }
 div {
-   position: absolute;
+   position: relative;
    display:none;
    width: 350px;
-   float: left;
+  
    background-color: #eeeeee;
    border-radius: 20px;
-   margin: 50px;
    padding: 20 100px;
-   top: 10%;
-   right: 30%;
+ 
+   margin: 0 auto;
 }
 
 #askbegin {
    display:block;
 }
 
-#amazonmom {position: absolute; right: 5%; top: 10%;}
+#amazonmom {position: relative; left: 50%; padding: 20px; transform: translateX(-50%);margin:0 auto; top: 10%;}
 
 
 
