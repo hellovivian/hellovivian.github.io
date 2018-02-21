@@ -21,11 +21,11 @@
       
       };
          
-          alert(amazondict[ct] + " entered display");
-        
+     
             document.getElementById(amazondict[ct]).style.display="block";
          if (ct == 5) {
-            setTimeout(alert("Session is over " ), 5000);
+           
+            setTimeout(alert("This session is over. Take a look inside the box, inside Amazon so you can see just how we fulfill your orders." ), 5000);
             document.getElementById(amazondict[ct]).style.display = "none";
             document.getElementById(amazondict[0]).style.display = "block";
          }
@@ -34,7 +34,11 @@
          
       }
       
-
+function getInput() {
+   document.getElementById("greeting").innerHTML = "Nice to meet you, " + String(document.getElementById("nameinput").value) + "! I see that you've been a customer since 2015.";
+   document.getElementById("recommend").innerHTML = "Haha, so you like " + String(document.getElementById("likes").value) + "!" + " I knew that, but I'll make a note of it anyways. Based on the last time you searched me, might I recommend the following products?";
+ 
+}
   
    </script>
    </head>
@@ -44,30 +48,33 @@
 
    <img id="amazonmom" width="300px" src="../imgs/amazonbg.png">
     <div id="askbegin">
-      <h1> Hello! I'm Alexa. Shall we begin?</h1>
-     <img width="75px" onclick=" counter++; alert(counter % 6); display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
+      <h1> Hello! You can call me Alexa. Shall we begin?</h1>
+     <img width="75px" onclick=" counter++; display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
    </div>
    <div id="askname">
       <h1> Wonderful.</h1>
-      <p>What's your name?</p><textarea></textarea><br><img width="75px" onclick="counter++; alert(counter % 6); display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
+      <p>What's your name?</p><textarea id="nameinput"></textarea><br><img width="75px" onclick="counter++; display(counter %6); getInput();" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
    </div>
    <div id="asklikes">
-      <h1>Nice to meet you!</h1>
-      <p> What do you like?</p><textarea></textarea><img width="75px" onclick="counter++; alert(counter % 6); display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
+      <h1 id="greeting"></h1>
+
+      <p> What do you like?</p><textarea id="likes"></textarea><img width="75px" onclick="counter++; display(counter %6); getInput();" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
    </div>
    <div id="askq3">
-      <h1>I see. Customers like you bought this:</h1>
-      <p></p><textarea></textarea><img width="75px" onclick="counter++; alert(counter % 6); display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
+      <h1 id="recommend"></h1>
+      <img width="100px" onclick="counter++; display(counter % 6);"  src="../imgs/amazondanbostuff.png">   <img onclick="counter++; display(counter % 6);" width="100px" src="../imgs/amazondanbobooks.png">   <img onclick="counter++; alert('Amazon quantifies everything about you (how many stars you gave the last home appliance you ordered, what you highlighted in the last novel you read, how long it took for you to write your last review...) for their predictive analysis algorithms, so they can prepare their warehouses in advance for you.'); display(counter % 6);"  width="100px" src="../imgs/amazondanboproduce.png">
+<!--      <p></p><textarea></textarea><img width="75px" onclick="counter++;  display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">-->
    
    </div>
    <div id="askq4">
-      <h1>I see. Customers like you bought this:</h1>
-      <p></p><textarea></textarea><img width="75px" onclick="counter++; alert(counter % 6); display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
+      <h1>Great choice! Did you know you can purchase that with just <em>1-click?</em></h1>
+      <p>Just click here and it'll come in two days at no cost to you. We consider you one of our prime customers!</p><img width="75px" onclick="counter++;   alert('Alert: the real taxes are taken upon by our fulfillment workers, who work 10 hr. minimum wage workdays full of continuous walking and heavy lifting');  alert('They are encouraged to push out 120 packages per hour, so each warehouse can push out 600,000 packages a day.');   alert('Some workers have claimed that warehouses are like militaries. You cant sit. They break you down so that you can be what they want you to be.'); alert('And Amazon taxes our environment, because in their rush shipping they consolidate less packages per truck route.'); alert('Amazon publishes no data about their energy use. Environmental organizations give them an F for lack of transparency and lack of eco-friendly goals.'); display(counter % 6);" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
    
+      
    </div>
       <div id="reboot">
       <h1>You're all set~</h1>
-      <p></p><textarea></textarea><img width="75px" onclick="counter++; alert(counter % 6); display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
+      <p></p><textarea></textarea><img width="75px" onclick="counter++; display(counter %6)" src="../imgs/http___pluspng.com_img-png_png-next-to-continue-192.png">
    
    </div>
 </body>

@@ -3,25 +3,31 @@ body {
    background-color: orange;
    font-family: "Lato", sans-serif;
    color: #333333;
+   margin: 0 auto;
   }
 div {
+   position: absolute;
    display:none;
-   width: 300px;
+   width: 350px;
    float: left;
    background-color: #eeeeee;
    border-radius: 20px;
    margin: 50px;
-   padding: 20 200px;
+   padding: 20 100px;
+   top: 10%;
+   right: 30%;
 }
 
 #askbegin {
    display:block;
 }
 
-#amazonmom {float: left;}
+#amazonmom {position: absolute; right: 5%; top: 10%;}
+
+
 
 p {padding: 20px};
-h1{padding: 20px};
+h1 {padding: 20px};
 
 /* lato-regular - latin */
 @font-face {
