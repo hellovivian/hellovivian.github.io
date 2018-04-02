@@ -1,0 +1,127 @@
+body {
+   background-color: white;
+   font-family: "Roboto", cursive;
+   color: #333333;
+   margin: 0 auto;
+/*   background-image: url("stock-mkt.png");*/
+ 
+   background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+
+#map {
+   bottom: 0;
+   position: absolute;
+   background-color: white;
+   height: 60%;
+   width: 100%;
+   
+   z-index: 2;
+
+}
+
+#lion {
+   top: 20px;
+   position: relative;
+}
+
+h3 {
+   top: 10px;
+   font-size: 2em;
+   text-align: left;
+   text-transform: uppercase;
+   color: black;
+   z-index: 3;
+   display: inline-block;
+
+
+   
+
+ 
+
+}
+
+
+#blackcover {
+    height: 200px;
+/*   background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);*/
+/*   background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);*/
+   background-image: linear-gradient(to right, #e14fad 0%, #f9d423 100%);
+
+    position: relative;
+   margin: 0 auto;
+    background-size: cover;
+   opacity: 1;
+
+}
+
+
+progress {
+    background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+   margin: 10px;
+}
+
+#fileinput {
+float: left;
+   font-family: 'Roboto', sans-serif;
+  margin: 20px;
+background-image: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
+   height: 100px;
+/*      position: absolute;*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+   border-radius: 15px 50px ; 
+}
+
+input {
+   margin: 10px;
+}
+
+#nav ul {
+   text-transform: none;
+   list-style-type: none;
+   display: inline-block;
+   margin: 0 auto;
+   padding: 10 20;
+   border: solid 10px white;
+}
+
+#list ul {
+   position: absolute;
+   left: 50%;
+      transform: translateX(-50%);
+   top: 50px;
+/*  border:1px solid #FC0;*/
+/*    border-radius: 15px 50px ; */
+   
+}
+
+#nav {
+   position: relative;
+   right: 0;
+   float: right;
+/*   left: 40%;*/
+   color: white;
+   list-style-type: none;
+/*   transform: translateX(-50%);*/
+}
+
+#line {
+   width: 300px;
+   height: 5px;
+   background-color: grey;
+}
+
+#list {
+/*   position: absolute;*/
+ 
+/*   transform: translateX(-50%);*/
+   font-size: 3em;
+   text-transform: none;
+   border: solid 0px white;
+   color: white;
+}

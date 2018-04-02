@@ -1,0 +1,189 @@
+<!--<!DOCTYPE html>-->
+<html>
+  <head>
+     <link rel="stylesheet" type="text/css" href="maps.css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+   
+     
+     .thumb {
+       height: 75px;
+       border: 1px solid #000;
+       margin: 10px 5px 0 0;
+     }
+
+    </style>
+     
+<!--
+ <script>
+     var map;
+//    
+//      function initMap() {
+// 
+//        var berkeley = {lat: 37.8716, lng: -122.2727};
+//         map = new google.maps.Map(document.getElementById('map'), {
+//          zoom: 10,
+//          center: berkeley
+//        });
+//        var marker = new google.maps.Marker({
+//          position: berkeley,
+//          map: map
+//        });
+//      
+//      }
+
+      function initMap(mapp, latcoord, longcoord) {
+ 
+        var berkeley = {lat: 37.8716, lng: -122.2727};
+          var coords = {lat: latcoord, lng: longcoord};
+         map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: berkeley
+        });
+        var marker = new google.maps.Marker({
+          position: berkeley,
+          map: mapp
+        });
+         var marker = new google.maps.Marker({
+          position: coords,
+          map: mapp
+        });
+      
+      }
+    
+   
+
+  function handleFileSelect(evt) {
+  
+     var selectedFile = document.getElementById('file').files[0];
+
+     var reader = new FileReader();
+      
+     reader.onload = function(e){
+      var data = e.target.result;
+        console.log(data);
+         document.getElementById('list').innerHTML = '<ul>' + data + '</ul>';
+        var parseLines = data.split('\n');
+        for (i= 0; i < parseLines.length;i++) {
+           var coordinatesTimeArray = parseLines[i].split(',');
+           if (coordinatesTimeArray.length == 4) {
+              var latcoordinate =  parseFloat(coordinatesTimeArray[0]);
+              var longcoordinate = parseFloat(coordinatesTimeArray[1]);
+              alert(latcoordinate + " " + longcoordinate);
+              
+              var marker = new google.maps.Marker({
+                  position: {lat: latcoordinate, lng: longcoordinate},
+                  setMap: map
+            });
+              
+    
+         
+           }
+        }
+       
+    };
+     reader.readAsText(selectedFile);
+
+
+  };
+
+</script>
+-->
+     <script>
+        
+         function handleFileSelect(evt) {
+  
+     var selectedFile = document.getElementById('file').files[0];
+
+     var reader = new FileReader();
+      
+     reader.onload = function(e){
+      var data = e.target.result;
+        console.log(data);
+        
+        var parseLines = data.split('\n');
+         var pushedCoordinatesArray = [];
+        for (i= 0; i < parseLines.length;i++) {
+           var coordinatesTimeArray = parseLines[i].split(',');
+           if (coordinatesTimeArray.length == 4) {
+              var latcoordinate =  parseFloat(coordinatesTimeArray[0]);
+              var longcoordinate = parseFloat(coordinatesTimeArray[1]);
+              pushedCoordinatesArray.push([latcoordinate, longcoordinate, i]);
+           }
+        } 
+        window.pushedCoordinatesArray = pushedCoordinatesArray;
+        alert(pushedCoordinatesArray);
+        window.locations = pushedCoordinatesArray;
+       initMap();
+    };
+     reader.readAsText(selectedFile);
+
+  };
+
+          function initMap() {
+ 
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: new google.maps.LatLng(37.8716, -122.2727),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+             
+              document.getElementById('list').innerHTML = '<ul>' + locations.length +" investors obtained!"+ '</ul>';
+      let health = document.getElementById("health")
+      health.value -= locations.length;
+          }
+     </script>
+  </head>
+  <body>
+     <img id="lion" src="lion.jpg" width="80px">
+     <h3>My Startup</h3>
+         
+          <div id="blackcover">
+            <div id="nav"><li><ul>Investors</ul><ul>Social Media Hype</ul><ul>Kickstarter Progress</ul><ul>Stealth Mode</ul></li></div>
+        
+<!--                <div id="line" ></div>-->
+             <output id="list"></output>
+                 <div id="fileinput">
+      <input type="file" id="file" name="file"/> <br>
+     
+<!--     <img id = "rocket" src="rocket.png">-->
+       <progress id="health" value="100" max="100"></progress>
+        </div>
+             
+                </div>
+     
+   
+<!--     <img src="icecream.jpg">-->
+ 
+    <div id="map"></div>
+    
+
+    <script>
+
+         document.getElementById('file').addEventListener('change', handleFileSelect, false);
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ6vQpvcKkZ972SiNDXE15sUu_lhWRjxU&callback=initMap">
+    </script>
+    
+  </body>
+</html>
