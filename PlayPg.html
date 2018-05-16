@@ -50,25 +50,28 @@
 
    
    <div id="mainContent"> 
-      
-      <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-          <a href="#">2D (Graphic Design/Sketching)</a>
-           <a href="#">2D (Web)</a>
-          <a href="#">2.5D (Lasercut)</a>
-          <a href="#">3D (CAD)</a>
-           <a href="#">3D (Unity)</a>
-        </div>
-      </div>
-      
+
       
       <div id="sidebars">
+         
+          <div class="dropdown">
+         <button class="dropbtn" onclick="selection_onclick('container')">See All</button>
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="selection_onclick('2DDigital')" >2D (Graphic Design/Sketching)</a>
+           <a href="#" onclick="selection_onclick('2DWeb')">2D (Web)</a>
+          <a href="#" onclick="selection_onclick('2.5DLaser')">2.5D (Lasercut)</a>
+          <a href="#" onclick="selection_onclick('3DCAD')">3D (CAD)</a>
+           <a href="#" onclick="selection_onclick('3DUnity')">3D (Unity)</a>
+           <a href="#" onclick="selection_onclick('3DInteractive')">3D (Interactive)</a>
+        </div>
+      </div>
+         
          <div class="sidebar" id="leftSidebar">
             
          
             
-            <div class="container">
+            <div class="container 3DCAD">
                <div class="overlay">
                <img onclick="modalClick('dancer')" class="projImg" id="dancer" src="img/dancer.png">
                  <div class="middle">
@@ -77,7 +80,7 @@
               </div>
             </div>
             
-            <div class="container">
+            <div class="container 3DCAD">
                <div class="overlay">
                <img onclick="modalClick('CADhand')" class="projImg" id="CADhand" src="img/CADhand.png">
                  <div class="middle">
@@ -86,7 +89,7 @@
               </div>
             </div>
             
-            <div class="container">
+            <div class="container 2DDigital">
                <div class="overlay">
                <img onclick="modalClick('character')" class="projImg" id="character" src="img/character.png">
                  <div class="middle">
@@ -95,7 +98,7 @@
               </div>
             </div>
             
-            <div class="container">
+            <div class="container 3DInteractive">
                <div class="overlay">
                <img onclick="modalClick('infinitymirror')" class="projImg" id="infinitymirror" src="img/infinitymirror.png">
                  <div class="middle">
@@ -104,7 +107,7 @@
               </div>
             </div>
             
-             <div class="container">
+             <div class="container 2DDigital">
                <div class="overlay">
                <img onclick="modalClick('yingyang')" class="projImg" id="yingyang" src="img/yingyang.png">
                  <div class="middle">
@@ -113,7 +116,7 @@
               </div>
             </div>
             
-            <div class="container">
+            <div class="container 2DSketch">
                <div class="overlay">
                <img onclick="modalClick('dragonsketch')" class="projImg" id="dragonsketch" src="img/dragonsketch.png">
                  <div class="middle">
@@ -127,7 +130,7 @@
 <!--         CENTER SIDEBAR-->
          <div class="sidebar" id="CenterSidebar">
             
-            <div class="container">
+            <div class="container 2.5DLaser">
                <div class="overlay">
                <img onclick="modalClick('jia')" class="projImg" id="jia" src="img/jia.png">
                  <div class="middle">
@@ -138,7 +141,7 @@
             </div>
             
 
-            <div class="container">
+            <div class="container 2.5DLaser">
                <div class="overlay">
                <img onclick="modalClick('fishbox')" class="projImg" id="fishbox" src="img/fishbox.png">
                  <div class="middle">
@@ -148,7 +151,7 @@
               </div>
             </div> 
             
-            <div class="container">
+            <div class="container 2DDigital">
                <div class="overlay">
                <img onclick="modalClick('cat')" class='projImg' id="cat" src="img/cat.png">
                  <div class="middle">
@@ -157,7 +160,7 @@
               </div>
             </div>
             
-            <div class="container">
+            <div class="container 2DDigital">
                <div class="overlay">
                <img onclick="image_onclick('gears')" class='projImg' id='gears' src='img/gears.png'>
                  <div class="middle">
@@ -167,7 +170,7 @@
             </div>
             
 <!--            LASERCUT CENTER-->
-            <div class="container">
+            <div class="container 2.5DLaser">
                <div class="overlay">
                <img onclick="modalClick('tomandjerry')" class="projImg" id="tomandjerry" src="img/tomandjerry.png">
              
@@ -180,7 +183,7 @@
               </div>
             </div>
             
-            <div class="container">
+            <div class="container Misc">
                <div class="overlay">
                <img onclick="modalClick('vinylcut')" class="projImg" id="vinylcut" src="img/vinylcut.png">
                  <div class="middle">
@@ -189,7 +192,7 @@
               </div>
             </div>
             
-            <div class="container">
+            <div class="container Misc">
                <div class="overlay">
                <img onclick="modalClick('curtains')" class="projImg" id="curtains" src="img/curtains.png">
                  <div class="middle">
@@ -203,7 +206,7 @@
 <!--         RIGHT SIDEBAR-->
          <div class="sidebar" id="rightSidebar">
             
-            <div class="container">
+            <div class="container 2.5DLaser">
                <div class="overlay">
                <img onclick="modalClick('livinghingevase')" class="projImg" id="livinghingevase" src="img/livinghingevase.png">
                  <div class="middle">
@@ -212,7 +215,7 @@
               </div>
             </div> 
             
-            <div class="container">
+            <div class="container 2.5DLaser">
                <div class="overlay">
                <img onclick="modalClick('ballerina')" class="projImg" id="ballerina" src="img/ballerina.png">
                  <div class="middle">
@@ -221,7 +224,7 @@
               </div>
             </div> 
             
-           <div class="container">
+           <div class="container 3DInteractive">
                   <div class="overlay">
                   <img onclick="modalClick('musicbox')" class="projImg" id="musicbox" src="img/musicbox.png">
                     <div class="middle">
@@ -230,7 +233,7 @@
                  </div>
                </div>
          
-            <div class="container">
+            <div class="container 2DDigital">
                <div class="overlay">
                <img onclick="modalClick('sing')" class="projImg" id="sing" src="img/sing.png">
                  <div class="middle">
@@ -239,7 +242,7 @@
               </div>
             </div>
             
-            <div class="container">
+            <div class="container 2DDigital">
                <div class="overlay">
                <img onclick="modalClick('gatsby')" class="projImg" id="gatsby" src="img/gatsby.png">
                  <div class="middle">
@@ -248,7 +251,7 @@
               </div>
             </div>
             
-            <div class="container">
+            <div class="container 2DWeb">
                <div class="overlay">
                <img onclick="modalClick('myownsite')" class="projImg" id="myownsite" src="img/myownsite.png">
                  <div class="middle">
@@ -257,7 +260,7 @@
               </div>
             </div>
             
-            <div class="container">
+            <div class="container 2DSketch">
                <div class="overlay">
                <img onclick="modalClick('sketches')" class="projImg" id="sketches" src="img/sketches.png">
                  <div class="middle">
