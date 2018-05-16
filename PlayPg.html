@@ -33,10 +33,10 @@
       
       
          
-          <a class="navItems" id="aboutbutton" href="AboutPg.html" > About</a>
-         <a class="navItems" id="work_nav" href="WorkPage.html">Work/ Research</a>
-         <a class="navItems" id="graphicdesign_nav" href="PlayPg.html"> Pure Play </a>
-         <a class="navItems" id="writing_nav" href="WritingProj.html"> Writing </a> 
+          <a class="navItems" id="aboutbutton" href="NewAbtPg.html" > About</a>
+         <a class="navItems" id="work_nav" href="WorkPg.html">Work/ Research</a>
+         <a class="navItems" id="graphicdesign_nav" href="PlayPg.html"> Play </a>
+         <a class="navItems" id="writing_nav" href="NewWritePg.html"> Writing </a> 
          
       </div>
 
@@ -55,43 +55,48 @@
       <div id="sidebars">
          
           <div class="dropdown">
-         <button class="dropbtn" onclick="selection_onclick('container')">See All</button>
+         
         <button class="dropbtn">Dropdown</button>
         <div class="dropdown-content">
+<!--           <a href="#" onclick="selection_onclick('container')" >See All</a>-->
           <a href="#" onclick="selection_onclick('2DDigital')" >2D (Graphic Design/Sketching)</a>
            <a href="#" onclick="selection_onclick('2DWeb')">2D (Web)</a>
           <a href="#" onclick="selection_onclick('2.5DLaser')">2.5D (Lasercut)</a>
           <a href="#" onclick="selection_onclick('3DCAD')">3D (CAD)</a>
            <a href="#" onclick="selection_onclick('3DUnity')">3D (Unity)</a>
-           <a href="#" onclick="selection_onclick('3DInteractive')">3D (Interactive)</a>
+           <a href="#" onclick="selection_onclick('3DInteractive')">Physical Computing</a>
+           <a href="#" onclick="selection_onclick('Misc')">Misc</a>
         </div>
+             
+             <button class="dropbtn" onclick="selection_onclick('container')" id="seeall">See All</button>
       </div>
-         
+<!--         LEFT SIDEBAR BEGIN-->
          <div class="sidebar" id="leftSidebar">
             
+              <div class="container 3DUnity">
+               <div class="overlay">
+               <img onclick="image_onclick('itsbuggy')" class="projImg" id="itsbuggy" src="img/fly.gif">
+                 <div class="middle">
+                <div class="text"> <p class="projText">VR Game: It's Buggy</p></div>
+                 </div>
+            
+              </div>
+            </div>
          
             
             <div class="container 3DCAD">
                <div class="overlay">
-               <img onclick="modalClick('dancer')" class="projImg" id="dancer" src="img/dancer.png">
+               <img onclick="image_onclick('dancer')" class="projImg" id="dancer" src="img/dancer.png">
                  <div class="middle">
                 <div class="text"><p class="projText">Dancer (4th position)</p></div>
                  </div>
               </div>
             </div>
-            
-            <div class="container 3DCAD">
-               <div class="overlay">
-               <img onclick="modalClick('CADhand')" class="projImg" id="CADhand" src="img/CADhand.png">
-                 <div class="middle">
-                <div class="text"><p class="projText">Hand</p></div>
-                 </div>
-              </div>
-            </div>
+         
             
             <div class="container 2DDigital">
                <div class="overlay">
-               <img onclick="modalClick('character')" class="projImg" id="character" src="img/character.png">
+               <img onclick="image_onclick('character')" class="projImg" id="character" src="img/character.png">
                  <div class="middle">
                 <div class="text"><p class="projText">Dr. [for Megan]</p></div>
                  </div>
@@ -100,7 +105,7 @@
             
             <div class="container 3DInteractive">
                <div class="overlay">
-               <img onclick="modalClick('infinitymirror')" class="projImg" id="infinitymirror" src="img/infinitymirror.png">
+               <img onclick="image_onclick('infinitymirror')" class="projImg" id="infinitymirror" src="img/infinitymirror.png">
                  <div class="middle">
                 <div class="text"><p class="projText">Infinity Mirror (Arduino, Processing)</p></div>
                  </div>
@@ -109,7 +114,7 @@
             
              <div class="container 2DDigital">
                <div class="overlay">
-               <img onclick="modalClick('yingyang')" class="projImg" id="yingyang" src="img/yingyang.png">
+               <img onclick="image_onclick('yingyang')" class="projImg" id="yingyang" src="img/yingyang.png">
                  <div class="middle">
                 <div class="text"><p class="projText">Ying and Yang [for Melissa]</p></div>
                  </div>
@@ -118,61 +123,64 @@
             
             <div class="container 2DSketch">
                <div class="overlay">
-               <img onclick="modalClick('dragonsketch')" class="projImg" id="dragonsketch" src="img/dragonsketch.png">
+               <img onclick="image_onclick('dragonsketch')" class="projImg" id="dragonsketch" src="img/dragonsketch.png">
                  <div class="middle">
                 <div class="text"><p class="projText">Fun on a tablet</p></div>
                  </div>
               </div>
             </div>
-      
+            
+
+<!--      LEFT SIDEBAR END-->
          </div>
+         
          
 <!--         CENTER SIDEBAR-->
          <div class="sidebar" id="CenterSidebar">
             
             <div class="container 2.5DLaser">
                <div class="overlay">
-               <img onclick="modalClick('jia')" class="projImg" id="jia" src="img/jia.png">
+               <img onclick="image_onclick('jia')" class="projImg" id="jia" src="img/jia.png">
                  <div class="middle">
                 <div class="text"> <p class="projText">家</p></div>
                  </div>
             
               </div>
             </div>
-            
-
-            <div class="container 2.5DLaser">
-               <div class="overlay">
-               <img onclick="modalClick('fishbox')" class="projImg" id="fishbox" src="img/fishbox.png">
-                 <div class="middle">
-                <div class="text"> <p class="projText">Fish Box</p></div>
-                 </div>
-            
-              </div>
-            </div> 
+          
             
             <div class="container 2DDigital">
                <div class="overlay">
-               <img onclick="modalClick('cat')" class='projImg' id="cat" src="img/cat.png">
+               <img onclick="image_onclick('cat')" class='projImg' id="cat" src="img/cat.png">
                  <div class="middle">
                 <div class="text"><p class="projText">Cat</p></div>
                  </div>
               </div>
             </div>
+         
             
-            <div class="container 2DDigital">
+            <div class="container 3DCAD">
                <div class="overlay">
-               <img onclick="image_onclick('gears')" class='projImg' id='gears' src='img/gears.png'>
+               <img onclick="image_onclick('CADhand')" class="projImg" id="CADhand" src="img/CADhand.png">
                  <div class="middle">
-                <div class="text"><p class="projText">Mechanical Heartbeat</p></div>
+                <div class="text"><p class="projText">Hand</p></div>
                  </div>
               </div>
             </div>
             
-<!--            LASERCUT CENTER-->
             <div class="container 2.5DLaser">
                <div class="overlay">
-               <img onclick="modalClick('tomandjerry')" class="projImg" id="tomandjerry" src="img/tomandjerry.png">
+               <img onclick="image_onclick('fishbox')" class="projImg" id="fishbox" src="img/fishbox.png">
+                 <div class="middle">
+                <div class="text"> <p class="projText">Fish Box</p></div>
+                 </div>
+            
+              </div>
+            </div>
+
+            <div class="container 2.5DLaser">
+               <div class="overlay">
+               <img onclick="image_onclick('tomandjerry')" class="projImg" id="tomandjerry" src="img/tomandjerry.png">
              
            
                  <div class="middle">
@@ -185,7 +193,7 @@
             
             <div class="container Misc">
                <div class="overlay">
-               <img onclick="modalClick('vinylcut')" class="projImg" id="vinylcut" src="img/vinylcut.png">
+               <img onclick="image_onclick('vinylcut')" class="projImg" id="vinylcut" src="img/vinylcut.png">
                  <div class="middle">
                 <div class="text"><p class="projText">Sticker fun on a vinyl cutter</p></div>
                  </div>
@@ -194,21 +202,45 @@
             
             <div class="container Misc">
                <div class="overlay">
-               <img onclick="modalClick('curtains')" class="projImg" id="curtains" src="img/curtains.png">
+               <img onclick="image_onclick('curtains')" class="projImg" id="curtains" src="img/curtains.png">
                  <div class="middle">
                 <div class="text"><p class="projText">Curtains</p></div>
                  </div>
               </div>
             </div>
-
-         </div>
+            
+            
+            <div class="container 2DWeb">
+               <div class="overlay">
+               <img onclick="image_onclick('myownsite')" class="projImg" id="myownsite" src="img/myownsite.png">
+                 <div class="middle">
+                <div class="text"><p class="projText">This portfolio and its incarnations</p></div>
+                 </div>
+              </div>
+            </div>
+            
+            <div class="container 2DDigital">
+               <div class="overlay">
+               <img onclick="image_onclick('gears')" class='projImg' id='gears' src='img/gears.png'>
+                 <div class="middle">
+                <div class="text"><p class="projText">Mechanical Heartbeat</p></div>
+                 </div>
+              </div>
+            </div>
+          
+               
+               
+<!--END CENTER SIDEBAR-->
+            </div>
+         
          
 <!--         RIGHT SIDEBAR-->
-         <div class="sidebar" id="rightSidebar">
+         <div class="sidebar" id="RightSidebar">
+           
             
             <div class="container 2.5DLaser">
                <div class="overlay">
-               <img onclick="modalClick('livinghingevase')" class="projImg" id="livinghingevase" src="img/livinghingevase.png">
+               <img onclick="image_onclick('livinghingevase')" class="projImg" id="livinghingevase" src="img/livinghingevase.png">
                  <div class="middle">
                 <div class="text"> <p class="projText">Living Hinge Flower Vase</p></div>
                  </div>
@@ -217,7 +249,7 @@
             
             <div class="container 2.5DLaser">
                <div class="overlay">
-               <img onclick="modalClick('ballerina')" class="projImg" id="ballerina" src="img/ballerina.png">
+               <img onclick="image_onclick('ballerina')" class="projImg" id="ballerina" src="img/ballerina.png">
                  <div class="middle">
                 <div class="text"> <p class="projText">Ballerina Automata</p></div>
                  </div>
@@ -226,7 +258,7 @@
             
            <div class="container 3DInteractive">
                   <div class="overlay">
-                  <img onclick="modalClick('musicbox')" class="projImg" id="musicbox" src="img/musicbox.png">
+                  <img onclick="image_onclick('musicbox')" class="projImg" id="musicbox" src="img/musicbox.png">
                     <div class="middle">
                    <div class="text"><p class="projText">Music Box from Piezo Speakers</p></div>
                     </div>
@@ -235,7 +267,7 @@
          
             <div class="container 2DDigital">
                <div class="overlay">
-               <img onclick="modalClick('sing')" class="projImg" id="sing" src="img/sing.png">
+               <img onclick="image_onclick('sing')" class="projImg" id="sing" src="img/sing.png">
                  <div class="middle">
                 <div class="text"><p class="projText">Sing [for Allisa]</p></div>
                  </div>
@@ -244,25 +276,18 @@
             
             <div class="container 2DDigital">
                <div class="overlay">
-               <img onclick="modalClick('gatsby')" class="projImg" id="gatsby" src="img/gatsby.png">
+               <img onclick="image_onclick('gatsby')" class="projImg" id="gatsby" src="img/gatsby.png">
                  <div class="middle">
                 <div class="text"><p class="projText">Gatsby</p></div>
                  </div>
               </div>
             </div>
             
-            <div class="container 2DWeb">
-               <div class="overlay">
-               <img onclick="modalClick('myownsite')" class="projImg" id="myownsite" src="img/myownsite.png">
-                 <div class="middle">
-                <div class="text"><p class="projText">This portfolio and its incarnations</p></div>
-                 </div>
-              </div>
-            </div>
+            
             
             <div class="container 2DSketch">
                <div class="overlay">
-               <img onclick="modalClick('sketches')" class="projImg" id="sketches" src="img/sketches.png">
+               <img onclick="image_onclick('sketches')" class="projImg" id="sketches" src="img/sketches.png">
                  <div class="middle">
                 <div class="text"><p class="projText">Sketches</p></div>
                  </div>
@@ -281,6 +306,7 @@
          </div>
   
      
+   </div>
    </div>
    </div>
       

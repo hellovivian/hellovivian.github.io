@@ -15,10 +15,3 @@
 }
 
 
-#profpic {
-   top: 60%;
-   position: absolute;
-   left: 50%;
-   transform: translateX(-50%);
-   z-index: 400;
-}

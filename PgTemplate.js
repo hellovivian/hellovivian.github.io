@@ -45,6 +45,8 @@ function selection_onclick(choice) {
 function image_onclick(id) {
     var modal = document.getElementById('modal');
    if ($("#modal").children("img").length > 0) {
+      $("#modal").children("story")[0].hide();
+      
       return;
    }
   
@@ -58,20 +60,6 @@ function image_onclick(id) {
    $("#xbutton").show();
 }
 
-
-//window.onclick = function(event) {
-//   var modal = document.getElementById('modal');
-//   var children = modal.getElementsByTagName('img');
-//      for  ( num = 0; num < modal.getElementsByTagName('img').length; num++) {
-//         children[num].remove();            
-//      }
-//   
-//   
-//    if (event.target == modal) {
-//        modal.style.display = "none";
-//    }
-//       
-//}
 
 
 function modalClick(id) {      
