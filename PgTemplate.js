@@ -11,6 +11,17 @@ function span_onclick() {
    
    $("#modal").hide();
    $("#xbutton").hide();
+
+   
+   var stories = document.getElementsByClassName('story');
+   var storiesArr = [].slice.call(stories);
+//   alert(storiesArr);
+   for (childNum = 0; childNum < storiesArr.length; childNum++) {
+      var childName = storiesArr[childNum].id;
+//      alert(childName);
+      $("#" + String(childName)).hide(); 
+   }  
+   
    
 }
 
@@ -36,9 +47,7 @@ function selection_onclick(choice) {
       var childName = classElemArr[childNum].getElementsByTagName('img')[0].id;
 //      alert(childName);
       $("#" + String(childName)).show(); 
-   }
-
-   
+   }  
    
 }
 
@@ -61,48 +70,3 @@ function image_onclick(id) {
 }
 
 
-
-function modalClick(id) {      
-//        var strId ='#' + String(id);
-//        
-//        var modal = document.getElementById('modal');
-//        var notModal = document.getElementById('notModal');
-//          if ($("#modal").is(":visible")) {
-////             deletes all elements that are img elements from the active modal
-//
-//      
-//            $("#modal").hide();
-//             $("#notModal").hide();
-//             $("#xbutton").hide();
-//          } else {
-//             
-//            var children = modal.getElementsByTagName('img');
-//               for  ( num = 0; num < modal.getElementsByTagName('img').length; num++) {
-//                  children[num].remove();
-//                  
-//               }
-////            hides all stories
-//             var stories = modal.getElementsByClassName('story');
-//               for  ( num2 = 0; num2 < modal.getElementsByClassName('story').length; num2++)                {
-//               if ($("#" + stories[num2].id).is(":visible")) {
-//                    $("#" + stories[num2].id).hide();
-//                  }
-//               }
-//             
-////               clone into the modal only the one image chosen
-//            $("#modal").show();
-//             
-//             $("#xbutton").appendTo(modal);
-//             $("#xbutton").show();
-//             $("#notModal").hide();
-//      
-//
-//               var clone = $(strId).clone().appendTo(modal); 
-//             
-//            
-//               $(strId+ "story").show();
-//
-//    
-//            
-//        }
-      }

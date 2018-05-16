@@ -284,7 +284,7 @@ a:hover {
 /*on hover, the image fades to text*/
 .container:hover .projImg {
   opacity: 0.2;
-   background-color: blue;
+   background-color: #f4db86;
 }
 
 .container:hover .middle {

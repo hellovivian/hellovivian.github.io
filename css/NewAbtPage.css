@@ -1,7 +1,5 @@
 body {
    font-family: "Muli","sans-serif";
-   font-size: 12px;
-   letter-spacing: 1px;
    position: absolute;
    margin: 0 auto;
    width: 100%;
@@ -14,33 +12,12 @@ body {
 
 
 
-
-a {
-    text-decoration: none;
-   color: black;
-}
-a:hover {
-   color: grey;
-}
-
-
 #sky {
    width: 100%;
    top: 20%;
    position: absolute;
    z-index: 1;
 }
-
-#aboutbutton {
-  position: absolute;
-   list-style: none;
-   top: 12.5%;
-   padding: 10px;
-   z-index:2;
-   left: 50%;
-   transform: translateX(-175px);
-}
-
 
 
 #aboutme {
@@ -52,7 +29,6 @@ a:hover {
    transform: translateX(-50%);
    position: absolute;
    z-index: 300;
-   font-size: 12px;
    font-family: 'Muli';
 }
 
