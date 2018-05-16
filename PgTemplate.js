@@ -5,10 +5,11 @@ var span = document.getElementsByClassName("close")[0];
 
 function span_onclick() {
 
-   var modal = document.getElementById('modal');
+   var modal = document.getElementById('modalContent');
    
-   $("#modal").children("img").remove();
+   $("#modalContent").children("img").remove();
    
+   $("#modalContent").hide();
    $("#modal").hide();
    $("#xbutton").hide();
 
@@ -52,9 +53,10 @@ function selection_onclick(choice) {
 }
 
 function image_onclick(id) {
-    var modal = document.getElementById('modal');
-   if ($("#modal").children("img").length > 0) {
-      $("#modal").children("story")[0].hide();
+   var modalContent = document.getElementById('modalContent');
+  
+   if ($("#modalContent").children("img").length > 0) {
+      $("#modalContent").children("story")[0].hide();
       
       return;
    }
@@ -62,10 +64,12 @@ function image_onclick(id) {
    var strId ='#' + String(id);
    
    $(strId+ "story").show();
-   console.log("printed");
-   document.getElementById('modal').style.display = "block";
-   var clone = $(strId).clone().appendTo(modal); 
+
+   document.getElementById('modalContent').style.display = "block";
+   var clone = $(strId).clone().appendTo(modalContent);
+   $("#modalContent").show();
    $("#modal").show();
+   
    $("#xbutton").show();
 }
 

@@ -160,6 +160,7 @@ a:hover {
    margin: 15px;
    width: 80%;
    max-width: 550px;
+   max-height: 550px;
 }
 
 #modal {
@@ -176,6 +177,13 @@ a:hover {
 
 }
 
+#modal .story {
+   position: relative;
+}
+#modal .projImg {
+   max-width: 400px;
+   position: relative;
+}
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
@@ -203,17 +211,6 @@ a:hover {
 }
 
 
-/*
-#notModal {
-   background-color: black;
-   opacity: 0;
-   width: 100%;
-   height: 100%;
-   z-index: 9;
-   display: none;
-   
-}
-*/
 
 
 .story {
@@ -221,11 +218,10 @@ a:hover {
    z-index: 10;
    font-size: 1em;
    line-height: 150%;
-   left: 12.5%;
-   top: 10%;
+   color: black;
    width: 75%;
-   text-align: left;
-   position: relative;
+   
+   
 }
 
 #modal img {
@@ -368,3 +364,10 @@ button {
 #seeall {
    background-color: #8ed2e7;
 }
+
+#modalContent {
+   width: 80%;
+   position: relative;
+   margin: 0 auto;
+}
+
