@@ -112,7 +112,7 @@
            }
         } 
         window.pushedCoordinatesArray = pushedCoordinatesArray;
-        alert(pushedCoordinatesArray);
+//        alert(pushedCoordinatesArray);
         window.locations = pushedCoordinatesArray;
        initMap();
     };
@@ -136,14 +136,22 @@
     for (i = 0; i < locations.length; i++) {  
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][0], locations[i][1]),
-        map: map
+        map: map,
+//         label: 'hi' 
       });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
+           var contentstring = document.getElementById("notes").value;
+          var infowindow = new google.maps.InfoWindow({
+          content: contentstring
+        });
+           
           infowindow.open(map, marker);
+           
         }
       })(marker, i));
+      
     }
              
               document.getElementById('list').innerHTML = '<ul>' + locations.length +" investors obtained!"+ '</ul>';
@@ -161,8 +169,11 @@
         
 <!--                <div id="line" ></div>-->
              <output id="list"></output>
+              <p id="instruct"> <br>Upload your GPS output, and then take notes on your map of potential investors + customers!</p>
+                    <textarea id="notes" value="Investor Notes"></textarea>
                  <div id="fileinput">
       <input type="file" id="file" name="file"/> <br>
+                   
      
 <!--     <img id = "rocket" src="rocket.png">-->
        <progress id="health" value="100" max="100"></progress>

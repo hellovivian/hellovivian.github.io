@@ -9,8 +9,15 @@ body {
     background-size: cover;
   }
 
-
-
+#instruct {
+   margin: 0px 40px;
+}
+#notes {
+   width: 200px;
+   height: 100px;
+  margin: 20px 0px;
+   
+}
 #map {
    bottom: 0;
    position: absolute;
@@ -120,8 +127,11 @@ input {
 /*   position: absolute;*/
  
 /*   transform: translateX(-50%);*/
-   font-size: 3em;
+   font-size: 2.5em;
    text-transform: none;
    border: solid 0px white;
    color: white;
+   right: 0px;
+   width: 1200px;
+   position: absolute;
 }
