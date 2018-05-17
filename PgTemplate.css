@@ -210,6 +210,14 @@ a:hover {
 }
 
 
+h1 {
+   text-align: center;
+}
+
+.story img {
+   text-align: center;
+}
+
 
 
 .story {
@@ -222,6 +230,7 @@ a:hover {
    position: relative;
    margin: 0 auto;
    padding: 3em;
+   text-align: left;
    
    
 }
@@ -374,3 +383,6 @@ button {
    margin: 0 auto;
 }
 
+.addendumImg {
+   padding: 20px ;
+}
