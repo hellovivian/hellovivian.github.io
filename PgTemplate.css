@@ -161,6 +161,7 @@ a:hover {
    width: 80%;
    max-width: 550px;
    max-height: 550px;
+   position: relative;
 }
 
 #modal {
@@ -177,12 +178,10 @@ a:hover {
 
 }
 
-#modal .story {
-   position: relative;
-}
 #modal .projImg {
    max-width: 400px;
    position: relative;
+   margin: 0 auto;
 }
 .modal-content {
     background-color: #fefefe;
@@ -220,6 +219,9 @@ a:hover {
    line-height: 150%;
    color: black;
    width: 75%;
+   position: relative;
+   margin: 0 auto;
+   padding: 3em;
    
    
 }
@@ -228,6 +230,7 @@ a:hover {
    transform: translateY(80px);
    max-width: 550px;
    max-height: 750px;
+   position: relative;
 }
 
 #socialmediabar {

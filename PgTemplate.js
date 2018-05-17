@@ -52,12 +52,13 @@ function selection_onclick(choice) {
    
 }
 
+
 function image_onclick(id) {
    var modalContent = document.getElementById('modalContent');
   
    if ($("#modalContent").children("img").length > 0) {
       $("#modalContent").children("story")[0].hide();
-      
+//      $("html, body").animate({ scrollTop: String(-scrollOffset )}, 1000);
       return;
    }
   
@@ -66,10 +67,14 @@ function image_onclick(id) {
    $(strId+ "story").show();
 
    document.getElementById('modalContent').style.display = "block";
-   var clone = $(strId).clone().appendTo(modalContent);
+//   var clone = $(strId).clone().appendTo(modalContent);
+   $("#modal").show().scrollTop(0);
+   var scrollOffset = $("#xbutton").position().top;
    $("#modalContent").show();
-   $("#modal").show();
    
+
+   $("html, body").animate({ scrollTop: String(scrollOffset )}, 1000);
+
    $("#xbutton").show();
 }
 
