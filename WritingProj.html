@@ -56,13 +56,29 @@ The serenity was breathtaking, so I willed my hand to stay put a moment before I
       </div>
               </div>
       <div id="sidebars">
+<!--         Dropdown-->
+          <div class="dropdown">
+         
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+<!--           <a href="#" onclick="selection_onclick('container')" >See All</a>-->
+          <a href="#" onclick="selection_onclick('Inprint')" >In print</a>
+    
+          <a href="#" onclick="selection_onclick('Blog')">Blog</a>
+           <a href="#" onclick="selection_onclick('Prose')">Creative Writing</a>
+   
+        </div>
+             
+             <button class="dropbtn" onclick="selection_onclick('container')" id="seeall">See All</button>
+      </div>
+         
 <!--         LEFT SIDEBAR-->
          <div class="sidebar" id="leftSidebar">
 
          </div>
 <!--         CENTER SIDEBAR-->
          <div class="sidebar" id="CenterSidebar">
-            <div class="container">
+            <div class="container Inprint">
                <div class="overlay">
                <img onclick="modalClick('seeing')" class="projImg" id="seeing" src="img/seeing2.png">
                  <div class="middle">
@@ -75,7 +91,7 @@ The serenity was breathtaking, so I willed my hand to stay put a moment before I
 <!--         RIGHT SIDEBAR-->
          
          <div class="sidebar" id="rightSidebar">
-            <div class="container">
+            <div class="container Prose">
                <div class="overlay">
                <img onclick="modalClick('scale')" class="projImg" id="scale" src="img/scale.png">
                  <div class="middle">
