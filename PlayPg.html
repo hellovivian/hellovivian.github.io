@@ -42,8 +42,22 @@
          <a class="navItems" id="writing_nav" href="NewWritePg.html"> Writing </a> 
          
       </div>
+      <div class="story" id="itsbuggystory">
+         <h1> It's Buggy: Fly Swatting in VR</h1>
+         <p>I created this game with Olivia Ting and Jessica Lee. The premise of this game was to create a </p>
+         <img class="addendumImg" src="img/fly2.png">
+      </div>
+      <div class="story" id="unityrhinostory">
+         <h1> Unity Side Projects</h1>
+<!--         <img class="addendumImg" >-->
+      </div>
       <div class="story" id="dancerstory">
          <h1> Dancer, 4th Position (for my Grandpa)</h1>
+         <button class="collapsible">Open Collapsible</button>
+            <div class="content">
+              <p>yada yada</p>
+            </div>
+         
          My mother and my aunt were professional dancers, so I was tossed into dance at a very young age. Throughout my childhood, I showed no promise and quit 3 times across a hodgepodge of genres (ballet, jazz, lyrical/contemporary, Chinese folk, hip hop, Zumba). Dance was a pain point for me, because I hid the fact that I danced even though it was a big part of my life (15 years). <br>It was my first semester at Berkeley that made me (positively) reconsider how I felt about many things: calculus, computer science, design--but most importantly dance. Berkeley encouraged me to reinvent myself and drop the attitudes I carried towards my past. I became a part of the vibrant dance community, which gave me some of my earliest golden college memories.
          <img class="addendumImg" src="img/dancer2.png">
          <img class="addendumImg" src="img/dancer1.png">
@@ -322,6 +336,22 @@ For my Critical Making class, I wanted to produce a 3D realization of one of my 
       
             <script>
            
+               var coll = document.getElementsByClassName("collapsible");
+               var i;
+
+               for (i = 0; i < coll.length; i++) {
+                 coll[i].addEventListener("click", function() {
+                   this.classList.toggle("active");
+                   var content = this.nextElementSibling;
+                 
+                   if (content.style.display === "block") {
+                     content.style.display = "none";
+                   } else {
+                     content.style.display = "block";
+                    
+                   }
+                 });
+               }
             </script>
          </div>
   
