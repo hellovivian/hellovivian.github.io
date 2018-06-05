@@ -233,6 +233,13 @@ h1 {
    margin: 0 auto;
 }
 
+button.collapsible p  {
+   position: relative;
+   margin: 0 auto;
+/*   background-color: #eadcea;*/
+   font-size: 24px;
+   font-family: Muli, 'sans-serif';
+}
 
 .story {
    display: none;
@@ -404,36 +411,47 @@ button {
 }
 
 .collapsible {
-    background-color: #888;
-    color: white;
+   font-family: Muli;
+/*    background-color: #e8e8e8;*/
+    color: black;
     cursor: pointer;
     padding: 18px;
     width: 100%;
     border: none;
-    text-align: left;
+    text-align: center;
     outline: none;
+   float: right;
+   display: block;
     font-size: 15px;
 }
 
+
+
 .active, .collapsible:hover {
-    background-color: #555;
+/*    background-color: #dcdbdc;*/
 }
 
 .content {
     padding: 0 18px;
     display: none;
     overflow: hidden;
-    background-color: #f1f1f1;
+      text-align: left;
+/*    background-color: #f1f1f1;*/
 }
 
 .collapsible:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
+   padding: 10px;
+   background-color: #e8e8e8;
+    content: 'read more \02795'; /* Unicode character for "plus" sign (+) */
     font-size: 13px;
-    color: white;
+    color: black;
     float: right;
     margin-left: 5px;
+   position: relative;
 }
 
 .active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
+   padding: 10px;
+   background-color: #e8e8e8;
+    content: "read less\2796"; /* Unicode character for "minus" sign (-) */
 }
