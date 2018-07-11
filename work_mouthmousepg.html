@@ -1,0 +1,86 @@
+<head>
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" type="text/css" href="PgTemplate.css">
+   <link rel="stylesheet" type="text/css" href="work_external.css">
+      <link href="https://fonts.googleapis.com/css?family=Arapey|Muli|Playfair+Display|"    rel="stylesheet">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      
+    <script src="PgTemplate.js"></script>
+      <style> .row {
+      width: 100%;
+      display: block;
+      height: 60%;
+   } 
+   </style>
+
+</head>
+
+<body>
+    <a id="xbutton" href="WorkPg.html" onclick="span_onclick()" class="close">&times; Return to portfolio</a>
+   <div id="container">
+     
+   
+      
+      <div id="header">
+      <h1>The Mouth/Chin-Operated Mouse</h1>
+         <h2><br><em> </em></h2>
+
+      <img id="mainimg" src="img/mouthmouse1.png">
+      <h2>Purpose</h2>
+      <p> When I worked in abroad during Peru, my teaching partner and I were introduced to a quadriplegic girl and asked if we could create something akin to LipSync, which is a sip-and-puff assistive tech mouse for people who can't use their limbs.</p><br><p> Though we were strapped for resources and for time, we worked on the prototype day in and day out when we weren't preparing for our workshops. What we produced within a week was a Arduino-powered mouse capable of moving and clicking as per mouth movement. </p> 
+   
+      </div>
+      
+      <div id="rowTileGrid">
+        
+   
+        
+         <div id="row1" class="row">
+            <div id="1left" class="left tile pic">
+      <img width="534px" src="img/mouthmouse.png">
+            </div>
+            <div id="1right" class="right tile text">
+               <h3>Process</h3><p> Though we had scaffolding from a previous opensource iteration (<a href="http://www.instructables.com/id/PC-Mouse-Made-With-Arduino-Uno-and-Joystick/">credit</a>), adapting the design for our user was incredibly challenging. All we had were the electronics, drone equipment, and two 3D printers that we had brought over. We began by hacking apart a drone remote controller, because we needed its joystick. After that, my partner and I partitioned the tasks so that I would handle the software and circuits and he would handle the physical making. He came up with a clever way to instigate pressure on the force sensitive resistor: through a mini pressure chamber created by the close of the mouth over an 3D printed orifice.<br></p><p>In parallel, I worked on the Java that would allow the Arduino input to take over the computer's mouse. This was taxing, because I had not seen Java or Intellij in a while, was unfamiliar coding on a PC, and was without consistent access to Internet/Stack Overflow to remedy this.</p><br>
+  
+            </div>
+         </div>
+         <div id="row2" class="row">
+            <div id="2left" class="left tile text ">
+                   <p>As I acclimated to my new developer environment, I wrangled with the bugs in the opensource code and experimented with types of interaction. After finally debugging all the bugs in the open source code by rewriting large chunks of it for the particular PC I worked on, I explored speech commands while my partner worked on pressure-chamber-enabled clicks. My method was to parse the cluck of a tongue into a left click, making for a more hygenic and easy interaction. However, this hope was dashed when we realized that there would be simply too much irrelevant positive feedback.
+      </p><br><p>The pressure chamber had a slit through which the head of a force sensitive resistor could fit through. When the air filled the chamber in, it read a value that we normalized for. The lips would cover the cone of the chamber so that any tilt would lead translate to action on the computer screen. And when the air was sucked out, we produced a click.</p><br>
+      <p>The housing and chamber were completely 3D printed, and we enlisted our students to help us during the CAD design process so that they could apply their new skills.<br><br> Though we made it as far as a high-fidelity prototype, the mouse in the end did not perform consistently enough for everyday use.</p>
+            </div>         
+            <div id="2right" class="right tile pic">
+           
+
+            </div>
+         </div>
+         <div id="row3" class="row">
+            <div id="3left" class="left tile text">
+                 <h2>Reflection</h2>
+      <p>Out of every project that I had ever done, this project was the most humbling. I am cautious by nature, and I was not sure that I could handle teaching on top of this project, which was aligned with UTK's social impact mission. There was more riding on this project than just a grade, like how it is in college. Even more than that, there was a person who needed it and who wanted it. I applied myself with 200 percent, and learned a lot of lessons along the way.<br><br> The greatest lesson that it taught me was that users must be included in the design process. When I watched the girl we had made this prototype for struggle with our device, all the pride I had built up from the engineering feat I had pulled all-nighter after all-nighter for waned fast. UX was right--question first before you create the solutions.<br><br>
+       When I came back to the States, I was so disappointed that I couldn't finish the project that I restarted it when fall semester at Berkeley rolled around by myself. I worked on a chin-operated mouse this time, which made for a more sanitary option than a mouth one. Other improvements included a dexterous joystick and a mounted button at the top of the rod, which made for easy clicking at the simple push of the head.<br><br>
+               
+    By the time I had completed this iteration though, the girl had already gotten a LipSync alternative from Hong Kong. She's really happy with it, and that's all that I can ask for.</p>
+            </div>
+            <div id="3right" class="right tile pic">
+                     <img src="img/mouthmouse2.png">
+            </div>
+            
+         </div>
+
+         
+    
+      </div>
+    
+      
+      </div>
+
+   
+   </div>
+</body>
+
+ 
+      
+     
+     
