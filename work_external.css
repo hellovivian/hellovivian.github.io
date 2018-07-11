@@ -1,0 +1,113 @@
+body {
+   overflow: scroll;
+   margin: 0 auto;
+   font-size: 1em;
+   display: block;
+   overflow-y: scroll;
+   
+}
+html {
+   background-color: white;
+}
+#container {
+   position: relative;
+   top: 1em;
+   width: 100%;
+   top: 5em;
+}
+
+#rowTileGrid {
+   width: 80%;
+   margin: 0 auto;
+
+}
+
+.text.tile {
+   width: 60%;
+   height: 100%;
+   background-color: white;
+}
+
+.pic.tile {
+   width: 40%;
+   height: 100%;
+
+}
+
+.left.tile {
+   float: left;
+   height: 100%;
+}
+
+
+.right.tile {
+   float: right; 
+   height: 100%;
+}
+
+.pic {
+/*   background-color: black;*/
+   overflow-x: hidden;
+}
+
+
+ p, h3 {
+    padding: 1em 1em;
+    text-align: justify;
+ }
+ 
+.row {
+   width: 100%;
+   display: block;
+   height: 75%;
+}
+
+row {
+   margin: 1em;
+}
+
+
+img {
+   width: 80%;
+   text-align: center;
+   padding: 2em;
+}
+
+#mainimg {
+   width: auto;
+   text-align: center;
+
+}
+
+#header {
+   width: 50%;
+ 
+   margin: 0 auto;
+   text-align: center;
+
+}
+
+#xbutton {
+   display: block;
+   width: 100%;
+}
+
+.close {
+   color: white;
+   padding: 1em;
+    float: right;
+    font-size: 1em;
+    font-weight: bold;
+   background-color: rgb(0,0,0,0.075);
+  
+  
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
