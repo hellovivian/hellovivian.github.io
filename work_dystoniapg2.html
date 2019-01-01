@@ -1,0 +1,171 @@
+<head>
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" type="text/css" href="PgTemplate.css">
+   <link rel="stylesheet" type="text/css" href="work_external.css">
+      <link href="https://fonts.googleapis.com/css?family=Arapey|Muli|Playfair+Display|"    rel="stylesheet">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      
+    <script src="PgTemplate.js"></script>
+   <style> .row {
+      width: 100%;
+      display: block;
+     
+   } 
+   </style>
+
+</head>
+
+<body>
+    <a id="xbutton" href="WorkPg.html" onclick="span_onclick()" class="close">&times; Return to portfolio</a>
+   <div id="container">
+     
+   
+      
+      <div id="header">
+      <h1>Team Lead, Innovation Catalyst Grant Winner</h1>
+         <h2><em>Fall 2018</em></h2>
+         <img style="padding: 0px;" id="affiliations" src="img/affiliations.png">
+         <img style="padding: 0px;" src="img/team.png">
+
+           
+   
+      </div>
+ <div id="header">
+     <img id="mainimg" width="500px" src="img/dystonia2header.png">
+      
+      </div>
+      
+      <div id="rowTileGrid">
+        
+         <div id="row1" class="row">
+            <div id="1left" class="left tile pic">
+               <img src="img/backgroundeyes.png">
+            </div>
+            
+            <div id="1right" class="right tile text">
+                 <h3>Purpose</h3>
+         <p> Blepharospasm is a focal dystonia and movement disorder where abnormal, antagonistic muscle activity leads to impaired ocular control, impeding everyday activities like socializing and driving.<br><br>
+As a rare condition, medical professionals have limited understanding of the condition, relying on patient anecdotes and invasive testing for diagnosis.<br><br> The data diary is a) to encourage patients to be proactive in their healthcare and engage them in retrospective analysis about their condition and its triggers.<br><br>  As the team lead on this project through Enabletech (Berkeley's assistive technology org), I produced a prototype that could be a noninvasive, outpatient wearable tool to quantify dystonia. This project was supported through Jacobs Institute of Design's Innovation Catalyst program, which awarded me a grant of up to $2000. <br><br>
+            </div>
+            
+         </div>
+         
+         <div id="row2" class="row">
+            <h3>Prior Work</h3>
+            <div id="2left" class="left tile text ">
+                  
+               <img src="img/priorwork.png">
+           
+            </div>         
+            <div id="2right" class="right tile pic">
+           The previous iteration that I took to the International Symposium of Academic Makerspaces 2018 at Stanford integrated a Raspberry Pi Zero, spy camera modules, and 3D printed housing.<br><br>
+The software pipeline then consisted of HAAR facial landmark detection run using OpenCV. An equation for eye aspect ratios (eye height vs. eye width) was used as a quantitative correlate for blinking.<br><br>
+               One caveat to the previous approach is that it (and the field of eye tracking it seemed) to rely on frontal face detection. What this meant was that if the head moved (i.e. a three-quarters profile), then the detection of the eyes became awry. This is because faces are usually detected first as a rectangle, and then the eyes are found in HAAR cascade detection. My next prototype accounted for this by fixing the prototype on the eye and moving with the head.
+
+            </div>
+         </div>
+         
+         <div id="row3" class="row">
+            <h3>Software Side</h3>
+            <div style="width: 70%;height:50%;" class="right tile pic">
+                <img src="img/webinterface12.png">
+            </div>
+            <div style="width:30%;height:50%;" class="left tile text">
+                <p>I implemented the software pipeline. The current prototype has a web application made from the Django framework, which I taught myself over the course of my fall semester. Django allowed me to integrate Python image processing algorithms I had written with my front-end development hobby (HTML, CSS, d3.js, Javascript/jQuery)</p><br>
+               <p> The individual would enter in an eye episode video (left), which would be exploded into frames sampled at 100 miliseconds (right). </p>
+            </div>
+            <div style="width:70%; height:50%;" class="left tile pic">
+                <img src="img/webinterface34.png"><br><br> 
+            </div>
+            <div style="width: 30%;height:50%;" class="right tile text">
+                 <p>The individual would then input points that would surround the eye to create a convex hull around the eye, so that we could filter out parts of the image that would make our data noisy. (left) This convex hull would create a binary mask that would be applied to each frame. (right)</p>
+            </div>
+            <div style="width: 30%; height:50%;" class="left tile text">
+                  <p>Afterwards, each masked image is thresholded so that we can create a time series from the video.(left) Based on the sampling rate, we can also run some basic statistics on the data. In the overall diary/database, the new video is documented as a new entry. (right)</p>
+            </div>
+            <div style="width: 70%; height:50%;" class="right tile pic">
+               <img src="img/webinterface56.png"></div>
+      
+            <div style="width: 30%; height: 50%" id="" class="right tile text"><p>One important feature I implemented was the tooltip, which allowed for a side-by-side comparison of the 2 dimensional data to the video feed. For one thing, it is important for visual confirmation/debugging. For another, and perhaps more importantly, it allowed me to explore eye activity as a continuous signal while still understanding what the condition actually looked like to others. After all, the whole point of this prototype was to give people with eye conditions the chance to see what everyone else can see, but they can only feel.</p><br><br> 
+                       During the development process, I wrote/used two algorithmic approaches: 1) projective homography transforms, 2) convex hulls. The first approach was to unwarp the reflection of the eye captured in the mirror and then threshold on each transformed image frame. However, I eventually found the projective transform limiting, because it relied on 4 pairs of correspondence points, and this relationship was superimposed across all frames. Convex hulls could take in an arbitrary amount of points and be more stable.</div>
+            
+            <div style="width: 70%;  height: 50%; " id="" class="left tile pic"><img src="img/webinterface7.png"></div>
+
+            
+         </div>
+         <div id="row4" class="row">
+            <div id="" class="left tile pic">
+               <img src="img/process0.png">
+               <img src="img/process1.png">
+            </div>
+            <div id="" class="right tile text">
+               <h3>Process</h3>
+            Thanks to financial freedom owing to the grant, my team and I explored a variety of sensors including: Raspberry Pi spy camera modules, industry spy cameras, borescopes, EMG sensors. <br><br>
+               In early iterations, we plugged in Raspberry Pi Zero’s and soldered together EMG circuits.  We found that though the Raspberry Pi Zero had the benefit of directly processing the video stream as it came in (as it is a full blown computer), it was too laggy. The EMG circuit also could not pick up the nuances in muscle activity around the eye. We also looked into wireless spy cameras, which led to a rapid prototype that was a little to intrusive for our tastes. Thus, we decided on borescopes, which had a tiny form factor for the camera.<br><br>
+            </div>
+         </div>
+            <div id="row5" class="row">
+               <div id="" class="right tile pic">
+                  <img src="img/process2.png">
+                  <img src="img/process3.png">
+               </div>
+               <div id="" class="left tile text">
+               Everybody has a different head and face, so the angle and distance of the borescope setup would vary from person to person. Wanting a flexible system, Christian worked on a rails system that would allow the borescope to slide to and fro. We faced significant challenges with friction from the 3D printed parts before adding magnets to our design.<br><br>
+               Neodymium magnets were added to attract to nails drilled into the glasses housing. These magnets were hot glued into circular crevices in the borescope holder. The ensuing design changes allowed us to make our housing more modular and printable.<br><br>
+               To vary the angle the mirror takes with the eye and to mount the mirror in general, we also needed an arm to jut out in front of the eye. This was also 3D printed, and its form factor changed from a rotatable disc to a triangular support.
+               </div>
+           
+            
+            
+         </div>
+         
+         <div id="row6" class="row">
+            <h3>Results</h3>
+            <div id="" class="right tile pic">
+               <img src="img/dystonia2header.png">
+               <img src="img/webinterface7.png">
+               
+               <img src="img/results2.png">
+               
+            </div>
+            <div id="" class="left tile pic">
+            Our resulting prototype consisted of the following physical setup and software web application.<br><br>
+We created housing that snapfits onto a pair of glasses. This piece was drilled into with nails that attract the magnets of the borescope holder.
+We designed a borescope holder that circumscribes the borescope. It has crevices on one side for magnets to be hot glued in.
+A USB borescope camera ports the video stream into the computer.
+A laser cut acrylic mirror is snugly fit into an angle-adjustable 3D-printed arm.  
+A user-friendly web application provides the user with analysis on their eye episode.
+               </div>
+
+         </div>
+         
+         <div id="row7" class="row">
+            <div id="" class="left tile pic"><img src="img/results1.png"></div>
+            <div id="" class="right tile text"><h3>Future work</h3>
+            
+               <p>More data collection should be conducted to generate comparisons between normal groups and patient groups. User studies in general should be conducted to assess the wearable as a design.</p><br><br>
+               <p>Iteration, always iteration! Some parts could be improved in structural integrity.</p><br><br>
+               <p>Another affordance to look into is virtual reality, whose headsets could be hacked into for eye-tracking capabilities. Though this hardware setup would then not be relevant, the software pipeline still would be applicable.</p></div>
+            
+      
+         </div>
+         
+         <div id="row8" class="row">
+                 <div id="" class="right tile pic"><img src="img/results4.png"></div>
+            <div id="" class="left tile text">
+               <h3>Reflection</h3>
+         This was my first time leading a team on an engineering project, developing a web application, writing image processing algorithms, and receiving a grant on a personal passion project! I learned not only how to hack, code, and prototype, but also how to teach and to manage. Along the way, I got wonderful design instruction from Chris Myers at the Invention Lab about everything from magnets to CAD principles and algorithm advice from Professor AA Efros.
+            </div>
+            
+
+         </div>
+         
+      </div>
+    
+      
+      </div>
+      
+   
+ 
+</body>
+
