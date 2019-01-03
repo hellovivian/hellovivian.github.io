@@ -1,0 +1,253 @@
+#title {
+/*         margin: 0 auto;*/
+   
+           position: fixed;
+           text-align: center;
+           top: 30%;
+       left: 25%;
+         transform: translateX(-100%);
+           font-size: 2em;
+           color: rgba(255,255,255,1);
+           letter-spacing: 1.15em;
+           text-transform: uppercase;
+           transform: translateY(-50%);
+           text-shadow: 1px 1px 6px rgba(200,200,255,1);
+        }
+
+        body {
+           background-image: url('stars.png');
+           background-size: contain;
+           font-family: 'Work Sans', 'sans-serif';
+           font-weight: 200;
+           color: white;
+         
+        }
+
+#description, p {
+   overflow-y: scroll;
+   font-size: 13px;
+}
+   circle.stars {
+           box-shadow: 10px 10px 5px red;
+
+           -webkit-animation: spin-right 40s linear infinite;
+  animation: spin-right 40s linear infinite;
+           transform-origin: center center;
+        }
+
+
+   .svg2 .stars {
+          
+           -webkit-animation: spin-left 30s linear infinite;
+  animation: spin-left 40s linear infinite;
+           transform-origin: center center;
+        }
+        
+   .svg3 .stars {
+          
+           -webkit-animation: spin-left 30s linear infinite;
+  animation: spin-left 40s linear infinite;
+           transform-origin: center center;
+        }
+
+ @-webkit-keyframes spin-right {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+        
+ @-webkit-keyframes spin-left {
+  100% {
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+
+             
+        
+        div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+      padding: 40px;
+   max-width: 200px;
+           overflow: scroll;
+           opacity: 40%;
+    padding: 2px;				
+  		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 2px;			
+    pointer-events: none;			
+}
+     
+h3 {
+   letter-spacing: 1em;
+   text-transform: uppercase;
+}
+#description {
+   text-align: center;
+   margin: 0 auto;
+   padding: 10px;
+   border-radius: 5px;
+   width:400px;
+   top: 40%;
+   height: 200px;
+   background-color:rgba(255,255,255,0.4);
+   position: fixed;
+   left: 50%;
+   transform:translateX(-50%);
+   z-index: 10;
+}
+
+@keyframes particleAnimation
+{
+    from {
+        left: -100px;
+       top: -100px;
+    }
+    to {
+        left: calc( 100% + 100px );
+       top: calc( 100% + 100px );
+    }
+}
+
+
+@keyframes particleAnimation2
+{
+    from {
+        left: 500px;
+       top: -100px;
+    }
+    to {
+        left: calc( 100% + 500px );
+       top: calc( 100% + 100px );
+    }
+}
+
+
+
+.p{
+  position:fixed;
+  left:0px;
+  top:50px;
+  width:1px;
+  height:1px;
+  background-color:white;
+  position:fixed;
+  animation-name:particleAnimation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+
+.p2{
+  position:fixed;
+  left:0px;
+  top:50px;
+  width:1px;
+  height:1px;
+  background-color:white;
+  position:fixed;
+  animation-name:particleAnimation2;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+div.shootingstar {
+      -ms-transform: rotate(20deg); /* IE 9 */
+  -webkit-transform: rotate(20deg); /* Safari */
+  transform: rotate(20deg);
+
+}
+.p::before{
+  position:absolute;
+  display:block;
+  content:"";
+  width:100px;
+  right:1px;
+  top:0px;
+  height:1px;
+
+  background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(255,255,255,0.4) 100%); 
+}
+
+.p2::before{
+  position:absolute;
+  display:block;
+  content:"";
+  width:100px;
+  right:1px;
+  top:0px;
+  height:1px;
+
+  background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(255,255,255,0.4) 100%); 
+}
+.p-1{
+  animation-duration:10s;
+}
+.p-2{
+  animation-duration:5s;
+  top:60%;
+
+}
+.p-3{
+  animation-duration:20s;
+  top:90%;
+   
+}
+.p-4{
+  animation-duration:20s;
+  top:20%;
+}
+.p-5{
+  animation-duration:20s;
+  top:90%;
+}
+
+.svg1 {
+   position: absolute;
+   left: 0%;
+   top: 60%;
+}
+.svg2 {
+   position: absolute;
+   left: 60%;
+   top: -10%;
+}
+.svg3 {
+   position: absolute;
+   left: -10%;
+   top: 5%;
+}
+.svg4 {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+}
+
+.svg5 {
+   position: absolute;
+   left: -10%;
+   top: 90%;
+}
+
+.svg6 {
+   position: absolute;
+   left: 30%;
+   top: 90%;
+}
+
+.center {
+   background-image: url("http://wallpoper.com/images/00/29/88/20/jupiter-surface_00298820.jpg)";
+}
