@@ -1,25 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import AboutMe from './components/AboutMe';
+import Project from './components/Project';
+import Gallery from './components/Gallery';
+import Navigation from './components/Navigation';
+import projectData from './data/projectData';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import HomePage from './HomePage';
+
+import AboutPage from './AboutPage';
+import project3DALLE from './project3DALLE';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/About" element={<AboutPage />} />
+        <Route path="/3DALLE" element={<project3DALLE />} />
+      </Routes>
+    </Router>
+    
+    
   );
 }
+
+
 
 export default App;

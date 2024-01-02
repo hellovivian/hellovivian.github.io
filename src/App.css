@@ -1,4 +1,23 @@
+.about-me p {
+  font-size: 16px;
+  line-height :28px;
+  font-weight: 300;
+  color: #333333;
+
+}
+
+.about-me {
+  margin: 1.5em 0em;
+}
+
 .App {
+  text-align: center;
+}
+
+
+.container {
+  width: 70%;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -7,21 +26,16 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
@@ -35,4 +49,97 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.external-links {
+  display: flex;
+  flex-direction: row;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0;
+}
+
+.gallery-row img {
+  margin: 0.2em;
+  width: 33%;
+}
+
+h1 {
+  font-family: 'NotoItalic';
+  font-weight:600;
+}
+
+h2 {
+  font-size: 1.25em;
+  font-family: 'NotoItalic';
+}
+
+h3 {
+  font-size: 1em;
+}
+
+.link {
+  border: solid 1px #bbbbbb;
+  padding: 0.33em .66em;
+
+  
+}
+
+.navigation {
+  margin-top: 2em;
+}
+.navigation a {
+  padding: 1em;
+  font-size: 16px;
+  text-decoration: none;
+  color: #333333;
+
+}
+.project-row img {
+  margin: 1em;
+}
+
+.project-row {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 0.25em;
+  color: black;
+  /* width: 75%; */
+  width: 100%;
+  margin-top:0.5em;
+  text-align: left;
+
+}
+
+
+.project-row a {
+  text-decoration: none;
+  margin: 0.25em;
+  font-size: 16px !important;
+  border-radius: 0.2em;
+  color: black;
+
+}
+
+.project-row p {
+  font-size:16px;
+}
+
+.project-row link {
+  
+
+}
+
+.project-preview {
+  max-width: 196px;
 }
