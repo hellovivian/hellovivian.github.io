@@ -6,6 +6,7 @@ const Project = (props) => {
   const authors = props.authors;
   const venue = props.venue;
   const projectpage = props.projectpage;
+  console.log(projectpage);
 
   const paperlink = props.paperlink;
   const codelink = props.codelink;
@@ -24,15 +25,32 @@ const Project = (props) => {
         <div className="external-links">
 
         {projectpage && projectpage.length > 0 && (
-            <a class='link' href={projectpage}>Project Page</a>
+
+
+                
+                <a class='link' href={projectpage}>  Project Page</a>
+
         )}
 
         {paperlink && paperlink.length > 0 && (
-            <a class='link' href={paperlink}>Paper</a>
+            // <div className="external-link-button">
+                <a class='link' href={paperlink}> 
+                {/* <img className='link-icon' src='./images/pdficon.png'></img> */}
+                Paper
+                </a>
+            // </div>
+            
         )}
 
         {video && video.length > 0 && (
-            <a class='link' href={video}>Video</a>
+            <a class='link' href={video}>
+                {/* <img className='link-icon' src='./images/video-player.png'>
+
+                </img> */}
+
+                    Video 
+
+            </a>
         )}
 
         {codelink && codelink.length > 0 && (

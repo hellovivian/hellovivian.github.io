@@ -11,8 +11,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './HomePage';
 
 import AboutPage from './AboutPage';
-import project3DALLE from './project3DALLE';
+import ProjectPage3DALLE from './project3DALLE';
 
+import DiscoProjectPage from './projectDisco';
 
 
 function App() {
@@ -21,7 +22,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/About" element={<AboutPage />} />
-        <Route path="/3DALLE" element={<project3DALLE />} />
+        <Route path="/3DALLE" element={<ProjectPage3DALLE />} />
+        <Route path="/disco" element={<DiscoProjectPage />} />
+
+
       </Routes>
     </Router>
     

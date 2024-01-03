@@ -56,6 +56,10 @@
   flex-direction: row;
 }
 
+.external-link-button {
+  display: flex;
+}
+
 .gallery-container {
   display: flex;
   flex-direction: column;
@@ -84,7 +88,11 @@ h2 {
 }
 
 h3 {
-  font-size: 1em;
+  font-size: 24px;
+}
+
+hr {
+  border-bottom: solid 1px black;
 }
 
 .link {
@@ -94,6 +102,13 @@ h3 {
   
 }
 
+.link-icon {
+  max-width: 28px;
+  width: 28px;
+  min-width: 28px !important;
+  margin: 0px 18px 0px 0px !important;
+
+}
 .navigation {
   margin-top: 2em;
 }
@@ -106,6 +121,9 @@ h3 {
 }
 .project-row img {
   margin: 1em;
+  /* border: solid 1px #eeeeee; */
+  min-width: 196px;
+  /* min-height: 196px; */
 }
 
 .project-row {
@@ -121,7 +139,6 @@ h3 {
 
 }
 
-
 .project-row a {
   text-decoration: none;
   margin: 0.25em;
@@ -130,6 +147,11 @@ h3 {
   color: black;
 
 }
+
+.project-row h3 {
+  text-align: left;
+}
+
 
 .project-row p {
   font-size:16px;

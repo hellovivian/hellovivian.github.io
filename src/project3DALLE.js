@@ -1,10 +1,10 @@
-// AboutPage.js
+// project3DALLE.js
 import './App.css';
 
 import React from 'react';
 import Navigation from './components/Navigation';
 
-const project3DALLE = () => {
+const ProjectPage3DALLE = () => {
   return (
     <div>
         
@@ -16,4 +16,4 @@ const project3DALLE = () => {
   );
 };
 
-export default project3DALLE;
+export default ProjectPage3DALLE;
