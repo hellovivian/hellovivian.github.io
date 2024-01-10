@@ -35,14 +35,14 @@ const items = [
         <Video className='videoCard' song="Empire State of Mind" artist='Alicia Keys' url="./disco_videos/nyc.mp4"/>
     </div>,
     <div className="item" data-value="4">
-        <Video className='videoCard' song="One More Time" artist='Daft Punk' url="./disco_videos/AIArt3.gif"/>
-    </div>,
-    <div className="item" data-value="5">
         <Video className='videoCard' song="Creep" artist='Radiohead' url="./disco_videos/creep_done.m4v"/>
     </div>,
-     <div className="item" data-value="6">
-     <Video className='videoCard' song="Beauty and a Beat" artist='' url="./disco_videos/AIArt2.mp4"/>
- </div>
+    <div className="item" data-value="5">
+        <Video className='videoCard' song="Dark Horse" artist='Katy Perry' url="./disco_videos/darkhorse.m4v"/>
+    </div>,
+    <div className="item" data-value="6">
+    <Video className='videoCard' song="Beauty and a Beat" artist='' url="./disco_videos/fightinggravity.m4v"/></div>
+
 ];
 
 

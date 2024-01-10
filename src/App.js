@@ -5,6 +5,7 @@ import Project from './components/Project';
 import Gallery from './components/Gallery';
 import Navigation from './components/Navigation';
 import projectData from './data/projectData';
+import DiscoThree from './DiscoThree';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -24,6 +25,8 @@ function App() {
         <Route path="/About" element={<AboutPage />} />
         <Route path="/3DALLE" element={<ProjectPage3DALLE />} />
         <Route path="/disco" element={<DiscoProjectPage />} />
+        <Route path="/disco3" element={<DiscoThree />} />
+
 
 
       </Routes>

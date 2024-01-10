@@ -7,7 +7,7 @@ const projectData = [
       venue: 'Under Submission',
       links: {
         paperlink:"https://arxiv.org/abs/2304.08551",
-        pg: "disco",
+        pg: "",
         codelink: "https://github.com/hellovivian/generative-disco",
         demolink: "https://huggingface.co/spaces/vivlavida/generative-disco",
         video: "https://www.youtube.com/watch?v=q22I53jHbuU&list=PLa3syNOZMtayyCxdYGE5T2tEF-Yc531tm&index=17&ab_channel=VivianL",
@@ -24,7 +24,7 @@ const projectData = [
       venue: 'DIS 2023',
       links: {
         paperlink: "https://dl.acm.org/doi/10.1145/3563657.3596098",
-        pg: "3DALLE",
+        pg: "",
         codelink: "",
         demolink:"",
         video: "https://www.youtube.com/watch?v=c45gIiAEWZU&ab_channel=VivianL",
@@ -39,7 +39,7 @@ const projectData = [
       authors: 'Vivian Liu, Han Qiao, Lydia Chilton',
       venue: 'UIST 2022',
       links: {
-        pg:"https://vivian-liu.com/opal",
+        pg:"",
         img_src: "./images/opal.png",
         demolink:"",
         codelink:"",
