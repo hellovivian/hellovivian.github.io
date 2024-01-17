@@ -27,7 +27,7 @@ const projectData = [
         venue: 'DIS 2022',
         links: {
           img_src: "./images/sparks.png",
-          projectpage: "sdfd",
+          projectpage: "",
           paperlink:"https://dl.acm.org/doi/abs/10.1145/3532106.3533533",
           demolink:"",
           video:"",
@@ -42,7 +42,7 @@ const projectData = [
         venue: 'Creativity and Cognition 2022',
         links: {
           img_src: "./images/initimages.jpg",
-          projectpage: "sdfd",
+          projectpage: "",
           paperlink:"",
           demolink:"",
           video:"",
@@ -73,7 +73,7 @@ const projectData = [
         venue: 'CHI 2021',
         links: {
           img_src: "./images/visifit.png",
-          projectpage: "https://vivian-liu.com/3d-and-semantics",
+          projectpage: "",
           demolink:"",
           video:"https://www.youtube.com/watch?v=5GJwkGhb6DI",
           codelink:"",
@@ -89,7 +89,7 @@ const projectData = [
         venue: 'CHI 2020',
         links: {
           img_src: "./images/visualstyle.png",
-          projectpage: "https://vivian-liu.com/3d-and-semantics",
+          projectpage: "",
           demolink:"",
           video:"https://youtu.be/hJQ-NZBWD38",
           codelink:"",
