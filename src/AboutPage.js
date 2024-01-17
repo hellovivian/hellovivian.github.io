@@ -1,6 +1,6 @@
 // AboutPage.js
 import './App.css';
-import './Profile.css';
+// import './Profile.css';
 
 import React from 'react';
 import Navigation from './components/Navigation';
