@@ -83,7 +83,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.25em;
+  font-size: 28px;
   font-family: 'NotoItalic';
 }
 
@@ -142,7 +142,7 @@ hr {
 .project-row a {
   text-decoration: none;
   margin: 0.25em;
-  font-size: 16px !important;
+  font-size: 1em !important;
   border-radius: 0.2em;
   color: black;
 
@@ -154,7 +154,7 @@ hr {
 
 
 .project-row p {
-  font-size:16px;
+  font-size: 16px;
 }
 
 .project-row link {

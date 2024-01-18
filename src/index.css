@@ -1,7 +1,7 @@
 
 @font-face {
   font-family: 'ProximaNova';
-  src: local('ProximaNova'), url("../public/fonts/Fontspring-DEMO-proximanovaexcn-light.otf") format('opentype');
+  src: local('ProximaNova'), url("../public/fonts/Proxima_Nova_Regular.ttf") format('truetype');
   /* other formats include: 'woff2', 'truetype, 'opentype',
                             'embedded-opentype', and 'svg' */
 }
@@ -25,7 +25,7 @@
 
 body {
   margin: 0;
-  font-family:  'ProximaNova', system-ui, sans-serif,
+  font-family:  "ProximaNova", system-ui, sans-serif,
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
