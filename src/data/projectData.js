@@ -24,7 +24,7 @@ const projectData = [
       venue: 'DIS 2023',
       links: {
         paperlink: "https://dl.acm.org/doi/10.1145/3563657.3596098",
-        pg: "",
+        pg: "/3DALLE",
         codelink: "",
         demolink:"",
         video: "https://www.youtube.com/watch?v=c45gIiAEWZU&ab_channel=VivianL",
@@ -39,7 +39,7 @@ const projectData = [
       authors: 'Vivian Liu, Han Qiao, Lydia Chilton',
       venue: 'UIST 2022',
       links: {
-        pg:"",
+        pg:"/opal",
         img_src: "./images/opal.png",
         demolink:"",
         codelink:"",
@@ -55,7 +55,7 @@ const projectData = [
       venue: 'CHI 2022',
       links: {
         img_src: "./images/designguidelines.jpeg",
-        pg: "",
+        pg: "/designguidelines",
         demolink:"",
         video:"https://www.youtube.com/watch?v=7-XnIuH8r3U&ab_channel=ACMSIGCHI",
         codelink:"",

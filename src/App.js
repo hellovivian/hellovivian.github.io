@@ -6,6 +6,9 @@ import Gallery from './components/Gallery';
 import Navigation from './components/Navigation';
 import projectData from './data/projectData';
 import DiscoThree from './DiscoThree';
+import ProjectOPAL from './projectOPAL';
+import ProjectDesignGuidelines from './ProjectDesignGuidelines';
+
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -26,6 +29,10 @@ function App() {
         <Route path="/3DALLE" element={<ProjectPage3DALLE />} />
         <Route path="/disco" element={<DiscoProjectPage />} />
         <Route path="/disco3" element={<DiscoThree />} />
+        <Route path="/opal" element={<ProjectOPAL />} />
+        <Route path="/designguidelines" element={<ProjectDesignGuidelines />} />
+
+
 
 
 

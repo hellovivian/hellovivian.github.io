@@ -1,15 +1,38 @@
 .discoContainer {
     background-color:rgb(249,197,212);
+    padding:20px;
 }
 
 h3 {
     font-family: 'Proxima Nova';
     text-align: center;
 }
+
+
+#discotitle {
+    color: deeppink;
+}
 .alice-carousel {
     width: 100%; 
 }
 
+.pink {
+    color: deeppink;
+}
+
+#disco_figure_gallery {
+    width: 100%;
+    margin-top:2em;
+    background-color: white;
+    border-top: solid 1px deeppink;
+    padding:1em;
+}
+
+.disco_figure {
+    border-radius:0.25em;
+    padding: 2em;
+
+}
 .carouselContent {
     width: 512px;
 }

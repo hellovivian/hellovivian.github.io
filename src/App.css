@@ -10,6 +10,12 @@
   margin: 1.5em 0em;
 }
 
+.about_text {
+  text-align: left;
+  text-indent: 2ch;
+  line-height: 1.5em;
+}
+
 .App {
   text-align: center;
 }
@@ -60,6 +66,13 @@
   display: flex;
 }
 
+.flex_figures {
+  display:flex;
+  width: 75%;
+
+
+}
+
 .gallery-container {
   display: flex;
   flex-direction: column;
@@ -89,6 +102,7 @@ h2 {
 
 h3 {
   font-size: 24px;
+  font-family: 'ProximaNova';
 }
 
 hr {
@@ -109,6 +123,18 @@ hr {
   margin: 0px 18px 0px 0px !important;
 
 }
+
+#maker_gallery {
+  padding-top:2em;
+  width: 90%;
+  margin: 0 auto;
+
+}
+
+.maker_pic {
+  width: 100%;
+
+}
 .navigation {
   margin-top: 2em;
 }
@@ -119,6 +145,37 @@ hr {
   color: #333333;
 
 }
+
+#opal_system_design {
+  width: 80%;
+}
+
+.paper_authors {
+  position: relative;
+
+  text-align: center;
+
+}
+
+
+
+.paper_abstract {
+  width: 80%;
+  text-align: left;
+  position: relative;
+  margin: 0 auto;
+  line-height: 1.5em;
+  padding: 1em;
+
+}
+.paper_figure {
+  width: 50%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+}
+
 .project-row img {
   margin: 1em;
   /* border: solid 1px #eeeeee; */
