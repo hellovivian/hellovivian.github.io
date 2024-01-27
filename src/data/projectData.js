@@ -7,7 +7,7 @@ const projectData = [
       venue: 'Under Submission',
       links: {
         paperlink:"https://arxiv.org/abs/2304.08551",
-        pg: "",
+        pg: "disco",
         codelink: "https://github.com/hellovivian/generative-disco",
         demolink: "https://huggingface.co/spaces/vivlavida/generative-disco",
         video: "https://www.youtube.com/watch?v=q22I53jHbuU&list=PLa3syNOZMtayyCxdYGE5T2tEF-Yc531tm&index=17&ab_channel=VivianL",
