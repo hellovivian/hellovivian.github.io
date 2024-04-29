@@ -196,6 +196,18 @@ hr {
 
 }
 
+.project-page-link {
+
+  margin: 0.25em;
+  font-size: 16px !important;
+  border-radius: 0.2em;
+  color: black;
+  border: solid 1px #bbbbbb;
+  padding: 0.33em .66em;
+
+
+}
+
 .project-row a {
   text-decoration: none;
   margin: 0.25em;

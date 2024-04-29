@@ -15,6 +15,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './HomePage';
 
 import AboutPage from './AboutPage';
+import BlogPage from './BlogPage';
+
 import ProjectPage3DALLE from './project3DALLE';
 
 import DiscoProjectPage from './projectDisco';
@@ -22,15 +24,18 @@ import DiscoProjectPage from './projectDisco';
 
 function App() {
   return (
-    <Router>
+    <Router >
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/About" element={<AboutPage />} />
+        {/* <Route path="/Blog" element={<BlogPage />} /> */}
+
         <Route path="/3DALLE" element={<ProjectPage3DALLE />} />
         <Route path="/disco" element={<DiscoProjectPage />} />
         <Route path="/disco3" element={<DiscoThree />} />
         <Route path="/opal" element={<ProjectOPAL />} />
         <Route path="/designguidelines" element={<ProjectDesignGuidelines />} />
+        
 
 
 

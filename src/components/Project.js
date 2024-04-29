@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Project = (props) => {
   const projectname = props.projectname;
@@ -27,13 +28,15 @@ const Project = (props) => {
         {projectpage && projectpage.length > 0 && (
 
 
-                
-                <a class='link' href={projectpage}>  Project Page</a>
+                <div class='project-page-link'> <Link to={projectpage}>Project Page</Link></div>
+                // <a class='link' href={projectpage}>  Project Page</a>
 
         )}
 
         {paperlink && paperlink.length > 0 && (
             // <div className="external-link-button">
+
+
                 <a class='link' href={paperlink}> 
                 {/* <img className='link-icon' src='./images/pdficon.png'></img> */}
                 Paper
