@@ -157,6 +157,12 @@ hr {
 
 }
 
+.paper_affiliations {
+  position: relative;
+
+  text-align: center;
+
+}
 
 
 .paper_abstract {
@@ -175,6 +181,7 @@ hr {
   transform: translateX(-50%);
   margin: 0 auto;
 }
+
 
 .project-row img {
   margin: 1em;

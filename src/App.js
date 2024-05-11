@@ -20,6 +20,8 @@ import BlogPage from './BlogPage';
 import ProjectPage3DALLE from './project3DALLE';
 
 import DiscoProjectPage from './projectDisco';
+import LogoMotionProjectPage from './projectLogoMotion';
+
 
 
 function App() {
@@ -28,7 +30,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/About" element={<AboutPage />} />
-        {/* <Route path="/Blog" element={<BlogPage />} /> */}
+        <Route path="/Blog" element={<BlogPage />} />
+
+        <Route path="/logomotion" element={<LogoMotionProjectPage />} />
 
         <Route path="/3DALLE" element={<ProjectPage3DALLE />} />
         <Route path="/disco" element={<DiscoProjectPage />} />

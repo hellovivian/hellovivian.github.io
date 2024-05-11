@@ -7,6 +7,8 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import React from 'react';
 import Navigation from './components/Navigation';
+import { Link } from 'react-router-dom';
+
 
 const AboutPage = () => {
   return (
@@ -30,6 +32,8 @@ const AboutPage = () => {
       I graduated from UC Berkeley with Distinction in Computer Science and Cognitive Science. I also earned a certificate in New Media. During my undergrad, I loved to make things at the Jacobs Institute of Design.
 
       </p>
+
+      <Link to="/Blog">Blog</Link>
 
       {/* <p class="about_text">
       All the images on the front page have special meaning to me. They cover some of my first personal projects and professional experiences. 

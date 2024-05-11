@@ -7,6 +7,9 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import React from 'react';
 import Navigation from './components/Navigation';
+import Video from './components/Video';
+import ReactPlayer from 'react-player'
+
 
 const BlogPage = () => {
   return (
@@ -19,13 +22,24 @@ const BlogPage = () => {
     <div className="profile-container">
     {/* <img height="256px" src="./images/profile.jpeg"/> */}
     <div>
-    <p class="about_text">Research Blog  </p>
+    <p class="about_text">Under construction, please standby. :) </p>
 
-      <p class="about_text">
+    <div >
+            <ReactPlayer
+            className='react-player fixed-bottom'
+            url="./disco_videos/lastcarnival.mp4"
+            controls = {true}
+            style={{dropShadow: "none"}}
 
 
+            />
 
-      </p>
+    
+
+        </div>
+
+
+    
       <p class="about_text">
       
       </p>

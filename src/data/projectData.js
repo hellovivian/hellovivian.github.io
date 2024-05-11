@@ -1,9 +1,25 @@
 // projectData.js
 const projectData = [
+  {
+    id: 0,
+    title: 'LogoMotion: Visually-Grounded Code Generation for Content-Aware Animation',
+    authors: 'Vivian Liu, Rubaiat Habib Kazi, Li-Yi Wei, Matt Fisher, Timothy Langlois, Seth Walker, Lydia Chilton',
+    venue: 'Under Submission',
+    links: {
+      paperlink:"",
+      pg: "/logomotion",
+      codelink: "",
+      demolink: "",
+      video: "",
+      img_src: "./logomotion_gifs/cat1.gif",
+      demo: './images/disco.gif',
+      source: 'https://github.com/example/project1',
+    },
+  },
     {
       id: 1,
       title: 'Generative Disco: Text-to-Video for Music Visualization',
-      authors: 'Vivian Liu, Tao Long, Nathan Raw, Lydia Chilton',
+      authors: 'Vivian Liu, Tao Long, Jenny Ma, Nathan Raw, Lydia Chilton',
       venue: 'Under Submission',
       links: {
         paperlink:"https://arxiv.org/abs/2304.08551",
@@ -26,7 +42,7 @@ const projectData = [
         paperlink: "https://dl.acm.org/doi/10.1145/3563657.3596098",
         pg: "/3DALLE",
         codelink: "",
-        demolink:"",
+        demolink:"https://apps.autodesk.com/FUSION/en/Detail/Index?id=8558451727109537930",
         video: "https://www.youtube.com/watch?v=c45gIiAEWZU&ab_channel=VivianL",
         img_src: "./images/3DALLE.gif",
         source: 'https://github.com/example/project2',
