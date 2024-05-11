@@ -103,7 +103,14 @@ const items2 = [
         <img width="256px" src="./logomotion_gifs/tools.gif"></img>
 
 
-    </div>
+    </div>,
+     <div className="item" data-value="5">
+
+     <img width="256px" src="./logomotion_gifs/skull.gif"></img>
+ 
+         
+         
+     </div>,
    
 
 ];

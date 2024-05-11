@@ -28,8 +28,7 @@ function App() {
   return (
     <Router >
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/About" element={<AboutPage />} />
+      <Route path="/About" element={<AboutPage />} />
         <Route path="/Blog" element={<BlogPage />} />
 
         <Route path="/logomotion" element={<LogoMotionProjectPage />} />
@@ -39,6 +38,8 @@ function App() {
         <Route path="/disco3" element={<DiscoThree />} />
         <Route path="/opal" element={<ProjectOPAL />} />
         <Route path="/designguidelines" element={<ProjectDesignGuidelines />} />
+        <Route path="/" element={<HomePage />} />
+       
         
 
 
