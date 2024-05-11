@@ -10,7 +10,7 @@ const projectData = [
       pg: "/logomotion",
       codelink: "",
       demolink: "",
-      video: "",
+      video: "https://youtu.be/Jo9opkMH7iY",
       img_src: "./logomotion_gifs/cat1.gif",
       demo: './images/disco.gif',
       source: 'https://github.com/example/project1',
