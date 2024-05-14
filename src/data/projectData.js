@@ -6,7 +6,7 @@ const projectData = [
     authors: 'Vivian Liu, Rubaiat Habib Kazi, Li-Yi Wei, Matt Fisher, Timothy Langlois, Seth Walker, Lydia Chilton',
     venue: 'Under Submission',
     links: {
-      paperlink:"",
+      paperlink:"http://arxiv.org/abs/2405.07065",
       pg: "/logomotion",
       codelink: "",
       demolink: "",
