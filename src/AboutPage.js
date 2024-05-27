@@ -33,7 +33,7 @@ const AboutPage = () => {
 
       </p>
 
-      <Grid container id="maker_gallery" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid container className="maker_gallery" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={3}>
         <img class="maker_pic" src="./images/maker/fishbox.png"></img>
 

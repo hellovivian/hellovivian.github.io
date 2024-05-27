@@ -21,7 +21,7 @@ import ProjectPage3DALLE from './project3DALLE';
 
 import DiscoProjectPage from './projectDisco';
 import LogoMotionProjectPage from './projectLogoMotion';
-
+import BlogComputationalModels from './blogComputationalModels';
 
 
 function App() {
@@ -30,6 +30,7 @@ function App() {
       <Routes>
       <Route path="/About" element={<AboutPage />} />
         <Route path="/Blog" element={<BlogPage />} />
+       < Route path="/computational_models" element={<BlogComputationalModels />} />
 
         <Route path="/logomotion" element={<LogoMotionProjectPage />} />
 
@@ -38,10 +39,11 @@ function App() {
         <Route path="/disco3" element={<DiscoThree />} />
         <Route path="/opal" element={<ProjectOPAL />} />
         <Route path="/designguidelines" element={<ProjectDesignGuidelines />} />
+        
         <Route path="/" element={<HomePage />} />
        
-        
 
+    
 
 
 

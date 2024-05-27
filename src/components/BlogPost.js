@@ -14,6 +14,7 @@ const BlogPost = (props) => {
 
   const codelink = props.codelink;
   const demolink = props.demolink;
+  const blogpostlink = props.blogpostlink;
   const video = props.video;
 
   return (
@@ -67,6 +68,13 @@ const BlogPost = (props) => {
         {demolink && demolink.length > 0 && (
             <a class='link' href={demolink}>Demo</a>
         )}
+
+        {blogpostlink && blogpostlink.length > 0 && (
+                    // <a class='link' href={blogpostlink}>Read more</a>
+                    <div class='project-page-link'> 
+
+                    <Link to={blogpostlink}>Blog Post </Link>
+                    </div>)}
 
         </div>
       </div>

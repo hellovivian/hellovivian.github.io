@@ -41,6 +41,12 @@ code {
     monospace;
 }
 
+.code-block {
+  white-space: pre-wrap; /* Ensures lines wrap */
+  word-wrap: break-word; /* Ensures long words wrap */
+  text-align:left;
+}
+
 
 .video_title {
   font-family: "ProximaNova";
