@@ -1,6 +1,45 @@
 // fullProjectData.js
 const projectData = [
 
+  // {
+  //   id: 5,
+  //   title: 'DynEx: Dynamic Code Synthesis with Structured Design Exploration for Accelerated Exploratory Programming',
+  //   authors: 'Jenny Ma, Karthik Sreedhar, Vivian Liu, Sitong Wang, Pedro Alejandro Perez, Riya Sahni, Lydia B. Chilton',
+  //    description: 'Description',
+  //   venue: 'Under Submission',
+  //   links: {
+  //     img_src: "./images/dynex.png",
+  //     projectpage: "https://jennygzma.github.io/#/dynex",
+  //     paperlink:"https://arxiv.org/abs/2410.00400",
+  //     demolink:"",
+  //     video:"https://www.youtube.com/watch?v=ZY5WNgjo7as&ab_channel=jny",
+  //     codelink:"",
+      
+
+  //   },
+  // },
+  
+
+  // {
+  //   id: 5,
+  //   title: 'MIRACLE: An Online, Explainable Multimodal Interactive Concept Learning System',
+  //   authors: 'Ansel Blume, Khanh Duy Nguyen, Zhenhailong Wang, Yangyi Chen, Michal Shlapentokh-Rothman, Xiaomeng Jin, Jeonghwan Kim, Zhen Zhu, Jiateng Liu, Kuan-Hao Huang, Mankeerat Sidhu, Xuanming Zhang, Vivian Liu, Raunak Sinha, Te-Lin Wu, Abhay Zala, Elias Stengel-Eskin, Da Yin, Yao Xiao, Utkarsh Mall, Zhou Yu, Kai-Wei Chang, Camille Cobb, Karrie Karahalios, Lydia Chilton, Mohit Bansal, Nanyun Peng, Carl Vondrick, Derek Hoiem, Heng Ji',
+  //    description: 'Description',
+  //   venue: 'ACMMM 2024 Technical Demos and Videos Program',
+  //   links: {
+  //     img_src: "./images/miracledemo.png",
+  //     projectpage: "",
+  //     paperlink:"",
+  //     demolink:"",
+  //     video:"",
+  //     codelink:"",
+      
+
+  //   },
+  // },
+  
+
+
 
     {
       id: 5,

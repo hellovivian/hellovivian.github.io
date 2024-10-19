@@ -71,12 +71,12 @@ const BlogPage = () => {
         
      <Navigation />
 
-      <h1>Blog</h1>
+      <h1>Updates</h1>
       
     <div className="profile-container">
     {/* <img height="256px" src="./images/profile.jpeg"/> */}
     <div>
-    <p class="about_text">Under construction, please standby. :) </p>
+    {/* <p class="about_text">Under construction, please standby. :) </p> */}
 
 
    

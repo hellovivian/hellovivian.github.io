@@ -20,7 +20,7 @@ const projectData = [
       id: 1,
       title: 'Generative Disco: Text-to-Video for Music Visualization',
       authors: 'Vivian Liu, Tao Long, Jenny Ma, Nathan Raw, Lydia Chilton',
-      venue: 'Under Submission',
+      venue: 'HICCS 2025',
       links: {
         paperlink:"https://arxiv.org/abs/2304.08551",
         pg: "/disco",

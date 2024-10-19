@@ -21,8 +21,8 @@ const AboutPage = () => {
     <div className="profile-container">
     <img height="256px" src="./images/profile.jpeg"/>
     <div>
-    <p class="about_text">I'm currently a fourth year Computer Science PhD Student at Columbia University and a National Science Foundation Graduate Research Fellow. I work on human-computer interaction with Professor Lydia Chilton in the Computational Design Lab.
-      </p>
+    <p class="about_text">I'm currently a student researcher at Google Deepmind. I am also a fifth year Computer Science PhD Student at Columbia University and a National Science Foundation Graduate Research Fellow. I work on the intersection of human-computer interaction and generative AI with <a href="https://www.cs.columbia.edu/~chilton/#">Professor Lydia Chilton</a> in the Computational Design Lab.</p>
+
 
       <p class="about_text">
       In my free time, I like to design, write, and dance in New York City. During the third year of my PhD, I danced on the Columbia Dance Team, performing half time at football and basketball games. 
