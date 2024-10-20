@@ -20,7 +20,7 @@ const projectData = [
   {
     id: 0,
     title: 'Ran a workshop using Generative Disco for an NGO called STEM From Dance.',
-    date: 'July 2024',
+    date: 'JULY 2024',
     venue: 'Disco was presented to 171 girls 8-18 over 3 guest lectures for STEM From Dance, an NGO that reaches out to underrepresented girls through programs that incorporate dance, physical computing, and computer science. 20 students participated in a workshop, creating text-to-video music videos at the Barnard Movement Lab. Collaborating with STEM From Dance and since 2021 has been one of the most rewarding experiences of my PhD.',
     links: {
       paperlink:"",
