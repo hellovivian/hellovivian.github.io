@@ -2,6 +2,23 @@
 const projectData = [
   {
     id: 0,
+    title: 'I gave a seminar talk for Brown Visual Computing.',
+    date: 'NOV 2024',
+    venue: 'My talk was titled "Enabling Design with AI through Interactive Techniques for Multimodal Integration"-- thank you so much to Brown University Computer Science for giving me the opportunity to present my work.',
+    links: {
+      paperlink:"",
+      pg: "",
+      codelink: "",
+ demolink: "",
+      blogpostlink: "",
+      video: "https://www.youtube.com/live/lEbKPXtbd4g?si=sA1ZRaIAZtTfNSQG",
+      img_src: "./images/latent_preview.gif",
+       demo: '',
+      source: '',
+    },
+  },
+  {
+    id: 1,
     title: 'Started student researcher internship at Google Deepmind.',
     date: 'SEP 2024',
     venue: "I am working on the People + AI Research Team, where I am fortunate to work with Alex Fiannaca, Carrie Cai, and Michael Terry. I am back in Seattle. :) ",

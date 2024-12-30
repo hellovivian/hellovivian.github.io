@@ -126,11 +126,11 @@ const BlogPage = () => {
     </div>
 
       
-<h3>Disco Playlist</h3>
+{/* <h3>Disco Playlist</h3>
 <hr></hr>
     <Carousel></Carousel>
 
-     
+      */}
     </div>
   );
 };

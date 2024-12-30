@@ -4,10 +4,16 @@ h3 {
     text-align: center;
 }
 
+body {
+    font-size: 1em;
+}
+
 
 .alice-carousel {
-    width: 95%; 
+    width: 90%; 
+    /* margin: 1em auto; */
 }
+
 
 
 #logomotion_figure_gallery {
@@ -21,7 +27,7 @@ h3 {
 .logomotion_figure {
     border-radius:0.25em;
     padding: 2em;
-    width: 80% !important;
+    width:70% !important;
 
 }
 
