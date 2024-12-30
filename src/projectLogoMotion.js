@@ -238,6 +238,7 @@ const LogoMotionProjectPage = () => {
 
                 This method takes visual feedback from the canvas to self-debug animation code errors. It identifies bugs in animation code by checking for differences between elements in the target layout and elements in the last frame of the animation. 
 
+                <br></br>
 
                 <img class="paper_figure logomotion_figure" src="./images/logomotion/logomotion_programrepair_noheader.jpg">
                 </img>

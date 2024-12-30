@@ -1,0 +1,91 @@
+h3 {
+    font-family: 'Proxima Nova';
+    text-align: center;
+}
+
+body {
+    font-size: 1em;
+}
+
+.alice-carousel {
+    width: 90%; 
+}
+
+
+.paper-figure {
+    padding: 2em;
+    width:70% !important;
+    margin: 0 auto;
+
+}
+.logomotion_figure {
+    border-radius:0.25em;
+    padding: 2em;
+    width:70% !important;
+}
+
+.two_column {
+    display:flex
+}
+
+.left_half {
+    width: 50%;
+
+}
+.right_half {
+    width: 50%;
+}
+
+.three_column {
+    display:flex;
+}
+
+.third1 {
+    width: 29.5%;
+}
+.third2 {
+    width: 29.5%;
+}
+.third3 {
+    width: 41%;
+}
+
+.caption {
+    text-align: justify;
+    margin:0.5em;
+}
+
+.smaller-figure {
+    max-width: 33%;
+}
+.right_column {
+    padding:2em;
+}
+.logomotion_column_figure {
+    border-radius:0.25em;
+    padding: 2em;
+    width: 100% !important;
+}
+
+#bibliography {
+    background-color: #ffffff;
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.navigation {
+    text-align: center;
+    margin-top: 2em;
+}
+
+.navigation a {
+padding: 1em;
+font-size: 16px;
+text-decoration: none;
+color: #333333;
+}
+
+hr {
+    width: 80%;
+}

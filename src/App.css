@@ -146,10 +146,6 @@ hr {
 
 }
 
-#opal_system_design {
-  width: 80%;
-}
-
 .paper_authors {
   position: relative;
 
@@ -233,10 +229,6 @@ hr {
   font-size: 16px;
 }
 
-.project-row link {
-  
-
-}
 
 .project-preview {
   max-width: 196px;
