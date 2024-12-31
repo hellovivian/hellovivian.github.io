@@ -109,6 +109,10 @@ hr {
   border-bottom: solid 1px black;
 }
 
+.line-divider {
+  width: 80%;
+}
+
 .link {
   border: solid 1px #bbbbbb;
   padding: 0.33em .66em;

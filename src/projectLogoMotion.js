@@ -11,6 +11,30 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 
+
+
+const Bibliography = () => {
+    const references = `
+      @misc{Liu2024Logomotion,
+      title={LogoMotion: Visually Grounded Code Generation for Content-Aware Animation}, 
+      author={Vivian Liu and Rubaiat Habib Kazi and Li-Yi Wei and Matthew Fisher and Timothy Langlois and Seth Walker and Lydia Chilton},
+      year={2024},
+      eprint={2405.07065},
+      archivePrefix={arXiv},
+      primaryClass={cs.HC},
+      url={https://arxiv.org/abs/2405.07065}, 
+}
+  
+    `;
+    return (
+      <div id="bibliography">
+        <pre>{references}</pre> {/* Display BibTeX as preformatted text */}
+      </div>
+    );
+  };
+  
+
+
 const responsive = {
     0: { items: 1 },
     256: { items: 2 },
@@ -342,6 +366,15 @@ const LogoMotionProjectPage = () => {
 
             </p>
             <Carousel2></Carousel2>
+
+            <hr></hr>
+
+            <Bibliography/>
+
+
+
+            
+
 
 
 

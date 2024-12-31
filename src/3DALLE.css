@@ -1,0 +1,10 @@
+#paper-gif {
+    width: 25%;
+    margin: 0 auto;
+}
+
+.two-column {
+    display: flex;
+    width: 80% !important;
+    margin: 0 auto;
+}

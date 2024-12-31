@@ -44,7 +44,7 @@ const projectData = [
         codelink: "",
         demolink:"https://apps.autodesk.com/FUSION/en/Detail/Index?id=8558451727109537930",
         video: "https://www.youtube.com/watch?v=c45gIiAEWZU&ab_channel=VivianL",
-        img_src: "./images/3DALLE.gif",
+        img_src: "./images/3DALLE/3DALLE.gif",
         source: 'https://github.com/example/project2',
       },
     },
