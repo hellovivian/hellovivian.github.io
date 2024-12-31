@@ -17,11 +17,7 @@ function HomePage() {
   return (
     <div className="container">
         <header className="App-header">
-
         <Navigation />
-
-      
-
       <AboutMe />
       <Gallery />
 
@@ -32,8 +28,6 @@ function HomePage() {
 
       {projectData.map((project) => (
 
-
-      
           <Project projectname={project.title} authors={project.authors} projectpage={project.links.pg} codelink={project.links.codelink} video={project.links.video} demolink={project.links.demolink} paperlink={project.links.paperlink} venue={project.venue} imgsrc={project.links.img_src}/>
 
 

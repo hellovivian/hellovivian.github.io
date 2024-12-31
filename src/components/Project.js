@@ -20,8 +20,8 @@ const Project = (props) => {
 
       <div>
         <h3>{projectname}</h3>
-        <p>{authors}</p>
-        <p>{venue}</p>
+        <p class="normal_p">{authors}</p>
+        <p class="normal_p">{venue}</p>
 
         <div className="external-links">
 

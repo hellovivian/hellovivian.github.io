@@ -164,8 +164,17 @@ hr {
 
 }
 
-
-.paper_abstract {
+.normal_p {
+  width: 100%;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+  padding: 0em;
+}
+p {
   width: 80%;
   text-align: left;
   position: relative;

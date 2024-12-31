@@ -2,6 +2,7 @@
 import './App.css';
 
 import React from 'react';
+import LineDivider from './components/LineDivider';
 import Navigation from './components/Navigation';
 import './ProjectPage.css';
 
@@ -51,7 +52,7 @@ const ProjectOPAL = () => {
 
       <h3> Motivation </h3>
       <p>
-        <hr></hr>
+        <LineDivider />
       </p>
 
       <p class="paper_abstract">
@@ -70,7 +71,7 @@ const ProjectOPAL = () => {
 
 
       <h3> System Design </h3>
-      <hr></hr>
+      <LineDivider />
 
       <p class="paper_abstract">
         From co-design with news illustrators, we learned that they worked off of text they received from writers. They would first conceptually explore the text and find related phrases and concepts to visually capture the article. Building off of this, we focused on article text as the beginning point of exploration and developed simple prompt engineering methods to retrieve keyword, tone, icon, and style suggestions.
@@ -89,7 +90,7 @@ const ProjectOPAL = () => {
       <img class="paper_figure" src="./images/opal/Opal_Abstract_Concrete.png" />
 
       <h3>User Evaluation</h3>
-      <hr></hr>
+      <LineDivider />
       <p class="paper_abstract">
 
         We conducted two evaluations: 1) annotation studies compared human vs. GPT-3 performance and
@@ -144,7 +145,7 @@ const ProjectOPAL = () => {
       {/* <img class="paper_figure" src="./images/opal/Opal_VisualAssets.png" /> <br></br> */}
 
 
-      <hr></hr>
+      <LineDivider />
 
       <Bibliography/>
 
