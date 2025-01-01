@@ -1,5 +1,5 @@
 .discoContainer {
-    background-color:rgb(249,197,212);
+    background-color:white;
     padding:20px;
 }
 
@@ -33,8 +33,9 @@ h3 {
     padding: 2em;
 
 }
-.carouselContent {
-    width: 512px;
+
+.alice-carousel__stage-item {
+    margin: 0.5em !important;
 }
 
 .navigation {
@@ -51,12 +52,11 @@ color: #333333;
 }
 
 .videoCard {
-    /* border: solid 1px rgb(242,127,161); */
+
     border-radius: 0.5em;
     background-color: rgb(255,164,191);
-    margin: 0.5em;
-    padding: 0.5em;
-    
+    padding:0.5em;
+
 
 }
 
@@ -72,16 +72,14 @@ color: #333333;
 }
 
 .videoCard video {
-    max-width: 256px !important;
-    box-shadow: 0px 0px 15px 2px rgba(255,20,147,0.8);
 
     border-radius: 0.25em;
+    width: 90%;
 
     
 }
 video {
-    max-width: 256px !important;
-
+    max-width: 248px !important;
     border-radius: 0.25em;
 
     

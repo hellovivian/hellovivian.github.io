@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ReactPlayer from 'react-player'
 
 const Video = (props) => {
@@ -8,8 +8,6 @@ const Video = (props) => {
             className='react-player fixed-bottom'
             url= {props.url}
             controls = {true}
-
-
             />
 
             <h3 className='songName'>
