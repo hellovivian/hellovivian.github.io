@@ -21,7 +21,7 @@ const AboutPage = () => {
     <div className="profile-container">
     <img height="256px" src="./images/profile.jpeg"/>
     <div>
-    <p class="about_text">I'm currently a student researcher at Google Deepmind. I am also a fifth year Computer Science PhD Student at Columbia University and a National Science Foundation Graduate Research Fellow. I work on the intersection of human-computer interaction and generative AI with <a href="https://www.cs.columbia.edu/~chilton/#">Professor Lydia Chilton</a> in the Computational Design Lab.</p>
+    <p class="about_text">I'm currently a fifth year Computer Science PhD Student at Columbia University and a student researcher at Google Deepmind. My PhD was supported by a National Science Foundation Graduate Research Fellowship. I work on the intersection of human-computer interaction and generative AI with <a href="https://www.cs.columbia.edu/~chilton/#">Professor Lydia Chilton</a> in the Computational Design Lab.</p>
 
 
       <p class="about_text">
@@ -32,6 +32,10 @@ const AboutPage = () => {
       I graduated from UC Berkeley with Distinction in Computer Science and Cognitive Science. I also earned a certificate in New Media. During my undergrad, I loved to make things at the Jacobs Institute of Design.
 
       </p>
+      <br></br>
+
+      <a class="cv-button" href="VivianLiu_CV_123124.pdf">Curriculum Vitae</a>
+      <br></br><br></br>
 
       <Grid container className="maker_gallery" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={3}>

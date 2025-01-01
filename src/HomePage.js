@@ -8,10 +8,7 @@ import Navigation from './components/Navigation';
 import projectData from './data/projectData';
 import fullProjectData from './data/fullProjectData';
 import workshopData from './data/workshopData';
-import pressData from './data/pressData.js';
-// import PressItem from './components/PressItem.js';
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function HomePage() {
   return (

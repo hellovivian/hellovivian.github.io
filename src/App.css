@@ -57,6 +57,13 @@
   }
 }
 
+.cv-button {
+  padding: 10px;
+  border-radius: 0.25em;
+  border: solid 1px #bbbbbb;
+  margin: 1em;
+  background-color: white;
+}
 .external-links {
   display: flex;
   flex-direction: row;
@@ -163,6 +170,9 @@ hr {
   text-align: center;
 
 }
+.about-text {
+  text-align: center;
+}
 
 .normal_p {
   width: 100%;
@@ -174,6 +184,7 @@ hr {
   unicode-bidi: isolate;
   padding: 0em;
 }
+
 p {
   width: 80%;
   text-align: left;
