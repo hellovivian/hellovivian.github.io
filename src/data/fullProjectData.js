@@ -6,7 +6,7 @@ const projectData = [
     title: 'DynEx: Dynamic Code Synthesis with Structured Design Exploration for Accelerated Exploratory Programming',
     authors: 'Jenny Ma, Karthik Sreedhar, Vivian Liu, Sitong Wang, Pedro Alejandro Perez, Riya Sahni, Lydia B. Chilton',
     description: 'Description',
-    venue: 'Under Submission',
+    venue: 'CHI 2025',
     links: {
       img_src: "./images/dynex.png",
       projectpage: "https://jennygzma.github.io/#/dynex",

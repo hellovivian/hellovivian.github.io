@@ -19,10 +19,12 @@ const AboutPage = () => {
       <h1>About</h1>
       
     <div className="profile-container">
-    <img height="256px" src="./images/profile.jpeg"/>
-    <div>
-    <p class="about_text">I'm currently a fifth year Computer Science PhD Student at Columbia University and a student researcher at Google Deepmind. My PhD was supported by a National Science Foundation Graduate Research Fellowship. I work on the intersection of human-computer interaction and generative AI with <a href="https://www.cs.columbia.edu/~chilton/#">Professor Lydia Chilton</a> in the Computational Design Lab.</p>
+      <div class="split-horizontal">
+        <div>
 
+       
+
+      <p class="about_text">I'm currently a fifth year Computer Science PhD Student at Columbia University and a student researcher at Google Deepmind. My PhD was supported by a National Science Foundation Graduate Research Fellowship. I work on the intersection of human-computer interaction and generative AI with <a href="https://www.cs.columbia.edu/~chilton/#">Professor Lydia Chilton</a> in the Computational Design Lab.</p>
 
       <p class="about_text">
       In my free time, I like to design, write, and dance in New York City. During the third year of my PhD, I danced on the Columbia Dance Team, performing half time at football and basketball games. 
@@ -33,8 +35,20 @@ const AboutPage = () => {
 
       </p>
       <br></br>
-
       <a class="cv-button" href="VivianLiu_CV_123124.pdf">Curriculum Vitae</a>
+      </div>
+
+      <img height="484px" src="./images/me.jpg"/>
+
+      </div>
+
+    
+    
+    <div>
+   
+      <br></br>
+
+     
       <br></br><br></br>
 
       <Grid container className="maker_gallery" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>

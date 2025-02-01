@@ -37,7 +37,7 @@ const projectData = [
   {
     id: 0,
     title: 'Ran a workshop using Generative Disco for an NGO called STEM From Dance.',
-    date: 'July 2024',
+    date: 'JUL 2024',
     venue: 'Disco was presented to 171 girls 8-18 over 3 guest lectures for STEM From Dance, an NGO that reaches out to underrepresented girls through programs that incorporate dance, physical computing, and computer science. 20 students participated in a workshop, creating text-to-video music videos at the Barnard Movement Lab. Collaborating with STEM From Dance and since 2021 has been one of the most rewarding experiences of my PhD.',
     links: {
       paperlink:"",
@@ -57,7 +57,7 @@ const projectData = [
     date: '2024',
     venue: 'Introduction to Human-Computer Interaction is forthcoming in Oxford University Press 2024.',
     links: {
-      paperlink:"",
+      paperlink:"https://global.oup.com/academic/product/introduction-to-human-computer-interaction-9780192864543?cc=us&lang=en&#",
       pg: "https://introductiontohci.org/",
       codelink: "",
       demolink: "",
@@ -106,7 +106,7 @@ const projectData = [
       id: 0,
       title: '3DALL-E is patented! ',
       authors: ' Patent US20240104275A1 Inventors: Vivian Liu, Jo Vermeulen, George Fitzmaurice, Justin Matejka',
-      date: 'APRIL 2024',
+      date: 'APR 2024',
       venue: ' I wrote in my NSF Graduate Research Fellowship application that I would like to be an inventor. :) It happened!',
       links: {
         paperlink:"https://patents.google.com/patent/US20240104275A1/en",
@@ -124,7 +124,7 @@ const projectData = [
         id: 1,
         title: '3DALL-E tech transferred into plugin for Fusion 360!',
         authors: 'Autodesk Research',
-        date: 'APRIL 2024',
+        date: 'APR 2024',
         venue: "I am deeply grateful to Jo, George, Justin, and other collaborators at Autodesk who pushed my intern project forward to into product. The first thing I learned in undergrad besides coding was CAD, so this is a huge highlights of my PhD--to come full circle. Will post a more in-depth blog post later. :)  ",
         links: {
           paperlink:"",
@@ -143,7 +143,7 @@ const projectData = [
         title: 'Finished internship with Adobe Research.',
         description: 'Description for Project 2.',
         authors: 'Adobe Research',
-        date: 'APRIL 2024',
+        date: 'APR 2024',
         venue: 'I am sincerely thankful for the opportunity I had to work at Adobe and for all the mentorship and help I received from Rubaiat, Li-Yi, Matt, Tim, Seth, Valentina, Wil and many others. :) I spent 10 months at Adobe, first in Seattle and then in NYC.',
         links: {
           paperlink: "",

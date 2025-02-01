@@ -4,7 +4,7 @@ const projectData = [
     id: 0,
     title: 'LogoMotion: Visually-Grounded Code Generation for Content-Aware Animation',
     authors: 'Vivian Liu, Rubaiat Habib Kazi, Li-Yi Wei, Matt Fisher, Timothy Langlois, Seth Walker, Lydia Chilton',
-    venue: 'Under Submission',
+    venue: 'CHI 2025',
     links: {
       paperlink:"http://arxiv.org/abs/2405.07065",
       pg: "/logomotion",
