@@ -204,6 +204,13 @@ p {
 
 .split-horizontal {
   display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .split-horizontal {
+    flex-direction: row;
+  }
 }
 
 .project-row img {
