@@ -65,6 +65,9 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
     .two_column {
       flex-direction: column; /* Change to column for smaller screens */
     }

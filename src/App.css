@@ -121,6 +121,9 @@ img {
 }
 
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
   .gallery-row {
     flex-direction: column; /* Stack items vertically on smaller screens */
   }
