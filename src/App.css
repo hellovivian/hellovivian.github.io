@@ -74,6 +74,8 @@ img {
   }
 }
 
+
+
 .cv-button {
   padding: 10px;
   border-radius: 0.25em;
@@ -102,6 +104,7 @@ img {
     flex-direction: column;
   }
 }
+
 
 .gallery-container {
   display: flex;
@@ -295,4 +298,11 @@ p {
 
 .project-preview {
   max-width: 196px;
+}
+
+.vertical-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
