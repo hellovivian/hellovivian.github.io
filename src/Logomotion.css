@@ -43,21 +43,29 @@ body {
     width: 50%;
 }
 
+
 .three_column {
-    display:flex;
+  display: flex;
+  flex-direction: row; /* Default to row for larger screens */
 }
 
+.third1, .third2, .third3 {
+  width: 29.5%; /* Default widths for larger screens */
+}
 
-.third1 {
-    width: 29.5%;
-}
-.third2 {
-    width: 29.5%;
-}
 .third3 {
-    width: 41%;
+  width: 41%; /* Specific width for the third column */
 }
 
+@media (max-width: 768px) {
+  .three_column {
+    flex-direction: column; /* Change to column for smaller screens */
+  }
+
+  .third1, .third2, .third3 {
+    width: 100%; /* Full width for each column on smaller screens */
+  }
+}
 .caption {
     text-align: justify;
     margin:0.5em;
