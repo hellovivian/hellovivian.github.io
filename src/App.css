@@ -121,6 +121,16 @@ img {
 }
 
 @media (max-width: 768px) {
+  .gallery-row {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+  }
+
+  .gallery-row img {
+    width: 100%; /* Full width for each image on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
   .gallery-row img {
     width: 100%;
   }
@@ -251,6 +261,7 @@ p {
   .project-row {
     flex-direction: column;
     padding: 0.5em;
+    text-align: center !important;
   }
 }
 
