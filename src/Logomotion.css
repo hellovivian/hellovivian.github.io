@@ -14,6 +14,27 @@ body {
 }
 
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(196px, 1fr));
+    gap: 16px;
+    padding: 16px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .grid-item img {
+    max-width: 100%;
+    height: auto;
+  }
+
+
 #logomotion_figure_gallery {
     width: 100%;
     margin-top:2em;
@@ -43,6 +64,15 @@ body {
     width: 50%;
 }
 
+@media (max-width: 768px) {
+    .two_column {
+      flex-direction: column; /* Change to column for smaller screens */
+    }
+  
+    .left_half, .right_half {
+      width: 100%; /* Full width for each column on smaller screens */
+    }
+  }
 
 .three_column {
   display: flex;

@@ -43,132 +43,74 @@ const responsive = {
     1024: { items: 5 },
 };
 
-const userStudyExamples = [
-    <div className="item" data-value="1">
-        <img width="256px" src="./logomotion_gifs/user_study_example_pipe.gif"></img>
-    </div>,
-    <div className="item" data-value="2">
-    <img width="256px" src="./logomotion_gifs/userstudy_example_dino.gif"></img>
-    </div>,
-    <div className="item" data-value="3">
-        <img width="256px" src="./logomotion_gifs/userstudy_example_manta.gif"></img>
-    </div>,
-    <div className="item" data-value="4">
-    <img width="256px" src="./logomotion_gifs/user_study_example_sweethome.gif"></img>
-</div>,
-]
+
 const items = [
-    <div className="item" data-value="1">
-
-        <img width="256px" src="./logomotion_gifs/chess1.gif"></img>
-
-    </div>,
-    <div className="item" data-value="1">
-
-        <img width="256px" src="./logomotion_gifs/lantern1.gif"></img>
-
-    </div>,
-    <div className="item" data-value="2">
-
-        <img width="256px" src="./logomotion_gifs/cat1.gif"></img>
+    { src: './logomotion_gifs/chess1.gif', alt: 'Chess' },
+    { src: './logomotion_gifs/lantern1.gif', alt: 'Lantern' },
+    { src: './logomotion_gifs/cat1.gif', alt: 'Cat' },
+    { src: './logomotion_gifs/warrior1.gif', alt: 'Warrior' },
+    { src: './logomotion_gifs/acapella1.gif', alt: 'Acapella' },
+    { src: './logomotion_gifs/adventure1.gif', alt: 'Adventure' },
+    { src: './logomotion_gifs/crab1.gif', alt: 'Crab' },
+    { src: './logomotion_gifs/tennis1.gif', alt: 'Tennis' },
+    { src: './logomotion_gifs/tacos1.gif', alt: 'Tacos' },
+    { src: './logomotion_gifs/circus1.gif', alt: 'Circus' },
+  ];
 
 
 
-    </div>,
-    <div className="item" data-value="3">
-        <img width="256px" src="./logomotion_gifs/warrior1.gif"></img>
-    </div>,
-    <div className="item" data-value="4">
-
-        <img width="256px" src="./logomotion_gifs/acapella1.gif"></img>
-
-    </div>,
-    <div className="item" data-value="5">
-        <img width="256px" src="./logomotion_gifs/adventure1.gif"></img>
-
-    </div>,
-    <div className="item" data-value="6">
-        <img width="256px" src="./logomotion_gifs/crab1.gif"></img>
-
-    </div>,
-    <div className="item" data-value="7">
-        <img width="256px" src="./logomotion_gifs/tennis1.gif"></img>
-
-    </div>,
-    <div className="item" data-value="8">
-        <img width="256px" src="./logomotion_gifs/tacos1.gif"></img>
-
-    </div>,
-    <div className="item" data-value="9">
-        <img width="256px" src="./logomotion_gifs/circus1.gif"></img>
-
-    </div>,
-
-];
+  const items2 = [
+    { src: './logomotion_gifs/stars.gif', alt: 'Stars' },
+    { src: './logomotion_gifs/dj.gif', alt: 'DJ' },
+    { src: './logomotion_gifs/lax.gif', alt: 'LAX' },
+    { src: './logomotion_gifs/kundera.gif', alt: 'Kundera' },
+    { src: './logomotion_gifs/tools.gif', alt: 'Tools' },
+    { src: './logomotion_gifs/skull.gif', alt: 'Skull' },
+  ];
 
 
 
-const items2 = [
-    <div className="item" data-value="1">
+  const userStudyItems = [
+    { src: "./logomotion_gifs/user_study_example_pipe.gif", alt: 'Pipe' },
+    { src: "./logomotion_gifs/userstudy_example_dino.gif", alt: 'Dino' },
+    { src: "./logomotion_gifs/userstudy_example_manta.gif", alt: 'Manta' },
+    { src: "./logomotion_gifs/user_study_example_sweethome.gif", alt: 'Sweet Home' },
+  ];
+  
+  const GridGallery = () => (
+    <div className="grid-container">
+      {items.map((item, index) => (
+        <div className="grid-item" key={index}>
+          <img src={item.src} alt={item.alt} />
+        </div>
+      ))}
+    </div>
+  );
 
-        <img width="256px" src="./logomotion_gifs/stars.gif"></img>
+  const MiscGallery = () => (
+    <div className="grid-container">
+      {items2.map((item, index) => (
+        <div className="grid-item" key={index}>
+          <img src={item.src} alt={item.alt} />
+        </div>
+      ))}
+    </div>
+  );
 
-    </div>,
-    <div className="item" data-value="1">
-
-        <img width="256px" src="./logomotion_gifs/dj.gif"></img>
-    </div>,
-    <div className="item" data-value="2">
-
-        <img width="256px" src="./logomotion_gifs/lax.gif"></img>
-
-    </div>,
-    <div className="item" data-value="3">
-        <img width="256px" src="./logomotion_gifs/kundera.gif"></img>
-    </div>,
-    <div className="item" data-value="4">
-
-        <img width="256px" src="./logomotion_gifs/tools.gif"></img>
-
-    </div>,
-    <div className="item" data-value="5">
-
-        <img width="256px" src="./logomotion_gifs/skull.gif"></img>
-
-    </div>,
+  const UserStudyGallery = () => (
+    <div className="grid-container">
+      {userStudyItems.map((item, index) => (
+        <div className="grid-item" key={index}>
+          <img src={item.src} alt={item.alt} />
+        </div>
+      ))}
+    </div>
+  );
 
 
-];
 
 
-const Carousel = () => (
 
-    <AliceCarousel
-        mouseTracking
-        items={items}
-        responsive={responsive}
-        controlsStrategy="alternate"
-    />
-);
-
-const Carousel2 = () => (
-
-    <AliceCarousel
-        mouseTracking
-        items={items2}
-        responsive={responsive}
-        controlsStrategy="alternate"
-    />
-);
-
-const UserStudyCarousel = () => (
-    <AliceCarousel
-        items = {userStudyExamples}
-        mouseTracking
-        responsive={responsive}
-        controlsStrategy="alternate"
-    />
-);
 const LogoMotionProjectPage = () => {
     return (
 
@@ -178,8 +120,9 @@ const LogoMotionProjectPage = () => {
             <p class="paper_authors">Vivian Liu, Rubaiat Habib Kazi, Li-Yi Wei, Matthew Fisher, Timothy Langlois, Seth Walker, Lydia Chilton</p>
             <p class="paper_affiliations">Columbia University, Adobe Research</p> <br></br>
 
+            <GridGallery class="logomotion-grid-carousel"></GridGallery>
 
-            <Carousel class="logomotion-example-carousel"></Carousel>
+            {/* <Carousel class="logomotion-example-carousel"></Carousel> */}
 
             <p class="paper_abstract">
                 <h3 class="logomotion_header"> Abstract </h3>
@@ -351,11 +294,13 @@ const LogoMotionProjectPage = () => {
                 <hr></hr>
 
                 <br></br>
+                <UserStudyGallery class="logomotion-grid-carousel"></UserStudyGallery>
 
 
-
-                <UserStudyCarousel></UserStudyCarousel>
                 
+
+
+
                 <h3 class="logomotion_header">LogoMotion Archive</h3>
                 <hr></hr>
                 <br></br>
@@ -365,7 +310,8 @@ const LogoMotionProjectPage = () => {
                 <br></br>
 
             </p>
-            <Carousel2></Carousel2>
+            <MiscGallery class="logomotion-grid-carousel"></MiscGallery>
+
 
             <hr></hr>
 
