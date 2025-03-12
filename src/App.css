@@ -269,6 +269,10 @@ p {
     padding: 0.5em;
     text-align: center !important;
   }
+  .project-row h3 {
+
+    text-align: center
+  }
 }
 
 .project-page-link {
