@@ -19,7 +19,7 @@ const AboutPage = () => {
         <div class="split-horizontal">
           <div class="vertical-flex">
 
-            <p class="about_text">I'm currently a fifth year Computer Science PhD Student at Columbia University and a student researcher at Google Deepmind. My PhD was supported by a National Science Foundation Graduate Research Fellowship. I work on the intersection of human-computer interaction and generative AI with <a href="https://www.cs.columbia.edu/~chilton/#">Professor Lydia Chilton</a> in the Computational Design Lab.</p>
+            <p class="about_text">I'm currently a fifth year Computer Science PhD Student at Columbia University. My PhD was supported by a National Science Foundation Graduate Research Fellowship. I work on the intersection of human-computer interaction and generative AI with <a href="https://www.cs.columbia.edu/~chilton/#">Professor Lydia Chilton</a> in the Computational Design Lab. Previously, I worked at Google Deepmind, Adobe Research, and Autodesk Research.</p>
 
             <p class="about_text">
               In my free time, I like to design, write, and dance in New York City. During the third year of my PhD, I danced on the Columbia Dance Team, performing half time at football and basketball games.
