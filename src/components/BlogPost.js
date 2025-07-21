@@ -30,51 +30,45 @@ const BlogPost = (props) => {
 
         <div className="external-links">
 
-        {projectpage && projectpage.length > 0 && (
+          {projectpage && projectpage.length > 0 && (
 
 
-                <div class='project-page-link'> <Link to={projectpage}>Project Page</Link></div>
-                // <a class='link' href={projectpage}>  Project Page</a>
-
-        )}
-
-        {paperlink && paperlink.length > 0 && (
-            // <div className="external-link-button">
+            <div class='project-page-link'> <Link to={projectpage}>Project Page</Link></div>
 
 
-                <a class='link' href={paperlink}> 
-                {/* <img className='link-icon' src='./images/pdficon.png'></img> */}
-                Paper
-                </a>
-            // </div>
-            
-        )}
+          )}
 
-        {video && video.length > 0 && (
+          {paperlink && paperlink.length > 0 && (
+
+            <a class='link' href={paperlink}>
+              {/* <img className='link-icon' src='./images/pdficon.png'></img> */}
+              Paper
+            </a>
+
+          )}
+
+          {video && video.length > 0 && (
             <a class='link' href={video}>
-                {/* <img className='link-icon' src='./images/video-player.png'>
 
-                </img> */}
-
-                    Video 
+              Video
 
             </a>
-        )}
+          )}
 
-        {codelink && codelink.length > 0 && (
+          {codelink && codelink.length > 0 && (
             <a class='link' href={codelink}>Code</a>
-        )}
+          )}
 
-        {demolink && demolink.length > 0 && (
+          {demolink && demolink.length > 0 && (
             <a class='link' href={demolink}>Demo</a>
-        )}
+          )}
 
-        {blogpostlink && blogpostlink.length > 0 && (
-                    // <a class='link' href={blogpostlink}>Read more</a>
-                    <div class='project-page-link'> 
+          {blogpostlink && blogpostlink.length > 0 && (
+            // <a class='link' href={blogpostlink}>Read more</a>
+            <div class='project-page-link'>
 
-                    <Link to={blogpostlink}>Blog Post </Link>
-                    </div>)}
+              <Link to={blogpostlink}>Blog Post </Link>
+            </div>)}
 
         </div>
       </div>

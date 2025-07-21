@@ -183,6 +183,20 @@ hr {
   margin: 0 auto;
 }
 
+.maker-gallery {
+  columns: 4 200px;
+  column-gap: 1em;
+}
+
+.tile {
+  margin-bottom: 1em;
+  break-inside: avoid;
+}
+
+.margin-top-2em {
+  margin-top: 2em;
+}
+
 .maker_pic {
   width: 100%;
 }

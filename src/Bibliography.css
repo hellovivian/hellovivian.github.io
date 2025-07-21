@@ -1,0 +1,31 @@
+.bibliography-links {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Proxima Nova', sans-serif;
+}
+
+.bibliography-link-item {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Stack link and comment vertically */
+    align-items: flex-start; /* Align items to the start (left) */
+
+}
+
+.link-comment {
+    display: none; /* Hidden by default */
+    padding: 5px 10px;
+    background-color: lavender;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Remove white-space: nowrap; to allow text to wrap */
+    z-index: 10; /* Ensure it appears above other content */
+    text-align: left; /* Align text within the comment */
+}
+
+.bibliography-link-item:hover .link-comment {
+    display: block; /* Show on hover */
+}

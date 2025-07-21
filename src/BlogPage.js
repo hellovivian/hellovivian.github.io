@@ -1,16 +1,17 @@
 // AboutPage.js
 import './App.css';
-import BlogPost from './components/BlogPost';
+import BlogPost from './components/BlogPost.js';
 import blogData from './data/blogData.js';
-import Navigation from './components/Navigation';
-import React from 'react';
+import Navigation from './components/Navigation.js';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 const BlogPage = () => {
   return (
     <div className='container'>
       <Navigation />
-      <h1>Updates</h1>
+      <h1>Blog</h1>
+
+
       <div className="profile-container">
         <div>
           {blogData.map((project) => (

@@ -58,10 +58,6 @@ const workshopData = [
         img_src: "./images/smartglasses.jpeg",
       },
     },
-
-
-
-    // Add more projects as needed
   ];
   
   export default workshopData;

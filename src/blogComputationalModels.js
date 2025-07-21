@@ -185,23 +185,23 @@ const items2 = [
     <div className="item" data-value="0">
 
         <img width="784px" src="./blogpost_images/computational_models/gain1.png"></img>
-    
-     </div>,
-       <div className="item" data-value="1">
+
+    </div>,
+    <div className="item" data-value="1">
 
         <img width="784px" src="./blogpost_images/computational_models/gain2.png"></img>
-   
+
     </div>,
     <div className="item" data-value="2">
 
-    <img width="784px" src="./blogpost_images/computational_models/gain3.png"></img>
+        <img width="784px" src="./blogpost_images/computational_models/gain3.png"></img>
 
-        
-        
+
+
     </div>,
-   
-  ,
-   
+
+    ,
+
 
 ];
 
@@ -209,27 +209,27 @@ const code_outputs = [
     <div className="item" data-value="0">
 
         <img width="784px" src="./blogpost_images/computational_models/figure1.png"></img>
-    
-     </div>,
-       <div className="item" data-value="1">
+
+    </div>,
+    <div className="item" data-value="1">
 
         <img width="784px" src="./blogpost_images/computational_models/figure2.png"></img>
-   
+
     </div>,
     <div className="item" data-value="2">
 
-    <img width="784px" src="./blogpost_images/computational_models/figure3.png"></img>
+        <img width="784px" src="./blogpost_images/computational_models/figure3.png"></img>
 
-        
-        
+
+
     </div>,
-   
-  ,
-   
+
+    ,
+
 
 ];
 
-const Carousel2= () => (
+const Carousel2 = () => (
 
 
     <AliceCarousel
@@ -241,9 +241,9 @@ const Carousel2= () => (
     />
 );
 
-const FiguresFromCode= () => (
+const FiguresFromCode = () => (
 
-    
+
     <AliceCarousel
 
         mouseTracking
@@ -254,30 +254,30 @@ const FiguresFromCode= () => (
 );
 
 const items = [
-  <div className="item" data-value="1">
+    <div className="item" data-value="1">
 
-<video src="./disco_videos/lastcarnival.mp4" controls={true}></video>
-
-
-  
-   </div>,
-     <div className="item" data-value="1">
-
-{/* <video src="./disco_videos/lana.mp4" controls={true}></video> */}
- 
-  </div>,
-  <div className="item" data-value="2">
-
-{/* <video src="./disco_videos/taylor_mirrorball.mp4" controls={true}></video> */}
-
-      
-      
-  </div>,
-  <div className="item" data-value="3">
-              {/* <img width="256px" src="./logomotion_gifs/warrior1.gif"></img> */}
+        <video src="./disco_videos/lastcarnival.mp4" controls={true}></video>
 
 
-  </div>
+
+    </div>,
+    <div className="item" data-value="1">
+
+        {/* <video src="./disco_videos/lana.mp4" controls={true}></video> */}
+
+    </div>,
+    <div className="item" data-value="2">
+
+        {/* <video src="./disco_videos/taylor_mirrorball.mp4" controls={true}></video> */}
+
+
+
+    </div>,
+    <div className="item" data-value="3">
+        {/* <img width="256px" src="./logomotion_gifs/warrior1.gif"></img> */}
+
+
+    </div>
 
 ];
 
@@ -285,121 +285,113 @@ const items = [
 
 const Carousel = () => (
 
-    
 
 
-  <AliceCarousel
 
-      mouseTracking
-      items={items}
+    <AliceCarousel
 
-      controlsStrategy="alternate"
-  />
+        mouseTracking
+        items={items}
+
+        controlsStrategy="alternate"
+    />
 );
 
 const BlogComputationalModels = (props) => {
-  return (
-    <div className='blog container'>
-        
-     <Navigation />
+    return (
+        <div className='blog container'>
 
-      
-    <div className="profile-container">
-    <div>
+            <Navigation />
 
 
+            <div className="profile-container">
+                <div>
 
 
-    <h3 id="title">GPTing Papers</h3>
-    <p id="blog_author"> by Vivian Liu 
-        </p>
-        <p id="blog_date"> May 27, 2024
-        </p>
-        <img src="./blogpost_images/computational_models/teaser.gif" width="480" height="480" />
-<a href="https://media2.giphy.com/media/5dYqPVcoq9mKuxleyR/200w.gif?cid=6c09b952f8f607ppa5nvos1pww9bbzswakr03af12aaw9eyx&ep=v1_gifs_search&rid=200w.gif&ct=g" ><br></br> Image Credit </a>
+                    <h3 id="title">Reproducing Papers with LLMs</h3>
+            
+                    <p id="blog_date"> May 27, 2024
+                    </p>
+                    <img src="./blogpost_images/computational_models/teaser.gif" width="480" height="480" />
+                    <a href="https://media2.giphy.com/media/5dYqPVcoq9mKuxleyR/200w.gif?cid=6c09b952f8f607ppa5nvos1pww9bbzswakr03af12aaw9eyx&ep=v1_gifs_search&rid=200w.gif&ct=g" ><br></br> Image Credit </a>
 
-<p>
-While at Berkeley for undergrad, I double majored in computer science and cognitive science. One summer, while I was conducting independent research and taking a linear algebra course, and I came across <a href="https://pubmed.ncbi.nlm.nih.gov/11067988/"> a cognitive neuroscience paper by Terence Sanger and Michael Merzenich  </a> (from 2000!) about neuroplasticity that really inspired me. It was a paper that computationally modeled a sensorimotor loop. Using a control theory framework and matrix formulation of transformations, it represented the way sensations come through our perception as initial signals, pass through our cognitive mappings, and then transform into motor movement. Specifically, it was trying to illustrate how different edge case scenarios could create abnormal behavior-- maladaptive neuroplasticity. An example of this: if muscles were used in conjunction too often (e.g. overuse of hand leading to writer's cramp), the cognitive maps bound to those muscles could become wired together. This maladaptive neuroplasticity could lead to abnormal and antagonistic muscle activity.
-</p>
+                    <p>
+                        While at Berkeley for undergrad, I double majored in computer science and cognitive science. One summer, while I was conducting independent research and taking a linear algebra course, and I came across <a href="https://pubmed.ncbi.nlm.nih.gov/11067988/"> a cognitive neuroscience paper by Terence Sanger and Michael Merzenich  </a> (from 2000!) about neuroplasticity that really inspired me. It was a paper that computationally modeled a sensorimotor loop. Using a control theory framework and matrix formulation of transformations, it represented the way sensations come through our perception as initial signals, pass through our cognitive mappings, and then transform into motor movement. Specifically, it was trying to illustrate how different edge case scenarios could create abnormal behavior-- maladaptive neuroplasticity. An example of this: if muscles were used in conjunction too often (e.g. overuse of hand leading to writer's cramp), the cognitive maps bound to those muscles could become wired together. This maladaptive neuroplasticity could lead to abnormal and antagonistic muscle activity.
+                    </p>
 
-<p>
-Many of the specific mechanics of the paper were out of my technical depth, and I remember approaching my linear algebra TA to help me connect the proofs within the paper to decompositions we were learning about in class. Understanding the paper was actually intensely fun on an intellectual level. 
+                    <p>
+                        Many of the specific mechanics of the paper were out of my technical depth, and I remember approaching my linear algebra TA to help me connect the proofs within the paper to decompositions we were learning about in class. Understanding the paper was actually intensely fun on an intellectual level.
 
-</p>
+                    </p>
 
 
 
 
-<p>
-It has been on my bucket list for a long time to read the paper again, and ever since GPT has become multimodal (that is, capable of taking in visual inputs like images and screenshots), I have been meaning to experiment if I could use it as an aid for deeper understanding. I was not able to get to this for a few months, because of paper deadlines, the necessary refractory period after paper deadlines, and a combination of current and personal events, but finally, on Friday night of a week I decided to be a staycation, I read it again with the help of ChatGPT-4o. I sent in equations and paragraphs detailing the formulation of the model in screenshots, piecemealing the paper for GPT.
-</p>
+                    <p>
+                        It has been on my bucket list for a long time to read the paper again, and ever since GPT has become multimodal (that is, capable of taking in visual inputs like images and screenshots), I have been meaning to experiment if I could use it as an aid for deeper understanding. I was not able to get to this for a few months, because of paper deadlines, the necessary refractory period after paper deadlines, and a combination of current and personal events, but finally, on Friday night of a week I decided to be a staycation, I read it again with the help of ChatGPT-4o. I sent in equations and paragraphs detailing the formulation of the model in screenshots, piecemealing the paper for GPT.
+                    </p>
 
 
-{/* <Carousel2 /> */}
+                    <br></br>
+                    <br></br>
+                    <p> <strong>Screenshot Inputs </strong>
 
-<br></br>
-<br></br>
-<p> <strong>Screenshot Inputs </strong>
-
-</p>
-
-{/* <hr>
- </hr> */}
+                    </p>
 
 
-<Grid container className="grid_gallery" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}> 
-        <Grid item xs={4}>
-        <img class="grid_pic" src="./blogpost_images/computational_models/screenshot0.png"></img>
+                    <Grid container className="grid_gallery" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                        <Grid item xs={4}>
+                            <img class="grid_pic" src="./blogpost_images/computational_models/screenshot0.png"></img>
 
 
-        </Grid>
-        <Grid item xs={4}>
-        <img class="grid_pic" src="./blogpost_images/computational_models/screenshot1.png"></img>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <img class="grid_pic" src="./blogpost_images/computational_models/screenshot1.png"></img>
 
-        </Grid>
-        <Grid item xs={4}>
+                        </Grid>
+                        <Grid item xs={4}>
 
-        <img class="grid_pic" src="./blogpost_images/computational_models/screenshot2.png"></img>
+                            <img class="grid_pic" src="./blogpost_images/computational_models/screenshot2.png"></img>
 
-        </Grid>
-        <Grid item xs={4}>
-        <img class="grid_pic" src="./blogpost_images/computational_models/screenshot3.png"></img>
-
-
-        </Grid>
-        <Grid item xs={4}>
-        <img class="grid_pic" src="./blogpost_images/computational_models/screenshot4.png"></img>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <img class="grid_pic" src="./blogpost_images/computational_models/screenshot3.png"></img>
 
 
-        </Grid>
-       
-
-       
-        </Grid>
-
-<br></br>
-<br></br>
-<p>
-The first plus of using GPT as I read was that I could ask "dumb" questions. Papers generally are long and dense--they are not light reading. To get through them, you usually need some amount of stamina and openness. Stamina in the sense that you have to have enough mental bandwidth to understand a paper's framing and the work that it sits upon. Openness in the sense that you have to weigh how you feel about the paper's conjectures and how aligned you are with the way the problem is formalized. That combination of stamina and openness is the momentum I have built over the years to get me through a paper. As I was making progress through this one, because this was a recreational but challenging read that I was intentionally exploring with GPT, I did not feel the need to keep up any kind of momentum and hence took as many intellectual detours as I needed. For example, this paper is for an expert audience of computational neuroscientists. It presumes from the get-go that I understand what gain through a sensorimotor loop means--I don't. So I asked GPT, after rounds of conversation with context about the paper, "What is gain here?". I got back a definition that was tailored to cognitive neuroscience crossed control theory setting of the research paper. 
-
-</p>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <img class="grid_pic" src="./blogpost_images/computational_models/screenshot4.png"></img>
 
 
-<br></br>
+                        </Grid>
 
-<br></br>
-<br></br>
-<p> <strong>ChatGPT Responses </strong>
 
-</p>
-<div className="grid_gallery">
-<Carousel2/>
-</div>
 
-    <br></br>
-<br></br>
+                    </Grid>
 
-{/* <div className="excerpt">
+                    <br></br>
+                    <br></br>
+                    <p>
+                        The first plus of using GPT as I read was that I could ask "dumb" questions. Papers generally are long and dense--they are not light reading. To get through them, you usually need some amount of stamina and openness. Stamina in the sense that you have to have enough mental bandwidth to understand a paper's framing and the work that it sits upon. Openness in the sense that you have to weigh how you feel about the paper's conjectures and how aligned you are with the way the problem is formalized. That combination of stamina and openness is the momentum I have built over the years to get me through a paper. As I was making progress through this one, because this was a recreational but challenging read that I was intentionally exploring with GPT, I did not feel the need to keep up any kind of momentum and hence took as many intellectual detours as I needed. For example, this paper is for an expert audience of computational neuroscientists. It presumes from the get-go that I understand what gain through a sensorimotor loop means--I don't. So I asked GPT, after rounds of conversation with context about the paper, "What is gain here?". I got back a definition that was tailored to cognitive neuroscience crossed control theory setting of the research paper.
+
+                    </p>
+
+
+                    <br></br>
+
+                    <br></br>
+                    <br></br>
+                    <p> <strong>ChatGPT Responses </strong>
+
+                    </p>
+                    <div className="grid_gallery">
+                        <Carousel2 />
+                    </div>
+
+                    <br></br>
+                    <br></br>
+
+                    {/* <div className="excerpt">
 <p>
     <strong>Gain in Control Systems:</strong> In control theory, gain represents the ratio of the output signal to the input signal. A higher gain means that a small input signal will produce a larger output signal, indicating a more sensitive or responsive system. Conversely, a lower gain indicates a less responsive system.
 
@@ -415,82 +407,82 @@ The first plus of using GPT as I read was that I could ask "dumb" questions. Pap
 </div> */}
 
 
-<br></br>
+                    <br></br>
 
 
-<p>
-It even took it back to Equation 6! It's that dexterity of moving between different domains that I found so helpful for understanding this interdisciplinary paper. It makes me recall a detail from when my linear algebra TA had been benevolently helping me understand the paper. He was wrapping up his math PhD at Berkeley and was slated to join a hedge fund. He said that he could only speak to the math underpinnings and not to any of the neuroscience parts of the paper, which was a standard and proper disclaimer. As people and particularly as PhD students, we are trained to master a scholarly vertical. What is nice about GPT is that a) we can ask dumb questions without expense to our ego (which you can't even do in a reading seminar group with all your peers) and b) we can unpack the jargon of the paper into language or frameworks we personally understand. I could work through concepts underpinning of the paper, study them in their different facets, and not have to just take them at face value as abstractions or building blocks.
+                    <p>
+                        It even took it back to Equation 6! It's that dexterity of moving between different domains that I found so helpful for understanding this interdisciplinary paper. It makes me recall a detail from when my linear algebra TA had been benevolently helping me understand the paper. He was wrapping up his math PhD at Berkeley and was slated to join a hedge fund. He said that he could only speak to the math underpinnings and not to any of the neuroscience parts of the paper, which was a standard and proper disclaimer. As people and particularly as PhD students, we are trained to master a scholarly vertical. What is nice about GPT is that a) we can ask dumb questions without expense to our ego (which you can't even do in a reading seminar group with all your peers) and b) we can unpack the jargon of the paper into language or frameworks we personally understand. I could work through concepts underpinning of the paper, study them in their different facets, and not have to just take them at face value as abstractions or building blocks.
 
-</p>
+                    </p>
 
-<p>
-Another thing I noticed about this paper was its structure. It justified its idea conceptually (through neuroscience), mathematically (through linear algebra derivations), and then empirically (through simulations). I think this structure was more apparent because I had an outsider's looking in perspective and because papers from two decades ago were shorter. Now as I reflect on the paper as a PhD student rather than an undergraduate, I not only get why all these components appear, but also see this structure as something I hope my papers can achieve in the future.
+                    <p>
+                        Another thing I noticed about this paper was its structure. It justified its idea conceptually (through neuroscience), mathematically (through linear algebra derivations), and then empirically (through simulations). I think this structure was more apparent because I had an outsider's looking in perspective and because papers from two decades ago were shorter. Now as I reflect on the paper as a PhD student rather than an undergraduate, I not only get why all these components appear, but also see this structure as something I hope my papers can achieve in the future.
 
-</p>
+                    </p>
 
-<p>
-Lastly, I asked for code implementations of the simulations in the paper. In undergrad, I had wanted to code up the stuff up myself, but I knew that that the effort would undoubtedly become sunk costs. The paper is about an inspiring but outdated cognitive model. By my time in undergrad, there was already an entirely new brand of neural networks. Additionally, their linear matrix formulation was something that I only had loose reins on. I would never be able to confidently check my implementation.
+                    <p>
+                        Lastly, I asked for code implementations of the simulations in the paper. In undergrad, I had wanted to code up the stuff up myself, but I knew that that the effort would undoubtedly become sunk costs. The paper is about an inspiring but outdated cognitive model. By my time in undergrad, there was already an entirely new brand of neural networks. Additionally, their linear matrix formulation was something that I only had loose reins on. I would never be able to confidently check my implementation.
 
-</p>
+                    </p>
 
-<p>
-Fast forward to 2024. I asked GPT for an implementation of the simulations and it began to go brrr. (The code, ~150 lines of it, are after the blog post.)
-</p>
+                    <p>
+                        Fast forward to 2024. I asked GPT for an implementation of the simulations and it began to go brrr. (The code, ~150 lines of it, are after the blog post.)
+                    </p>
 
 
-<br></br>
-<br></br>
-<p><strong>Figures from Code GPT-4o Produced</strong></p>
-<div className="grid_gallery">
-<FiguresFromCode />
-</div>
+                    <br></br>
+                    <br></br>
+                    <p><strong>Figures from Code GPT-4o Produced</strong></p>
+                    <div className="grid_gallery">
+                        <FiguresFromCode />
+                    </div>
 
-<br></br>
-<br></br>
+                    <br></br>
+                    <br></br>
 
-<p>
-Within a conversation turn or two, I had multiple graphs attempting to replicate different figures and results. Of course, it's not magic. These graphs don't tell a story or show any sense of learning and change. Even though I had gotten to a starting point efficiently (which otherwise would have taken me weekends of effort), after one or two hours of tinkering with the prompts and code, I still was not able to replicate any results. That being said, I was definitely engaging deeper with the figures and the framework because of my efforts.
+                    <p>
+                        Within a conversation turn or two, I had multiple graphs attempting to replicate different figures and results. Of course, it's not magic. These graphs don't tell a story or show any sense of learning and change. Even though I had gotten to a starting point efficiently (which otherwise would have taken me weekends of effort), after one or two hours of tinkering with the prompts and code, I still was not able to replicate any results. That being said, I was definitely engaging deeper with the figures and the framework because of my efforts.
 
-</p>
+                    </p>
 
-<p>
-For the past year, on Twitter people have been showing off the mental gymnastics GPT can get up to and the tasks it can achieve (LaTex! Animation! Taxes!). It does not faze anyone really what GPT can do now, and it is no secret that it is always the human in the loop that orchestrating some of the most complex achievements (e.g. reading a research paper). But I think what was valuable about going down this rabbit hole was that I learned, using subject material that was oddly personal to me, how to use GPT to cross technical chasms and how to appreciate papers at a meta-level, both in their structure and their ability to inspire.
+                    <p>
+                        For the past year, on Twitter people have been showing off the mental gymnastics GPT can get up to and the tasks it can achieve (LaTex! Animation! Taxes!). It does not faze anyone really what GPT can do now, and it is no secret that it is always the human in the loop that orchestrating some of the most complex achievements (e.g. reading a research paper). But I think what was valuable about going down this rabbit hole was that I learned, using subject material that was oddly personal to me, how to use GPT to cross technical chasms and how to appreciate papers at a meta-level, both in their structure and their ability to inspire.
 
-</p>
+                    </p>
 
-<h3>Bibliography</h3>
+                    <h3>Bibliography</h3>
 
-<a href="https://pubmed.ncbi.nlm.nih.gov/11067988/"><p>
-Computational model of the role of sensory disorganization in focal task-specific dystonia - T.D. Sanger, M. M. Merzenich in J. Neurophysiology
-    </p></a> 
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/11067988/"><p>
+                        Computational model of the role of sensory disorganization in focal task-specific dystonia - T.D. Sanger, M. M. Merzenich in J. Neurophysiology
+                    </p></a>
 
-<h3>Appendix</h3>
-<p><strong>Code GPT-4o Produced</strong></p>
+                    {/* <h3>Appendix</h3> */}
+                    {/* <p><strong>Code GPT-4o Produced</strong></p> */}
 
-<hr></hr>
-<div className="codeblock" >
-<CopyBlock
-    text={code}
-    language="python"
-    showLineNumbers={props.showLineNumbers}
-    theme={dracula}
-    
-  />
+                    {/* <hr></hr> */}
+                    {/* <div className="codeblock" >
+                        <CopyBlock
+                            text={code}
+                            language="python"
+                            showLineNumbers={props.showLineNumbers}
+                            theme={dracula}
 
-</div>
+                        />
 
-    
+                    </div> */}
 
-      
 
-    </div>
 
-    </div>
 
-    
-     
-    </div>
-  );
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    );
 };
 
 export default BlogComputationalModels;
