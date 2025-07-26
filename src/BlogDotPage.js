@@ -164,6 +164,9 @@ function BlogDotPage() {
 
   // Track if color wheel section is in view
   const [showColorWheel, setShowColorWheel] = useState(false);
+  // Fade-in alpha for color wheel
+  const colorWheelAlphaRef = useRef(0);
+  const [colorWheelFadeTick, setColorWheelFadeTick] = useState(0);
 
   // Track if discrete RGB bands section is in view
   const [showRGBBands, setShowRGBBands] = useState(false);
@@ -345,19 +348,38 @@ function BlogDotPage() {
     }
 
     if (showColorWheel) {
+      // Animate fade-in alpha
+      if (colorWheelAlphaRef.current < 1) {
+        colorWheelAlphaRef.current = Math.min(1, colorWheelAlphaRef.current + 0.04);
+        requestAnimationFrame(() => {
+          if (typeof window._colorWheelForceUpdate === "function") {
+            window._colorWheelForceUpdate((v) => v + 1);
+          }
+        });
+      }
+      // Draw color wheel with fade-in alpha
+      ctx.save();
+      ctx.globalAlpha = colorWheelAlphaRef.current;
       drawColorWheel(rotationRef.current);
+      ctx.restore();
       return;
     }
 
     if (showRGBBands) {
       ctx.clearRect(0, 0, width, height);
-      const bandWidth = width / 3;
-      const blobRadius = Math.max(80, height / 8);
-      const bands = [
-        { r: 255, g: 0, b: 0 }, // Red (left)
-        { r: 0, g: 255, b: 0 }, // Green (center)
-        { r: 0, g: 0, b: 255 }, // Blue (right)
+      // 24-pack Crayola colors (hex values)
+      const crayolaColors = [
+        "#FFB653", "#FF7538", "#FF2B2B", "#FD5E53", "#EA7E5D", "#B4674D", "#A5694F", "#714B23",
+        "#FCD975", "#FDFC74", "#FFFF99", "#B2EC5D", "#1DF914", "#76FF7A", "#1CAC78", "#199EBD",
+        "#1F75FE", "#1974D2", "#926EAE", "#C364C5", "#FC89AC", "#F75394", "#C23B22", "#000000"
       ];
+      const bandCount = crayolaColors.length;
+      const bandWidth = width / bandCount;
+      const blobRadius = Math.max(80, height / 8);
+
+      // Waterfall animation: use a time-based offset
+      if (!window._crayolaWaterfallTimeRef) window._crayolaWaterfallTimeRef = { t: 0 };
+      window._crayolaWaterfallTimeRef.t += 1;
 
       // Reset trail if just entered this section
       if (trailRef.current.length === 0 || !showColorWheel) {
@@ -369,23 +391,29 @@ function BlogDotPage() {
       trail.push({ x: mouse.x, y: mouse.y });
       if (trail.length > 15) trail.shift();
 
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < bandCount; i++) {
         const bandX = i * bandWidth;
+        // Parse hex color to rgb
+        const hex = crayolaColors[i];
+        const rgb = hexToRgb(hex);
+        // Waterfall offset for this band (each band has a phase offset)
+        const waterfallOffset = 40 * Math.sin(window._crayolaWaterfallTimeRef.t / 30 + i * 0.3);
         // Draw motion trail for this band
         for (let t = 0; t < trail.length; t++) {
           const pos = trail[t];
           const progress = (t + 1) / trail.length;
           const alphaTrail = progress * 0.5; // fade out
           const shrink = 0.3 + 0.7 * progress; // 0.3 (oldest) to 1 (newest)
-          const blobCenter = { x: pos.x, y: pos.y };
+          // Waterfall: y position is offset by time-based sine wave
+          const blobCenter = { x: pos.x, y: pos.y + waterfallOffset };
           for (let x = bandX; x < bandX + bandWidth; x += gridSize) {
             for (let y = 0; y < height; y += gridSize) {
               const dx = x + gridSize / 2 - blobCenter.x;
               const dy = y + gridSize / 2 - blobCenter.y;
               const dist = Math.sqrt(dx * dx + dy * dy);
               const alpha = Math.max(0, (1 - dist / (blobRadius * shrink)) * alphaTrail);
-              if (alpha > 0.01) {
-                ctx.fillStyle = `rgba(${bands[i].r},${bands[i].g},${bands[i].b},${alpha})`;
+              if (alpha > 0.01 && rgb) {
+                ctx.fillStyle = `rgba(${rgb.r},${rgb.g},${rgb.b},${alpha})`;
                 ctx.fillRect(x, y, gridSize, gridSize);
               }
             }
@@ -393,6 +421,16 @@ function BlogDotPage() {
         }
       }
       drawGrid(ctx, width, height, gridSize, gridColor, gridOpacity);
+      // Trigger next animation frame for continuous waterfall
+      if (!window._crayolaWaterfallRAF) {
+        window._crayolaWaterfallRAF = requestAnimationFrame(() => {
+          window._crayolaWaterfallRAF = null;
+          // Force a React state update to trigger the effect again
+          if (typeof window._crayolaWaterfallForceUpdate === "function") {
+            window._crayolaWaterfallForceUpdate((v) => v + 1);
+          }
+        });
+      }
       return;
     }
 
@@ -491,14 +529,35 @@ function BlogDotPage() {
     if (colorWheelSection) {
       const observer = new window.IntersectionObserver(
         ([entry]) => {
-          setShowColorWheel(entry.isIntersecting);
+          setShowColorWheel(entry.intersectionRatio > 0.7);
+          if (entry.intersectionRatio > 0.7) {
+            colorWheelAlphaRef.current = 0; // Reset fade-in on enter
+          }
         },
-        { threshold: 0.1 }
+        { threshold: 0.7 }
       );
       observer.observe(colorWheelSection);
       return () => observer.disconnect();
     }
   }, [canvasSize]);
+
+  // Animate color wheel fade-in with requestAnimationFrame and local state
+  useEffect(() => {
+    let raf;
+    function animateFade() {
+      if (showColorWheel && colorWheelAlphaRef.current < 1) {
+        colorWheelAlphaRef.current = Math.min(1, colorWheelAlphaRef.current + 0.04);
+        setColorWheelFadeTick((v) => v + 1);
+        raf = requestAnimationFrame(animateFade);
+      }
+    }
+    if (showColorWheel) {
+      raf = requestAnimationFrame(animateFade);
+    }
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [showColorWheel]);
 
   // Observe discrete RGB bands section
   useEffect(() => {
@@ -746,12 +805,9 @@ function BlogDotPage() {
         
 
         <section style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto",  alignItems: "center", justifyContent: "center", fontSize: 24 }}>
-          <div>So I thought that was cool and I spent $5.50 and a nice bit of my Friday to make this page.</div>
+          <div>So I thought that was cool and I spent a nice bit of my Friday to make this page.</div>
         </section>
-        {/* 
-          If you want specific overlay elements (like buttons/links) to be interactive,
-          set pointerEvents: "auto" on those elements individually.
-        */}
+  
       </div>
     </>
   );
