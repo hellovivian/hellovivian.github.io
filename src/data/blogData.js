@@ -17,26 +17,11 @@ const blogData = [
   //   }
   // },
 
-      {
-    id: 2,
-    title: 'Vibes',
-    date: '',
-    venue: '',
-    links: {
-      paperlink: "",
-      pg: "",
-      codelink: "",
-      demolink: "",
-      blogpostlink: "/dot",
-      video: "",
-      img_src: "/blogpost_images/vibes_slower.gif",
-    }
-  },
 
   {
     id: 2,
     title: 'Made in Berkeley',
-    date: '',
+    date: 'JULY 20 2025',
     venue: 'Go bears ＼ʕ•ᴥ•ʔ／ ',
     links: {
       paperlink: "",
@@ -62,6 +47,21 @@ const blogData = [
       blogpostlink: "/bibliography",
       video: "",
       img_src:"https://media1.tenor.com/m/MSPtDSAWTA4AAAAd/paper-plane-flying-original.gif"
+    }
+  },
+        {
+    id: 2,
+    title: 'Vibes',
+    date: 'JULY 26 2025',
+    venue: '',
+    links: {
+      paperlink: "",
+      pg: "",
+      codelink: "",
+      demolink: "",
+      blogpostlink: "/dot",
+      video: "",
+      img_src: "/blogpost_images/vibes_slower.gif",
     }
   },
     {

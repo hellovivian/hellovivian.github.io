@@ -264,6 +264,7 @@ p {
 .project-row img {
   margin: 1em;
   min-width: 196px;
+  border: solid 1px #bbbbbb;
 }
 
 .project-row {
