@@ -1,0 +1,551 @@
+import React, { useRef, useEffect, useState } from "react";
+
+// Utility functions
+function hexToRgb(hex) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+      }
+    : null;
+}
+
+function hslToRgb(h, s, l) {
+  s /= 100;
+  l /= 100;
+  const c = (1 - Math.abs(2 * l - 1)) * s;
+  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+  const m = l - c / 2;
+  let r = 0,
+    g = 0,
+    b = 0;
+  if (0 <= h && h < 60) {
+    r = c;
+    g = x;
+    b = 0;
+  } else if (60 <= h && h < 120) {
+    r = x;
+    g = c;
+    b = 0;
+  } else if (120 <= h && h < 180) {
+    r = 0;
+    g = c;
+    b = x;
+  } else if (180 <= h && h < 240) {
+    r = 0;
+    g = x;
+    b = c;
+  } else if (240 <= h && h < 300) {
+    r = x;
+    g = 0;
+    b = c;
+  } else if (300 <= h && h < 360) {
+    r = c;
+    g = 0;
+    b = x;
+  }
+  r = Math.round((r + m) * 255);
+  g = Math.round((g + m) * 255);
+  b = Math.round((b + m) * 255);
+  return { r, g, b };
+}
+
+function getMouseColor(x, y, canvasWidth, canvasHeight) {
+  const normalizedX = x / canvasWidth;
+  const normalizedY = y / canvasHeight;
+  const hue = Math.floor(normalizedX * 360);
+  const saturation = Math.floor(50 + normalizedY * 50);
+  const lightness = Math.floor(60 + (1 - normalizedY) * 30);
+  const rgb = hslToRgb(hue, saturation, lightness);
+  return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+}
+
+function createGaussianDot(size, blur, color) {
+  const dotCanvas = document.createElement("canvas");
+  const dotCtx = dotCanvas.getContext("2d");
+  const canvasSize = size + blur * 4;
+  dotCanvas.width = canvasSize;
+  dotCanvas.height = canvasSize;
+
+  let rgb;
+  if (color.startsWith("#")) {
+    rgb = hexToRgb(color);
+  } else if (color.startsWith("rgb")) {
+    const match = color.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+    rgb = { r: parseInt(match[1]), g: parseInt(match[2]), b: parseInt(match[3]) };
+  }
+
+  const gradient = dotCtx.createRadialGradient(
+    canvasSize / 2,
+    canvasSize / 2,
+    0,
+    canvasSize / 2,
+    canvasSize / 2,
+    size / 2
+  );
+  gradient.addColorStop(0, `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`);
+  gradient.addColorStop(0.7, `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.53)`);
+  gradient.addColorStop(1, `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0)`);
+  dotCtx.fillStyle = gradient;
+  dotCtx.fillRect(0, 0, canvasSize, canvasSize);
+
+  dotCtx.filter = `blur(${blur}px)`;
+  dotCtx.globalCompositeOperation = "source-over";
+  dotCtx.drawImage(dotCanvas, 0, 0);
+
+  return dotCanvas;
+}
+
+function discretizeImage(sourceCanvas, gridSize) {
+  const discreteCanvas = document.createElement("canvas");
+  const discreteCtx = discreteCanvas.getContext("2d");
+  discreteCanvas.width = sourceCanvas.width;
+  discreteCanvas.height = sourceCanvas.height;
+
+  const tempCtx = document.createElement("canvas").getContext("2d");
+  tempCtx.canvas.width = sourceCanvas.width;
+  tempCtx.canvas.height = sourceCanvas.height;
+  tempCtx.drawImage(sourceCanvas, 0, 0);
+
+  const imageData = tempCtx.getImageData(0, 0, sourceCanvas.width, sourceCanvas.height);
+  const data = imageData.data;
+
+  for (let y = 0; y < sourceCanvas.height; y += gridSize) {
+    for (let x = 0; x < sourceCanvas.width; x += gridSize) {
+      const centerX = Math.min(x + Math.floor(gridSize / 2), sourceCanvas.width - 1);
+      const centerY = Math.min(y + Math.floor(gridSize / 2), sourceCanvas.height - 1);
+      const centerIndex = (centerY * sourceCanvas.width + centerX) * 4;
+      const r = data[centerIndex];
+      const g = data[centerIndex + 1];
+      const b = data[centerIndex + 2];
+      const a = data[centerIndex + 3];
+      discreteCtx.fillStyle = `rgba(${r}, ${g}, ${b}, ${a / 255})`;
+      discreteCtx.fillRect(x, y, gridSize, gridSize);
+    }
+  }
+  return discreteCanvas;
+}
+
+function drawGrid(ctx, width, height, gridSize, color, opacity) {
+  const rgb = hexToRgb(color);
+  ctx.strokeStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity / 100})`;
+  ctx.lineWidth = 1;
+  ctx.globalCompositeOperation = "source-over";
+  for (let x = 0; x < width; x += gridSize) {
+    ctx.beginPath();
+    ctx.moveTo(x + 0.5, 0);
+    ctx.lineTo(x + 0.5, height);
+    ctx.stroke();
+  }
+  for (let y = 0; y < height; y += gridSize) {
+    ctx.beginPath();
+    ctx.moveTo(0, y + 0.5);
+    ctx.lineTo(width, y + 0.5);
+    ctx.stroke();
+  }
+}
+
+function BlogDotPage() {
+  const canvasRef = useRef(null);
+
+  // Trail of previous blob positions for motion trails
+  const trailRef = useRef([]);
+
+  // Scroll progress (0 = top, 1 = bottom)
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Responsive canvas size (dynamically set by scroll)
+  const [canvasSize, setCanvasSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  // Controls state
+  const [dotSize, setDotSize] = useState(330);
+  const [blurAmount, setBlurAmount] = useState(20);
+  const [gridSize, setGridSize] = useState(12);
+  const [gridOpacity, setGridOpacity] = useState(30);
+  const [dotColor, setDotColor] = useState("#FFE066");
+  const [gridColor, setGridColor] = useState("#FFFFFF");
+
+  // Mouse state
+  const [mouse, setMouse] = useState({
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
+    useMouseColor: false,
+  });
+
+  // Blob scale state for jelly effect
+  const [blobScale, setBlobScale] = useState(1);
+  const [blobSquish, setBlobSquish] = useState({ x: 1, y: 1 });
+  const jellyRef = useRef({ animating: false });
+
+  // Value display state
+  const [dotSizeValue, setDotSizeValue] = useState(dotSize);
+  const [blurAmountValue, setBlurAmountValue] = useState(blurAmount);
+  const [gridSizeValue, setGridSizeValue] = useState(gridSize);
+  const [gridOpacityValue, setGridOpacityValue] = useState(gridOpacity);
+
+  // Handlers for controls
+  const handleDotSize = (e) => {
+    setDotSize(Number(e.target.value));
+    setDotSizeValue(e.target.value);
+  };
+  const handleBlurAmount = (e) => {
+    setBlurAmount(Number(e.target.value));
+    setBlurAmountValue(e.target.value);
+  };
+  const handleGridSize = (e) => {
+    setGridSize(Number(e.target.value));
+    setGridSizeValue(e.target.value);
+  };
+  const handleGridOpacity = (e) => {
+    setGridOpacity(Number(e.target.value));
+    setGridOpacityValue(e.target.value);
+  };
+  const handleDotColor = (e) => setDotColor(e.target.value);
+  const handleGridColor = (e) => setGridColor(e.target.value);
+
+  // Mouse events
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const handleMouseMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      setMouse({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+        useMouseColor: true,
+      });
+    };
+    const handleMouseLeave = () => {
+      setMouse((m) => ({
+        ...m,
+        useMouseColor: false,
+      }));
+    };
+    const handleClick = (e) => {
+      // Jelly effect: squish x/y scales with phase offset
+      if (jellyRef.current.animating) return;
+      jellyRef.current.animating = true;
+      const duration = 400; // ms
+      const squishAmount = 0.22; // how much to squish/stretch
+      const t0 = performance.now();
+
+      function animate(now) {
+        const t = (now - t0) / duration;
+        if (t < 1) {
+          // Use a damped sine for jelly wobble
+          // x squishes first, then y, then both settle to 1
+          const phase = Math.PI * 2 * t;
+          const decay = Math.exp(-3 * t);
+          const scaleX = 1 + Math.sin(phase) * squishAmount * decay;
+          const scaleY = 1 - Math.sin(phase) * squishAmount * decay;
+          setBlobSquish({ x: scaleX, y: scaleY });
+          requestAnimationFrame(animate);
+        } else {
+          setBlobSquish({ x: 1, y: 1 });
+          jellyRef.current.animating = false;
+        }
+      }
+      requestAnimationFrame(animate);
+    };
+    canvas.addEventListener("mousemove", handleMouseMove);
+    canvas.addEventListener("mouseleave", handleMouseLeave);
+    canvas.addEventListener("mousedown", handleClick);
+
+    return () => {
+      canvas.removeEventListener("mousemove", handleMouseMove);
+      canvas.removeEventListener("mouseleave", handleMouseLeave);
+      canvas.removeEventListener("mousedown", handleClick);
+    };
+  }, [canvasSize]);
+
+  // Responsive resize and dynamic canvas size on scroll
+  useEffect(() => {
+    function updateCanvasSize() {
+      // Map scrollProgress (0-1) to height (e.g., 100vh to 30vh)
+      const minHeight = 0.3 * window.innerHeight;
+      const maxHeight = window.innerHeight;
+      const height = maxHeight - (maxHeight - minHeight) * scrollProgress;
+      setCanvasSize({
+        width: window.innerWidth,
+        height: height,
+      });
+      setMouse((m) => ({
+        ...m,
+        x: window.innerWidth / 2,
+        y: height / 2,
+      }));
+    }
+    window.addEventListener("resize", updateCanvasSize);
+    updateCanvasSize();
+    return () => window.removeEventListener("resize", updateCanvasSize);
+  }, [scrollProgress]);
+
+  // Scroll event for parallax effect
+  useEffect(() => {
+    function onScroll() {
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? Math.min(Math.max(scrollY / docHeight, 0), 1) : 0;
+      setScrollProgress(progress);
+    }
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Render effect
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    const { width, height } = canvasSize;
+
+    // Use mouse color if active, else picker
+    const color =
+      mouse.useMouseColor
+        ? getMouseColor(mouse.x, mouse.y, width, height)
+        : dotColor;
+
+    // 3D/Parallax mappings
+    const parallaxScale = 0.7 + 0.6 * scrollProgress;
+    const parallaxX = 60 * (scrollProgress - 0.5);
+    const parallaxY = 40 * (scrollProgress - 0.5);
+
+    // Combine with jelly effect
+    const scaledDotSize = dotSize * blobScale * parallaxScale;
+    const dotCanvas = createGaussianDot(scaledDotSize, blurAmount, color);
+
+    // Position dot (center + parallax offset)
+    let dotX, dotY;
+    if (mouse.useMouseColor) {
+      dotX = mouse.x - dotCanvas.width / 2 + parallaxX;
+      dotY = mouse.y - dotCanvas.height / 2 + parallaxY;
+    } else {
+      dotX = (width - dotCanvas.width) / 2 + parallaxX;
+      dotY = (height - dotCanvas.height) / 2 + parallaxY;
+    }
+
+    // --- TRAIL LOGIC ---
+    // Add current position to trail
+    const trail = trailRef.current;
+    trail.push({
+      x: dotX,
+      y: dotY,
+      scaleX: blobSquish.x,
+      scaleY: blobSquish.y,
+      size: scaledDotSize,
+      color,
+      blur: blurAmount,
+    });
+    if (trail.length > 15) trail.shift();
+
+    // Clear canvas
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, width, height);
+
+    // Draw faded, shrinking trail blobs
+    for (let i = 0; i < trail.length - 1; i++) {
+      const t = trail[i];
+      const progress = (i + 1) / trail.length;
+      const alpha = progress * 0.35; // fade out
+      const shrink = 0.3 + 0.7 * progress; // 0.3 (oldest) to 1 (newest)
+      const trailDot = createGaussianDot(t.size * shrink, t.blur, t.color);
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.translate(t.x + trailDot.width / 2, t.y + trailDot.height / 2);
+      ctx.scale(t.scaleX, t.scaleY);
+      ctx.drawImage(trailDot, -trailDot.width / 2, -trailDot.height / 2);
+      ctx.restore();
+    }
+
+    // Draw current blob
+    ctx.save();
+    ctx.translate(dotX + dotCanvas.width / 2, dotY + dotCanvas.height / 2);
+    ctx.scale(blobSquish.x, blobSquish.y);
+    ctx.drawImage(dotCanvas, -dotCanvas.width / 2, -dotCanvas.height / 2);
+    ctx.restore();
+
+    // Discretize
+    const discreteCanvas = discretizeImage(canvas, gridSize);
+
+    // Clear and draw discretized
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, width, height);
+    ctx.drawImage(discreteCanvas, 0, 0);
+
+    // Draw grid
+    drawGrid(ctx, width, height, gridSize, gridColor, gridOpacity);
+  }, [
+    dotSize,
+    blurAmount,
+    gridSize,
+    gridOpacity,
+    dotColor,
+    gridColor,
+    mouse,
+    canvasSize,
+    blobScale,
+    blobSquish,
+  ]);
+
+  // Styles
+  const styles = {
+    page: {
+      margin: 0,
+      padding: 20,
+      background: "#1a1a1a",
+      color: "white",
+      fontFamily: "Arial, sans-serif",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      minHeight: "100vh",
+    },
+    canvas: {
+      border: "1px solid #444",
+      background: "black",
+      margin: "20px 0",
+      display: "block",
+    },
+    controls: {
+      display: "flex",
+      gap: 20,
+      flexWrap: "wrap",
+      justifyContent: "center",
+      marginBottom: 20,
+    },
+    controlGroup: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 5,
+    },
+    label: {
+      fontSize: 12,
+      color: "#ccc",
+    },
+    range: {
+      width: 100,
+    },
+    colorInput: {
+      width: 50,
+      height: 30,
+      border: "none",
+      cursor: "pointer",
+    },
+    valueDisplay: {
+      fontSize: 11,
+      color: "#888",
+    },
+    h1: {
+      marginTop: 0,
+    },
+    p: {
+      color: "#888",
+      fontSize: 14,
+      marginBottom: 10,
+    },
+  };
+
+  return (
+    <div style={styles.page}>
+      <h1 style={styles.h1}>Gaussian Blurred Dot with Grid Effect</h1>
+      <p style={styles.p}>
+        Move your mouse over the canvas to change the dot color and position dynamically!<br />
+        Scroll down to see the blob move in 3D space.
+      </p>
+      <div style={styles.controls}>
+        <div style={styles.controlGroup}>
+          <label style={styles.label}>Dot Size</label>
+          <input
+            type="range"
+            min={20}
+            max={400}
+            value={dotSize}
+            onChange={handleDotSize}
+            style={styles.range}
+          />
+          <span style={styles.valueDisplay}>{dotSizeValue}</span>
+        </div>
+        <div style={styles.controlGroup}>
+          <label style={styles.label}>Blur Amount</label>
+          <input
+            type="range"
+            min={5}
+            max={100}
+            value={blurAmount}
+            onChange={handleBlurAmount}
+            style={styles.range}
+          />
+          <span style={styles.valueDisplay}>{blurAmountValue}</span>
+        </div>
+        <div style={styles.controlGroup}>
+          <label style={styles.label}>Grid Size</label>
+          <input
+            type="range"
+            min={5}
+            max={30}
+            value={gridSize}
+            onChange={handleGridSize}
+            style={styles.range}
+          />
+          <span style={styles.valueDisplay}>{gridSizeValue}</span>
+        </div>
+        <div style={styles.controlGroup}>
+          <label style={styles.label}>Grid Opacity</label>
+          <input
+            type="range"
+            min={0}
+            max={100}
+            value={gridOpacity}
+            onChange={handleGridOpacity}
+            style={styles.range}
+          />
+          <span style={styles.valueDisplay}>{gridOpacityValue}%</span>
+        </div>
+        <div style={styles.controlGroup}>
+          <label style={styles.label}>Dot Color</label>
+          <input
+            type="color"
+            value={dotColor}
+            onChange={handleDotColor}
+            style={styles.colorInput}
+          />
+        </div>
+        <div style={styles.controlGroup}>
+          <label style={styles.label}>Grid Color</label>
+          <input
+            type="color"
+            value={gridColor}
+            onChange={handleGridColor}
+            style={styles.colorInput}
+          />
+        </div>
+      </div>
+      <canvas
+        ref={canvasRef}
+        width={canvasSize.width}
+        height={canvasSize.height}
+        style={{
+          ...styles.canvas,
+          width: "100vw",
+          height: `${canvasSize.height}px`,
+          maxWidth: "100vw",
+          maxHeight: "100vh",
+          display: "block",
+          transition: "height 0.2s cubic-bezier(.4,1.4,.6,1)",
+        }}
+      />
+      {/* Tall div for scrolling */}
+      <div style={{ height: "250vh", background: "#f8f8f8" }} />
+    </div>
+  );
+}
+
+export default BlogDotPage;

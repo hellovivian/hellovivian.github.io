@@ -17,6 +17,22 @@ const blogData = [
   //   }
   // },
 
+      {
+    id: 2,
+    title: 'Vibes',
+    date: '',
+    venue: '',
+    links: {
+      paperlink: "",
+      pg: "",
+      codelink: "",
+      demolink: "",
+      blogpostlink: "/dot",
+      video: "",
+      img_src: "/blogpost_images/vibes_slower.gif",
+    }
+  },
+
   {
     id: 2,
     title: 'Made in Berkeley',

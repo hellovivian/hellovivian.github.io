@@ -17,6 +17,7 @@ import BlogComputationalModels from './blogComputationalModels';
 import BlogBibliographyPage from './BlogBibliographyPage';
 import BlogMakerPage from './blogMakerPage';
 import BlogFreelancePage from './blogFreelancePage';
+import BlogDotPage from './BlogDotPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -48,6 +49,7 @@ function App() {
         <Route path="/disco3" element={<DiscoThree />} />
         <Route path="/opal" element={<ProjectOPAL />} />
         <Route path="/designguidelines" element={<ProjectDesignGuidelines />} />
+        <Route path="/dot" element={<BlogDotPage />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
     </Router>
