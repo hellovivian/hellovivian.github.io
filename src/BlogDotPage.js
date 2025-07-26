@@ -150,13 +150,20 @@ function drawGrid(ctx, width, height, gridSize, color, opacity) {
 function BlogDotPage() {
   const canvasRef = useRef(null);
 
+  // Track if color wheel section is in view
+  const [showColorWheel, setShowColorWheel] = useState(false);
+
+  // Rotation ref for spinning color wheel (for smooth animation)
+  const rotationRef = useRef(0);
+  const animationRef = useRef();
+
   // Trail of previous blob positions for motion trails
   const trailRef = useRef([]);
 
   // Scroll progress (0 = top, 1 = bottom)
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Responsive canvas size (dynamically set by scroll)
+  // Fixed canvas size: always 100vw x 100vh
   const [canvasSize, setCanvasSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -264,27 +271,23 @@ function BlogDotPage() {
     };
   }, [canvasSize]);
 
-  // Responsive resize and dynamic canvas size on scroll
+  // Always keep canvas size at 100vw x 100vh
   useEffect(() => {
     function updateCanvasSize() {
-      // Map scrollProgress (0-1) to height (e.g., 100vh to 30vh)
-      const minHeight = 0.3 * window.innerHeight;
-      const maxHeight = window.innerHeight;
-      const height = maxHeight - (maxHeight - minHeight) * scrollProgress;
       setCanvasSize({
         width: window.innerWidth,
-        height: height,
+        height: window.innerHeight,
       });
       setMouse((m) => ({
         ...m,
         x: window.innerWidth / 2,
-        y: height / 2,
+        y: window.innerHeight / 2,
       }));
     }
     window.addEventListener("resize", updateCanvasSize);
     updateCanvasSize();
     return () => window.removeEventListener("resize", updateCanvasSize);
-  }, [scrollProgress]);
+  }, []);
 
   // Scroll event for parallax effect
   useEffect(() => {
@@ -305,6 +308,31 @@ function BlogDotPage() {
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     const { width, height } = canvasSize;
+
+    function drawColorWheel(rotation) {
+      ctx.clearRect(0, 0, width, height);
+      const maxRadius = Math.min(width, height) / 4;
+      for (let y = 0; y < height; y += gridSize) {
+        for (let x = 0; x < width; x += gridSize) {
+          const dx = x + gridSize / 2 - width / 2;
+          const dy = y + gridSize / 2 - height / 2;
+          const angle = Math.atan2(dy, dx) + rotation; // -PI to PI, add rotation for spin
+          const hue = ((angle * 180 / Math.PI) + 360) % 360;
+          const radius = Math.sqrt(dx * dx + dy * dy);
+          const sat = Math.min(90);
+          // Alpha fades from 1 at center to 0 at edge
+          const alpha = Math.max(0, 1 - (radius / maxRadius));
+          ctx.fillStyle = `hsla(${hue}, ${sat}%, 50%, ${alpha})`;
+          ctx.fillRect(x, y, gridSize, gridSize);
+        }
+      }
+      drawGrid(ctx, width, height, gridSize, gridColor, gridOpacity);
+    }
+
+    if (showColorWheel) {
+      drawColorWheel(rotationRef.current);
+      return;
+    }
 
     // Use mouse color if active, else picker
     const color =
@@ -392,14 +420,75 @@ function BlogDotPage() {
     canvasSize,
     blobScale,
     blobSquish,
+    showColorWheel,
   ]);
+
+  // Observe color wheel section
+  useEffect(() => {
+    const colorWheelSection = document.getElementById("color_wheel");
+    if (!colorWheelSection) return;
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        setShowColorWheel(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(colorWheelSection);
+    return () => observer.disconnect();
+  }, [canvasSize]);
+
+  // Animate color wheel spin when in view (smooth, direct canvas draw)
+  useEffect(() => {
+    if (!showColorWheel) {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
+      }
+      return;
+    }
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    const { width, height } = canvasSize;
+    let lastTime = performance.now();
+    function animate(now) {
+      const delta = now - lastTime;
+      lastTime = now;
+      rotationRef.current += 0.01 * (delta / 16.67); // ~0.01 radians per frame at 60fps
+      // Redraw color wheel with new rotation
+      ctx.clearRect(0, 0, width, height);
+      const maxRadius = Math.min(width, height) / 4;
+      for (let y = 0; y < height; y += gridSize) {
+        for (let x = 0; x < width; x += gridSize) {
+          const dx = x + gridSize / 2 - width / 2;
+          const dy = y + gridSize / 2 - height / 2;
+          const angle = Math.atan2(dy, dx) + rotationRef.current;
+          const hue = ((angle * 180 / Math.PI) + 360) % 360;
+          const radius = Math.sqrt(dx * dx + dy * dy);
+          const sat = Math.min(90);
+          const alpha = Math.max(0, 1 - (radius / maxRadius));
+          ctx.fillStyle = `hsla(${hue}, ${sat}%, 50%, ${alpha})`;
+          ctx.fillRect(x, y, gridSize, gridSize);
+        }
+      }
+      drawGrid(ctx, width, height, gridSize, gridColor, gridOpacity);
+      animationRef.current = requestAnimationFrame(animate);
+    }
+    animationRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
+      }
+    };
+  }, [showColorWheel, canvasSize, gridSize, gridColor, gridOpacity]);
 
   // Styles
   const styles = {
     page: {
       margin: 0,
       padding: 20,
-      background: "#1a1a1a",
+      background: "white",
       color: "white",
       fontFamily: "Arial, sans-serif",
       display: "flex",
@@ -408,8 +497,8 @@ function BlogDotPage() {
       minHeight: "100vh",
     },
     canvas: {
-      border: "1px solid #444",
-      background: "black",
+      border: "1px solid black",
+      background: "white",
       margin: "20px 0",
       display: "block",
     },
@@ -454,97 +543,139 @@ function BlogDotPage() {
   };
 
   return (
-    <div style={styles.page}>
-      <h1 style={styles.h1}>Gaussian Blurred Dot with Grid Effect</h1>
-      <p style={styles.p}>
-        Move your mouse over the canvas to change the dot color and position dynamically!<br />
-        Scroll down to see the blob move in 3D space.
-      </p>
-      <div style={styles.controls}>
-        <div style={styles.controlGroup}>
-          <label style={styles.label}>Dot Size</label>
-          <input
-            type="range"
-            min={20}
-            max={400}
-            value={dotSize}
-            onChange={handleDotSize}
-            style={styles.range}
-          />
-          <span style={styles.valueDisplay}>{dotSizeValue}</span>
+    <>
+      {/* <div style={styles.page}>
+        <h1 style={styles.h1}>Gaussian Blurred Dot with Grid Effect</h1>
+        <p style={styles.p}>
+          Move your mouse over the canvas to change the dot color and position dynamically!<br />
+          Scroll down to see the blob move in 3D space.
+        </p>
+        <div style={styles.controls}>
+          <div style={styles.controlGroup}>
+            <label style={styles.label}>Dot Size</label>
+            <input
+              type="range"
+              min={20}
+              max={400}
+              value={dotSize}
+              onChange={handleDotSize}
+              style={styles.range}
+            />
+            <span style={styles.valueDisplay}>{dotSizeValue}</span>
+          </div>
+          <div style={styles.controlGroup}>
+            <label style={styles.label}>Blur Amount</label>
+            <input
+              type="range"
+              min={5}
+              max={100}
+              value={blurAmount}
+              onChange={handleBlurAmount}
+              style={styles.range}
+            />
+            <span style={styles.valueDisplay}>{blurAmountValue}</span>
+          </div>
+          <div style={styles.controlGroup}>
+            <label style={styles.label}>Grid Size</label>
+            <input
+              type="range"
+              min={5}
+              max={30}
+              value={gridSize}
+              onChange={handleGridSize}
+              style={styles.range}
+            />
+            <span style={styles.valueDisplay}>{gridSizeValue}</span>
+          </div>
+          <div style={styles.controlGroup}>
+            <label style={styles.label}>Grid Opacity</label>
+            <input
+              type="range"
+              min={0}
+              max={100}
+              value={gridOpacity}
+              onChange={handleGridOpacity}
+              style={styles.range}
+            />
+            <span style={styles.valueDisplay}>{gridOpacityValue}%</span>
+          </div>
+          <div style={styles.controlGroup}>
+            <label style={styles.label}>Dot Color</label>
+            <input
+              type="color"
+              value={dotColor}
+              onChange={handleDotColor}
+              style={styles.colorInput}
+            />
+          </div>
+          <div style={styles.controlGroup}>
+            <label style={styles.label}>Grid Color</label>
+            <input
+              type="color"
+              value={gridColor}
+              onChange={handleGridColor}
+              style={styles.colorInput}
+            />
+          </div>
         </div>
-        <div style={styles.controlGroup}>
-          <label style={styles.label}>Blur Amount</label>
-          <input
-            type="range"
-            min={5}
-            max={100}
-            value={blurAmount}
-            onChange={handleBlurAmount}
-            style={styles.range}
-          />
-          <span style={styles.valueDisplay}>{blurAmountValue}</span>
-        </div>
-        <div style={styles.controlGroup}>
-          <label style={styles.label}>Grid Size</label>
-          <input
-            type="range"
-            min={5}
-            max={30}
-            value={gridSize}
-            onChange={handleGridSize}
-            style={styles.range}
-          />
-          <span style={styles.valueDisplay}>{gridSizeValue}</span>
-        </div>
-        <div style={styles.controlGroup}>
-          <label style={styles.label}>Grid Opacity</label>
-          <input
-            type="range"
-            min={0}
-            max={100}
-            value={gridOpacity}
-            onChange={handleGridOpacity}
-            style={styles.range}
-          />
-          <span style={styles.valueDisplay}>{gridOpacityValue}%</span>
-        </div>
-        <div style={styles.controlGroup}>
-          <label style={styles.label}>Dot Color</label>
-          <input
-            type="color"
-            value={dotColor}
-            onChange={handleDotColor}
-            style={styles.colorInput}
-          />
-        </div>
-        <div style={styles.controlGroup}>
-          <label style={styles.label}>Grid Color</label>
-          <input
-            type="color"
-            value={gridColor}
-            onChange={handleGridColor}
-            style={styles.colorInput}
-          />
-        </div>
-      </div>
+      </div> */}
       <canvas
         ref={canvasRef}
-        width={canvasSize.width}
-        height={canvasSize.height}
+        width={window.innerWidth}
+        height={window.innerHeight}
         style={{
-          ...styles.canvas,
+          position: "fixed",
+          top: 0,
+          left: 0,
           width: "100vw",
-          height: `${canvasSize.height}px`,
+          height: "100vh",
           maxWidth: "100vw",
           maxHeight: "100vh",
           display: "block",
-          transition: "height 0.2s cubic-bezier(.4,1.4,.6,1)",
+          pointerEvents: "auto",
+          zIndex: 0,
         }}
       />
-      {/* Tall div for scrolling */}
-      <div style={{ height: "250vh", background: "#f8f8f8" }} />
-    </div>
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          width: "100vw",
+          pointerEvents: "none", // Allow pointer events to pass through to the canvas
+        }}
+      >
+        {/* Example scrollable story content */}
+        <section style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
+          <div>I vibe coded this page because I thought about color. Color is cool -- it's abstract and intertwined with emotion, and it has a multiplicity of representations.</div>
+        </section>
+       
+
+        <section style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
+          <div>In language, we often have discrete labels for colors (categories like red, blue, green).  </div>
+        </section>
+
+        <section id="color_wheel" style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
+          <div> Yet, in code, we can draw colors from a color wheel, a space representable by math and triangulation between parameters like hue, saturation, and value.  </div>
+        </section>
+
+        <section style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
+          <div> And of course there is color that comes to us visually, in continuous combinations of light. :) 
+
+ </div>
+        </section>
+
+
+        
+
+        <section style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto",  alignItems: "center", justifyContent: "center", fontSize: 24 }}>
+          <div>So I thought that was cool and I spent $5.50 and a nice bit of my Friday to make this page.</div>
+        </section>
+        {/* 
+          If you want specific overlay elements (like buttons/links) to be interactive,
+          set pointerEvents: "auto" on those elements individually.
+        */}
+      </div>
+    </>
   );
 }
 
