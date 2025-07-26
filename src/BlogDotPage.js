@@ -70,20 +70,32 @@ function createGaussianDot(size, blur, color) {
   dotCanvas.height = canvasSize;
 
   let rgb;
-  if (color.startsWith("#")) {
+  if (color && color.indexOf("#") === 0) {
     rgb = hexToRgb(color);
-  } else if (color.startsWith("rgb")) {
+  } else if (color && color.indexOf("rgb") === 0) {
     const match = color.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-    rgb = { r: parseInt(match[1]), g: parseInt(match[2]), b: parseInt(match[3]) };
+    if (match) {
+      rgb = { r: parseInt(match[1]), g: parseInt(match[2]), b: parseInt(match[3]) };
+    }
   }
+  // Fallback to black if rgb is undefined or contains NaN
+  if (!rgb || isNaN(rgb.r) || isNaN(rgb.g) || isNaN(rgb.b)) {
+    rgb = { r: 0, g: 0, b: 0 };
+  }
+  // Ensure size and blur are finite
+  const safeSize = isFinite(size) ? size : 50;
+  const safeBlur = isFinite(blur) ? blur : 10;
+  const dotCanvasSize = safeSize + safeBlur * 4;
+  dotCanvas.width = dotCanvasSize;
+  dotCanvas.height = dotCanvasSize;
 
   const gradient = dotCtx.createRadialGradient(
-    canvasSize / 2,
-    canvasSize / 2,
+    dotCanvasSize / 2,
+    dotCanvasSize / 2,
     0,
-    canvasSize / 2,
-    canvasSize / 2,
-    size / 2
+    dotCanvasSize / 2,
+    dotCanvasSize / 2,
+    safeSize / 2
   );
   gradient.addColorStop(0, `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`);
   gradient.addColorStop(0.7, `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.53)`);
@@ -152,6 +164,9 @@ function BlogDotPage() {
 
   // Track if color wheel section is in view
   const [showColorWheel, setShowColorWheel] = useState(false);
+
+  // Track if discrete RGB bands section is in view
+  const [showRGBBands, setShowRGBBands] = useState(false);
 
   // Rotation ref for spinning color wheel (for smooth animation)
   const rotationRef = useRef(0);
@@ -334,6 +349,53 @@ function BlogDotPage() {
       return;
     }
 
+    if (showRGBBands) {
+      ctx.clearRect(0, 0, width, height);
+      const bandWidth = width / 3;
+      const blobRadius = Math.max(80, height / 8);
+      const bands = [
+        { r: 255, g: 0, b: 0 }, // Red (left)
+        { r: 0, g: 255, b: 0 }, // Green (center)
+        { r: 0, g: 0, b: 255 }, // Blue (right)
+      ];
+
+      // Reset trail if just entered this section
+      if (trailRef.current.length === 0 || !showColorWheel) {
+        trailRef.current = [];
+      }
+
+      // Maintain a trail of mouse positions for the motion trail
+      const trail = trailRef.current;
+      trail.push({ x: mouse.x, y: mouse.y });
+      if (trail.length > 15) trail.shift();
+
+      for (let i = 0; i < 3; i++) {
+        const bandX = i * bandWidth;
+        // Draw motion trail for this band
+        for (let t = 0; t < trail.length; t++) {
+          const pos = trail[t];
+          const progress = (t + 1) / trail.length;
+          const alphaTrail = progress * 0.5; // fade out
+          const shrink = 0.3 + 0.7 * progress; // 0.3 (oldest) to 1 (newest)
+          const blobCenter = { x: pos.x, y: pos.y };
+          for (let x = bandX; x < bandX + bandWidth; x += gridSize) {
+            for (let y = 0; y < height; y += gridSize) {
+              const dx = x + gridSize / 2 - blobCenter.x;
+              const dy = y + gridSize / 2 - blobCenter.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              const alpha = Math.max(0, (1 - dist / (blobRadius * shrink)) * alphaTrail);
+              if (alpha > 0.01) {
+                ctx.fillStyle = `rgba(${bands[i].r},${bands[i].g},${bands[i].b},${alpha})`;
+                ctx.fillRect(x, y, gridSize, gridSize);
+              }
+            }
+          }
+        }
+      }
+      drawGrid(ctx, width, height, gridSize, gridColor, gridOpacity);
+      return;
+    }
+
     // Use mouse color if active, else picker
     const color =
       mouse.useMouseColor
@@ -426,15 +488,31 @@ function BlogDotPage() {
   // Observe color wheel section
   useEffect(() => {
     const colorWheelSection = document.getElementById("color_wheel");
-    if (!colorWheelSection) return;
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        setShowColorWheel(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(colorWheelSection);
-    return () => observer.disconnect();
+    if (colorWheelSection) {
+      const observer = new window.IntersectionObserver(
+        ([entry]) => {
+          setShowColorWheel(entry.isIntersecting);
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(colorWheelSection);
+      return () => observer.disconnect();
+    }
+  }, [canvasSize]);
+
+  // Observe discrete RGB bands section
+  useEffect(() => {
+    const discreteSection = document.getElementById("discrete_colors");
+    if (discreteSection) {
+      const observer = new window.IntersectionObserver(
+        ([entry]) => {
+          setShowRGBBands(entry.isIntersecting);
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(discreteSection);
+      return () => observer.disconnect();
+    }
   }, [canvasSize]);
 
   // Animate color wheel spin when in view (smooth, direct canvas draw)
@@ -645,12 +723,12 @@ function BlogDotPage() {
         }}
       >
         {/* Example scrollable story content */}
-        <section style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
+        <section id="color_intro" style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
           <div>I vibe coded this page because I thought about color. Color is cool -- it's abstract and intertwined with emotion, and it has a multiplicity of representations.</div>
         </section>
        
 
-        <section style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
+        <section id="discrete_colors" style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
           <div>In language, we often have discrete labels for colors (categories like red, blue, green).  </div>
         </section>
 
