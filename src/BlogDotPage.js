@@ -164,9 +164,7 @@ function BlogDotPage() {
 
   // Track if color wheel section is in view
   const [showColorWheel, setShowColorWheel] = useState(false);
-  // Fade-in alpha for color wheel
-  const colorWheelAlphaRef = useRef(0);
-  const [colorWheelFadeTick, setColorWheelFadeTick] = useState(0);
+  const [colorWheelAlpha, setColorWheelAlpha] = useState(0);
 
   // Track if discrete RGB bands section is in view
   const [showRGBBands, setShowRGBBands] = useState(false);
@@ -174,6 +172,7 @@ function BlogDotPage() {
   // Rotation ref for spinning color wheel (for smooth animation)
   const rotationRef = useRef(0);
   const animationRef = useRef();
+  const crayolaYOffsets = useRef([]);
 
   // Trail of previous blob positions for motion trails
   const trailRef = useRef([]);
@@ -328,44 +327,30 @@ function BlogDotPage() {
     const { width, height } = canvasSize;
 
     function drawColorWheel(rotation) {
-      ctx.clearRect(0, 0, width, height);
-      const maxRadius = Math.min(width, height) / 4;
-      for (let y = 0; y < height; y += gridSize) {
-        for (let x = 0; x < width; x += gridSize) {
-          const dx = x + gridSize / 2 - width / 2;
-          const dy = y + gridSize / 2 - height / 2;
-          const angle = Math.atan2(dy, dx) + rotation; // -PI to PI, add rotation for spin
-          const hue = ((angle * 180 / Math.PI) + 360) % 360;
-          const radius = Math.sqrt(dx * dx + dy * dy);
-          const sat = Math.min(90);
-          // Alpha fades from 1 at center to 0 at edge
-          const alpha = Math.max(0, 1 - (radius / maxRadius));
-          ctx.fillStyle = `hsla(${hue}, ${sat}%, 50%, ${alpha})`;
-          ctx.fillRect(x, y, gridSize, gridSize);
+      const offscreenCanvas = document.createElement("canvas");
+      offscreenCanvas.width = width;
+      offscreenCanvas.height = height;
+      const offscreenCtx = offscreenCanvas.getContext("2d");
+
+      for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+          const dx = x - width / 2;
+          const dy = y - height / 2;
+          const angle = Math.atan2(dy, dx) + rotation;
+          const hue = ((angle * 180) / Math.PI + 360) % 360;
+          offscreenCtx.fillStyle = `hsl(${hue}, 90%, 50%)`;
+          offscreenCtx.fillRect(x, y, 1, 1);
         }
       }
+
+      const discreteCanvas = discretizeImage(offscreenCanvas, gridSize);
+      ctx.clearRect(0, 0, width, height);
+      ctx.drawImage(discreteCanvas, 0, 0);
       drawGrid(ctx, width, height, gridSize, gridColor, gridOpacity);
     }
 
-    if (showColorWheel) {
-      // Animate fade-in alpha
-      if (colorWheelAlphaRef.current < 1) {
-        colorWheelAlphaRef.current = Math.min(1, colorWheelAlphaRef.current + 0.04);
-        requestAnimationFrame(() => {
-          if (typeof window._colorWheelForceUpdate === "function") {
-            window._colorWheelForceUpdate((v) => v + 1);
-          }
-        });
-      }
-      // Draw color wheel with fade-in alpha
-      ctx.save();
-      ctx.globalAlpha = colorWheelAlphaRef.current;
-      drawColorWheel(rotationRef.current);
-      ctx.restore();
-      return;
-    }
 
-    if (showRGBBands) {
+    if (showRGBBands && colorWheelAlpha === 0) {
       ctx.clearRect(0, 0, width, height);
       // 24-pack Crayola colors (hex values)
       const crayolaColors = [
@@ -373,55 +358,29 @@ function BlogDotPage() {
         "#FCD975", "#FDFC74", "#FFFF99", "#B2EC5D", "#1DF914", "#76FF7A", "#1CAC78", "#199EBD",
         "#1F75FE", "#1974D2", "#926EAE", "#C364C5", "#FC89AC", "#F75394", "#C23B22", "#000000"
       ];
-      const bandCount = crayolaColors.length;
-      const bandWidth = width / bandCount;
-      const blobRadius = Math.max(80, height / 8);
+      const rowCount = 2;
+      const colorsPerRow = 12;
+      const boxWidth = width / (colorsPerRow + 2);
+      const boxHeight = height * 0.4;
 
-      // Waterfall animation: use a time-based offset
-      if (!window._crayolaWaterfallTimeRef) window._crayolaWaterfallTimeRef = { t: 0 };
-      window._crayolaWaterfallTimeRef.t += 1;
-
-      // Reset trail if just entered this section
-      if (trailRef.current.length === 0 || !showColorWheel) {
-        trailRef.current = [];
+      if (crayolaYOffsets.current.length === 0) {
+        crayolaYOffsets.current = crayolaColors.map(() => height);
       }
 
-      // Maintain a trail of mouse positions for the motion trail
-      const trail = trailRef.current;
-      trail.push({ x: mouse.x, y: mouse.y });
-      if (trail.length > 15) trail.shift();
+      for (let i = 0; i < crayolaColors.length; i++) {
+        const row = Math.floor(i / colorsPerRow);
+        const col = i % colorsPerRow;
+        const x = (width - colorsPerRow * boxWidth) / 2 + col * boxWidth;
+        const targetY = height - (rowCount - row) * boxHeight;
 
-      for (let i = 0; i < bandCount; i++) {
-        const bandX = i * bandWidth;
-        // Parse hex color to rgb
-        const hex = crayolaColors[i];
-        const rgb = hexToRgb(hex);
-        // Waterfall offset for this band (each band has a phase offset)
-        const waterfallOffset = 40 * Math.sin(window._crayolaWaterfallTimeRef.t / 30 + i * 0.3);
-        // Draw motion trail for this band
-        for (let t = 0; t < trail.length; t++) {
-          const pos = trail[t];
-          const progress = (t + 1) / trail.length;
-          const alphaTrail = progress * 0.5; // fade out
-          const shrink = 0.3 + 0.7 * progress; // 0.3 (oldest) to 1 (newest)
-          // Waterfall: y position is offset by time-based sine wave
-          const blobCenter = { x: pos.x, y: pos.y + waterfallOffset };
-          for (let x = bandX; x < bandX + bandWidth; x += gridSize) {
-            for (let y = 0; y < height; y += gridSize) {
-              const dx = x + gridSize / 2 - blobCenter.x;
-              const dy = y + gridSize / 2 - blobCenter.y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              const alpha = Math.max(0, (1 - dist / (blobRadius * shrink)) * alphaTrail);
-              if (alpha > 0.01 && rgb) {
-                ctx.fillStyle = `rgba(${rgb.r},${rgb.g},${rgb.b},${alpha})`;
-                ctx.fillRect(x, y, gridSize, gridSize);
-              }
-            }
-          }
-        }
+        crayolaYOffsets.current[i] += (targetY - crayolaYOffsets.current[i]) * 0.1;
+
+        ctx.fillStyle = crayolaColors[i];
+        ctx.fillRect(x, crayolaYOffsets.current[i], boxWidth, boxHeight * 2);
       }
+
       drawGrid(ctx, width, height, gridSize, gridColor, gridOpacity);
-      // Trigger next animation frame for continuous waterfall
+      // Trigger next animation frame
       if (!window._crayolaWaterfallRAF) {
         window._crayolaWaterfallRAF = requestAnimationFrame(() => {
           window._crayolaWaterfallRAF = null;
@@ -530,9 +489,6 @@ function BlogDotPage() {
       const observer = new window.IntersectionObserver(
         ([entry]) => {
           setShowColorWheel(entry.intersectionRatio > 0.7);
-          if (entry.intersectionRatio > 0.7) {
-            colorWheelAlphaRef.current = 0; // Reset fade-in on enter
-          }
         },
         { threshold: 0.7 }
       );
@@ -541,23 +497,6 @@ function BlogDotPage() {
     }
   }, [canvasSize]);
 
-  // Animate color wheel fade-in with requestAnimationFrame and local state
-  useEffect(() => {
-    let raf;
-    function animateFade() {
-      if (showColorWheel && colorWheelAlphaRef.current < 1) {
-        colorWheelAlphaRef.current = Math.min(1, colorWheelAlphaRef.current + 0.04);
-        setColorWheelFadeTick((v) => v + 1);
-        raf = requestAnimationFrame(animateFade);
-      }
-    }
-    if (showColorWheel) {
-      raf = requestAnimationFrame(animateFade);
-    }
-    return () => {
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, [showColorWheel]);
 
   // Observe discrete RGB bands section
   useEffect(() => {
@@ -574,51 +513,49 @@ function BlogDotPage() {
     }
   }, [canvasSize]);
 
+
   // Animate color wheel spin when in view (smooth, direct canvas draw)
   useEffect(() => {
-    if (!showColorWheel) {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-        animationRef.current = null;
+    let animationFrame;
+    const animate = () => {
+      if (showColorWheel) {
+        setColorWheelAlpha((a) => Math.min(1, a + 0.02));
+      } else {
+        setColorWheelAlpha((a) => Math.max(0, a - 0.02));
       }
-      return;
-    }
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    const { width, height } = canvasSize;
-    let lastTime = performance.now();
-    function animate(now) {
-      const delta = now - lastTime;
-      lastTime = now;
-      rotationRef.current += 0.01 * (delta / 16.67); // ~0.01 radians per frame at 60fps
-      // Redraw color wheel with new rotation
+      animationFrame = requestAnimationFrame(animate);
+    };
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [showColorWheel]);
+
+  useEffect(() => {
+    if (colorWheelAlpha > 0) {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      const { width, height } = canvasSize;
+      rotationRef.current += 0.01;
+
       ctx.clearRect(0, 0, width, height);
-      const maxRadius = Math.min(width, height) / 4;
+      ctx.save();
+      ctx.globalAlpha = colorWheelAlpha;
+
       for (let y = 0; y < height; y += gridSize) {
         for (let x = 0; x < width; x += gridSize) {
           const dx = x + gridSize / 2 - width / 2;
           const dy = y + gridSize / 2 - height / 2;
           const angle = Math.atan2(dy, dx) + rotationRef.current;
-          const hue = ((angle * 180 / Math.PI) + 360) % 360;
-          const radius = Math.sqrt(dx * dx + dy * dy);
-          const sat = Math.min(90);
-          const alpha = Math.max(0, 1 - (radius / maxRadius));
-          ctx.fillStyle = `hsla(${hue}, ${sat}%, 50%, ${alpha})`;
+          const hue = ((angle * 180) / Math.PI + 360) % 360;
+          ctx.fillStyle = `hsl(${hue}, 90%, 50%)`;
           ctx.fillRect(x, y, gridSize, gridSize);
         }
       }
+
       drawGrid(ctx, width, height, gridSize, gridColor, gridOpacity);
-      animationRef.current = requestAnimationFrame(animate);
+      ctx.restore();
     }
-    animationRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-        animationRef.current = null;
-      }
-    };
-  }, [showColorWheel, canvasSize, gridSize, gridColor, gridOpacity]);
+  }, [colorWheelAlpha, canvasSize, gridSize, gridColor, gridOpacity]);
 
   // Styles
   const styles = {
