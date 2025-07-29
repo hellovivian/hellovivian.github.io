@@ -7,11 +7,11 @@ const workshopData = [
     venue: 'Workshop on Human-AI Co-Creation with Generative Models at IUI 2021',
     links: {
       img_src: "./images/animals.gif",
-      pg: "",
+      pg: "https://vivian1ac0.myportfolio.com/3d-and-semantics",
       paperlink:"http://ceur-ws.org/Vol-2903/IUI21WS-HAIGEN-8.pdf",
       video:"https://youtu.be/xR7JpNiPA2Q",
       codelink:"https://gitlab.com/hellovivian/semantic_animals",
-      paperlink:"https://dl.acm.org/doi/abs/10.1145/3479566",
+
     },
   },
   {

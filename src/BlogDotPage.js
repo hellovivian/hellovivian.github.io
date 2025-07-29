@@ -168,6 +168,7 @@ function BlogDotPage() {
 
   // Track if discrete RGB bands section is in view
   const [showRGBBands, setShowRGBBands] = useState(false);
+  const [crayolaTransitionAlpha, setCrayolaTransitionAlpha] = useState(0);
 
   // Rotation ref for spinning color wheel (for smooth animation)
   const rotationRef = useRef(0);
@@ -350,8 +351,10 @@ function BlogDotPage() {
     }
 
 
-    if (showRGBBands && colorWheelAlpha === 0) {
+    if (crayolaTransitionAlpha > 0 && colorWheelAlpha === 0) {
       ctx.clearRect(0, 0, width, height);
+      ctx.save();
+      ctx.globalAlpha = crayolaTransitionAlpha;
       // 24-pack Crayola colors (hex values)
       const crayolaColors = [
         "#FFB653", "#FF7538", "#FF2B2B", "#FD5E53", "#EA7E5D", "#B4674D", "#A5694F", "#714B23",
@@ -376,7 +379,14 @@ function BlogDotPage() {
         crayolaYOffsets.current[i] += (targetY - crayolaYOffsets.current[i]) * 0.1;
 
         ctx.fillStyle = crayolaColors[i];
-        ctx.fillRect(x, crayolaYOffsets.current[i], boxWidth, boxHeight * 2);
+        ctx.beginPath();
+        ctx.moveTo(x, crayolaYOffsets.current[i] + boxHeight * 2);
+        ctx.lineTo(x, crayolaYOffsets.current[i] + boxHeight * 0.2);
+        ctx.lineTo(x + boxWidth / 2, crayolaYOffsets.current[i]);
+        ctx.lineTo(x + boxWidth, crayolaYOffsets.current[i] + boxHeight * 0.2);
+        ctx.lineTo(x + boxWidth, crayolaYOffsets.current[i] + boxHeight * 2);
+        ctx.closePath();
+        ctx.fill();
       }
 
       drawGrid(ctx, width, height, gridSize, gridColor, gridOpacity);
@@ -390,9 +400,12 @@ function BlogDotPage() {
           }
         });
       }
+      ctx.restore();
       return;
     }
 
+    ctx.save();
+    ctx.globalAlpha = 1 - crayolaTransitionAlpha;
     // Use mouse color if active, else picker
     const color =
       mouse.useMouseColor
@@ -468,6 +481,7 @@ function BlogDotPage() {
 
     // Draw grid
     drawGrid(ctx, width, height, gridSize, gridColor, gridOpacity);
+    ctx.restore();
   }, [
     dotSize,
     blurAmount,
@@ -497,6 +511,21 @@ function BlogDotPage() {
     }
   }, [canvasSize]);
 
+
+  // Animate crayola transition
+  useEffect(() => {
+    let animationFrame;
+    const animate = () => {
+      if (showRGBBands) {
+        setCrayolaTransitionAlpha((a) => Math.min(1, a + 0.02));
+      } else {
+        setCrayolaTransitionAlpha((a) => Math.max(0, a - 0.02));
+      }
+      animationFrame = requestAnimationFrame(animate);
+    };
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [showRGBBands]);
 
   // Observe discrete RGB bands section
   useEffect(() => {

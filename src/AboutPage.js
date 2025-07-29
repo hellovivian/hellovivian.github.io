@@ -26,11 +26,11 @@ const AboutPage = () => {
 
             </p>
             <p class="about_text">
-              I graduated from UC Berkeley with Distinction in Computer Science and Cognitive Science. I also earned a certificate in New Media. During my undergrad, I loved to make things at the Jacobs Institute of Design.
+              I graduated from UC Berkeley with Distinction in Computer Science and Cognitive Science. I also earned a certificate in New Media. During my undergrad, I loved to <a href="/#/made_in_berkeley">make things </a>  at the Jacobs Institute of Design.
 
             </p>
             <br></br>
-            <a class="cv-button" href="VivianLiu_Columbia_CV_Mar_2025.pdf">Curriculum Vitae</a>
+            <a class="cv-button" href="VivianLiu_Columbia_CV_July_2025.pdf">Curriculum Vitae</a>
           </div>
 
           <img height="484px" src="./images/me.jpg" />
