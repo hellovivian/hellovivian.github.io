@@ -13,11 +13,7 @@ import UpdatesPage from './UpdatesPage';
 import ProjectPage3DALLE from './project3DALLE';
 import DiscoProjectPage from './projectDisco';
 import LogoMotionProjectPage from './projectLogoMotion';
-import BlogComputationalModels from './blogComputationalModels';
-import BlogBibliographyPage from './BlogBibliographyPage';
-import BlogMakerPage from './blogMakerPage';
-import BlogFreelancePage from './blogFreelancePage';
-import BlogDotPage from './BlogDotPage';
+import BlogPostPage from './pages/BlogPostPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -38,18 +34,14 @@ function App() {
         <Route path="/About" element={<AboutPage />} />
         <Route path="/Updates" element={<UpdatesPage />} />
         <Route path="/Blog" element={<BlogPage />} />
-        <Route path="/bibliography" element={<BlogBibliographyPage />} />
-        <Route path="/made_in_berkeley" element={<BlogMakerPage />} />
-        <Route path="/freelance" element={<BlogFreelancePage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
 
-        <Route path="/computational_models" element={<BlogComputationalModels />} />
         <Route path="/logomotion" element={<LogoMotionProjectPage />} />
         <Route path="/3DALLE" element={<ProjectPage3DALLE />} />
         <Route path="/disco" element={<DiscoProjectPage />} />
         <Route path="/disco3" element={<DiscoThree />} />
         <Route path="/opal" element={<ProjectOPAL />} />
         <Route path="/designguidelines" element={<ProjectDesignGuidelines />} />
-        <Route path="/dot" element={<BlogDotPage />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
     </Router>
