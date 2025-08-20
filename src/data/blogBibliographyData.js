@@ -19,7 +19,7 @@ const blogBibliographyData = {
       ],
     },
     {
-      heading: 'Societal Impacts - Prompts, Art, Copyright, and Automation',
+      heading: 'Societal Impacts - Art, Copyright, Automation, Science Communication',
       img: '',
       links: [
 
@@ -29,6 +29,10 @@ const blogBibliographyData = {
         {
           url: 'https://dl.acm.org/doi/pdf/10.1145/3673861', text: 'Prompting Considered Harmful', comment: 'A great thought piece on how systems built on tops of LLMs can be brittle and unreliable as the be-all end-all for end-user interfaces.'
         },
+        {
+          url: 'https://www.bondcap.com/report/pdf/Trends_Artificial_Intelligence.pdf', text: 'Trends - AI 2025',  comment: 'The question isn’t whether platforms or specialists win — it’s who can abstract the right layer, own the interface, and capture the logic of work itself. - Mary Meeker'
+        },
+        {url: "https://jcom.sissa.it/archive/19/03/JCOM_1903_2020_A02", text: "Post-Normal Science Communication", comment: "One of my first projects during the PhD was about science communication, and this paper characterized how science communication had changed upon the rise of digital networks and social media. Science did not have to reach the public through journalism or traditional venues -- the scientist could circumvent all of that and disseminate their results themselves. But that has made science communication more opinionated, polarized, and slanted towards advocacy."}
       ],
     },
     {
@@ -62,6 +66,18 @@ const blogBibliographyData = {
     //     {url: 'https://jalammar.github.io/illustrated-transformer/', text: 'The Illustrated Transformer' , comment: '' },
 
     //   ]
+    {
+      heading: 'Human-Computer Interaction (pre-Gen AI)',
+
+      links: [{url: "https://www.lri.fr/~mbl/ENS/CSCW/2021/papers/Hutchinson-techprobes-03.pdf", text:'Technology Probes: Inspiring Design for and with Families', comment: "I come back to this paper now and then because it has a strong definition. This definition is of a 'technology probe', an exploratory technology that is field-tested in a real-world setting. It's an older paper and they show how they deploy these design probes that still seem futuristic today (a shared post-it board between a family etc.). One main goal was to facilitate connection across family members who are in different time zones, and I liked that it was technology and helping facilitate connection in the spirit of ambient tangible design. Other brownie points for a longitudinal evaluation (6 weeks).",
+
+      },
+    {url:"https://scispace.com/pdf/chronicle-capture-exploration-and-playback-of-document-16agiews9s.pdf", text:"Chronicle: Capture, Exploration, and Playback of Document Workflow Histories", comment:"The prescient idea in this paper is that when people create artifacts (e.g. a design), there is a whole trailing history of workflow and expertise that led to that artifact which is lost. But it can be captured, stored, and reused as a learning tool. Chronicle is a system that implements that idea. Chronicles = 'graphical representations of document revisions, visual scheme of state and event histories on an interactive timeline'. Seems pretty applicable for the agents era, where AI agents have to replicate the patterns of work people do."}, 
+      {url:"https://damassets.autodesk.net/content/dam/autodesk/research/publications-assets/pdf/geppetto-enabling-semantic-design.pdf", text:"Geppeto: Enabling Semantic Design of Expressive Robot Behaviours", comment:"I came across this paper when I was looking at Autodesk Research in my second year of grad school. I really liked it then, and I still like it now because it makes some pretty cool inroads between motion and emotion (e.g. is the robot dance happy?) as well as human-robot interaction design."},
+     {url:"https://www.research.autodesk.com/app/uploads/2023/03/workflow_graphs_a_computational_model_of_collective_task_strategies_for_3d_design_software.pdf_recCXepx1LXLVyWOU.pdf?_gl=1*1d6tu8k*_gcl_au*MTE1ODMxNTE2Mi4xNzUxNTY4MzUy*_ga*OTQyMTIwMjM2LjE3NTE1Njc0NDk.*_ga_NZSJ72N6RX*czE3NTU0Nzc2NzgkbzUkZzEkdDE3NTU0Nzc2NzgkajYwJGwwJGgw", text: "", comment: ""}
+  
+  ]
+    }
 
     // },
     // {

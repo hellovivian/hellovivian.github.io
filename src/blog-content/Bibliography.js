@@ -8,10 +8,10 @@ const BibliographyContent = () => {
   return (
     <>
       <h1>Pointers to Papers, Research, and Essays</h1>
-      {/* <img width="360px" src="./blogpost_images/Squilliam_Returns_098.webp" alt="Related Work"/> */}
+
       <div className="profile-container">
         <p>
-        Here are some pointers to work that shaped my thinking and work. This page is actively under construction.
+        Here are some pointers to work that shaped my thinking and work. This page is actively under construction as I clean out my Zotero.
 
         </p>
         <hr></hr>

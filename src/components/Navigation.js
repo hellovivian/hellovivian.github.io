@@ -10,10 +10,9 @@ const Navigation = () => {
       <Link to="/About">About</Link>
       <Link to="/Updates">Updates</Link>
       <Link to="/Blog">Blog</Link>
-
-      
-
-
+      <a href="https://scholar.google.com/citations?user=Luod1JsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+        <i className="fas fa-graduation-cap"></i>
+      </a>
     </div>
   );
 };

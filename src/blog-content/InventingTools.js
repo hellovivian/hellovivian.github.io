@@ -1,6 +1,6 @@
 
 
-const FreelanceContent = () => {
+const InventingTools = () => {
 
     return (
         <>
@@ -110,4 +110,5 @@ const FreelanceContent = () => {
     );
 };
 
-export default FreelanceContent;
+export default InventingTools
+;

@@ -43,23 +43,25 @@ const blogData = [
   //   }
   // },
 
-  // {
-  //   id: 2,
-  //   title: 'Freelance at Design Agencies',
-  //   slug: 'freelance',
-  //   date: '',
-  //   venue: '',
-  //   component: FreelanceContent,
-  //   links: {
-  //     paperlink: "",
-  //     pg: "",
-  //     codelink: "",
-  //     demolink: "",
-  //     blogpostlink: "/blog/freelance",
-  //     video: "",
-  //     img_src: "/images/maker/hintzehall.gif",
-  //   }
-  // },
+  {
+    id: 2,
+    title: 'Freelance',
+    // venue: 'The pass less traveled',
+    // venue: 'Alternatively: how to be paid minimum wage for machine learning and be chill with it',
+    slug: 'freelance',
+    date: '',
+
+    component: FreelanceContent,
+    links: {
+      paperlink: "",
+      pg: "",
+      codelink: "",
+      demolink: "",
+      blogpostlink: "/blog/freelance",
+      video: "",
+      img_src: "/blogpost_images/hintze_square.gif",
+    }
+  },
 
 
   {
