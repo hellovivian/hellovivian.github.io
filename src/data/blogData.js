@@ -82,6 +82,7 @@ const blogData = [
     }
   },
 
+
   {
     id: 2,
     title: 'Pointers',
@@ -99,6 +100,22 @@ const blogData = [
       img_src:"https://media1.tenor.com/m/MSPtDSAWTA4AAAAd/paper-plane-flying-original.gif"
     }
   },
+  //       {
+  //   id: 2,
+  //   title: 'Freelance',
+  //   date: 'JULY 26 2025',
+  //   venue: '',
+  //   links: {
+  //     paperlink: "",
+  //     pg: "",
+  //     codelink: "",
+  //     demolink: "",
+  //     blogpostlink: "/freelance",
+  //     video: "",
+  //     img_src: "/images/maker/hintzehall.gif",
+  //   }
+  // },
+
         {
     id: 2,
     title: 'Vibes',
