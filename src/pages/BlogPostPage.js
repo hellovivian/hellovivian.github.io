@@ -23,7 +23,7 @@ const BlogPostPage = () => {
             <div className="profile-container">
                 <div>
                     <h3 id="title">{blogPost.title}</h3>
-                    <p id="blog_date">{blogPost.date}</p>
+                    <p class="blog_date">{blogPost.date}</p>
                     <ContentComponent />
                 </div>
             </div>

@@ -202,14 +202,19 @@ hr {
 }
 
 .navigation {
-  margin-top: 2em;
+  width: 100%;
 }
 
 .navigation a {
   padding: 1em;
-  font-size: 16px;
+
   text-decoration: none;
-  color: #333333;
+  color: #999999;
+
+}
+
+.social_media {
+  float:right;
 }
 
 .paper_authors,
@@ -231,6 +236,10 @@ hr {
   margin-inline-end: 0px;
   unicode-bidi: isolate;
   padding: 0em;
+}
+
+.blog_date {
+  text-align: center;
 }
 
 p {

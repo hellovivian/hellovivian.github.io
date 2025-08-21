@@ -4,7 +4,6 @@ import ComputationalModelsContent from '../blog-content/ComputationalModels.js';
 import DotContent from '../blog-content/Dot.js';
 import FreelanceContent from '../blog-content/Freelance.js';
 import BibliographyContent from '../blog-content/Bibliography.js';
-import ColorExplainer from '../blog-content/ColorExplainer.js';
 import NeuralNetworkContent from '../blog-content/NeuralNetwork.js';
 
 const blogData = [

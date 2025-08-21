@@ -42,7 +42,7 @@ const FreelanceContent = () => {
             </p>
             <img src="./blogpost_images/ganaxies.gif"></img>
             <p>
-            Concurrently, I was also learning how to make latent spaces representing 3D shapes. By interpolating between two latents and sampling the intermediate vectors, one could create a shape interpolation. I actually showed this car-table warp and explained the method to my advisor when I interviewed with her for the PhD.
+            Concurrently, I was also learning how to make latent spaces representing 3D shapes by learning on <a href="https://shapenet.org/">ShapeNet</a>. By interpolating between two latents and sampling the intermediate vectors, one could create a shape interpolation. I actually showed this car-table warp and explained the method to my advisor when I interviewed with her for the PhD.
             
              {/* I also trained on 3D meshes of animals and made these digital pinata blobs that zipped between different animals (color function credit: <a href="https://x.com/hybridherbst?lang=en"> Felix</a>). I recently found the deck I made for this project -- it was called "Hyperdimensional Matter". Haha, I think it was trying for that lofty art world speak, but from a technical standpoint, it's actually an accurate title.  */}
 
