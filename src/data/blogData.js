@@ -25,31 +25,13 @@ const blogData = [
       img_src: "/blogpost_images/computational_models/teaser.gif",
     }
   },
-  // {
-  //   id: 3,
-  //   title: 'The Ambiguity of Color Psychology',
-  //   slug: 'color-psychology',
-  //   date: 'AUGUST 7 2025',
-  //   venue: 'An interactive explainer on the complex relationship between color and emotion.',
-  //   component: ColorExplainer,
-  //   links: {
-  //     paperlink: "",
-  //     pg: "",
-  //     codelink: "",
-  //     demolink: "",
-  //     blogpostlink: "/blog/color-psychology",
-  //     video: "",
-  //     img_src: "/images/rainbow.jpg",
-  //   }
-  // },
 
   {
     id: 2,
-    title: 'Freelance',
-    // venue: 'The pass less traveled',
-    // venue: 'Alternatively: how to be paid minimum wage for machine learning and be chill with it',
+    title: 'Freelance at Design Agencies',
+    venue: '',
     slug: 'freelance',
-    date: '',
+    date: 'AUGUST 15 2025',
 
     component: FreelanceContent,
     links: {

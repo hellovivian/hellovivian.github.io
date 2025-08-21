@@ -92,7 +92,7 @@ const projectData = [
         title: '3DALL-E tech transferred into plugin for Fusion 360!',
         authors: 'Autodesk Research',
         date: 'APR 2024',
-        venue: "I am deeply grateful to Jo, George, Justin, and other collaborators at Autodesk who pushed my intern project forward to into product. The first thing I learned in undergrad besides coding was CAD, so this is a huge highlights of my PhD--to come full circle. Will post a more in-depth blog post later. :)  ",
+        venue: "I am deeply grateful to Jo, George, Justin, and other collaborators at Autodesk who pushed my intern project forward to into product. The first thing I learned in undergrad besides coding was CAD, so this is a huge highlight of my PhD--to come full circle. Will post a more in-depth blog post later. :)  ",
         links: {
           paperlink:"",
           pg: "",
@@ -146,7 +146,7 @@ const projectData = [
         description: 'Description for Project 2.',
         authors: '',
         date: 'NOV 2022',
-        venue: 'Eric Horvitz, Chief Science Officer at Microsoft, highlighted 3DALL-E in his keynote for the Tanner Lecture on Artificial Intelligence and Human Values',
+        venue: 'The Chief Science Officer at Microsoft highlighted 3DALL-E in his keynote for the Tanner Lecture on Artificial Intelligence and Human Values',
         links: {
           paperlink: "",
           pg: "",

@@ -4,8 +4,10 @@ const FreelanceContent = () => {
 
     return (
         <>
+            {/* <img width="600px" src="./images/maker/hintzehall.gif"></img><br></br> */}
 
-            <img width="600px" src="./images/maker/hintzehall.gif" />  
+
+            <img width="600px" src="./blogpost_images/hintze.png" />  
             <br></br>
             <p>
 
@@ -29,7 +31,7 @@ const FreelanceContent = () => {
             
             </p>
             <p>
-                I ideated some fun things with Felix Herbst, my collaborator at prefrontal cortex. One concept was to take the learned latent space, which was hyperdimensional (n=512 dimensions) and apply dimensionality reduction to fit it into a 3-dimensions to make a 3D minimap of the latent space. If we walked along one of the xyz dimensions, while taking cross-sections of the down-projected latent space, we could essentially do an "MRI". Plus, with a 3D minimap, a user could explore the latent space spatially; moving up / down / left / right would change the generated image. This was a very-artistic, yet very-engineering project because there was AI, interactivity, and a desire to make things as real-time as possible. On low-truncation (a hyperparameter), I noticed that color was the most salient thing that changed, and it shifted in a very legible yet beautiful way.
+                I ideated some fun things with Felix Herbst, my collaborator at prefrontal cortex. One concept was to take the learned latent space, which was hyperdimensional (n=512 dimensions) and apply dimensionality reduction to fit it into a 3-dimensions to make a 3D minimap of the latent space. If we walked along one of the xyz dimensions, while taking cross-sections of the down-projected latent space, we could essentially do an "MRI" of a latent space. Plus, with a 3D minimap, a user could explore the latent space spatially; moving up / down / left / right would change the generated image. This was a very-artistic, yet very-engineering project because there was AI, interactivity, and a desire to make things as real-time as possible. On low-truncation (a hyperparameter), I noticed that color was the most salient thing that changed, and it shifted in a very legible yet beautiful way.
                 {/* To make things as real-time as possible, I remember using Spout to handle the GPU graphics sharing between Unity and the GAN model I had opened on another port. */}
 
             </p>
@@ -40,13 +42,15 @@ const FreelanceContent = () => {
             </p>
             <img src="./blogpost_images/ganaxies.gif"></img>
             <p>
-            Concurrently, I was also learning how to make latent spaces representing 3D shapes. By interpolating between two latents and sampling the intermediate vectors, one could create a shape interpolation. I actually showed this car-table warp and explained the method to my advisor when I interviewed with her for the PhD. I also trained on 3D meshes of animals and made these digital pinata blobs that zipped between different animals (color function credit: <a href="https://x.com/hybridherbst?lang=en"> Felix</a>). I recently found the deck I made for this project -- it was called "Hyperdimensional Matter". Haha, I think it was trying for that lofty art world speak, but from a technical standpoint, it's actually an accurate title. 
+            Concurrently, I was also learning how to make latent spaces representing 3D shapes. By interpolating between two latents and sampling the intermediate vectors, one could create a shape interpolation. I actually showed this car-table warp and explained the method to my advisor when I interviewed with her for the PhD.
+            
+             {/* I also trained on 3D meshes of animals and made these digital pinata blobs that zipped between different animals (color function credit: <a href="https://x.com/hybridherbst?lang=en"> Felix</a>). I recently found the deck I made for this project -- it was called "Hyperdimensional Matter". Haha, I think it was trying for that lofty art world speak, but from a technical standpoint, it's actually an accurate title.  */}
 
 
             </p>
             
            <img width="600px" src="./blogpost_images/car_shapes.gif" /><br></br>
-                      <img width="600px"  src="./blogpost_images/hyperdimensional_matter.gif" />
+                      {/* <img width="600px"  src="./blogpost_images/hyperdimensional_matter.gif" /> */}
 
             <br></br>
            {/* <div style={{ display: "flex", width: "600px", margin: "0 auto" }}>
@@ -61,11 +65,7 @@ const FreelanceContent = () => {
             </div> */}
 
 
-            {/* <p>
-                I got to say that I worked with a design agency! And this design agency had worked with BTS so my degrees of distance to celebrity) 
-
-
-            </p> */}
+     
             <p>
             Curiously, I think I acquired technical skills at a steeper curve while freelancing than I did in undergrad or grad school. At the time, I was messing around in Keras, Tensorflow, and Pytorch; moving back and forth between programming on Mac Windows and Linux; learning networking on the go; trying to be as production and deployment-friendly with Docker / hypervirtualization; implementing real-time streaming facilitated by the GPU sharing of generated textures etc. Looking back it was quite a bit. 
             </p>
@@ -82,7 +82,7 @@ const FreelanceContent = () => {
             <p>
                 <ul>
             
-                <li><strong>Keep a portfolio of your work or whatever else helps share your thought process. </strong>I had my portfolio on hand when I talked to the design agency. I have also found that it's always helpful in first meetings to have material on hand to show, just so both parties can have some common material to anchor on. 
+                <li><strong>Keep a portfolio of your work or whatever else helps share your thought process. </strong>I had my portfolio on hand when I talked to the design agency. I have also found that it's helpful in first meetings to have material on hand to show, so both parties can have some common material to anchor on. 
                 </li>
                 <li>
                 <strong> Keeping a weekly cadence and self-manage. </strong> Throughout my time freelancing (eight months before I began the PhD), I learned a lot about how to track and communicate progress on a week-to-week basis. This turned out to be tremendously helpful and relevant to my experience in the PhD and at internships, which have that same cadence for check-ins.
@@ -104,6 +104,10 @@ const FreelanceContent = () => {
         
 
             </p>
+            
+            <img width="600px" src="./images/maker/hintzehall.gif"></img><br></br>
+
+            <img width="600px" src="./blogpost_images/dance_pointclouds.gif"></img>
             
 
         </>

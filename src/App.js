@@ -14,6 +14,7 @@ import ProjectPage3DALLE from './project3DALLE';
 import DiscoProjectPage from './projectDisco';
 import LogoMotionProjectPage from './projectLogoMotion';
 import BlogPostPage from './pages/BlogPostPage';
+import CrudPage from './pages/CrudPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -41,6 +42,9 @@ function App() {
         <Route path="/disco" element={<DiscoProjectPage />} />
         <Route path="/disco3" element={<DiscoThree />} />
         <Route path="/opal" element={<ProjectOPAL />} />
+
+        {/* <Route path="/crud" element={<CrudPage />} /> */}
+
         <Route path="/designguidelines" element={<ProjectDesignGuidelines />} />
 
         <Route path="/" element={<HomePage />} />

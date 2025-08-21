@@ -237,11 +237,11 @@ const ComputationalModelsContent = (props) => {
             <a href="https://media2.giphy.com/media/5dYqPVcoq9mKuxleyR/200w.gif?cid=6c09b952f8f607ppa5nvos1pww9bbzswakr03af12aaw9eyx&ep=v1_gifs_search&rid=200w.gif&ct=g" ><br></br> Image Credit </a>
 
             <p>
-                While at Berkeley for undergrad, I double majored in computer science and cognitive science. One summer, while I was conducting independent research and taking a linear algebra course, and I came across <a href="https://pubmed.ncbi.nlm.nih.gov/11067988/"> a cognitive neuroscience paper by Terence Sanger and Michael Merzenich  </a> (from 2000!) about neuroplasticity that really inspired me. It was a paper that computationally modeled a sensorimotor loop. Using a control theory framework and matrix formulation of transformations, it represented the way sensations come through our perception as initial signals, pass through our cognitive mappings, and then transform into motor movement. Specifically, it was trying to illustrate how different edge case scenarios could create abnormal behavior-- maladaptive neuroplasticity. An example of this: if muscles were used in conjunction too often (e.g. overuse of hand leading to writer's cramp), the cognitive maps bound to those muscles could become wired together. This maladaptive neuroplasticity could lead to abnormal and antagonistic muscle activity.
+                While at Berkeley for undergrad, I double majored in computer science and cognitive science. One summer, while I was conducting independent research and taking a linear algebra course, I came across <a href="https://pubmed.ncbi.nlm.nih.gov/11067988/"> a cognitive neuroscience paper by Terence Sanger and Michael Merzenich  </a> (from 2000!) about neuroplasticity that really inspired me. It was a paper that computationally modeled a sensorimotor loop. Using a control theory framework and matrix formulation of transformations, it represented the way sensations come through our perception as initial signals, pass through our cognitive mappings, and then transform into motor movement. Specifically, it was trying to illustrate how different edge case scenarios could create abnormal behavior-- maladaptive neuroplasticity. An example of this: if muscles were used in conjunction too often (e.g. overuse of hand leading to writer's cramp), the cognitive maps bound to those muscles could become wired together. This maladaptive neuroplasticity could lead to abnormal and antagonistic muscle activity.
             </p>
 
             <p>
-                Many of the specific mechanics of the paper were out of my technical depth, and I remember approaching my linear algebra TA to help me connect the proofs within the paper to decompositions we were learning about in class. Understanding the paper was actually intensely fun on an intellectual level.
+                Many of the specific mechanics of the paper were out of my technical depth, and I remember approaching my linear algebra TA to help me connect the proofs within the paper to decompositions we were learning about in class. Understanding the paper was actually really fun on an intellectual level.
 
             </p>
 
@@ -249,7 +249,7 @@ const ComputationalModelsContent = (props) => {
 
 
             <p>
-                It has been on my bucket list for a long time to read the paper again, and ever since GPT has become multimodal (that is, capable of taking in visual inputs like images and screenshots), I have been meaning to experiment if I could use it as an aid for deeper understanding. I was not able to get to this for a few months, because of paper deadlines, the necessary refractory period after paper deadlines, and a combination of current and personal events, but finally, on Friday night of a week I decided to be a staycation, I read it again with the help of ChatGPT-4o. I sent in equations and paragraphs detailing the formulation of the model in screenshots, piecemealing the paper for GPT.
+                It has been on my bucket list for a long time to read the paper again, and ever since GPT has become multimodal (e.g. capable of taking in visual inputs like images and screenshots), I have been meaning to experiment if I could use it as an aid for deeper understanding. I was not able to get to this for a few months, because of paper deadlines, the necessary refractory period after paper deadlines, and a combination of current and personal events, but finally, on Friday night of a week I decided to be a staycation, I read it again with the help of ChatGPT-4o. I sent in equations and paragraphs from the paper in screenshots, giving the paper to GPT in piecemeal.
             </p>
 
 
@@ -293,7 +293,8 @@ const ComputationalModelsContent = (props) => {
             <br></br>
             <br></br>
             <p>
-                The first plus of using GPT as I read was that I could ask "dumb" questions. Papers generally are long and dense--they are not light reading. To get through them, you usually need some amount of stamina and openness. Stamina in the sense that you have to have enough mental bandwidth to understand a paper's framing and the work that it sits upon. Openness in the sense that you have to weigh how you feel about the paper's conjectures and how aligned you are with the way the problem is formalized. That combination of stamina and openness is the momentum I have built over the years to get me through a paper. As I was making progress through this one, because this was a recreational but challenging read that I was intentionally exploring with GPT, I did not feel the need to keep up any kind of momentum and hence took as many intellectual detours as I needed. For example, this paper is for an expert audience of computational neuroscientists. It presumes from the get-go that I understand what gain through a sensorimotor loop means--I don't. So I asked GPT, after rounds of conversation with context about the paper, "What is gain here?". I got back a definition that was tailored to cognitive neuroscience crossed control theory setting of the research paper.
+                 {/* To get through them, you usually need some amount of stamina and openness. You have to have enough mental bandwidth to understand a paper's framing and the work that it sits upon. That combination of stamina and openness is the momentum I have built over the years to get me through a paper. Plus, you have to weigh how you feel about the paper's conjectures and how aligned you are with the way the problem is formalized. */}
+                The first plus of using GPT as I read was that I could ask "dumb" questions. Papers generally are long and dense--they are not light reading. As I was making progress through this one, because this was a recreational but challenging read that I was intentionally exploring with GPT, I did not feel the need to keep up any kind of momentum and hence took as many intellectual detours as I needed. For example, this paper is for expert computational neuroscientists. It assumes that I understand what "gain" through a sensorimotor loop means--I don't. So I asked GPT, after rounds of conversation with context from the paper, "What is gain here?". I got back a definition that was tailored to the cognitive neuroscience x control theory background of the paper.
 
             </p>
 
@@ -332,12 +333,12 @@ const ComputationalModelsContent = (props) => {
 
 
             <p>
-                It even took it back to Equation 6! It's that dexterity of moving between different domains that I found so helpful for understanding this interdisciplinary paper. It makes me recall a detail from when my linear algebra TA had been benevolently helping me understand the paper. He was wrapping up his math PhD at Berkeley and was slated to join a hedge fund. He said that he could only speak to the math underpinnings and not to any of the neuroscience parts of the paper, which was a standard and proper disclaimer. As people and particularly as PhD students, we are trained to master a scholarly vertical. What is nice about GPT is that a) we can ask dumb questions without expense to our ego (which you can't even do in a reading seminar group with all your peers) and b) we can unpack the jargon of the paper into language or frameworks we personally understand. I could work through concepts underpinning of the paper, study them in their different facets, and not have to just take them at face value as abstractions or building blocks.
+                It even took it back to Equation 6! It's that dexterity of moving between different domains that I found so helpful for understanding this interdisciplinary paper. It makes me recall a detail from when my linear algebra TA had been helping me understand the paper. He was wrapping up his math PhD at Berkeley and was going to join a hedge fund. He said that he could only speak to the math underpinnings and not to any of the neuroscience parts of the paper, which was a standard and proper disclaimer. As people and particularly as PhD students, we are trained to find a scholarly vertical. What is nice about GPT is that a) we can ask dumb questions without expense to our ego (which you can't even do in a reading seminar group with all your peers) and b) we can unpack the paper language into language that is more familiar to us. I could work through concepts of the paper, study them in their different facets, and not have to just take them at face value as abstractions or building blocks.
 
             </p>
 
             <p>
-                Another thing I noticed about this paper was its structure. It justified its idea conceptually (through neuroscience), mathematically (through linear algebra derivations), and then empirically (through simulations). I think this structure was more apparent because I had an outsider's looking in perspective and because papers from two decades ago were shorter. Now as I reflect on the paper as a PhD student rather than an undergraduate, I not only get why all these components appear, but also see this structure as something I hope my papers can achieve in the future.
+                Another thing I noticed about this paper was its structure. It justified its idea conceptually (through neuroscience), mathematically (through linear algebra derivations), and then empirically (through simulations). I think this structure was more apparent because I had an outsider's looking in perspective and because papers from 20 years ago were shorter. Now as I reflect on the paper as a PhD student rather than an undergraduate, I not only get why all these components appear, but also see this structure as something I hope my papers can achieve in the future.
 
             </p>
 
@@ -347,7 +348,7 @@ const ComputationalModelsContent = (props) => {
             </p>
 
             <p>
-                Fast forward to 2024. I asked GPT for an implementation of the simulations and it began to go brrr. (The code, ~150 lines of it, are after the blog post.)
+                Fast forward to 2024. I asked GPT for an implementation of the simulations and it began to go brrr. 
             </p>
 
 
@@ -362,7 +363,7 @@ const ComputationalModelsContent = (props) => {
             <br></br>
 
             <p>
-                Within a conversation turn or two, I had multiple graphs attempting to replicate different figures and results. Of course, it's not magic. These graphs don't tell a story or show any sense of learning and change. Even though I had gotten to a starting point efficiently (which otherwise would have taken me weekends of effort), after one or two hours of tinkering with the prompts and code, I still was not able to replicate any results. That being said, I was definitely engaging deeper with the figures and the framework because of my efforts.
+                Within a conversation turn or two, I had multiple graphs attempting to replicate different figures and results. Of course, it's not magic. These graphs don't tell a story or show any sense of learning and change. Even though I had gotten to a starting point efficiently, after one or two hours of tinkering with the prompts and code, I still was not able to replicate any results. That being said, I was definitely engaging deeper with the figures and the framework because of my efforts.
 
             </p>
 

@@ -24,8 +24,7 @@ const MadeInBerkeleyContent = () => {
 
     return (
         <>
-            <h1>Made in Berkeley </h1>
-            <br/>
+
             <p>
 
                 I loved to make things at Jacobs Hall and the CITRIS Invention Lab. Jacobs Hall actually fully opened around the same time I started at Berkeley.
