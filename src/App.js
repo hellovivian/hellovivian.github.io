@@ -14,7 +14,7 @@ import ProjectPage3DALLE from './project3DALLE';
 import DiscoProjectPage from './projectDisco';
 import LogoMotionProjectPage from './projectLogoMotion';
 import BlogPostPage from './pages/BlogPostPage';
-import CrudPage from './pages/CrudPage';
+
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();

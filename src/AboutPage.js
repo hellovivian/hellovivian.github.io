@@ -30,7 +30,7 @@ const AboutPage = () => {
 
             </p>
             <br></br>
-            <a class="cv-button" href="VivianLiu_Columbia_CV_July_2025.pdf">Curriculum Vitae</a>
+            <a class="cv-button" href="VivianLiu_Columbia_CV_Aug_2025.pdf">Curriculum Vitae</a>
           </div>
 
           <img height="484px" src="./images/me.jpg" />
