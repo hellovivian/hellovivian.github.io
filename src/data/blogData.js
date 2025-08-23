@@ -5,8 +5,26 @@ import DotContent from '../blog-content/Dot.js';
 import FreelanceContent from '../blog-content/Freelance.js';
 import BibliographyContent from '../blog-content/Bibliography.js';
 import NeuralNetworkContent from '../blog-content/NeuralNetwork.js';
+import PersonalInformaticsContent from '../blog-content/PersonalInformatics.js';
 
 const blogData = [
+  {
+    id: 5,
+    title: 'Generating Tools for Oneself',
+    slug: 'personal-informatics',
+    date: 'AUGUST 22 2025',
+    venue: 'A health informatics self-experiment',
+    component: PersonalInformaticsContent,
+    links: {
+      paperlink: "",
+      pg: "",
+      codelink: "",
+      demolink: "",
+      blogpostlink: "/blog/personal-informatics",
+      video: "",
+      img_src: "/images/gallery3.jpeg",
+    }
+  },
   {
     id: 4,
     title: 'A Neural Network, but Actually',

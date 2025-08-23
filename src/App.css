@@ -334,3 +334,31 @@ p {
   justify-content: center;
   align-items: center;
 }
+
+table {
+  width: 80%;
+  margin: 2em auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.footnote {
+  position: absolute;
+  left: 105%;
+  top: 0;
+  width: 200px;
+  padding: 10px;
+  font-size: 12px;
+  color: #666;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
