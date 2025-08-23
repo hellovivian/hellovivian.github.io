@@ -12,7 +12,7 @@ const blogData = [
     id: 5,
     title: 'Generating Tools for Oneself',
     slug: 'personal-informatics',
-    date: 'AUGUST 22 2025',
+    date: 'AUGUST 2025', //22
     venue: 'A health informatics self-experiment',
     component: PersonalInformaticsContent,
     links: {
@@ -29,7 +29,7 @@ const blogData = [
     id: 4,
     title: 'A Neural Network, but Actually',
     slug: 'neural-network',
-    date: 'AUGUST 14 2025',
+    date: 'AUGUST 2025', //14
     venue: 'AI for Science, re: Reproducing Papers with LLMs',
     component: NeuralNetworkContent,
     links: {
@@ -48,7 +48,7 @@ const blogData = [
     title: 'Freelance at Design Agencies',
     venue: '',
     slug: 'freelance',
-    date: 'AUGUST 15 2025',
+    date: 'AUGUST 2025', //15
 
     component: FreelanceContent,
     links: {
@@ -67,7 +67,7 @@ const blogData = [
     id: 2,
     title: 'Made in Berkeley',
     slug: 'made-in-berkeley',
-    date: 'JULY 20 2025',
+    date: 'JULY 2025',  //20
     venue: 'Go bears ＼ʕ•ᴥ•ʔ／ ',
     component: MadeInBerkeleyContent,
     links: {
@@ -86,7 +86,7 @@ const blogData = [
     id: 2,
     title: 'Pointers',
     slug: 'bibliography',
-    date: 'JULY 20 2025',
+    date: 'JULY 2025', //20
     venue: 'Pointers to papers & research.',
     component: BibliographyContent,
     links: {
@@ -99,27 +99,11 @@ const blogData = [
       img_src:"https://media1.tenor.com/m/MSPtDSAWTA4AAAAd/paper-plane-flying-original.gif"
     }
   },
-  //       {
-  //   id: 2,
-  //   title: 'Freelance',
-  //   date: 'JULY 26 2025',
-  //   venue: '',
-  //   links: {
-  //     paperlink: "",
-  //     pg: "",
-  //     codelink: "",
-  //     demolink: "",
-  //     blogpostlink: "/freelance",
-  //     video: "",
-  //     img_src: "/images/maker/hintzehall.gif",
-  //   }
-  // },
-
         {
     id: 2,
     title: 'Vibes',
     slug: 'dot',
-    date: 'JULY 26 2025',
+    date: 'JULY 2025', //26
     venue: '',
     component: DotContent,
     links: {
