@@ -25,7 +25,7 @@ const PersonalInformatics = () => {
             </p>
             <p>
                 Plus, even I had some perfect, complete data log of all the different possible factors, it still wouldnʼt tell the full story.
-                Perhaps all the data combined wouldnʼt have as much explanatory power as a sentence would. “During this week when my eye was acting
+                Perhaps all the data combined wouldnʼt have as much explanatory power as a sentence would. “During this week when my issue was acting
                 up, I was extremely busy, but I also had very regular exercise from being on the dance team. I was super fulfilled.ˮ Or ,
                 “During these two weeks, I was extremely busy with a paper deadline and only eating assorted muffins, so I was very
                 stressed and my mood yo-yoʼed a lot.ˮ Personal context shapes data.
