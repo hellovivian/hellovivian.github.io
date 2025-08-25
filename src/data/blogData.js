@@ -6,8 +6,80 @@ import FreelanceContent from '../blog-content/Freelance.js';
 import BibliographyContent from '../blog-content/Bibliography.js';
 import NeuralNetworkContent from '../blog-content/NeuralNetwork.js';
 import PersonalInformaticsContent from '../blog-content/PersonalInformatics.js';
+import AnimationPage from '../pages/AnimationPage.js';
+import LalaLandPage from '../pages/LalaLandPage.js';
+import LalaLandFinalPage from '../pages/LalaLandFinalPage.js';
+import FadingStarPage from '../pages/FadingStarPage.js';
 
 const blogData = [
+  // {
+  //   id: 9,
+  //   title: 'The Dance of the Fading Star',
+  //   slug: 'fading-star',
+  //   date: 'AUGUST 2025',
+  //   venue: 'A dramatic story told with three dots.',
+  //   component: FadingStarPage,
+  //   links: {
+  //     paperlink: "",
+  //     pg: "",
+  //     codelink: "",
+  //     demolink: "",
+  //     blogpostlink: "/fading-star",
+  //     video: "",
+  //     img_src: "/blogpost_images/deck1.png",
+  //   }
+  // },
+  // {
+  //   id: 8,
+  //   title: 'La La Land - Final Scene',
+  //   slug: 'lalaland-final',
+  //   date: 'AUGUST 2025',
+  //   venue: 'A dot-based illustration of the final scene of La La Land.',
+  //   component: LalaLandFinalPage,
+  //   links: {
+  //     paperlink: "",
+  //     pg: "",
+  //     codelink: "",
+  //     demolink: "",
+  //     blogpostlink: "/lalaland-final",
+  //     video: "",
+  //     img_src: "/blogpost_images/deck2.png",
+  //   }
+  // },
+  // {
+  //   id: 7,
+  //   title: 'La La Land Animation',
+  //   slug: 'lalaland',
+  //   date: 'AUGUST 2025',
+  //   venue: 'A dot-based illustration of La La Land.',
+  //   component: LalaLandPage,
+  //   links: {
+  //     paperlink: "",
+  //     pg: "",
+  //     codelink: "",
+  //     demolink: "",
+  //     blogpostlink: "/lalaland",
+  //     video: "",
+  //     img_src: "/blogpost_images/ganaxies.gif",
+  //   }
+  // },
+  // {
+  //   id: 6,
+  //   title: 'Interactive Animation',
+  //   slug: 'animation',
+  //   date: 'AUGUST 2025',
+  //   venue: 'An interactive animation controlled by text prompts.',
+  //   component: AnimationPage,
+  //   links: {
+  //     paperlink: "",
+  //     pg: "",
+  //     codelink: "",
+  //     demolink: "",
+  //     blogpostlink: "/animation",
+  //     video: "",
+  //     img_src: "/blogpost_images/vibes.gif",
+  //   }
+  // },
   {
     id: 5,
     title: 'Generating Tools for Oneself',
