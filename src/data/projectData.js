@@ -9,10 +9,10 @@ const projectData = [
       paperlink:"https://dl.acm.org/doi/10.1145/3706598.3714155",
       pg: "/logomotion",
       codelink: "",
-      demolink: "",
+      demolink: "https://logomotion.vercel.app/",
       video: "https://youtu.be/WLiK3qkOkP0",
       img_src: "./logomotion_gifs/cat1.gif",
-      demo: 'https://logomotion.vercel.app/',
+
       source: '',
     },
   },

@@ -11,8 +11,26 @@ import LalaLandPage from '../pages/LalaLandPage.js';
 import LalaLandFinalPage from '../pages/LalaLandFinalPage.js';
 import FadingStarPage from '../pages/FadingStarPage.js';
 import UserInterfaceDustBunniesContent from '../blog-content/UserInterfaceDustBunnies.js';
+import GaussianDotsContent from '../blog-content/GaussianDots.js';
 
 const blogData = [
+  // {
+  //   id: 11,
+  //   title: 'Gaussian Dots',
+  //   slug: 'gaussian-dots',
+  //   date: 'AUGUST 2025',
+  //   venue: 'A canvas experiment',
+  //   component: GaussianDotsContent,
+  //   links: {
+  //     paperlink: "",
+  //     pg: "",
+  //     codelink: "",
+  //     demolink: "",
+  //     blogpostlink: "/blog/gaussian-dots",
+  //     video: "",
+  //     img_src: "",
+  //   }
+  // },
   {
     id: 10,
     title: 'User Interface Dust Bunnies',
@@ -27,7 +45,7 @@ const blogData = [
       demolink: "",
       blogpostlink: "/blog/user-interface-dust-bunnies",
       video: "",
-      img_src: "./blogpost_images/chairs_crop.gif",
+      img_src: "./blogpost_images/post1.jpg",
     }
   },
 
