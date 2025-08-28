@@ -97,13 +97,6 @@ const AboutPage = () => {
           </Grid>
 
 
-
-
-
-
-
-
-
         </div>
       </div>
 

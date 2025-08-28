@@ -2,8 +2,7 @@
 import './App.css';
 import './3DALLE.css';
 
-
-import React from 'react';
+import Grid from '@mui/material/Grid';
 import Navigation from './components/Navigation';
 import LineDivider from './components/LineDivider';
 
@@ -35,13 +34,19 @@ const ProjectPage3DALLE = () => {
 
       <h3>3DALL-E: Integrating Text-to-Image AI in 3D Design Workflows</h3>
       <h4 class="paper_authors">Vivian Liu, Jo Vermeulen, George Fitzmaurice, Justin Matejka</h4>
-            <h4 class="paper_authors">DIS 2023</h4> <br></br>
+            <h4 class="paper_authors">DIS 2023</h4> 
 
       <div class="flex_row">
 
         <div class="button"> <a href="https://www.research.autodesk.com/app/uploads/2023/08/3DALL-E_DIS23-v2-compressed.pdf">Paper </a></div>
         <div class="button"> <a href="https://www.youtube.com/watch?v=c45gIiAEWZU&ab_channel=VivianL">Video </a></div>
         <div class="button"> <a href="https://patents.google.com/patent/US20240104275A1/en">Patent </a></div>
+      
+
+      </div>
+      <div class="flex_row">
+
+
         <div class="button"> <a href="https://www.autodesk.com/products/fusion-360/blog/project-salvador-autodesk-fusion-app-store/">Tech Transfer in Product</a></div>
                 <div class="button"> <a href="https://www.youtube.com/watch?v=vsewugyXYXI&ab_channel=MichiganEngineering">Highlight in AI & Human Values Lecture</a></div>
 
@@ -146,7 +151,7 @@ const ProjectPage3DALLE = () => {
 
         {/* <div class="flex_row"> */}
           {/* <img class="paper_figure" src="./images/3DALLE/3dalle_overview.png" /> */}
-            <img  class="paper_figure" src="./images/3DALLE/3DALLE_system.gif" />
+            <img  class="paper_figuregit " src="./images/3DALLE/3DALLE_system.gif" />
 
 
         {/* </div> */}
@@ -228,7 +233,7 @@ within their workflows, and do these patterns differ depending upon the 3D model
       <LineDivider  />
       <div class="flex_row">
         <img width="50%" src="./images/3DALLE/3dalle_sped_big.gif"></img>
-        <img width="50%" src="./images/3DALLE/AI_throughout.gif" />
+        <img width="50%" src="./images/3DALLE/AI_throughout_nolabel.gif" />
       </div>
       <div class="flex_row">
         <img width="50%" src="./images/3DALLE/p1_presentation.gif"></img>
@@ -423,11 +428,54 @@ detailed a text-to-image prompt should generally be, which is why we studied pro
       <p class="paper_abstract">
       In our discussion, we propose prompt bibliographies, a concept of human-AI design history to track inspiration from text-to-image AI.
       </p>
+      <img class="paper_figure" src="./images/3DALLE/3DALLE_promptbib.png"/><br></br>
+
+
+      <h3>Community Creations </h3>
+      3DALL-E was tech-transferred to Fusion 360 as Project Salvador, meaning there is a production-ready version that the public can use. Here are some creations people have made with the assistance of Project Salvador.
+      
+      <LineDivider />
+      <div class="flex_row">
+        <img src="./images/3DALLE/cow.png"/>
+        <img src="./images/3DALLE/cow.gif"/>
+
+      </div>
       
 
-       
 
-      <img class="paper_figure" src="./images/3DALLE/3DALLE_promptbib.png"/><br></br>
+          <Grid container className="maker_gallery" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+            <Grid item xs={3}>
+              <img class="maker_pic" src="./images/3DALLE/trace.webp"></img>
+
+            </Grid>
+            <Grid item xs={3}>
+
+              <img class="maker_pic" src="./images/3DALLE/projsalvador1.jpg"></img>
+
+
+            </Grid>
+            <Grid item xs={3}>
+              <img class="maker_pic" src="./images/3DALLE/projsalvador2.jpg"></img>
+
+
+            </Grid>
+            <Grid item xs={3}>
+              <img class="maker_pic" src="./images/3DALLE/projsalvador3.jpg"></img>
+
+
+            </Grid>
+         
+            <Grid item xs={3}>
+              <img class="maker_pic" src="./images/3DALLE/projsalvador4.png"></img>
+
+
+
+            </Grid>
+
+
+          </Grid>
+
+
 
       <LineDivider/>
 
