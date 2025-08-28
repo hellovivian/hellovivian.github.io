@@ -42,7 +42,7 @@ const ProjectPage3DALLE = () => {
         <div class="button"> <a href="https://www.research.autodesk.com/app/uploads/2023/08/3DALL-E_DIS23-v2-compressed.pdf">Paper </a></div>
         <div class="button"> <a href="https://www.youtube.com/watch?v=c45gIiAEWZU&ab_channel=VivianL">Video </a></div>
         <div class="button"> <a href="https://patents.google.com/patent/US20240104275A1/en">Patent </a></div>
-        <div class="button"> <a href="https://www.autodesk.com/products/fusion-360/blog/project-salvador-autodesk-fusion-app-store/">Tech Transfer into Fusion360 as Project Salvador </a></div>
+        <div class="button"> <a href="https://www.autodesk.com/products/fusion-360/blog/project-salvador-autodesk-fusion-app-store/">Tech Transfer in Product</a></div>
                 <div class="button"> <a href="https://www.youtube.com/watch?v=vsewugyXYXI&ab_channel=MichiganEngineering">Highlight in AI & Human Values Lecture</a></div>
 
       </div>
@@ -151,7 +151,15 @@ const ProjectPage3DALLE = () => {
         
 
       </p>
-      <img class="paper_figure" src="./images/3DALLE/3DALLE_sys.png"/>
+      {/* <img class="paper_figure" src="./images/3DALLE/3DALLE_sys.png"/> */}
+      <div  class="system_design">
+        <img src="./images/3DALLE/sysdesign1.png"/>
+      <img src="./images/3DALLE/sysdesign_2.png"/>
+
+      </div>
+      
+
+      
       <br>
       </br>
 
@@ -199,7 +207,7 @@ within their workflows, and do these patterns differ depending upon the 3D model
       </p>
 
       <p class="paper_abstract">
-      We looked at two task settings within 3D design workflows: creating from scratch <emphasize>(T-create) </emphasize>and editing an existing model <emphasize>(T-edit)</emphasize>. The intention of having these two tasks was to show how 3DALL-E might affect creative workflows at different stages of the 3D modeling process. For each task, participants had 30 minutes to work on their model with the assistance of 3DALL-E. After completing each task, participants marked generations in their history that they felt were inspiring and completed a post-task questionnaire, which included NASA-TLX, Creativity Support Index (CSI), and workflow-specific questions. A semi-structured interview was conducted to understand their experience.
+      We looked at two task settings within 3D design workflows: editing an existing model <emphasize>(T-edit)</emphasize> and creating from scratch <emphasize>(T-create / Task A) </emphasize>. The intention of having these two tasks was to show how 3DALL-E might affect creative workflows at different stages of the 3D modeling process. For each task, participants had 30 minutes to work on their model with the assistance of 3DALL-E. After completing each task, participants marked generations in their history that they felt were inspiring and completed a post-task questionnaire, which included NASA-TLX, Creativity Support Index (CSI), and workflow-specific questions. A semi-structured interview was conducted to understand their experience.
       {/* We found that there were three types of patterns of AI assistance for 3D design workflows that appeared in both T-create and T-edit.  */}
       </p>
 
@@ -212,7 +220,7 @@ within their workflows, and do these patterns differ depending upon the 3D model
       </div>
 
 
-    
+        <br></br>
 
       <h3> Qualitative Findings: Patterns of AI Assistance in Workflow </h3>
       <LineDivider  />
@@ -224,12 +232,14 @@ within their workflows, and do these patterns differ depending upon the 3D model
         <img width="50%" src="./images/3DALLE/p1_presentation.gif"></img>
         <img width="50%" src="./images/3DALLE/AI_last.gif" />
       </div>
-      <LineDivider />
+
       
     
       
       <p class="paper_abstract">
-      We instrumented 3DALL-E to log whenever a user used the AI capabilities and whenever they started and stopped modelling in Fusion. What you can see in the Gantt chart below is a rough timeline of each participant’s workflow with 3DALL-E during the study. This allowed us to visualize workflow decomposition and characterize three patterns of AI assistance that appeared in both Task A (edit) and Task B (create).
+      We instrumented 3DALL-E to log whenever a user used the AI capabilities and whenever they started and stopped modelling in Fusion. What you can see in the Gantt chart below is a rough timeline of each participant’s workflow with 3DALL-E during the study. This allowed us to visualize workflow decomposition and characterize three patterns of AI assistance that appeared in both Task A (edit) and Task B (create): AI-first, AI-throughout, AI-last. 
+      {/* These patterns represented salient ways participants engaged in generative  points in their workflow they took to 3DALL-E and at which points they focused on Fusion 360 (orange bars). */}
+
         <div class="two-column-gantt">
 
             <img class="workflow_figure" src="./images/3DALLE/3DALLE_patterns_a.png"/> 
@@ -244,7 +254,6 @@ within their workflows, and do these patterns differ depending upon the 3D model
 
 
       
-      One of the most salient ways to distinguish participants was at which points in their workflow they took to 3DALL-E and at which points they focused on Fusion 360 (orange bars).
       
       <h3>AI-First Workflow</h3>
         <p>Some participants were <strong>AI-first</strong>, meaning they tended to sift through AI generations first until they had a better grasp of its abilities or until they found a design that they liked before taking any significant 3D design actions. </p>
@@ -314,7 +323,7 @@ P13 showed this AI-throughout pattern. They first built up a base for an audio s
      
     <h3>Qualitative Findings -- Use Cases</h3>
     <LineDivider />
-    <h4>Generative Assistance for Breaking out of Design Fixation</h4>
+    <h4>Breaking out of Design Fixation</h4>
      <p>
       In both task settings, participants liked to use text prompts to take them towards new directions at any point of their workflow. This is evidenced by the purple diamonds in the Gantt chart. This shows how AI assistance can help break design fixation, which is problem within CAD and other design disciplines that involve a lot of fine-grained editing (direct manipulation) that leave less cognitive bandwidth for divergent design directions.
 

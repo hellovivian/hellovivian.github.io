@@ -24,6 +24,11 @@
     margin: 0 auto;
 }
 
+.system_design {
+    margin: 0 auto;
+    width: 75%;
+}
+
 .trifold_img {
     width: 33%;
     padding: 1em;
