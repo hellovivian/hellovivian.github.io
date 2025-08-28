@@ -9,7 +9,7 @@
 
 @media (max-width: 768px) {
   .container {
-    width: 90%;
+    width: 70%;
     padding: 10px;
   }
 }
@@ -93,6 +93,11 @@ img {
   display: flex;
 }
 
+.flex_row {
+  display: flex;
+  width: 100%;
+
+}
 .flex_figures {
   display: flex;
   width: 75%;
@@ -140,6 +145,16 @@ img {
   .gallery-row img {
     width: 100%;
   }
+}
+
+.button {
+   font-family: 'ProximaNova';
+    padding: 10px;
+  border-radius: 0.25em;
+  border: solid 1px #bbbbbb;
+  margin: 1em;
+  background-color: white;
+
 }
 
 h1 {
@@ -241,6 +256,9 @@ hr {
 .blog_date {
   text-align: center;
 }
+button {
+  color: black;
+}
 
 p {
   width: 80%;
@@ -257,6 +275,7 @@ p {
   left: 50%;
   transform: translateX(-50%);
   margin: 0 auto;
+  padding: 2em;
 }
 
 .split-horizontal {

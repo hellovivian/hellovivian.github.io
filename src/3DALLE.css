@@ -1,3 +1,7 @@
+.paper-container {
+    width: 70%;
+    margin: 0 auto;
+}
 #paper-gif {
     width: 25%;
     margin: 0 auto;
@@ -5,6 +9,40 @@
 
 .two-column {
     display: flex;
-    width: 80% !important;
+    width: 70% !important;
     margin: 0 auto;
 }
+
+.two-column-gantt {
+    display:flex;
+    width: 100%;
+}
+
+.flex_row {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.trifold_img {
+    width: 33%;
+    padding: 1em;
+    object-fit: contain;
+    height: 100%;
+}
+
+.workflow_figure {
+    width: 50%;
+}
+
+.src-link {
+    display: block;
+    text-align: center;
+    margin-top: 0.5em;
+    width: 33%;
+}
+h4 {
+    margin: 0 auto;
+    text-align: center;
+}
+
