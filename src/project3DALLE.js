@@ -141,10 +141,17 @@ const ProjectPage3DALLE = () => {
       <LineDivider />
 
       <p class="paper_abstract">
-        We integrated three large AI models---DALL-E, GPT-3, and CLIP---within Fusion 360, an industry standard software for computer-aided design (CAD). 3DALL-E is a plugin helps translate a designer's goals into multimodal (text and image) prompts which can produce image inspiration for them.
+        We integrated three large AI models---DALL-E, GPT-3, and CLIP---within Fusion 360, an industry standard software for computer-aided design (CAD). 3DALL-E is a plugin helps translate a designer's goals into multimodal (text and image) prompts which can produce image inspiration for them. As input it takes in a multimodal prompt (text prompt or image + text prompt containing an image render of the 3D workspace). As output it produces 2D image inspiration for CAD.
       </p>
 
-      <img class="paper_figure" src="./images/3DALLE/3dalle_overview.png" />
+        {/* <div class="flex_row"> */}
+          {/* <img class="paper_figure" src="./images/3DALLE/3dalle_overview.png" /> */}
+            <img  class="paper_figure" src="./images/3DALLE/3DALLE_system.gif" />
+
+
+        {/* </div> */}
+      
+
 
       <p class="paper_abstract">
         A designer inputs their goals (i.e. to design a "truck"). The plugin then provides a number of related parts, styles, and designs that help users craft text prompts. These suggestions are drawn from the world knowledge of GPT-3 to help users familiarize themselves with relevant design language and 3D keywords that can better specify the text prompt. The plugin interactively updates an image preview from the software viewport that shows an image prompt which can be passed into DALL-E, giving users a direct bridge between their 3D design workspace and an AI model that can generate image inspiration. Additionally, having a lens on what the designer is actively working on allows the plugin to highlight what prompt suggestions may work best, which is implemented in the system by using CLIP to approximate model knowledge. 
@@ -168,11 +175,6 @@ const ProjectPage3DALLE = () => {
       <h3> User Evaluation </h3>
       <LineDivider />
       
-
-
-      
-            
-
 
        <p class="paper_abstract">
           To evaluate 3DALL-E and how well it can integrate into 3D workflows, we conducted a user study with thirteen users of Fusion 360 who spanned a variety of backgrounds from industrial design to robotics. We found that 3DALL-E can benefit CAD designers as a system that supports conceptual CAD, helps prevent design fixation, produces reference images, and inspires design considerations. Additionally, we compared 3DALL-E against <a href="https://www.autodesk.com/solutions/generative-design/manufacturing">existing generative tools for 3D design</a> by speaking with designers that had expertise in a different optimization-based but also generative workflow. 
