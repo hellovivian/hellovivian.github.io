@@ -93,6 +93,7 @@ img {
   display: flex;
 }
 
+
 .flex_row {
   display: flex;
   /* width: 100%; */
@@ -280,7 +281,10 @@ p {
   line-height: 1.5em;
   padding: 1em;
 }
-
+ 
+.example_videos {
+  padding: 0.5em;
+}
 .paper_figure {
   width: 50%;
   position: relative;
@@ -288,6 +292,13 @@ p {
   transform: translateX(-50%);
   margin: 0 auto;
   padding: 2em;
+}
+
+.centered {
+    position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
 }
 
 .split-horizontal {

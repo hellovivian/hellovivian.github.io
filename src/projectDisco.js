@@ -115,9 +115,9 @@ const DiscoProjectPage = () => {
       <h3 >Digital "Double Hatters": Augmenting Audiovisual Creative Work with a Generative Text-to-Video Workflow</h3>
       <h4 class="paper_authors">Vivian Liu, Tao Long, Jenny Ma, Nathan Raw, Jiaxin Yang, Claudia Tang, Lulu Wang, Yumo Yang, Lydia Chilton</h4> <br></br>
       <h4>HICSS 2025</h4>
-      <SphereBanner />
+      {/* <SphereBanner /> */}
+      <img class="centered" src="./images/disco/disco_banner.gif"></img>
    
-      <Carousel></Carousel>
 
       <p>Generative AI is transforming work for creative professionals. Text-to-image and text-to-video tools provide alternative methods for visual content creation, circumventing the traditional workflows creative professionals have developed. This transformation raises the pressing question of whether these new generative workflows will augment or supplant creative work. To investigate this question, we introduce Generative Disco, a text-to-video system for music visualization, and use it as a technology probe for creative professionals who freelance audiovisual work. In a mixed-methods study (n=12), we observe that professionals found Generative Disco easy to use, highly expressive, and capable of supporting many professional use cases. Its generative workflow enabled professionals to become digital "double hatters", expanding their creative range into adjacent domains. We conclude on how creatives can benefit from this new means of skill mobility.</p>
 
@@ -561,29 +561,29 @@ P7 was a classically-trained musician who was also a novice to video creation. T
 
  */}
 <br></br>
-      <div class="flex_row" style={{width: "70%"}}>
+      <div  style={{"display":"flex", flexDirection: "row", position: "relative", left: "50%", transform: "translate(-50%)"}} >
         
-        <div style={{width: "12.5%", padding: "0 1em"}} class="flex_column">
-            <img  src="./disco_videos/kaleidoscope.gif"></img>
-            <img src="./disco_videos/stars_bg.gif"></img>
-            <img src="./disco_videos/flowers_dying.gif"></img>
-                        <img src="./disco_videos/sunrise.gif"></img>
+       
+            <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/kaleidoscope.gif"></img>
+            <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/stars_bg.gif"></img>
+            <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/flowers_dying.gif"></img>
+                        <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/sunrise.gif"></img>
 
 
-            <img src="./disco_videos/man_to_tree2.gif"></img>
-                                    <img src="./disco_videos/wannadance.gif"></img>
+            <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/man_to_tree2.gif"></img>
+                                    <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/wannadance.gif"></img>
 
-              <img src="./disco_videos/style_shift.gif"></img>
-          <img src="./disco_videos/swamp.gif"></img>
+              <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/style_shift.gif"></img>
+          <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/swamp.gif"></img>
 
         </div>
-        <div style={{width: "88.5%"}}>
+        {/* <div style={{width: "88.5%"}}>
            <img  src="./images/disco/disco_fig_transitions.png" />
-        </div>
+        </div> */}
        
 
     
-     </div>
+     {/* </div> */}
          {/* <p style={{textAlign:"center"}}>
   <video style={{height:"360px"}}controls>
         <source src="./disco_videos/lucky_ones.mp4" type="video/mp4"></source>
@@ -659,6 +659,11 @@ P7 was a classically-trained musician who was also a novice to video creation. T
     <p>
 In this paper, we introduce Generative Disco, a generative text-to-video workflow for music visualization. In a user study field testing Generative Disco with audio and visual freelance creatives, we found that creatives found the generative tool easy to use, expressive, and capable of supporting a number of professional use cases. Generative Disco helped creative professionals work across modalities and empowered them to have more artistic reach. We characterize type of labor augmentation as digital "double hatting" and detail how it can increase the skill mobility of creative professionals into adjacent domains. 
     </p>
+
+<h3>Examples</h3>
+
+          <Carousel></Carousel>
+
     
     
     
