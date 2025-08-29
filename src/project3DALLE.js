@@ -175,7 +175,7 @@ const ProjectPage3DALLE = () => {
 
       <br />
       <p>Additionally, we hypothesized that we could use the CLIP embeddings as a proxy for what DALL-E, the text-to-image model, might be better at generating. HCI papers have shown that users can build a mental model of the AI capabilities faster if the knowledge distribution of the AI is represented to the user in some form. Because 3DALL-E could actively render the 3D viewport, it could check against the prompt being developed and approximate the alignment between potential prompts and what had already been designed. This was achieved by using CLIP to compare text and image embeddings.</p>
-            <img class="paper_figure" src="./images/3DALLE/3DALLE_sys2.png"/><br></br>
+            <img class="paper_figure" src="./images/3DALLE/sysserver_crop.png"/><br></br>
 
       
       <img class="paper_figure" src="./images/3DALLE/clip.png"/><br></br>
@@ -382,8 +382,8 @@ const ProjectPage3DALLE = () => {
           <p width="70%" src="./images/3DALLE/image_prompt2.png" > User working off of a top-down generation as a blueprint </p>
         </div>
         <div class="flex_row">
-          <img width="25%" src="./images/3dalle/shelf_with_plants.png" />
-          <img width="75%" src="./images/3dalle/active_chair.png" />
+          <img width="25%" src="./images/3DALLE/shelf_with_plants.png" />
+          <img width="75%" src="./images/3DALLE/active_chair.png" />
         </div>
         <div class="flex_row">
           <p width="25%"  > User generating a render with plants to visually situate their designs and see their 3D model in use</p>

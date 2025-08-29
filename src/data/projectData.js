@@ -19,7 +19,7 @@ const projectData = [
     {
       id: 1,
       title: 'Digital "Double Hatters": Augmenting Audiovisual Creative Work with a Generative Text-to-Video Workflow',
-      authors: 'Vivian Liu, Tao Long, Jenny Ma, Nathan Raw, Lydia Chilton',
+      authors: 'Vivian Liu, Tao Long, Jenny Ma, Nathan Raw, Jiaxin Yang, Claudia Tang, Lulu Wang, Yumo Yang, Lydia Chilton',
       venue: 'HICCS 2025',
       links: {
         paperlink:"https://scholarspace.manoa.hawaii.edu/server/api/core/bitstreams/702f5d9e-84bc-4345-8e7b-95cf23903354/content",

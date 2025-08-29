@@ -95,7 +95,7 @@ img {
 
 .flex_row {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
 
 }
 .flex_figures {
@@ -126,6 +126,18 @@ img {
 .gallery-row img {
   margin: 0.2em;
   width: 33%;
+}
+
+.paper-container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.flex_row {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {

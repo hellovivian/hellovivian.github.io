@@ -51,10 +51,14 @@ color: #333333;
 
 }
 
+.react-player {
+    scale:0.8;
+}
+
 .videoCard {
 
     border-radius: 0.5em;
-    background-color: rgb(255,164,191);
+    border: solid 1px rgb(255,164,191);
     padding:0.5em;
 
 
@@ -88,3 +92,4 @@ video {
 video::-webkit-media-controls-panel {
     background-image: linear-gradient(transparent, transparent) !important;
 }
+
