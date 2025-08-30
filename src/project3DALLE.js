@@ -180,7 +180,7 @@ const ProjectPage3DALLE = () => {
       
       <img class="paper_figure" src="./images/3DALLE/clip.png"/><br></br>
 
-
+      {/* <p>Note that at the time of the system implementation and study, DALL-E was not yet available as an API, so we instrumented a Selenium agent to fetch generations.</p> */}
 
       <h3> User Evaluation </h3>
       <LineDivider />
@@ -248,7 +248,7 @@ const ProjectPage3DALLE = () => {
       </div>
       <div class="flex_row">
         <img width="50%" src="./images/3DALLE/p1_presentation.gif"/>
-        <img width="50%" src="./images/3DALLE/AI_last.gif" />
+        <img width="50%" src="./images/3DALLE/ai_last.gif" />
       </div>
 
       <br></br>

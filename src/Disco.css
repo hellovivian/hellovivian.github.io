@@ -38,6 +38,20 @@ h3 {
     margin: 0.5em !important;
 }
 
+.alice-carousel h3 {
+    width: 100%;
+    text-align: center;
+}
+.alice-carousel p {
+
+    width: 100%;
+    text-align: center;
+    position: relative;
+
+
+
+
+}
 .navigation {
     text-align: center;
     margin-top: 2em;
@@ -56,6 +70,7 @@ color: #333333;
 }
 
 .videoCard {
+    background-color: rgba(255, 164, 191, 0.15);
 
     border-radius: 0.5em;
     border: solid 1px rgb(255,164,191);
@@ -70,8 +85,7 @@ color: #333333;
 }
 
 .artistName {
-    color: white;
-    font-weight: 700px;
+    color: black;
     font-size: 18px;
 }
 
@@ -83,7 +97,7 @@ color: #333333;
     
 }
 video {
-    max-width: 248px !important;
+    max-width: 33% !important;
     border-radius: 0.25em;
 
     
@@ -93,3 +107,8 @@ video::-webkit-media-controls-panel {
     background-image: linear-gradient(transparent, transparent) !important;
 }
 
+h3 {margin-top: 1em;
+}
+h4 {
+    margin-top:1em;
+}

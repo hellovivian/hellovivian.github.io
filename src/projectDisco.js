@@ -39,18 +39,13 @@ const responsive = {
 };
 
 const items = [
-    // <div className="item" data-value="1">
 
-    //     <Video className='videoCard' song="Beauty and a Beat" artist='Justin Bieber' url="./disco_videos/AIArt1.mp4"/>
-    
-    //  </div>,
-    <div className="item" data-value="2">
+    <div className="item" data-value="1">
 
-        
         <Video className='videoCard' song="One More Time" artist='Daft Punk' url="./disco_videos/daftpunk.m4v"/>
         
     </div>,
-    <div className="item" data-value="3">
+    <div className="item" data-value="2">
         <Video className='videoCard' song="Last Carnival" artist='Norihiro Tsuru' url="./disco_videos/lastcarnival.mp4"/>
     </div>,
     <div className="item" data-value="3">
@@ -65,27 +60,33 @@ const items = [
     <div className="item" data-value="6">
     <Video className='videoCard' song="Fighting Gravity " artist='Of Mice and Men' url="./disco_videos/fightinggravity.m4v"/>
     </div>,
-        <div className="item" data-value="3">
+        <div className="item" data-value="7">
         <Video className='videoCard' song="Temple of Time" artist='Soulrez' url="./disco_videos/soulrez.mp4"/>
     </div>,
-     <div className="item" data-value="7">
+     <div className="item" data-value="8">
      <Video className='videoCard' song="Cowgirl Remix" artist='Anon Artist' url="./disco_videos/stitched_output.m4v"/>
      </div>,
-         <div className="item" data-value="7">
+         <div className="item" data-value="9">
      <Video className='videoCard' song="Empire State of Mind" artist='Alicia Keys ft. Jay-Z' url=" ./disco_videos/nyc.mp4"/>
      </div>,
-    <div className="item" data-value="8">
+      <div className="item" data-value="10">
+     <Video className='videoCard' song="Lucky Ones" artist='Lana Del Rey' url="./disco_videos/lucky_ones.mp4"/>
+     </div>,
+    <div className="item" data-value="11">
     <Video className='videoCard' song="Nights" artist='Avicii' url="./disco_videos/stitched_nights.m4v"/>
     </div>,
-        <div className="item" data-value="9">
+        <div className="item" data-value="12">
         <Video className='videoCard' song="Yerb" artist='Anon Artist' url="./disco_videos/yerb.m4v"/>
         </div>,
-         <div className="item" data-value="7">
+         <div className="item" data-value="13">
      <Video className='videoCard' song="Lucky Ones" artist='Lana Del Rey' url="./disco_videos/lana.mp4"/>
      </div>,
-     <div className="item" data-value="7">
-     <Video className='videoCard' song="Lucky Ones" artist='Lana Del Rey' url="./disco_videos/lucky_ones.mp4"/>
-     </div>
+         // <div className="item" data-value="1">
+
+    //     <Video className='videoCard' song="Beauty and a Beat" artist='Justin Bieber' url="./disco_videos/AIArt1.mp4"/>
+    
+    //  </div>,
+    
 
        
         
@@ -207,7 +208,7 @@ const DiscoProjectPage = () => {
     System: Generative Disco
     </h3><LineDivider />
     <p>To explore a multimodal AI workflow for creative professionals engaged in content creation, we built Generative Disco, a text-to-video tool for music visualization that is illustrated above. It takes music in as input and generates music visualization in the form of shortform video as output. Its guiding design principles are to help users express music by 1) supporting simple prompt-based interactions, 2) structuring the creation of a text-to-video narrative, 3) helping users brainstorm visuals to interpolate into video, and 4) generating videos that have open-ended artistic possibilities. </p>
-    <p><strong> Note that this system was built Feb 2023-April 2023, a year before the announcement of Sora and other technological advances that came after. The keyframed frame-to-frame interface design pattern, however, is seen in Google Deepmind's Flow Studio and Veo2. </strong></p>
+ 
     <img class="paper_figure disco_figure" src="./images/disco/fig_systemdesign_0915.jpg">
     </img>
 
@@ -242,6 +243,7 @@ Generating a prompt generates a set of images from Stable Diffusion. Generations
     The system begins by taking a music file input and representing it within the interface as a waveform (A).  The waveform illustrates the music's structure and helps highlight volume dynamics, lyric boundaries, and other musical elements.  To find prompts that will define the start and end of intervals (C), users can brainstorm prompts using suggestions from GPT-4 (B, D) and explore text-to-image generations (E, I). Results users like can be dragged and dropped into the start and end areas (C), after which a text-to-video interval can be generated. These show in the Tracks (G) and can be stitched into a video placed in the Video Area (H).
     </p> */}
 
+       <p class="note"> Note that this system was built Feb 2023-April 2023, a year before the announcement of Sora and other technological advances that came after. The frame-to-frame interface design pattern Disco introduced to increase user control has been seen also implemented in Google Deepmind's Flow Studio and Veo2, showing that it was a valid and forward-thinking design decision. </p>
 
     
 
@@ -265,7 +267,7 @@ Generating a prompt generates a set of images from Stable Diffusion. Generations
    <strong> Participants. </strong>Our participants were recruited from 1) Upwork, a platform for freelancers, where we reached out to creatives with professional video or music experience 2) independent musicians from a local computer music organization.  Participants were paid $40 per hour for their time, and the study was conducted for 2 hours. Twelve people (6 male, 4 female, 2 non-binary) participated. The experimental IRB protocol was approved by the institution.  </p>
 
 <table>
-  <caption>Table of participant details: background, engagement with video work, years of experience in music or video, exposure to generative AI, and genre of music for task.</caption>
+  <caption><strong>Table.</strong> Participant details: background, engagement with video work, years of experience in music or video, exposure to generative AI, and genre of music for task.</caption>
   <thead>
     <tr>
       <th>ID</th>
@@ -391,9 +393,9 @@ Participant backgrounds are described in the Table above. Prior to the experimen
     <LineDivider/>
     <p>To answer RQ1, we first report quantitative metrics on Generative Disco's usefulness and ease of use. </p>
     <div class="flex_row">
-      <img width="40%" src="./images/disco/disco_hiccs_quant.jpg" />
+      <img class="quantitative-feedback-image" src="./images/disco/disco_hiccs_quant.jpg" />
 
-      <div>
+      <div class="quantitative-feedback-text">
         <p><strong>Workflow-Specific Questions. </strong>
        The majority (7 of 12) rated the system positively for how closely it allowed them to engage with the music (median: 5). Nine of 12 rated the system positively for audiovisual alignment (<em>"The system helped me come up with visuals that aligned with the music."</em>, median: 5). Eleven of 12 participants were positive about the helpfulness of GPT-4 subject brainstorming (median: 5.5). Nine of 12 participants were positive that the style keyword brainstorming area was helpful (median: 5.5). When asked if Generative Disco would be a useful addition to their current video / music workflow, 9 of 12 participants responded positively for agreement (median: 5.5).
 </p>
@@ -465,15 +467,71 @@ Participant backgrounds are described in the Table above. Prior to the experimen
 
      
     <p>
-      For example, P3 described how Generative Disco made stylized animation more accessible to them when they created a music visualization for "Nights" by Avicii that is pictured in the figure above. To the beginning lyrics, <em>"Someday you'll leave this world behind..."</em>, P3 generated a hold shot on an astronaut in space. At the next lyric phrase <em>"so live a life you will remember"</em>, they applied a color transition shot, saturating the blue moon background into a rainbow one and expressing the lyrics with fullness and color. In the last lyric phrase, <em>"My father told me when I was young"</em>, they generated another hold on a father and son holding hands in a watercolor style. P3 commented that the stylized animation effect would have been outside of their technical expertise and required animation expertise they did not have.
+      For example, P3 described how Generative Disco made stylized animation more accessible to them when they created a music visualization for "Nights" by Avicii that is pictured in the video (left) above. To the beginning lyrics, <em>"Someday you'll leave this world behind..."</em>, P3 generated a focused shot on an astronaut in space. At the next lyric phrase <em>"so live a life you will remember"</em>, they applied a color transition shot, saturating the blue moon background into a rainbow one and expressing the lyrics with fullness and color. In the last lyric phrase, <em>"My father told me when I was young"</em>, they generated another focus shot on a father and son holding hands in a watercolor style. P3 commented that the stylized animation effect would have been outside of their technical expertise and required animation expertise they did not have.
 
     </p>
     <p>
 
-P2 and P10 also described how Disco enabled them to use other visual techniques that were new to them such as morphing. P2 generated a subject transition that morphed a human silhouette into a tree, finding this continuous and "dream-like" transition appealing and suitable for the atmospheric intro of their song. Another participant created a visual transition representing the passage of time by morphing a vibrant bouquet of flowers into decayed one. 
-"I think a lot of AI-generated art has that dream-like quality. I would be curious to see a human turn into a tree. I feel like AI does that well."-P2
+    <p>
+       "I think a lot of AI-generated art has that dream-like quality. I would be curious to see a human turn into a tree. I feel like AI does that well."-P2
+
+      </p> 
+       <div class="flex_row">
+       <img width="256px" src="./disco_videos/man_to_tree2.gif"/>
+        <img width="256px" src="./disco_videos/flowers_dying.gif"/>
+          
+    </div>
+
+
+
 
     </p>
+<p>
+  P2 and P10 also described how Disco enabled them to use other visual techniques that were new to them such as morphing. P2 generated a subject transition that morphed a human silhouette into a tree, as quoted above. P10 depicted how a vibrant bouquet of flowers decayed into a dead bouquet. They did this by finding a pair of prompts that differed only by one prompt keyword ("desaturation"). 
+
+
+</p>
+
+    <p class="note">
+  This suggests an interaction pattern. Users could "search" around the same prompts to find sibling images. The AI could help with the inbetweening, but this inbetweening was most effective when the transition depicted something more emergent -- for example an <strong> event</strong> marked by time (like the decay of flowers) or a <strong>transition</strong> from a blue-maned lion to a rainbow-maned lion. These helped users lean into a "new media" affordance of AI -- the way it created a new artistic effect that blended traditional techniques (e.g. morphing) with semantic change.
+
+  
+
+  <div class="flex_row" style={{"margin": "0 auto", "paddingTop":"1em",  }}> 
+      <div class="flex_column" >
+        <div>
+
+           <img style={{height: "256px", paddingRight: "0.5em"}} src="./images/disco/lionstart.png"></img>
+            <img style={{height: "256px", paddingRight:"2em"}} src="./images/disco/lionend.png"></img> 
+
+        </div>
+       
+        Start-End Pair
+      </div>
+
+      <div>
+        <div>
+          <img style={{height: "256px", paddingRight: "0.5em"}} src="./images/disco/bluelion.png"></img>
+          <img style={{height: "256px", paddingRight: "0.5em"}} src="./images/disco/rainbowlion.png"></img>
+
+        </div>
+         Start-End Pair (regenerated 2025 for illustrative purposes) 
+         
+
+      </div>
+      
+  </div>
+
+    </p>
+    <br></br>
+
+    
+
+
+
+            <br></br>
+
+
 
 
 <p>
@@ -507,7 +565,7 @@ Using Disco, P8 was able to act on this notion. They brought in an original comp
 
     </div>
 <p>
-P7 was a classically-trained musician who was also a novice to video creation. They found it easy to grasp generative workflow concepts like hyperparameters and use the visual brainstorming pipeline to explore conceptual spaces like color and symbols. They explored different instantiations of heart concepts (Row 6) to pull in the color red and symbolize love for the lyric <em>"with somebody who loves me"</em>.
+P7 was a classically-trained musician who was also a novice to video creation. They found it easy to grasp the generative workflow concepts (e.g. the design patterns of focus shots and transitions) and use the visual brainstorming pipeline to explore concepts based on color and symbols. 
 </p>
 <p>
 <em>
@@ -520,10 +578,10 @@ P7 was a classically-trained musician who was also a novice to video creation. T
 
 
 <p>
-  Video professionals could also create in a music-first way. Rather than considering music as just one track or as an underscoring background element, they could engage with the different structures latent in the songs. They could move across the layers in the music, moving from beats to lyrics to other musical elements highlighted by amplitude changes in the waveform. For example, P2 first captured a quick succession of instrumental notes with short subject transitions and then captured longer musical phrases (a crescendo and a heavy metal breakdown) with a burst of color and style change. !! This is pictured in the second to last interval of the waveform figure, where a grayscale style transforms into a psychedelic one.
+  Video professionals could also create in a music-first way. Rather than considering music as just one track or as an underscoring background element, they could engage with the different structures latent in the songs. They could move across the layers in the music, moving from beats to lyrics to other musical elements highlighted by amplitude changes in the waveform representation of the music. 
 </p>
   
-<p>It is worth noting that some freelancers had blended experience with music and video (P1, P4, P10). For these participants, a primary strength of Generative Disco was that it computationally assisted with audiovisual alignment, which is something that is difficult to manually achieve. Freelancers drew upon their expertise in color and motifs to make the visuals resonate with the music at a high-level, while the system also handled the way visuals would snap to the music at the low-level. P10 appreciated this audiovisual alignment support as they visualized a locked groove from techno music. They used color as a strategy to highlight percussive elements in the music. 
+<p>It is worth noting that some freelancers had blended experience with music and video (P1, P4, P10). For these participants, a primary strength of Generative Disco was that it computationally assisted with audiovisual alignment, which is something that is difficult to manually achieve. While the people (freelance artists) drew upon their expertise and design eye to make the visuals resonate with the music <strong>at a high-level </strong>, the system (AI) also handled the <strong>low-level, generally more painful parts of design execution </strong> like way video visuals would align with the music. P10 appreciated this audiovisual alignment support as they visualized a locked groove from techno music. They used color as a strategy to highlight strong percussive elements in the music. 
 
 
 </p>
@@ -561,22 +619,7 @@ P7 was a classically-trained musician who was also a novice to video creation. T
 
  */}
 <br></br>
-      <div  style={{"display":"flex", flexDirection: "row", position: "relative", left: "50%", transform: "translate(-50%)"}} >
-        
-       
-            <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/kaleidoscope.gif"></img>
-            <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/stars_bg.gif"></img>
-            <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/flowers_dying.gif"></img>
-                        <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/sunrise.gif"></img>
-
-
-            <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/man_to_tree2.gif"></img>
-                                    <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/wannadance.gif"></img>
-
-              <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/style_shift.gif"></img>
-          <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/swamp.gif"></img>
-
-        </div>
+      
         {/* <div style={{width: "88.5%"}}>
            <img  src="./images/disco/disco_fig_transitions.png" />
         </div> */}
@@ -661,10 +704,27 @@ In this paper, we introduce Generative Disco, a generative text-to-video workflo
     </p>
 
 <h3>Examples</h3>
+<LineDivider/>
 
           <Carousel></Carousel>
 
-    
+        {/* <div  style={{ width:"70%", flexDirection: "row", flexWrap:"wrap", position: "relative", margin: "0 auto"}} >
+        
+       
+            <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/kaleidoscope.gif"></img>
+            <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/stars_bg.gif"></img>
+            <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/flowers_dying.gif"></img>
+                        <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/sunrise.gif"></img>
+
+
+            
+                                    <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/wannadance.gif"></img>
+
+              <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/style_shift.gif"></img>
+          <img class="example_videos" style={{width: "196px", height: "196px"}} src="./disco_videos/swamp.gif"></img>
+
+        </div>
+     */}
     
     
     
