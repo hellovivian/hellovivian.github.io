@@ -16,7 +16,7 @@ function HomePage() {
         <header className="App-header">
         <Navigation />
       <AboutMe />
-      <Gallery />
+      <Gallery className="gallery" />
 
     <br></br>
     <br></br>

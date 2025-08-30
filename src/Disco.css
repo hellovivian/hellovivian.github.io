@@ -66,7 +66,7 @@ color: #333333;
 }
 
 .react-player {
-    scale:0.8;
+    /* scale:0.9; */
 }
 
 .videoCard {
@@ -75,6 +75,7 @@ color: #333333;
     border-radius: 0.5em;
     border: solid 1px rgb(255,164,191);
     padding:0.5em;
+    width: 100%;
 
 
 }
@@ -89,13 +90,15 @@ color: #333333;
     font-size: 18px;
 }
 
-.videoCard video {
+/* .videoCard video {
 
     border-radius: 0.25em;
-    width: 90%;
+    width: 100%;
+    max-width: 100% !important;
+    height: auto;
 
     
-}
+} */
 video {
     max-width: 33% !important;
     border-radius: 0.25em;
@@ -103,12 +106,18 @@ video {
     
 }
 
-video::-webkit-media-controls-panel {
-    background-image: linear-gradient(transparent, transparent) !important;
-}
 
-h3 {margin-top: 1em;
+@media (max-width: 768px) {
+
+    .react-player {
+        width: 100%;
+    }
+  
+/* .videoCard {
+    max-width: 256px;
 }
-h4 {
-    margin-top:1em;
+video {
+    max-width: 256px;
+} */
+
 }

@@ -99,6 +99,25 @@ img {
   /* width: 100%; */
 
 }
+
+
+@media (max-width: 768px) {
+  .gallery {
+    display:none;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .flex_row {
+    width: 100%;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+}
+
+
 .flex_figures {
   display: flex;
   width: 75%;
@@ -179,13 +198,13 @@ img {
 }
 
 h1 {
-  font-family: 'NotoItalic';
+  font-family: 'ProximaNova';
   font-weight: 600;
 }
 
 h2 {
   font-size: 28px;
-  font-family: 'NotoItalic';
+  font-family: 'ProximaNova';
 }
 
 h3 {
@@ -239,6 +258,9 @@ hr {
 
 .navigation {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navigation a {
@@ -250,7 +272,6 @@ hr {
 }
 
 .social_media {
-  float:right;
 }
 
 .paper_authors,
