@@ -54,7 +54,7 @@ const blogData = [
     title: 'Generating Tools for Oneself',
     slug: 'personal-informatics',
     date: 'AUGUST 2025', //22
-    venue: 'A health informatics self-experiment',
+    venue: 'A personal informatics self-experiment',
     component: PersonalInformaticsContent,
     links: {
       paperlink: "",

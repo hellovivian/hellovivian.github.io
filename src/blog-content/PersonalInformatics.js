@@ -8,8 +8,8 @@ const PersonalInformatics = () => {
                     <br></br><br></br>
 
             <p>
-                Recently, I have been experimenting with using AI for a health informatics experiment. I wanted to know how
-                factors like sleep, caffeine, and stress were impacting a health concern.
+                Recently, I have been experimenting with using AI for a personal informatics experiment. I wanted to know how
+                factors like sleep, caffeine, and stress were impacting a light health concern of mine.
             </p>
             <p>
                 In the past, when I have gone to a doctor, they would ask me diagnostic questions like, “Is this a problem that is worse in the
