@@ -61,7 +61,7 @@ const projectData = [
     links: {
       img_src: "./images/sparks.png",
       projectpage: "",
-      paperlink: "https://dl.acm.org/doi/abs/10.1145/3532106.3533533",
+      paperlink: "https://www.katygero.com/papers/2022_Sparks.pdf",
       demolink: "",
       video: "",
       codelink: "",

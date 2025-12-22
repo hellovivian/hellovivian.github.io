@@ -14,10 +14,6 @@ import ProjectPage3DALLE from './project3DALLE';
 import DiscoProjectPage from './projectDisco';
 import LogoMotionProjectPage from './projectLogoMotion';
 import BlogPostPage from './pages/BlogPostPage';
-import AnimationPage from './pages/AnimationPage';
-import LalaLandPage from './pages/LalaLandPage';
-import LalaLandFinalPage from './pages/LalaLandFinalPage';
-import FadingStarPage from './pages/FadingStarPage';
 
 
 const ScrollToTop = () => {
@@ -51,10 +47,7 @@ function App() {
 
         <Route path="/designguidelines" element={<ProjectDesignGuidelines />} />
 
-        <Route path="/animation" element={<AnimationPage />} />
-        <Route path="/lalaland" element={<LalaLandPage />} />
-        <Route path="/lalaland-final" element={<LalaLandFinalPage />} />
-        <Route path="/fading-star" element={<FadingStarPage />} />
+
         <Route path="/" element={<HomePage />} />
       </Routes>
     </Router>

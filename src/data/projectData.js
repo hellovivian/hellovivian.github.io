@@ -6,7 +6,7 @@ const projectData = [
     authors: 'Vivian Liu, Rubaiat Habib Kazi, Li-Yi Wei, Matt Fisher, Timothy Langlois, Seth Walker, Lydia Chilton',
     venue: 'CHI 2025',
     links: {
-      paperlink:"https://dl.acm.org/doi/10.1145/3706598.3714155",
+      paperlink:"/papers/Logomotion_ACM.pdf",
       pg: "/logomotion",
       codelink: "",
       demolink: "https://logomotion.vercel.app/",
@@ -39,7 +39,7 @@ const projectData = [
       authors: 'Vivian Liu, Jo Vermeulen, George Fitzmaurice, Justin Matejka',
       venue: 'DIS 2023',
       links: {
-        paperlink: "https://dl.acm.org/doi/10.1145/3563657.3596098",
+        paperlink: "/papers/3DALLE_ACM.pdf",
         pg: "/3DALLE",
         codelink: "",
         demolink:"https://apps.autodesk.com/FUSION/en/Detail/Index?id=8558451727109537930",
@@ -60,7 +60,7 @@ const projectData = [
         demolink:"",
         codelink:"",
         video: "https://youtu.be/grrdo6TtV88",
-        paperlink: "https://arxiv.org/pdf/2204.09007.pdf",
+        paperlink: "/papers/Opal_ACM.pdf",
       },
     },
     {
@@ -75,7 +75,7 @@ const projectData = [
         demolink:"",
         video:"https://www.youtube.com/watch?v=7-XnIuH8r3U&ab_channel=ACMSIGCHI",
         codelink:"",
-        paperlink:"https://dl.acm.org/doi/abs/10.1145/3491102.3501825",
+        paperlink:"/papers/DesignGuidelines_ACM.pdf",
         slides: 'https://docs.google.com/presentation/d/1krOov5w_c1byOoDsgwNDHmfytrqofac32M-CzWx6f5E/edit#slide=id.gceeec265cf_0_4'
       },
     }

@@ -6,31 +6,11 @@ import FreelanceContent from '../blog-content/Freelance.js';
 import BibliographyContent from '../blog-content/Bibliography.js';
 import NeuralNetworkContent from '../blog-content/NeuralNetwork.js';
 import PersonalInformaticsContent from '../blog-content/PersonalInformatics.js';
-import AnimationPage from '../pages/AnimationPage.js';
-import LalaLandPage from '../pages/LalaLandPage.js';
-import LalaLandFinalPage from '../pages/LalaLandFinalPage.js';
-import FadingStarPage from '../pages/FadingStarPage.js';
 import UserInterfaceDustBunniesContent from '../blog-content/UserInterfaceDustBunnies.js';
-import GaussianDotsContent from '../blog-content/GaussianDots.js';
+
 
 const blogData = [
-  // {
-  //   id: 11,
-  //   title: 'Gaussian Dots',
-  //   slug: 'gaussian-dots',
-  //   date: 'AUGUST 2025',
-  //   venue: 'A canvas experiment',
-  //   component: GaussianDotsContent,
-  //   links: {
-  //     paperlink: "",
-  //     pg: "",
-  //     codelink: "",
-  //     demolink: "",
-  //     blogpostlink: "/blog/gaussian-dots",
-  //     video: "",
-  //     img_src: "",
-  //   }
-  // },
+
   {
     id: 10,
     title: 'User Interface Dust Bunnies',
