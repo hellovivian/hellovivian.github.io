@@ -34,7 +34,7 @@ function App() {
       <Routes>
         <Route path="/About" element={<AboutPage />} />
         <Route path="/Updates" element={<UpdatesPage />} />
-        <Route path="/Blog" element={<BlogPage />} />
+        <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
 
         <Route path="/logomotion" element={<LogoMotionProjectPage />} />

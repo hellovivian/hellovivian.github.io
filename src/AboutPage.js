@@ -26,7 +26,7 @@ const AboutPage = () => {
 
             </p>
             <p class="about_text">
-              I graduated from UC Berkeley with Distinction in Computer Science and Cognitive Science. I also earned a certificate in New Media. During my undergrad, I loved to <a href="/#/made_in_berkeley">make things </a>  at the Jacobs Institute of Design.
+              I graduated from UC Berkeley with Distinction in Computer Science and Cognitive Science. I also earned a certificate in New Media. During my undergrad, I loved to <a href="/#/blog/made-in-berkeley">make things </a>  at the Jacobs Institute of Design.
 
             </p>
             <br></br>
