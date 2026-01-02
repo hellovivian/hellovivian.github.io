@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# large media files
+public/blogpost_images/chairs.gif
+public/blogpost_images/chairs_crop.gif
