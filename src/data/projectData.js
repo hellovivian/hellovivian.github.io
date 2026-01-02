@@ -22,7 +22,7 @@ const projectData = [
       authors: 'Vivian Liu, Tao Long, Jenny Ma, Nathan Raw, Jiaxin Yang, Claudia Tang, Lulu Wang, Yumo Yang, Lydia Chilton',
       venue: 'HICCS 2025',
       links: {
-        paperlink:"https://scholarspace.manoa.hawaii.edu/server/api/core/bitstreams/702f5d9e-84bc-4345-8e7b-95cf23903354/content",
+        paperlink:"/papers/Generative_Disco.pdf",
         pg: "/disco",
         codelink: "",
         demolink: "",
