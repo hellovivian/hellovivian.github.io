@@ -2,6 +2,23 @@
 const projectData = [
   {
     id: 0,
+    title: 'I gave invited talks at UC Berkeley, HKUST, and University of Michigan.',
+    date: '2025',
+    venue: 'I gave talks at the Berkeley Institute of Design, Hong Kong University of Science and Technology (Division of Arts and Machine Creativity), and University of Michigan (HCI Seminar). Thank you to all the students and faculty at each place for having me.',
+    links: {
+      paperlink:"",
+      pg: "",
+      codelink: "",
+ demolink: "",
+      blogpostlink: "",
+      video: "",
+      img_src: "./blogpost_images/hkust.jpg",
+       demo: '',
+      source: '',
+    },
+  },
+  {
+    id: 0,
     title: 'I gave a seminar talk for Brown Visual Computing.',
     date: 'NOV 2024',
     venue: 'My talk was titled "Enabling Design with AI through Interactive Techniques for Multimodal Integration"-- thank you so much to Brown University Computer Science for giving me the opportunity to present my work.',
