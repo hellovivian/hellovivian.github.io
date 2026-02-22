@@ -2,8 +2,7 @@
 @font-face {
   font-family: 'ProximaNova';
   src: local('ProximaNova'), url("../public/fonts/Proxima_Nova_Regular.ttf") format('truetype');
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
+  font-display: swap;
 }
 
 
@@ -11,16 +10,14 @@
 @font-face {
   font-family: 'DMSerif';
   src: local('DMSerif'), url("../public/fonts/DMSerifDisplay-Italic.ttf") format('truetype');
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
+  font-display: swap;
 }
 
 
 @font-face {
   font-family: 'NotoItalic';
   src: local('NotoItalic'), url("../public/fonts/NotoItalic.ttf") format('truetype');
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
+  font-display: swap;
 }
 
 body {
