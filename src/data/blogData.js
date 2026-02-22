@@ -25,7 +25,7 @@ const blogData = [
       demolink: "",
       blogpostlink: "/blog/gradients-ai-interfaces",
       video: "",
-      img_src: "./blogpost_images/playful_zen.gif",
+      img_src: "./blogpost_images/playfulzen.gif",
     }
   },
 
