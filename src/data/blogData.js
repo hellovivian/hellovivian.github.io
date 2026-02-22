@@ -7,9 +7,28 @@ import BibliographyContent from '../blog-content/Bibliography.js';
 import NeuralNetworkContent from '../blog-content/NeuralNetwork.js';
 import PersonalInformaticsContent from '../blog-content/PersonalInformatics.js';
 import UserInterfaceDustBunniesContent from '../blog-content/UserInterfaceDustBunnies.js';
+import GradientsContent from '../blog-content/Gradients.js';
 
 
 const blogData = [
+  {
+    id: 11,
+    title: 'Gradients and Frosted Glass',
+    slug: 'gradients-ai-interfaces',
+    date: 'FEB 2026',
+    venue: '...',
+    component: GradientsContent,
+    links: {
+      paperlink: "",
+      pg: "",
+      codelink: "",
+      demolink: "",
+      blogpostlink: "/blog/gradients-ai-interfaces",
+      video: "",
+      img_src: "./blogpost_images/playful_zen.gif",
+    }
+  },
+
 
   {
     id: 10,
