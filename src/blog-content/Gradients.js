@@ -93,7 +93,7 @@ const GradientsContent = () => {
             <p>
             All in all, I actually love that there was so much to think and do in as the app morphed from the previous form factor to this one. It makes me optimistic about the amount of research we still have ahead to get vibe coding to work. Like it’s not there yet, but that is and always will be the fun part — because people aren’t easy to make happy.
             </p>
-            <img style={{width: "25%"}} src="/blogpost_images/playful_zen.gif"></img>
+            <img style={{width: "25%"}} src="/blogpost_images/playfulzen.gif"></img>
 
             <hr style={{marginTop: '2rem', border: 'none', borderTop: '1px solid #ccc'}} />
             <ol style={{fontSize: '0.85em', color: '#666', paddingLeft: '1rem', textAlign: 'left'}}>
