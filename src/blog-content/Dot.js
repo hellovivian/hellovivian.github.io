@@ -613,20 +613,20 @@ function DotContent() {
       >
         {/* Example scrollable story content */}
         <section id="color_intro" style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
-          <div>I vibe coded this page because I thought about color. Color is cool -- it's abstract and intertwined with emotion, and it has a multiplicity of representations.</div>
+          <div style={{  padding: '24px 32px', lineHeight: 1.6 }}>I vibe coded this page because I thought about color. Color is cool -- it's abstract and intertwined with emotion, and it has a multiplicity of representations.</div>
         </section>
        
 
         <section id="discrete_colors" style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
-          <div>In language, we often have discrete labels for colors (categories like red, blue, green).  </div>
+          <div style={{ backgroundColor: 'white', padding: '24px 32px', lineHeight: 1.6 }}>In language, we often have discrete labels for colors (categories like red, blue, green).  </div>
         </section>
 
         <section id="color_wheel" style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
-          <div> Yet, in code, we can draw colors from a color wheel, a space representable by math and triangulation between parameters like hue, saturation, and value.  </div>
+          <div style={{ backgroundColor: 'white', padding: '24px 32px', lineHeight: 1.6 }}> Yet, in code, we can draw colors from a color wheel, a space representable by math and triangulation between parameters like hue, saturation, and value.  </div>
         </section>
 
         <section style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto", alignItems: "center", justifyContent: "center", fontSize: 24 }}>
-          <div> And of course there is color that comes to us visually, in continuous combinations of light. :) 
+          <div style={{  padding: '24px 32px', lineHeight: 1.6 }}> And of course there is color that comes to us visually, in continuous combinations of light. :)
 
  </div>
         </section>
@@ -635,7 +635,7 @@ function DotContent() {
         
 
         <section style={{ minHeight: "100vh", display: "flex", width: "50%", margin: "0 auto",  alignItems: "center", justifyContent: "center", fontSize: 24 }}>
-          <div>So I thought that was cool and I spent a nice bit of my Friday to make this page.</div>
+          <div style={{  padding: '24px 32px', lineHeight: 1.6 }}>So I thought that was cool and I spent a nice bit of my Friday to make this page.</div>
         </section>
   
       </div>

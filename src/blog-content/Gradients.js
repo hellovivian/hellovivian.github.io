@@ -82,7 +82,7 @@ const GradientsContent = () => {
 
             </p>
 
-             <p style={{fontSize: '0.85em', color: '#666', textAlign: 'center', marginTop: '0.5rem'}}>  <em> Don't hold back. </em> I wish someone told me that as a researcher. And what’s wrong with Space Grotesk? Actually, now that I google it, it reminds me of an HTML page Codex coded up for me. Haha, it’s all clicking into place.</p> 
+             <p style={{fontSize: '0.85em', color: '#666', textAlign: 'center', marginTop: '0.5rem'}}>  <em> Don't hold back. </em> I wish someone told me that as a researcher. And what’s wrong with Space Grotesk? Actually, now that I google it, it reminds me of an HTML page Codex coded up for me. Haha, ahhh the AI aesthetic.r</p> 
             
 
         

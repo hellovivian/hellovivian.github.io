@@ -16,7 +16,7 @@ const blogData = [
     title: 'Gradients and Frosted Glass',
     slug: 'gradients-ai-interfaces',
     date: 'FEB 2026',
-    venue: '...',
+    description: 'Flibbertigibetting about gradients (the visual ones) ',
     component: GradientsContent,
     links: {
       paperlink: "",
@@ -35,7 +35,7 @@ const blogData = [
     title: 'User Interface Dust Bunnies',
     slug: 'user-interface-dust-bunnies',
     date: 'AUGUST 2025',
-    venue: 'Blasts from the past',
+    description: 'Blasts from the past',
     component: UserInterfaceDustBunniesContent,
     links: {
       paperlink: "",
@@ -50,10 +50,10 @@ const blogData = [
 
   {
     id: 5,
-    title: 'Generating Tools for Oneself',
+    title: 'Generating Health Tools for Oneself',
     slug: 'personal-informatics',
     date: 'AUGUST 2025', //22
-    venue: 'A personal informatics self-experiment',
+    description: 'A personal informatics self-experiment',
     component: PersonalInformaticsContent,
     links: {
       paperlink: "",
@@ -67,10 +67,10 @@ const blogData = [
   },
   {
     id: 4,
-    title: 'A Neural Network, but Actually',
+    title: 'A Neural Network about Sensorimotor Loops',
     slug: 'neural-network',
     date: 'AUGUST 2025', //14
-    venue: 'AI for Science, re: Reproducing Papers with LLMs',
+    description: 'AI for Science, re: Reproducing Papers with LLMs',
     component: NeuralNetworkContent,
     links: {
       paperlink: "",
@@ -86,7 +86,7 @@ const blogData = [
   {
     id: 2,
     title: 'Freelance at Design Agencies',
-    venue: '',
+    description: '',
     slug: 'freelance',
     date: 'AUGUST 2025', //15
 
@@ -108,7 +108,7 @@ const blogData = [
     title: 'Made in Berkeley',
     slug: 'made-in-berkeley',
     date: 'JULY 2025',  //20
-    venue: 'Go bears ＼ʕ•ᴥ•ʔ／ ',
+    description: 'Go bears ＼ʕ•ᴥ•ʔ／ ',
     component: MadeInBerkeleyContent,
     links: {
       paperlink: "",
@@ -127,7 +127,7 @@ const blogData = [
     title: 'Pointers',
     slug: 'bibliography',
     date: 'JULY 2025', //20
-    venue: 'Pointers to papers & research.',
+    description: 'Pointers to papers & research.',
     component: BibliographyContent,
     links: {
       paperlink: "",
@@ -144,7 +144,7 @@ const blogData = [
     title: 'Vibes',
     slug: 'dot',
     date: 'JULY 2025', //26
-    venue: '',
+    description: '',
     component: DotContent,
     links: {
       paperlink: "",
@@ -161,7 +161,7 @@ const blogData = [
     title: 'Reproducing Papers with LLMs',
     slug: 'computational-models',
     date: 'MAY 2024',
-    venue: 'Some thoughts I had while using an LLM to understand a computational models paper from cognitive science.',
+    description: 'Some thoughts I had while using an LLM to understand a computational models paper from cognitive science.',
     component: ComputationalModelsContent,
     links: {
       paperlink:"",
