@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ca024e6e.css",
-    "main.js": "/static/js/main.b67d9639.js",
+    "main.css": "/static/css/main.fac6513d.css",
+    "main.js": "/static/js/main.11d70d09.js",
     "react-syntax-highlighter/refractor-core-import.js": "/static/js/react-syntax-highlighter/refractor-core-import.a0115f94.chunk.js",
     "react-syntax-highlighter_languages_refractor_abap.js": "/static/js/react-syntax-highlighter_languages_refractor_abap.6fbad1f2.chunk.js",
     "react-syntax-highlighter_languages_refractor_abnf.js": "/static/js/react-syntax-highlighter_languages_refractor_abnf.ddff0503.chunk.js",
@@ -296,6 +296,7 @@
     "static/js/787.a333b12a.chunk.js": "/static/js/787.a333b12a.chunk.js",
     "static/media/NotoItalic.ttf": "/static/media/NotoItalic.04532c345022a7ce19c2.ttf",
     "static/media/Proxima_Nova_Regular.ttf": "/static/media/Proxima_Nova_Regular.8181ca4b7c2d1189d78a.ttf",
+    "static/media/Proxima_Nova_Bold.otf": "/static/media/Proxima_Nova_Bold.fcaab2524c5baabd71f6.otf",
     "static/media/DMSerifDisplay-Italic.ttf": "/static/media/DMSerifDisplay-Italic.0b4ff78851375d890aed.ttf",
     "static/media/KaTeX_AMS-Regular.ttf": "/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
     "static/media/KaTeX_Main-Regular.ttf": "/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
@@ -359,8 +360,8 @@
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
-    "main.ca024e6e.css.map": "/static/css/main.ca024e6e.css.map",
-    "main.b67d9639.js.map": "/static/js/main.b67d9639.js.map",
+    "main.fac6513d.css.map": "/static/css/main.fac6513d.css.map",
+    "main.11d70d09.js.map": "/static/js/main.11d70d09.js.map",
     "refractor-core-import.a0115f94.chunk.js.map": "/static/js/react-syntax-highlighter/refractor-core-import.a0115f94.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abap.6fbad1f2.chunk.js.map": "/static/js/react-syntax-highlighter_languages_refractor_abap.6fbad1f2.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abnf.ddff0503.chunk.js.map": "/static/js/react-syntax-highlighter_languages_refractor_abnf.ddff0503.chunk.js.map",
@@ -655,7 +656,7 @@
     "787.a333b12a.chunk.js.map": "/static/js/787.a333b12a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca024e6e.css",
-    "static/js/main.b67d9639.js"
+    "static/css/main.fac6513d.css",
+    "static/js/main.11d70d09.js"
   ]
 }
