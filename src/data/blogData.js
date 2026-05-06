@@ -7,10 +7,28 @@ import BibliographyContent from '../blog-content/Bibliography.js';
 import NeuralNetworkContent from '../blog-content/NeuralNetwork.js';
 import PersonalInformaticsContent from '../blog-content/PersonalInformatics.js';
 import UserInterfaceDustBunniesContent from '../blog-content/UserInterfaceDustBunnies.js';
-import GradientsContent from '../blog-content/Gradients.js';
+import GradientsContent from '../blog-content/Gradients.js'
+import TimeCapsuleContent from '../blog-content/TimeCapsule.js';
 
 
 const blogData = [
+    {
+    id: 12,
+    title: 'Time Capsule ',
+    slug: 'time-capsule',
+    date: 'APR 2026',
+    description: 'Time capsule / dump of my experiments in generative media',
+    component: TimeCapsuleContent,
+    links: {
+      paperlink: "",
+      pg: "",
+      codelink: "",
+      demolink: "",
+      blogpostlink: "/blog/time-capsule",
+      video: "",
+      img_src: "./blogpost_images/koala.png",
+    }
+  },
   {
     id: 11,
     title: 'Gradients and Frosted Glass',

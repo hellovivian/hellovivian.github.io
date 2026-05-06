@@ -1,0 +1,175 @@
+
+.container {
+  width: 80%;
+}
+.timeline-entry-link {
+  display: block;
+  text-align: right;
+  font-size: 0.75rem;
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+.vertical-timeline-element-title {
+
+    margin-bottom: 0.5em;
+}
+.timeline-entry-link:hover {
+  opacity: 1;
+}
+
+.timeline-image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.timeline-image-gallery img {
+  flex: 1 1 calc(50% - 6px);
+  min-width: 0;
+  object-fit: cover;
+}
+
+.vertical-timeline-element-content {
+  background: #e0e0e0 !important;
+  box-shadow: none;
+  width: 44%;
+}
+
+@media only screen and (max-width: 1169px) {
+  .vertical-timeline-element-content {
+    width: 100%;
+  }
+}
+
+.vertical-timeline::before {
+  background: #d0d0d0 !important;
+}
+
+p {
+  width: 100%;
+}
+
+
+.timeline-entry-links {
+  list-style: none;
+  padding: 0;
+  margin: 0.5em 0 0;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.timeline-entry-links li::before {
+  content: "↗ ";
+}
+
+.timeline-entry-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.timeline-entry-links a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+.timeline-entry-links:hover {
+  opacity: 1;
+}
+
+/* Minimap */
+.minimap-level-toggle {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 6px;
+  justify-content: center;
+}
+
+.minimap-level-toggle button {
+  font-size: 0.6rem;
+  padding: 1px 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: none;
+  cursor: pointer;
+  color: #999;
+}
+
+.minimap-level-toggle button.active {
+  background: #555;
+  color: #fff;
+  border-color: #555;
+}
+
+.timeline-minimap {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 4px;
+  z-index: 100;
+  scrollbar-width: none;
+}
+
+.timeline-minimap::-webkit-scrollbar {
+  display: none;
+}
+
+.minimap-entry {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1px 4px;
+  border-radius: 3px;
+  text-align: left;
+}
+
+.minimap-entry:hover .minimap-label {
+  text-decoration: underline;
+}
+
+.minimap-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1.5px solid #999;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.minimap-entry--active .minimap-dot {
+  background: #555;
+  border-color: #555;
+}
+
+.minimap-label {
+  font-size: 0.6rem;
+  color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 72px;
+  text-overflow: ellipsis;
+}
+
+.minimap-entry--active .minimap-label {
+  color: #222;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 1200px) {
+  .timeline-minimap {
+    display: none;
+  }
+}
