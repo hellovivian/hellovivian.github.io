@@ -14,6 +14,7 @@ import ProjectPage3DALLE from './project3DALLE';
 import DiscoProjectPage from './projectDisco';
 import LogoMotionProjectPage from './projectLogoMotion';
 import BlogPostPage from './pages/BlogPostPage';
+import FogProjectPage from './FogProjectPage';
 
 
 const ScrollToTop = () => {
@@ -42,6 +43,7 @@ function App() {
         <Route path="/disco" element={<DiscoProjectPage />} />
         <Route path="/disco3" element={<DiscoThree />} />
         <Route path="/opal" element={<ProjectOPAL />} />
+        <Route path="/fog" element={<FogProjectPage />} />
 
         {/* <Route path="/crud" element={<CrudPage />} /> */}
 

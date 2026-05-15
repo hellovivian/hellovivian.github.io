@@ -1,0 +1,38 @@
+.fog-tabs {
+  margin: 0 0 2rem;
+}
+
+.fog-tab-bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 0;
+}
+
+.fog-tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  padding: 8px 20px;
+  font-family: 'Proxima Nova', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #888;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.fog-tab-btn:hover {
+  color: #333;
+}
+
+.fog-tab-btn--active {
+  color: #222;
+  border-bottom-color: #222;
+}
+
+.fog-tab-content {
+  padding-top: 4px;
+}

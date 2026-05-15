@@ -1,0 +1,86 @@
+.emotions-reference {
+  font-family: 'Proxima Nova', system-ui, sans-serif;
+  padding: 16px 0 24px;
+}
+
+.emotions-reference .er-subtitle {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  padding-bottom: 12px;
+}
+
+.emotions-reference .er-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px 0 14px;
+}
+
+.emotions-reference .er-controls button {
+  background: #eee;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.emotions-reference .er-controls button:hover {
+  background: #ddd;
+}
+
+.emotions-reference .er-theme-toggle {
+  background: none !important;
+  border: none !important;
+  font-size: 16px !important;
+  opacity: 0.6;
+  padding: 6px 10px !important;
+}
+
+.emotions-reference .er-theme-toggle:hover {
+  opacity: 1;
+}
+
+.emotions-reference .er-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.emotions-reference .er-cell {
+  background: #0a0a0a;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  transition: border-color 0.2s;
+}
+
+.emotions-reference .er-cell:hover {
+  border-color: #bbb;
+}
+
+.emotions-reference .er-cell canvas {
+  display: block;
+}
+
+.emotions-reference .er-cell-label {
+  padding: 6px 10px 6px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+/* Dark mode — only affects the cells, not the container */
+.emotions-reference.dark .er-cell {
+  border-color: #2a2a2a;
+}
+
+.emotions-reference.dark .er-cell:hover {
+  border-color: #444;
+}

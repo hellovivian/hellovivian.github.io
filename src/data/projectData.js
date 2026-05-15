@@ -1,7 +1,21 @@
 // projectData.js
 const projectData = [
+  // {
+  //   id: 0,
+  //   title: 'fog: Expressing Emotions and Social Dynamics through Function Composition of AI-Generated Code',
+  //   authors: 'First Last, First Last',
+  //   venue: '',
+  //   links: {
+  //     paperlink: "",
+  //     pg: "/fog",
+  //     codelink: "",
+  //     demolink: "",
+  //     video: "",
+  //     img_src: "./blogpost_images/vibes.gif",
+  //   },
+  // },
   {
-    id: 0,
+    id: 1,
     title: 'LogoMotion: Visually-Grounded Code Synthesis for Creating and Editing Animation',
     authors: 'Vivian Liu, Rubaiat Habib Kazi, Li-Yi Wei, Matt Fisher, Timothy Langlois, Seth Walker, Lydia Chilton',
     venue: 'CHI 2025',
