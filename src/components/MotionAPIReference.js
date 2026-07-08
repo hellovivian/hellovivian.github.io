@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './MotionAPIReference.css';
 
 const VERB_GROUPS = [
@@ -15,6 +15,9 @@ const ADVERB_LEAVES  = ['Slowly', 'Quickly', 'Suddenly', 'Urgently', 'Eagerly', 
 // ── Source file map: class name → public URL ──
 const SRC = '/source/motion-emotion-interfaces';
 const SOURCE_FILES = {
+  // Core
+  Entity:         `${SRC}/entity.js`,
+
   // Bases
   Motion:         `${SRC}/motion.js`,
   Verb:           `${SRC}/verb.js`,
@@ -191,9 +194,39 @@ const CodeSnippet = ({ name, code, loading }) => (
 );
 
 const MotionAPIReference = () => {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState('Chase');
   const [cache, setCache] = useState({});
   const [loading, setLoading] = useState(false);
+  const [connectors, setConnectors] = useState([]);
+  const wrapperRef  = useRef(null);
+  const motionRef   = useRef(null);
+  const verbRef     = useRef(null);
+  const emotionRef  = useRef(null);
+  const gestureRef  = useRef(null);
+  const adverbRef   = useRef(null);
+
+  useEffect(() => {
+    function compute() {
+      const wrapper = wrapperRef.current;
+      const refs = [motionRef, verbRef, emotionRef, gestureRef, adverbRef];
+      if (!wrapper || refs.some(r => !r.current)) return;
+      const wRect = wrapper.getBoundingClientRect();
+      const [mR, vR, eR, gR, aR] = refs.map(r => r.current.getBoundingClientRect());
+      const mx = mR.left + mR.width / 2 - wRect.left;
+      const my = mR.bottom - wRect.top;
+      const paths = [vR, eR, gR, aR].map(tR => {
+        const tx = tR.left + tR.width / 2 - wRect.left;
+        const ty = tR.top - wRect.top;
+        const mid = my + (ty - my) * 0.5;
+        return `M ${mx} ${my} L ${mx} ${mid} L ${tx} ${mid} L ${tx} ${ty}`;
+      });
+      setConnectors(paths);
+    }
+    compute();
+    const obs = new ResizeObserver(compute);
+    if (wrapperRef.current) obs.observe(wrapperRef.current);
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!selected) return;
@@ -214,8 +247,9 @@ const MotionAPIReference = () => {
       .finally(() => setLoading(false));
   }, [selected, cache]);
 
-  const Node = ({ name, kind = 'leaf' }) => (
+  const Node = ({ name, kind = 'leaf', nodeRef }) => (
     <button
+      ref={nodeRef}
       type="button"
       className={`node ${kind} ${selected === name ? 'selected' : ''}`}
       onClick={() => setSelected(s => s === name ? null : name)}
@@ -226,72 +260,85 @@ const MotionAPIReference = () => {
 
   return (
     <div className="motion-api">
+      <p className="motion-api-hint">Click any function to read its implementation.</p>
       <div className="motion-api-layout">
         <div className="motion-api-tree">
-          <div className="root-row">
-            <Node name="Motion" kind="motion" />
+          <div className="entity-row">
+            <Node name="Entity" kind="motion" />
+          </div>
+          <div className="split col-labels-row">
+            <div className="split-col left"><div className="col-label">Primary Motion</div></div>
+            <div className="split-col right"><div className="col-label">Secondary Motion</div></div>
           </div>
 
-          <div className="split">
-            {/* PRIMARY MOTION (left) */}
-            <div className="split-col left">
-              <div className="col-label">Primary Motion</div>
+          <div ref={wrapperRef} style={{ position: 'relative' }}>
+            <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', overflow: 'visible' }}>
+              {connectors.map((d, i) => (
+                <path key={i} d={d} fill="none" stroke="#ddd" strokeWidth={1} />
+              ))}
+            </svg>
 
-              <ul className="tree col-verb">
-                <li>
-                  <Node name="Verb" kind="root" />
-                  <ul>
-                    {VERB_GROUPS.map(group => (
-                      <li key={group.name}>
-                        <Node name={group.name} kind="base" />
-                        <div className="leaf-row">
-                          {group.leaves.map(leaf => (
-                            <Node key={leaf} name={leaf} kind="leaf" />
-                          ))}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              </ul>
-
-              <ul className="tree col-emotion" style={{ marginTop: 8 }}>
-                <li>
-                  <Node name="Emotion" kind="root" />
-                  <div className="leaf-row">
-                    {EMOTION_LEAVES.map(leaf => (
-                      <Node key={leaf} name={leaf} kind="leaf" />
-                    ))}
-                  </div>
-                </li>
-              </ul>
+            <div className="root-row">
+              <Node name="Motion" kind="motion" nodeRef={motionRef} />
             </div>
 
-            {/* SECONDARY MOTION (right) */}
-            <div className="split-col right">
-              <div className="col-label">Secondary Motion</div>
+            <div className="split">
+              {/* PRIMARY MOTION (left) */}
+              <div className="split-col left">
+                <ul className="tree col-verb">
+                  <li>
+                    <Node name="Verb" kind="root" nodeRef={verbRef} />
+                    <ul>
+                      {VERB_GROUPS.map(group => (
+                        <li key={group.name}>
+                          <Node name={group.name} kind="base" />
+                          <div className="leaf-row">
+                            {group.leaves.map(leaf => (
+                              <Node key={leaf} name={leaf} kind="leaf" />
+                            ))}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                </ul>
 
-              <ul className="tree col-gesture">
-                <li>
-                  <Node name="Gesture" kind="root" />
-                  <div className="leaf-row">
-                    {GESTURE_LEAVES.map(leaf => (
-                      <Node key={leaf} name={leaf} kind="leaf" />
-                    ))}
-                  </div>
-                </li>
-              </ul>
+                <ul className="tree col-emotion" style={{ marginTop: 8 }}>
+                  <li>
+                    <Node name="Emotion" kind="root" nodeRef={emotionRef} />
+                    <div className="leaf-row">
+                      {EMOTION_LEAVES.map(leaf => (
+                        <Node key={leaf} name={leaf} kind="leaf" />
+                      ))}
+                    </div>
+                  </li>
+                </ul>
+              </div>
 
-              <ul className="tree col-adverb" style={{ marginTop: 8 }}>
-                <li>
-                  <Node name="Adverb" kind="root" />
-                  <div className="leaf-row">
-                    {ADVERB_LEAVES.map(leaf => (
-                      <Node key={leaf} name={leaf} kind="leaf" />
-                    ))}
-                  </div>
-                </li>
-              </ul>
+              {/* SECONDARY MOTION (right) */}
+              <div className="split-col right">
+                <ul className="tree col-gesture">
+                  <li>
+                    <Node name="Gesture" kind="root" nodeRef={gestureRef} />
+                    <div className="leaf-row">
+                      {GESTURE_LEAVES.map(leaf => (
+                        <Node key={leaf} name={leaf} kind="leaf" />
+                      ))}
+                    </div>
+                  </li>
+                </ul>
+
+                <ul className="tree col-adverb" style={{ marginTop: 8 }}>
+                  <li>
+                    <Node name="Adverb" kind="root" nodeRef={adverbRef} />
+                    <div className="leaf-row">
+                      {ADVERB_LEAVES.map(leaf => (
+                        <Node key={leaf} name={leaf} kind="leaf" />
+                      ))}
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

@@ -1,3 +1,12 @@
+.motion-api-hint {
+  font-family: 'Proxima Nova', system-ui, sans-serif;
+  font-size: 12px;
+  color: #aaa;
+  letter-spacing: 0.04em;
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
 .motion-api {
   --bg:        #f9f8f4;
   --fg:        #424242;
@@ -9,6 +18,14 @@
   margin: 1rem auto;
   font-family: 'DM Mono', monospace;
   color: var(--fg);
+}
+
+.motion-api .entity-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
 }
 
 .motion-api .root-row {
@@ -53,6 +70,7 @@
 
 /* Two columns */
 .motion-api .split { display: flex; gap: 0; margin-top: 28px; }
+.motion-api .col-labels-row { margin-top: 0; margin-bottom: 4px; }
 .motion-api .split-col { flex: 1; position: relative; }
 .motion-api .split-col.right { text-align: right; }
 

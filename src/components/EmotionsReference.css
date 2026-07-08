@@ -1,86 +1,70 @@
-.emotions-reference {
+.er-panel {
   font-family: 'Proxima Nova', system-ui, sans-serif;
-  padding: 16px 0 24px;
-}
-
-.emotions-reference .er-subtitle {
-  text-align: center;
-  font-size: 12px;
-  color: #777;
-  padding-bottom: 12px;
-}
-
-.emotions-reference .er-controls {
+  padding: 8px 0 24px;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   gap: 16px;
-  padding: 8px 0 14px;
+  align-items: flex-start;
 }
 
-.emotions-reference .er-controls button {
-  background: #eee;
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 6px 16px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 13px;
-}
-
-.emotions-reference .er-controls button:hover {
-  background: #ddd;
-}
-
-.emotions-reference .er-theme-toggle {
-  background: none !important;
-  border: none !important;
-  font-size: 16px !important;
-  opacity: 0.6;
-  padding: 6px 10px !important;
-}
-
-.emotions-reference .er-theme-toggle:hover {
-  opacity: 1;
-}
-
-.emotions-reference .er-grid {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  justify-content: center;
-  gap: 10px;
-  padding: 0 10px;
-}
-
-.emotions-reference .er-cell {
-  background: #0a0a0a;
-  border-radius: 5px;
+/* Main canvas — left */
+.er-main-wrap {
+  position: relative;
+  border-radius: 6px;
   overflow: hidden;
-  border: 1px solid #e0e0e0;
-  transition: border-color 0.2s;
+  flex-shrink: 0;
+  width: min(512px, 55%);
 }
 
-.emotions-reference .er-cell:hover {
-  border-color: #bbb;
-}
-
-.emotions-reference .er-cell canvas {
+.er-main-canvas {
   display: block;
+  width: 100%;
+  height: auto;
 }
 
-.emotions-reference .er-cell-label {
-  padding: 6px 10px 6px;
-  font-size: 12px;
+.er-main-label {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+/* Chip grid — right, abstract-emotes cell style */
+.er-chips {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 6px;
+  align-content: flex-start;
+}
+
+.er-chip {
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #1a1a1a;
+  padding: 10px 8px 8px;
+  font-family: 'Proxima Nova', system-ui, sans-serif;
+  font-size: 9px;
   font-weight: 500;
-  letter-spacing: 0.5px;
-  color: #fff;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #000;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
 }
 
-/* Dark mode — only affects the cells, not the container */
-.emotions-reference.dark .er-cell {
+.er-chip:hover {
   border-color: #2a2a2a;
+  color: #000;
 }
 
-.emotions-reference.dark .er-cell:hover {
+.er-chip--active {
   border-color: #444;
+  color: #000;
 }

@@ -73,11 +73,6 @@ function lerpHex(a, b, t) {
   return `#${ri.toString(16).padStart(2,'0')}${gi.toString(16).padStart(2,'0')}${bi.toString(16).padStart(2,'0')}`;
 }
 
-const getMouseColor = (x, y, width, height) => {
-  const hue = (x / width) * 360;
-  const lightness = 30 + (y / height) * 40;
-  return `hsl(${hue}, 80%, ${lightness}%)`;
-};
 
 function createGaussianDot(size, blur, color) {
   const safeSize = isFinite(size) ? size : 50;
@@ -116,16 +111,16 @@ function createGaussianDot(size, blur, color) {
 
 // ── Valence × Arousal map ─────────────────────────────────────────
 
-const MAP_SIZE = 108;
-const MAP_PAD  = 18;
-const PROGRESS_R    = 10;
+const MAP_SIZE = 256;
+const MAP_PAD  = 32;
+const PROGRESS_R    = 16;
 const PROGRESS_CIRC = 2 * Math.PI * PROGRESS_R;
 
 // Hoisted so the RAF loop can compute arc position without a React render
 const toMapX = (v) => MAP_PAD + ((v + 1) / 2) * (MAP_SIZE - 2 * MAP_PAD);
 const toMapY = (a) => MAP_PAD + ((1 - a) / 2) * (MAP_SIZE - 2 * MAP_PAD);
 
-function ValenceArousalMap({ currentIdx, onSelect, progressArcRef }) {
+function ValenceArousalMap({ currentIdx, onSelect, progressArcRef, emotionLabelRef }) {
   const [hoveredIdx, setHoveredIdx] = useState(null);
 
   const axisColor  = '#d0d0d0';
@@ -148,16 +143,19 @@ function ValenceArousalMap({ currentIdx, onSelect, progressArcRef }) {
       boxShadow: '0 1px 10px rgba(0,0,0,0.07)',
       userSelect: 'none',
     }}>
-      <svg width={MAP_SIZE} height={MAP_SIZE} style={{ display: 'block', overflow: 'visible' }}>
+      <svg
+        viewBox={`0 0 ${MAP_SIZE} ${MAP_SIZE}`}
+        style={{ display: 'block', overflow: 'visible', width: 'min(256px, 45vw)', height: 'auto' }}
+      >
         {/* Axes */}
         <line x1={MAP_PAD} y1={mid} x2={MAP_SIZE - MAP_PAD} y2={mid} stroke={axisColor} strokeWidth={1} />
         <line x1={mid} y1={MAP_PAD} x2={mid} y2={MAP_SIZE - MAP_PAD} stroke={axisColor} strokeWidth={1} />
 
         {/* Axis labels */}
-        <text x={MAP_SIZE - MAP_PAD - 1} y={mid - 4} fontSize={6.5} fill={labelColor} textAnchor="end">pleasure</text>
-        <text x={MAP_PAD + 1}            y={mid - 4} fontSize={6.5} fill={labelColor} textAnchor="start">pain</text>
-        <text x={mid} y={MAP_PAD - 4}    fontSize={6.5} fill={labelColor} textAnchor="middle">arousal</text>
-        <text x={mid} y={MAP_SIZE - MAP_PAD + 10} fontSize={6.5} fill={labelColor} textAnchor="middle">calm</text>
+        <text x={MAP_SIZE - MAP_PAD - 1} y={mid - 6} fontSize={13} fill={labelColor} textAnchor="end">positive</text>
+        <text x={MAP_PAD + 1}            y={mid - 6} fontSize={13} fill={labelColor} textAnchor="start">negative</text>
+        <text x={mid} y={MAP_PAD - 6}    fontSize={13} fill={labelColor} textAnchor="middle">arousal</text>
+        <text x={mid} y={MAP_SIZE - MAP_PAD + 16} fontSize={13} fill={labelColor} textAnchor="middle">calm</text>
 
         {/* Progress arc — updated each frame via DOM ref, no re-render needed */}
         <circle
@@ -181,7 +179,7 @@ function ValenceArousalMap({ currentIdx, onSelect, progressArcRef }) {
           const cy = toMapY(e.arousal);
           const isActive  = i === currentIdx;
           const isHovered = i === hoveredIdx;
-          const r = isActive ? 6 : isHovered ? 5 : 3.5;
+          const r = isActive ? 10 : isHovered ? 8 : 6;
           return (
             <g
               key={e.label}
@@ -204,19 +202,18 @@ function ValenceArousalMap({ currentIdx, onSelect, progressArcRef }) {
         })}
       </svg>
 
-      <div style={{
-        fontSize: 9,
-        fontFamily: 'monospace',
-        color: '#888',
-        textAlign: 'center',
-        marginTop: 2,
-        height: 12,
-        letterSpacing: '0.02em',
-      }}>
-        {hoveredIdx !== null
-          ? EMOTION_SEQUENCE[hoveredIdx].label
-          : EMOTION_SEQUENCE[currentIdx].label}
-      </div>
+      <div
+        ref={emotionLabelRef}
+        style={{
+          fontSize: 11,
+          fontFamily: 'monospace',
+          color: '#888',
+          textAlign: 'center',
+          marginTop: 4,
+          height: 16,
+          letterSpacing: '0.02em',
+        }}
+      />
     </div>
   );
 }
@@ -232,6 +229,7 @@ const GaussianBlob = ({ width = 500, height = 400, dotSize = 200, blur = 22 }) =
   useEffect(() => { propsRef.current = { width, height, dotSize, blur }; }, [width, height, dotSize, blur]);
 
   const [emotionIdx, setEmotionIdx] = useState(0);
+  const [helpOpen, setHelpOpen] = useState(false);
   const emotionIdxRef     = useRef(0);
   const pendingEmotionRef = useRef(null);
 
@@ -244,6 +242,10 @@ const GaussianBlob = ({ width = 500, height = 400, dotSize = 200, blur = 22 }) =
   });
 
   const entityRef = useRef(buildEntity(EMOTION_SEQUENCE[0]));
+  // const reactionActiveRef   = useRef(false);  // DEPRECATED: surprised-on-hover reaction
+  // const reactionCooldownRef = useRef(0);
+  // const reactionLabelRef    = useRef(null);
+  const emotionLabelRef     = useRef(null);
 
   // Mouse events
   useEffect(() => {
@@ -263,14 +265,25 @@ const GaussianBlob = ({ width = 500, height = 400, dotSize = 200, blur = 22 }) =
       s.isSquishing = true;
       s.squishT0 = performance.now();
     };
+    // DEPRECATED: surprised-on-hover reaction
+    // const onEnter = () => {
+    //   const now = performance.now();
+    //   if (now - reactionCooldownRef.current < 4000) return;
+    //   reactionCooldownRef.current = now;
+    //   reactionActiveRef.current = true;
+    //   resetEntity(entityRef.current, EMOTION_SEQUENCE[3]); // surprised
+    //   if (reactionLabelRef.current) reactionLabelRef.current.classList.add('visible');
+    // };
 
     canvas.addEventListener('mousemove', onMove);
     canvas.addEventListener('mouseleave', onLeave);
     canvas.addEventListener('mousedown', onClick);
+    // canvas.addEventListener('mouseenter', onEnter);
     return () => {
       canvas.removeEventListener('mousemove', onMove);
       canvas.removeEventListener('mouseleave', onLeave);
       canvas.removeEventListener('mousedown', onClick);
+      // canvas.removeEventListener('mouseenter', onEnter);
     };
   }, []);
 
@@ -301,14 +314,27 @@ const GaussianBlob = ({ width = 500, height = 400, dotSize = 200, blur = 22 }) =
       // Advance entity
       entity._stateElapsed += dt;
       if (entity.t >= 1) {
-        const next = (emotionIdxRef.current + 1) % EMOTION_SEQUENCE.length;
-        emotionIdxRef.current = next;
-        setEmotionIdx(next);
-        resetEntity(entity, EMOTION_SEQUENCE[next]);
+        // DEPRECATED: surprised-on-hover reaction
+        // if (reactionActiveRef.current) {
+        //   reactionActiveRef.current = false;
+        //   if (reactionLabelRef.current) reactionLabelRef.current.classList.remove('visible');
+        //   resetEntity(entity, EMOTION_SEQUENCE[emotionIdxRef.current]);
+        // } else {
+          const next = (emotionIdxRef.current + 1) % EMOTION_SEQUENCE.length;
+          emotionIdxRef.current = next;
+          setEmotionIdx(next);
+          resetEntity(entity, EMOTION_SEQUENCE[next]);
+        // }
       }
 
       entity.update(dt);
       entity.step(dt, REF_BOUNDS);
+
+      // Update emotion label via DOM
+      if (emotionLabelRef.current) {
+        // DEPRECATED: reactionActiveRef.current ? 'Surprised' : ...
+        emotionLabelRef.current.textContent = `Current Emotion: ${EMOTION_SEQUENCE[emotionIdxRef.current].label}`;
+      }
 
       // ── Update progress arc via DOM (no React re-render) ──────────
       const arc = progressArcRef.current;
@@ -340,22 +366,25 @@ const GaussianBlob = ({ width = 500, height = 400, dotSize = 200, blur = 22 }) =
         }
       }
 
-      // Lerp toward target — scale tracking speed to entity velocity so fast
-      // lunges (anger, surprised) snap through rather than getting smoothed away
-      const targetX = s.isHovering ? s.mouseX : autoX;
-      const targetY = s.isHovering ? s.mouseY : autoY;
-      const entitySpeed = Math.hypot(entity.vx, entity.vy); // px/s in ref space
-      const velocityBoost = Math.min(entitySpeed / 200, 1) * 0.25;
-      const lerpSpeed = s.isHovering ? 0.16 : 0.08 + velocityBoost;
-      s.posX += (targetX - s.posX) * lerpSpeed;
-      s.posY += (targetY - s.posY) * lerpSpeed;
+      // // Lerp toward target — scale tracking speed to entity velocity so fast
+      // // lunges (anger, surprised) snap through rather than getting smoothed away
+      // const targetX = (s.isHovering && !reactionActiveRef.current) ? s.mouseX : autoX;
+      // const targetY = (s.isHovering && !reactionActiveRef.current) ? s.mouseY : autoY;
+      // const entitySpeed = Math.hypot(entity.vx, entity.vy); // px/s in ref space
+      // const velocityBoost = Math.min(entitySpeed / 200, 1) * 0.25;
+      // const lerpSpeed = s.isHovering ? 0.16 : 0.08 + velocityBoost;
+      // s.posX += (targetX - s.posX) * lerpSpeed;
+      // s.posY += (targetY - s.posY) * lerpSpeed;
+      s.posX = autoX;
+      s.posY = autoY;
 
       // Color
       const emotionColor = EMOTION_SEQUENCE[emotionIdxRef.current].color;
       s.displayColor = lerpHex(s.displayColor, emotionColor, 0.06);
-      const activeColor = s.isHovering
-        ? getMouseColor(s.posX, s.posY, width, height)
-        : s.displayColor;
+      // const activeColor = s.isHovering
+      //   ? getMouseColor(s.posX, s.posY, width, height)
+      //   : s.displayColor;
+      const activeColor = s.displayColor;
 
       // Combine click-squish with emotion's own squash/stretch (e.g. anger seethe)
       const totalSx = s.squishX * (entity.sx ?? 1);
@@ -410,10 +439,23 @@ const GaussianBlob = ({ width = 500, height = 400, dotSize = 200, blur = 22 }) =
         height={height}
         style={{ display: 'block', cursor: 'crosshair' }}
       />
+      {/* DEPRECATED: surprised-on-hover reaction label */}
+      {/* <div ref={reactionLabelRef} className="gaussian-reaction-label"></div> */}
+      <button
+        className="gaussian-help-btn"
+        onClick={() => setHelpOpen(o => !o)}
+        aria-label="Help"
+      >?</button>
+      {helpOpen && (
+        <div className="gaussian-help-popover">
+          The dot is an agent cycling through emotions. If it notices you — your cursor entering the canvas — it will act surprised.
+        </div>
+      )}
       <ValenceArousalMap
         currentIdx={emotionIdx}
         onSelect={handleSelect}
         progressArcRef={progressArcRef}
+        emotionLabelRef={emotionLabelRef}
       />
     </div>
   );

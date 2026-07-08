@@ -1,19 +1,19 @@
 // projectData.js
 const projectData = [
-  // {
-  //   id: 0,
-  //   title: 'fog: Expressing Emotions and Social Dynamics through Function Composition of AI-Generated Code',
-  //   authors: 'First Last, First Last',
-  //   venue: '',
-  //   links: {
-  //     paperlink: "",
-  //     pg: "/fog",
-  //     codelink: "",
-  //     demolink: "",
-  //     video: "",
-  //     img_src: "./blogpost_images/vibes.gif",
-  //   },
-  // },
+  {
+    id: 0,
+    title: 'fog: Expressing Motion and Emotion through Function Composition of AI-Generated Code',
+    authors: 'Vivian Liu and Lydia Chilton',
+    venue: 'Under submission',
+    links: {
+      paperlink: "https://fog-motion-emotion.vercel.app/public/fog/fog_arxiv.pdf",
+      pg: "fog-motion-emotion.vercel.app",
+      codelink: "https://github.com/hellovivian/fog-motion-emotion/tree/main",
+      demolink: "",
+      video: "https://www.youtube.com/watch?v=Hx6ahqy6uxE&feature=youtu.be",
+      img_src: "./fog/emotions.gif",
+    },
+  },
   {
     id: 1,
     title: 'LogoMotion: Visually-Grounded Code Synthesis for Creating and Editing Animation',
