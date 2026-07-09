@@ -7,7 +7,7 @@ const projectData = [
     venue: 'Under submission',
     links: {
       paperlink: "https://fog-motion-emotion.vercel.app/public/fog/fog_arxiv.pdf",
-      pg: "fog-motion-emotion.vercel.app",
+      pg: "https://fog-motion-emotion.vercel.app",
       codelink: "https://github.com/hellovivian/fog-motion-emotion/tree/main",
       demolink: "",
       video: "https://www.youtube.com/watch?v=Hx6ahqy6uxE&feature=youtu.be",
