@@ -20,7 +20,7 @@ const projectData = [
     authors: 'Vivian Liu, Rubaiat Habib Kazi, Li-Yi Wei, Matt Fisher, Timothy Langlois, Seth Walker, Lydia Chilton',
     venue: 'CHI 2025',
     links: {
-      paperlink:"/papers/Logomotion_ACM.pdf",
+      paperlink:"/papers/LogoMotion_ACM.pdf",
       pg: "/logomotion",
       codelink: "",
       demolink: "https://logomotion.vercel.app/",
