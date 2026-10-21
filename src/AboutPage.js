@@ -19,12 +19,14 @@ const AboutPage = () => {
         <div class="split-horizontal">
           <div class="vertical-flex">
 
-            <p class="about_text">I'm currently a sixth year Computer Science PhD Student at Columbia University and a Senior Research Scientist at Autodesk Research. My PhD was supported by a National Science Foundation Graduate Research Fellowship. I work on the intersection of human-computer interaction and generative AI with <a href="https://www.cs.columbia.edu/~chilton/#">Professor Lydia Chilton</a> in the Computational Design Lab. Previously, I worked at Google Deepmind, Adobe Research, and Autodesk Research.</p>
+            <p class="about_text">I am a Senior Research Scientist at Autodesk Research. My interests as a researcher are in visual code generation, generative user interfaces, and authoring 3D design and expressive motion. </p>
+           
+            <p>Previously I did my PhD at Columbia University in the Computational Design Lab with <a href="https://www.cs.columbia.edu/~chilton/#">Professor Lydia Chilton</a>, where I studied human-computer interaction with generative AI for design activity. Previously, I worked at Google Deepmind, Adobe Research, and Autodesk Research.</p>
 
-            <p class="about_text">
+            {/* <p class="about_text">
               In my free time, I like to design, write, and dance in New York City. During the third year of my PhD, I danced on the Columbia Dance Team, performing half time at football and basketball games.
 
-            </p>
+            </p> */}
             <p class="about_text">
               I graduated from UC Berkeley with Distinction in Computer Science and Cognitive Science. I also earned a certificate in New Media. During my undergrad, I loved to <a href="/#/blog/made-in-berkeley">make things </a>  at the Jacobs Institute of Design.
 
