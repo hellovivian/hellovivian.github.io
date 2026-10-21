@@ -19,7 +19,7 @@ const AboutPage = () => {
         <div class="split-horizontal">
           <div class="vertical-flex">
 
-            <p class="about_text">I am a Senior Research Scientist at Autodesk Research. My interests as a researcher are in visual code generation, generative user interfaces, and authoring 3D design and expressive motion. </p>
+            <p class="about_text">I am a Senior Research Scientist at Autodesk Research. My research interests are in visual code generation for 3D design and expressive motion, generative user interfaces, and personal tools.</p>
            
             <p>Previously I did my PhD at Columbia University in the Computational Design Lab with <a href="https://www.cs.columbia.edu/~chilton/#">Professor Lydia Chilton</a>, where I studied human-computer interaction with generative AI for design activity. Previously, I worked at Google Deepmind, Adobe Research, and Autodesk Research.</p>
 
