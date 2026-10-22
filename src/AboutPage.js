@@ -21,7 +21,7 @@ const AboutPage = () => {
 
             <p class="about_text">I am a Senior Research Scientist at Autodesk Research. My research interests are in visual code generation for 3D design and expressive motion, generative user interfaces, and personal tools.</p>
            
-            <p>Previously I did my PhD at Columbia University in the Computational Design Lab with <a href="https://www.cs.columbia.edu/~chilton/#">Professor Lydia Chilton</a>, where I studied human-computer interaction with generative AI for design activity. Previously, I worked at Google Deepmind, Adobe Research, and Autodesk Research.</p>
+            <p>Previously I did my PhD at Columbia University in the Computational Design Lab with <a href="https://www.cs.columbia.edu/~chilton/#">Professor Lydia Chilton</a>, where I studied human-computer interaction with generative AI for design tools. Previously, I worked at Google Deepmind, Adobe Research, and Autodesk Research.</p>
 
             {/* <p class="about_text">
               In my free time, I like to design, write, and dance in New York City. During the third year of my PhD, I danced on the Columbia Dance Team, performing half time at football and basketball games.
