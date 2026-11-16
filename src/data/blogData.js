@@ -8,9 +8,26 @@ import NeuralNetworkContent from '../blog-content/NeuralNetwork.js';
 import PersonalInformaticsContent from '../blog-content/PersonalInformatics.js';
 import UserInterfaceDustBunniesContent from '../blog-content/UserInterfaceDustBunnies.js';
 import GradientsContent from '../blog-content/Gradients.js';
-
+import Progression from '../blog-content/Progression.js';
 
 const blogData = [
+  {
+    id: 12,
+    title: 'Hypothesis Testing',
+    slug: 'hypothesis-testing',
+    date: 'NOV 2026',
+    description: 'A/B Testing My Life',
+    component: Progression,
+    links: {
+      paperlink: "",
+      pg: "",
+      codelink: "",
+      demolink: "",
+      blogpostlink: "/blog/hypothesis-testing",
+      video: "",
+      img_src: "./blogpost_images/hypothesis_testing/hypothesis_test_square.png",
+    }
+  },
   {
     id: 11,
     title: 'Gradients and Frosted Glass',
