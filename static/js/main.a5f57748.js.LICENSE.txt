@@ -72,5 +72,3 @@
  *
  * @license MIT
  */
-
-//!\ DECLARE ALIAS AFTER assign prototype !
