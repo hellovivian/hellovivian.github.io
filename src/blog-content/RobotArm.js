@@ -74,63 +74,6 @@ function Choices({ items, current, onPick }) {
   );
 }
 
-// ── Feeling map ──
-// Borrowed from the fog hero banner (fog-motion-emotion/src/hero/gaussian-blob.js):
-// a valence x arousal square with one dot per feeling. Click a dot to swap the
-// feeling. Dots are fixed points, not a draggable blend: each feeling is its own
-// hand-written layer. Positions are the hero's (a standard circumplex placement,
-// not measured); Default sits at the centre.
-const MAP_SIZE = 256, MAP_PAD = 32;
-const toMapX = (v) => MAP_PAD + ((v + 1) / 2) * (MAP_SIZE - 2 * MAP_PAD);
-const toMapY = (a) => MAP_PAD + ((1 - a) / 2) * (MAP_SIZE - 2 * MAP_PAD);
-const cssColor = (hex) => '#' + hex.toString(16).padStart(6, '0');
-const MAP_DOTS = [
-  { id: 'none',  label: 'Default', v: 0.0,   a: 0.0,   anchor: 'middle', lx: 0,   ly: 22 },
-  { id: 'happy', label: 'Happy',   v: 0.8,   a: 0.6,   anchor: 'start',  lx: 11,  ly: 4 },
-  { id: 'angry', label: 'Angry',   v: -0.8,  a: 0.85,  anchor: 'end',    lx: -11, ly: 4 },
-  { id: 'fear',  label: 'Fear',    v: -0.6,  a: 0.7,   anchor: 'start',  lx: 11,  ly: 4 },
-  { id: 'sad',   label: 'Sad',     v: -0.7,  a: -0.3,  anchor: 'start',  lx: 11,  ly: 4 },
-  { id: 'tired', label: 'Tired',   v: 0.05,  a: -0.8,  anchor: 'start',  lx: 11,  ly: 4 },
-];
-
-function FeelingMap({ current, onPick }) {
-  const [hover, setHover] = useState(null);
-  const mid = MAP_SIZE / 2, AXIS = '#d0d0d0', AXIS_TEXT = '#b0b0b0';
-  const axisText = (x, y, text, anchor) => (
-    <text x={x} y={y} fontSize="13" fill={AXIS_TEXT} textAnchor={anchor}>{text}</text>
-  );
-  return (
-    <div className="ra-map">
-      <div className="ra-map-title">Secondary · feeling</div>
-      <svg viewBox={`0 0 ${MAP_SIZE} ${MAP_SIZE}`} role="group" aria-label="Pick a feeling on a valence by arousal map">
-        <line x1={MAP_PAD} y1={mid} x2={MAP_SIZE - MAP_PAD} y2={mid} stroke={AXIS} />
-        <line x1={mid} y1={MAP_PAD} x2={mid} y2={MAP_SIZE - MAP_PAD} stroke={AXIS} />
-        {axisText(MAP_SIZE - MAP_PAD - 1, mid - 6, 'positive', 'end')}
-        {axisText(MAP_PAD + 1, mid - 6, 'negative', 'start')}
-        {axisText(mid, MAP_PAD - 8, 'arousal', 'middle')}
-        {axisText(mid, MAP_SIZE - MAP_PAD + 18, 'calm', 'middle')}
-        {MAP_DOTS.map((d) => {
-          const cx = toMapX(d.v), cy = toMapY(d.a);
-          const color = d.id === 'none' ? '#8a8f98' : cssColor(FEELING_COLORS[d.id]);
-          const active = d.id === current, lit = active || hover === d.id;
-          const choose = () => onPick(d.id);
-          return (
-            <g key={d.id} className="ra-map-dot" role="button" tabIndex={0} aria-label={d.label} aria-pressed={active}
-               onClick={choose} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(); } }}
-               onMouseEnter={() => setHover(d.id)} onMouseLeave={() => setHover(null)}>
-              <circle cx={cx} cy={cy} r="15" fill="transparent" />
-              {active && <circle cx={cx} cy={cy} r="13" fill="none" stroke={color} strokeWidth="1.5" />}
-              <circle cx={cx} cy={cy} r={lit ? 8 : 6} fill={lit ? color : '#ffffff'} stroke={lit ? color : '#cccccc'} strokeWidth="1.5" />
-              <text x={cx + d.lx} y={cy + d.ly} fontSize="12" textAnchor={d.anchor}
-                    fill={active ? '#1d1f24' : '#7a7f88'} fontWeight={active ? 700 : 400}>{d.label}</text>
-            </g>
-          );
-        })}
-      </svg>
-    </div>
-  );
-}
-
 function RobotArmDemo() {
   const stageRef = useRef(null);
 
@@ -414,11 +357,18 @@ function RobotArmDemo() {
   const primary = byId(PRIMARIES, primaryId), feeling = byId(FEELINGS, feelingId);
 
   return (
+    <div>
+    <p>
+  A little exploration on my day off. At my PhD defense, I talked about how it would be interesting to extend fog, a paper I wrote on code generation for expressive motion, to 3D motion. 
+  
+  The idea of the paper was that we can implement functions and compose them as primary and secondary motion layers. This split can correspond to how we express motion in language and words. For example, we can generate functions for verbs (wave(), pickAndPlace()), which own the speed and trajectory of the motion. We can also generate adverbs and emotion functions, which modify the manner and feeling of the verb. Then we can compose these bespokely generated functions. (I called it fog because it was inspired by f of g of x -- the main function composition we learn in school.) While in my paper I focused on Heider Simmel animations, abstract shape animation scenes, I wanted to show generalizability. And the answer to that in my head was to show that it has transferability to other domains like robotics as well!
+    </p>
+    <p> There's a lot more I want to do and try here. I want to add sketch input (sketch a path in 3D space). I could also imagine an interaction between a hand and a robot arm -- and how people could choreograph a human-robot interaction. :) </p>
+
     <div className="ra-demo ra-light">
       <div className="ra-stage" ref={stageRef}>
         <div className="ra-formula"><b>{primary.label}</b> + <b>{feeling.label}</b></div>
         <div className="ra-status">{status}</div>
-        <FeelingMap current={feelingId} onPick={(id) => pickFeeling(byId(FEELINGS, id))} />
       </div>
 
       <div className="ra-panel">
@@ -428,8 +378,13 @@ function RobotArmDemo() {
           <p className="ra-blurb">{primary.blurb}</p>
         </section>
 
-
+        <section>
+          <h4>Secondary · the feeling</h4>
+          <Choices items={FEELINGS} current={feelingId} onPick={pickFeeling} />
+          <p className="ra-blurb">{feeling.blurb}</p>
+        </section>
       </div>
+    </div>
     </div>
   );
 }
@@ -439,10 +394,19 @@ function RobotArmDemo() {
 function RobotArm({ live = false }) {
   const { pathname } = useLocation();
   const onPostPage = pathname.replace(/\/+$/, '').endsWith('/blog/' + SLUG);
-  if (!onPostPage && !live) {
-    return <img className="ra-poster" src={POSTER} alt="A robot arm carrying a cube with no feeling, then happy, sad and afraid" />;
-  }
-  return <RobotArmDemo />;
+  const poster = (
+    <img className="ra-poster" src={POSTER} alt="A robot arm carrying a cube with default performance, then happy, sad and afraid feeling." />
+  );
+  if (!onPostPage && !live) return poster;
+  // The post page gets the interactive demo plus the static contact sheet below
+  // it; the blog index's hover preview (live) gets just the demo.
+  if (live && !onPostPage) return <RobotArmDemo />;
+  return (
+    <>
+      <RobotArmDemo />
+      {/* {poster} */}
+    </>
+  );
 }
 
 export default RobotArm;

@@ -14,12 +14,12 @@ import RobotArmContent from '../blog-content/RobotArm.js';
 const blogData = [
   {
     id: 13,
-    title: 'A Robot Arm With Feelings',
+    title: 'Authoring Expressive Robot Motion',
     slug: 'robot-arm',
     date: 'NOV 2026',
-    description: 'Swapping emotions on top of a task',
+    description: "Extending fog's architecture into another motion task ;) ",
     component: RobotArmContent,
-    previewLive: true, // hover preview shows the interactive demo instead of text
+    previewMode: 'live', // hover preview shows the interactive demo
     links: {
       paperlink: "",
       pg: "",
