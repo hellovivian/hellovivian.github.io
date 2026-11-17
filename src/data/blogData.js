@@ -9,8 +9,27 @@ import PersonalInformaticsContent from '../blog-content/PersonalInformatics.js';
 import UserInterfaceDustBunniesContent from '../blog-content/UserInterfaceDustBunnies.js';
 import GradientsContent from '../blog-content/Gradients.js';
 import Progression from '../blog-content/Progression.js';
+import RobotArmContent from '../blog-content/RobotArm.js';
 
 const blogData = [
+  {
+    id: 13,
+    title: 'A Robot Arm With Feelings',
+    slug: 'robot-arm',
+    date: 'NOV 2026',
+    description: 'Swapping emotions on top of a task',
+    component: RobotArmContent,
+    previewLive: true, // hover preview shows the interactive demo instead of text
+    links: {
+      paperlink: "",
+      pg: "",
+      codelink: "",
+      demolink: "",
+      blogpostlink: "/blog/robot-arm",
+      video: "",
+      img_src: "./blogpost_images/robot_arm/happy.gif",
+    }
+  },
   {
     id: 12,
     title: 'Hypothesis Testing',
