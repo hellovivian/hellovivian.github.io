@@ -460,3 +460,23 @@ th {
   border: solid 1px gray;
   border-radius: 0.25em;
 }
+
+/* Optional small credit link under a row's image (BlogPost imgcredit prop) */
+.project-preview-wrap {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.project-row .img-credit {
+  margin: -0.5em 1em 0.5em;
+  font-size: 12px;
+  text-align: left;
+}
+
+.project-row .img-credit a {
+  margin: 0;
+  font-size: 12px !important;
+  color: #666;
+  text-decoration: underline;
+}

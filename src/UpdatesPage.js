@@ -14,7 +14,7 @@ const UpdatesPage = () => {
       <div className="profile-container">
         <div>
           {updatesData.map((project) => (
-            <BlogPost projectname={project.title} date={project.date} authors={project.authors} projectpage={project.links.pg} codelink={project.links.codelink} video={project.links.video} demolink={project.links.demolink} blogpostlink={project.links.blogpostlink} paperlink={project.links.paperlink} venue={project.venue} imgsrc={project.links.img_src} />
+            <BlogPost projectname={project.title} date={project.date} authors={project.authors} projectpage={project.links.pg} codelink={project.links.codelink} video={project.links.video} demolink={project.links.demolink} blogpostlink={project.links.blogpostlink} paperlink={project.links.paperlink} venue={project.venue} imgsrc={project.links.img_src} imgcredit={project.links.img_credit} />
           ))}
         </div>
       </div>

@@ -16,10 +16,20 @@ const BlogPost = (props) => {
   const demolink = props.demolink;
   const blogpostlink = props.blogpostlink;
   const video = props.video;
+  const imgcredit = props.imgcredit;  // optional URL, shown as a small credit under the image
 
   return (
     <div className="project-row">
-      <img className="project-preview" src={imgsrc} />
+      {imgcredit ? (
+        <div className="project-preview-wrap">
+          <img className="project-preview" src={imgsrc} />
+          <p className="img-credit">
+            <a href={imgcredit} target="_blank" rel="noopener noreferrer">Image credit</a>
+          </p>
+        </div>
+      ) : (
+        <img className="project-preview" src={imgsrc} />
+      )}
 
       <div>
         <h3>{projectname}</h3>

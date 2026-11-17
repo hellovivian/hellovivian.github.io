@@ -1,5 +1,42 @@
 // projectData.js
 const projectData = [
+
+  {
+    id: 0,
+    title: 'I successfully defended my PhD.',
+    date: 'AUG 2026',
+    venue: 'A day where I felt proud and warmly supported by mentors, colleagues, friends, and family. <3  ',
+    links: {
+      paperlink:"",
+      pg: "",
+      codelink: "",
+ demolink: "",
+      blogpostlink: "",
+      video: "",
+      img_src: "./blogpost_images/phd.png",
+      img_credit: "",
+       demo: '',
+      source: '',
+    },
+  },
+    {
+    id: 0,
+    title: 'I began a job at Autodesk Research as a Senior Research Scientist!',
+    date: 'JAN 2026',
+    venue: 'In undergrad, the first new design tool I picked up was Autodesk Fusion. My first research internship was at Autodesk in Toronto. So was my first patent. And now my first job after the PhD is at Autodesk as well in San Francisco. ;) ',
+    links: {
+      paperlink:"",
+      pg: "",
+      codelink: "",
+ demolink: "",
+      blogpostlink: "",
+      video: "",
+      img_src: "./blogpost_images/orca.png",
+      img_credit: "https://www.artstation.com/artwork/8PrQ6",
+       demo: '',
+      source: '',
+    },
+  },
   {
     id: 0,
     title: 'I gave invited talks at UC Berkeley, HKUST, and University of Michigan.',
