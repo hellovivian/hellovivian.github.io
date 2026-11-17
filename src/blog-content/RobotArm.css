@@ -45,4 +45,13 @@
 
 .ra-poster { display: block; width: 100%; height: auto; }
 
+/* Feeling map: the fog hero banner's valence x arousal card. */
+.ra-map { position: absolute; top: 12px; right: 12px; padding: 8px 8px 2px; border-radius: 10px;
+          background: rgba(255,255,255,0.88); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+          box-shadow: 0 1px 10px rgba(0,0,0,0.07); user-select: none; color: #1d1f24; }
+.ra-map-title { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #8a8f98; margin: 0 2px 2px; font-weight: 600; }
+.ra-map svg { display: block; overflow: visible; width: min(230px, 42vw); height: auto; }
+.ra-map-dot { cursor: pointer; outline: none; }
+.ra-map-dot:focus-visible circle:nth-of-type(2) { stroke: #1d1f24; }
+
 @media (max-width: 600px) { .ra-stage { height: 340px; } }

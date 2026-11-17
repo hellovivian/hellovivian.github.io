@@ -10,18 +10,23 @@ import { useLocation } from 'react-router-dom';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { createPanda, buildChain, clampPose } from './robot-arm/panda-rig.js';
-import { PRIMARIES, FEELINGS, MAX_DELTA, composePose } from './robot-arm/arm-motions.js';
+import { PRIMARIES, FEELINGS, composePose } from './robot-arm/arm-motions.js';
 import './RobotArm.css';
 
 const SLUG = 'robot-arm';                 // must match this post's slug in data/blogData.js
 const POSTER = (process.env.PUBLIC_URL || '') + '/blogpost_images/robot_arm/contact-sheet.png';
-const JOINT_NAMES = ['Base', 'Shoulder', 'Arm roll', 'Elbow', 'Forearm', 'Wrist', 'Twist'];
 const CUBE = 0.04;
 const smooth = (s) => { s = Math.min(1, Math.max(0, s)); return s * s * (3 - 2 * s); };
 const byId = (list, id) => list.find((x) => x.id === id);
 
+// The demo is only about swapping the feeling under a fixed task, so everything
+// else is pinned: no sliders or toggles.
+const TASKS = ['pick-place', 'wave', 'reach', 'stand'].map((id) => byId(PRIMARIES, id));
+const FIXED = { intensity: 1, speed: 1, light: true, pathsOn: true, yieldAtContact: true, tempoOn: false };
+const HINT = 'Drag to look around · click to pause';
+
 // Path colours, matching the paper figure. Feelings without one use the text colour.
-const FEELING_COLORS = { happy: 0xe3a008, sad: 0x2f6fde, fear: 0x7b4bc4, angry: 0xd0362b };
+const FEELING_COLORS = { happy: 0xe3a008, sad: 0x2f6fde, fear: 0x7b4bc4, angry: 0xd0362b, tired: 0x7986cb };
 const TRAIL_SECONDS = 1.2;                 // how much of the hand's recent path stays drawn
 
 // A hand path as a 3D ribbon whose THICKNESS follows speed (thin = slow, thick =
@@ -69,39 +74,68 @@ function Choices({ items, current, onPick }) {
   );
 }
 
-function Slider({ label, min, max, value, onChange, format }) {
-  return (
-    <label className="ra-row">
-      {label}
-      <input type="range" min={min} max={max} step="0.05" value={value} onChange={(e) => onChange(Number(e.target.value))} />
-      <output>{format(value)}</output>
-    </label>
-  );
-}
+// ── Feeling map ──
+// Borrowed from the fog hero banner (fog-motion-emotion/src/hero/gaussian-blob.js):
+// a valence x arousal square with one dot per feeling. Click a dot to swap the
+// feeling. Dots are fixed points, not a draggable blend: each feeling is its own
+// hand-written layer. Positions are the hero's (a standard circumplex placement,
+// not measured); Default sits at the centre.
+const MAP_SIZE = 256, MAP_PAD = 32;
+const toMapX = (v) => MAP_PAD + ((v + 1) / 2) * (MAP_SIZE - 2 * MAP_PAD);
+const toMapY = (a) => MAP_PAD + ((1 - a) / 2) * (MAP_SIZE - 2 * MAP_PAD);
+const cssColor = (hex) => '#' + hex.toString(16).padStart(6, '0');
+const MAP_DOTS = [
+  { id: 'none',  label: 'Default', v: 0.0,   a: 0.0,   anchor: 'middle', lx: 0,   ly: 22 },
+  { id: 'happy', label: 'Happy',   v: 0.8,   a: 0.6,   anchor: 'start',  lx: 11,  ly: 4 },
+  { id: 'angry', label: 'Angry',   v: -0.8,  a: 0.85,  anchor: 'end',    lx: -11, ly: 4 },
+  { id: 'fear',  label: 'Fear',    v: -0.6,  a: 0.7,   anchor: 'start',  lx: 11,  ly: 4 },
+  { id: 'sad',   label: 'Sad',     v: -0.7,  a: -0.3,  anchor: 'start',  lx: 11,  ly: 4 },
+  { id: 'tired', label: 'Tired',   v: 0.05,  a: -0.8,  anchor: 'start',  lx: 11,  ly: 4 },
+];
 
-function Check({ checked, onChange, title, children }) {
+function FeelingMap({ current, onPick }) {
+  const [hover, setHover] = useState(null);
+  const mid = MAP_SIZE / 2, AXIS = '#d0d0d0', AXIS_TEXT = '#b0b0b0';
+  const axisText = (x, y, text, anchor) => (
+    <text x={x} y={y} fontSize="13" fill={AXIS_TEXT} textAnchor={anchor}>{text}</text>
+  );
   return (
-    <label className="ra-check">
-      <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} />
-      <span>{title}<small>{children}</small></span>
-    </label>
+    <div className="ra-map">
+      <div className="ra-map-title">Secondary · feeling</div>
+      <svg viewBox={`0 0 ${MAP_SIZE} ${MAP_SIZE}`} role="group" aria-label="Pick a feeling on a valence by arousal map">
+        <line x1={MAP_PAD} y1={mid} x2={MAP_SIZE - MAP_PAD} y2={mid} stroke={AXIS} />
+        <line x1={mid} y1={MAP_PAD} x2={mid} y2={MAP_SIZE - MAP_PAD} stroke={AXIS} />
+        {axisText(MAP_SIZE - MAP_PAD - 1, mid - 6, 'positive', 'end')}
+        {axisText(MAP_PAD + 1, mid - 6, 'negative', 'start')}
+        {axisText(mid, MAP_PAD - 8, 'arousal', 'middle')}
+        {axisText(mid, MAP_SIZE - MAP_PAD + 18, 'calm', 'middle')}
+        {MAP_DOTS.map((d) => {
+          const cx = toMapX(d.v), cy = toMapY(d.a);
+          const color = d.id === 'none' ? '#8a8f98' : cssColor(FEELING_COLORS[d.id]);
+          const active = d.id === current, lit = active || hover === d.id;
+          const choose = () => onPick(d.id);
+          return (
+            <g key={d.id} className="ra-map-dot" role="button" tabIndex={0} aria-label={d.label} aria-pressed={active}
+               onClick={choose} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(); } }}
+               onMouseEnter={() => setHover(d.id)} onMouseLeave={() => setHover(null)}>
+              <circle cx={cx} cy={cy} r="15" fill="transparent" />
+              {active && <circle cx={cx} cy={cy} r="13" fill="none" stroke={color} strokeWidth="1.5" />}
+              <circle cx={cx} cy={cy} r={lit ? 8 : 6} fill={lit ? color : '#ffffff'} stroke={lit ? color : '#cccccc'} strokeWidth="1.5" />
+              <text x={cx + d.lx} y={cy + d.ly} fontSize="12" textAnchor={d.anchor}
+                    fill={active ? '#1d1f24' : '#7a7f88'} fontWeight={active ? 700 : 400}>{d.label}</text>
+            </g>
+          );
+        })}
+      </svg>
+    </div>
   );
 }
 
 function RobotArmDemo() {
   const stageRef = useRef(null);
-  const barRefs = useRef([]);
 
   const [primaryId, setPrimaryId] = useState('pick-place');
   const [feelingId, setFeelingId] = useState('happy');
-  const [intensity, setIntensity] = useState(1);
-  const [speed, setSpeed] = useState(1);
-  const [playing, setPlaying] = useState(true);
-  const [ghostOn, setGhostOn] = useState(false);
-  const [light, setLight] = useState(true);
-  const [pathsOn, setPathsOn] = useState(true);
-  const [yieldAtContact, setYieldAtContact] = useState(true);
-  const [tempoOn, setTempoOn] = useState(false);
   const [status, setStatus] = useState('Loading the arm…');
 
   // The animation loop reads from this plain object, so moving a slider never
@@ -112,11 +146,10 @@ function RobotArmDemo() {
       primary: byId(PRIMARIES, primaryId), feeling: byId(FEELINGS, feelingId),
       prevFeeling: FEELINGS[0], feelingMix: 1,        // cross-fade when the feeling is swapped
       blendFrom: null, primaryMix: 1,                 // ease from the old pose when the task is swapped
-      tTask: 0, tFeel: 0, lastBase: null,
+      tTask: 0, tFeel: 0, lastBase: null, playing: true, ...FIXED,
     };
   }
-  Object.assign(sim.current, { intensity, speed, playing, ghostOn, yieldAtContact, tempoOn, light, pathsOn });
-
+  
   const pickPrimary = (p) => {
     const s = sim.current;
     if (p === s.primary) return;
@@ -133,7 +166,7 @@ function RobotArmDemo() {
   useEffect(() => {
     const stage = stageRef.current;
     const s = sim.current;
-    let cancelled = false, raf = 0, arm = null, ghost = null;
+    let cancelled = false, raf = 0, arm = null;
 
     let renderer;
     try {
@@ -157,6 +190,15 @@ function RobotArmDemo() {
     controls.enableZoom = false;                      // leave the scroll wheel to the page
     controls.enablePan = false;
     controls.maxPolarAngle = Math.PI / 2 - 0.02;
+
+    // A click (not a drag) on the 3D view pauses / resumes.
+    let down = null;
+    renderer.domElement.addEventListener('pointerdown', (e) => { down = { x: e.clientX, y: e.clientY, t: performance.now() }; });
+    renderer.domElement.addEventListener('pointerup', (e) => {
+      if (!down || Math.hypot(e.clientX - down.x, e.clientY - down.y) > 5 || performance.now() - down.t > 400) return;
+      s.playing = !s.playing;
+      setStatus(s.playing ? HINT : 'Paused · click to resume');
+    });
 
     const hemi = new THREE.HemisphereLight(0xffffff, 0x30323a, 1.1);
     scene.add(hemi);
@@ -291,13 +333,6 @@ function RobotArmDemo() {
       cube.material.color.set(isLight ? 0x3a3d45 : 0xe8e8ea);
       baseMat.color.set(isLight ? 0x9aa0a8 : 0x6b7078);
       hulls.forEach((h) => { h.visible = isLight; });
-      if (ghost) {
-        ghost.root.traverse((m) => {
-          if (!m.isMesh) return;
-          m.material.color.set(isLight ? 0x1d1f24 : 0xffffff);
-          m.material.opacity = isLight ? 0.1 : 0.13;
-        });
-      }
     };
     applyTheme(s.light);
 
@@ -328,18 +363,6 @@ function RobotArmDemo() {
               ? ribbon(trail.map((e) => e.p), trail.map((e) => e.v), vmax, 0.002, 0.0085, trailMat) : null);
           }
         }
-        const moved = out.dq.reduce((sum, d) => sum + Math.abs(d), 0);
-        ghost.root.visible = s.ghostOn && moved > 0.004;   // hidden when it would sit exactly inside the arm
-        ghost.setPose(clampPose(out.base.q), out.base.grip);
-
-        out.dq.forEach((d, i) => {
-          const fill = barRefs.current[i];
-          if (!fill) return;
-          const pct = Math.min(50, (Math.abs(d) / MAX_DELTA) * 50);
-          fill.style.width = pct + '%';
-          fill.style.left = (d < 0 ? 50 - pct : 50) + '%';
-        });
-
         // Cube: rides in the hand while held, otherwise rests on a stand.
         props.visible = !!s.primary.props;
         if (props.visible) {
@@ -358,18 +381,18 @@ function RobotArmDemo() {
       renderer.render(scene, camera);
     };
 
-    Promise.all([createPanda(), createPanda({ ghost: true })])
-      .then(([a, g]) => {
+    createPanda()
+      .then((a) => {
         if (cancelled) return;
-        arm = a; ghost = g;
-        scene.add(arm.root, ghost.root);
+        arm = a;
+        scene.add(arm.root);
         const meshes = [];
         arm.root.traverse((m) => { if (m.isMesh) meshes.push(m); });
         meshes.forEach((m) => { const hull = new THREE.Mesh(m.geometry, outlineMat); m.add(hull); hulls.push(hull); });
         applyTheme(s.light);
         setStatus(arm.usedFallback
           ? 'Some parts of the arm did not load, so they are drawn as plain shapes.'
-          : 'Drag to look around.');
+          : HINT);
       })
       .catch((err) => {
         console.error(err);
@@ -391,49 +414,21 @@ function RobotArmDemo() {
   const primary = byId(PRIMARIES, primaryId), feeling = byId(FEELINGS, feelingId);
 
   return (
-    <div className={light ? 'ra-demo ra-light' : 'ra-demo'}>
+    <div className="ra-demo ra-light">
       <div className="ra-stage" ref={stageRef}>
         <div className="ra-formula"><b>{primary.label}</b> + <b>{feeling.label}</b></div>
         <div className="ra-status">{status}</div>
+        <FeelingMap current={feelingId} onPick={(id) => pickFeeling(byId(FEELINGS, id))} />
       </div>
 
       <div className="ra-panel">
         <section>
           <h4>Primary · the task</h4>
-          <Choices items={PRIMARIES} current={primaryId} onPick={pickPrimary} />
+          <Choices items={TASKS} current={primaryId} onPick={pickPrimary} />
           <p className="ra-blurb">{primary.blurb}</p>
         </section>
 
-        <section>
-          <h4>Secondary · the feeling</h4>
-          <Choices items={FEELINGS} current={feelingId} onPick={pickFeeling} />
-          <p className="ra-blurb">{feeling.blurb}</p>
-          <Slider label="Intensity" min="0" max="1.5" value={intensity} onChange={setIntensity} format={(v) => v.toFixed(2)} />
-        </section>
 
-        <section>
-          <h4>Playback</h4>
-          <Slider label="Speed" min="0.25" max="2" value={speed} onChange={setSpeed} format={(v) => v.toFixed(2) + '×'} />
-          <button type="button" className="ra-play" onClick={() => setPlaying(!playing)}>{playing ? 'Pause' : 'Play'}</button>
-          <Check checked={pathsOn} onChange={setPathsOn} title="Show paths">Grey: the task's own hand path. Colour: where the hand went with the feeling. Thicker is faster.</Check>
-          <Check checked={light} onChange={setLight} title="Light mode">White background with an outlined arm.</Check>
-          <Check checked={ghostOn} onChange={setGhostOn} title="Show ghost">A faint arm doing the task with no feeling.</Check>
-          <Check checked={yieldAtContact} onChange={setYieldAtContact} title="Feeling yields at contact">Fades the feeling while the task needs a precise hand.</Check>
-          <Check checked={tempoOn} onChange={setTempoOn} title="Feeling sets tempo">Lets the feeling speed up or slow down the task.</Check>
-        </section>
-
-        <section>
-          <h4>What the feeling is adding</h4>
-          <div className="ra-bars">
-            {JOINT_NAMES.map((name, i) => (
-              <React.Fragment key={name}>
-                <span>{name}</span>
-                <div className="ra-bar"><i ref={(el) => { barRefs.current[i] = el; }} /></div>
-              </React.Fragment>
-            ))}
-          </div>
-          <p className="ra-blurb">Offset per joint. A full bar is the cap (±{MAX_DELTA} rad).</p>
-        </section>
       </div>
     </div>
   );
